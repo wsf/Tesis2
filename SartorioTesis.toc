@@ -1,0 +1,157 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{9}{chapter.1}
+\contentsline {section}{\numberline {1.1}Publicaciones de Apoyo}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Motivaci\IeC {\'o}n}{8}{section.1.2}
+\contentsline {section}{\numberline {1.3}Soluci\IeC {\'o}n propuesta y contribuci\IeC {\'o}n}{14}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Primera noci\IeC {\'o}n de los elementos intervinientes en la soluci\IeC {\'o}n}{16}{subsection.1.3.1}
+\contentsline {section}{\numberline {1.4}Limitaciones}{17}{section.1.4}
+\contentsline {section}{\numberline {1.5}Organizaci\IeC {\'o}n del documento}{17}{section.1.5}
+\contentsline {chapter}{\numberline {2}Dispositivo Hipermedial Din\IeC {\'a}mico: Marco General}{19}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{19}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}El plano de las interacciones del DHD}{20}{subsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.1.1}Las interacciones}{21}{subsubsection.2.1.1.1}
+\contentsline {subsection}{\numberline {2.1.2}El plano sist\IeC {\'e}mico del DHD}{23}{subsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2.1}Dinamismo sist\IeC {\'e}mico del DHD}{24}{subsubsection.2.1.2.1}
+\contentsline {subsection}{\numberline {2.1.3}El plano de la Ingenier\IeC {\'\i }a Computacional del DHD}{25}{subsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.3.1}Campo te\IeC {\'o}rico-metodol\IeC {\'o}gico interdisciplinario del DHD}{25}{subsubsection.2.1.3.1}
+\contentsline {section}{\numberline {2.2}Requerimientos DHD}{30}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Breves antecedentes sobre el tratamiento de requerimientos 2}{31}{subsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1.1}Captura de requisitos para los DHD}{32}{subsubsection.2.2.1.1}
+\contentsline {subsection}{\numberline {2.2.2}Abstracci\IeC {\'o}n para el refinamiento de los RequerimientosDHD}{34}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Conclusiones}{36}{section.2.3}
+\contentsline {chapter}{\numberline {3}Estado del Arte}{37}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{37}{section.3.1}
+\contentsline {section}{\numberline {3.2}Contexto en el DHD}{37}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Caracterizaci\IeC {\'o}n del Contexto}{38}{subsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Origen del contexto en el DHD}{38}{subsubsection.3.2.1.1}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Modelado del contexto}{41}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.3}ContextoDHD: Contexto para los servicios DHD}{41}{subsubsection.3.2.1.3}
+\contentsline {paragraph}{Fuentes de la informaci\IeC {\'o}n de contexto}{43}{section*.1}
+\contentsline {paragraph}{Contexto para los servicios de reconfiguraci\IeC {\'o}n}{43}{section*.2}
+\contentsline {paragraph}{Modelado de la sensibilidad del contexto}{43}{section*.3}
+\contentsline {subparagraph}{Mecanismos de Envolturas}{44}{section*.4}
+\contentsline {subparagraph}{Mecanismos de Ejecuci\IeC {\'o}n}{44}{section*.5}
+\contentsline {section}{\numberline {3.3}Sistemas Sensibles al Contexto}{45}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Propuestas para la Identificaci\IeC {\'o}n del Contexto}{48}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Visiones en la perspectiva hist\IeC {\'o}rica}{49}{subsection.3.3.2}
+\contentsline {paragraph}{Vannevar Bush's Memex (1945)}{50}{section*.6}
+\contentsline {paragraph}{Alan Kay's Dynabook (circa 1977)}{50}{section*.7}
+\contentsline {paragraph}{Mark Weiser; \IeC {\textquotedblleft }The Computer for the 21st Century (1991)}{50}{section*.8}
+\contentsline {paragraph}{Bill Schillit: \IeC {\textquotedblleft }Context-Aware Computing Applications\IeC {\textquotedblright } (1994)}{51}{section*.9}
+\contentsline {paragraph}{Don Norman: \IeC {\textquotedblleft }The invisible Computer\IeC {\textquotedblright } (1998)}{51}{section*.10}
+\contentsline {section}{\numberline {3.4}Componentes bases para los Sistemas Sensibles al Contexto}{52}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Context Toolkit}{52}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Proyecto UWA}{55}{subsection.3.4.2}
+\contentsline {paragraph}{Goal}{56}{section*.11}
+\contentsline {paragraph}{Service}{56}{section*.12}
+\contentsline {paragraph}{Environment}{57}{section*.13}
+\contentsline {paragraph}{Context}{58}{section*.14}
+\contentsline {paragraph}{Profiles}{58}{section*.15}
+\contentsline {paragraph}{Requirements}{58}{section*.16}
+\contentsline {paragraph}{Application}{58}{section*.17}
+\contentsline {paragraph}{Customisation Rules}{59}{section*.18}
+\contentsline {paragraph}{The Meta Level}{59}{section*.19}
+\contentsline {section}{\numberline {3.5}Desde la perspectiva de la Ingenier\IeC {\'\i }a de Software}{60}{section.3.5}
+\contentsline {section}{\numberline {3.6}Conclusiones}{61}{section.3.6}
+\contentsline {chapter}{\numberline {4}arqDHD: Arquitectura de Software para los Dispositivos Hipermediales Din\IeC {\'a}micos}{63}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{63}{section.4.1}
+\contentsline {section}{\numberline {4.2}Conceptos Fundamentales}{66}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}ComponenteDHD}{67}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}ConectorDHD}{68}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}PuertoDHD}{70}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Visi\IeC {\'o}n arquitect\IeC {\'o}nica de los DHD}{71}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Propuestas de Arquitectura del Software para los DHD}{71}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Propuestas basadas en el Desarrollo Dirigido por Modelos para Aplicaciones Web}{75}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Estilo Arquitect\IeC {\'o}nico}{77}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}\IeC {\'A}rea de construcci\IeC {\'o}n de la arqDHD}{79}{subsection.4.3.4}
+\contentsline {section}{\numberline {4.4}El contrato como conector}{80}{section.4.4}
+\contentsline {subsubsection}{\numberline {4.4.0.1}Perspectiva de modelado}{81}{subsubsection.4.4.0.1}
+\contentsline {subsection}{\numberline {4.4.1}Los conectores en entornos adaptativos}{82}{subsection.4.4.1}
+\contentsline {section}{\numberline {4.5}Tipos de Dinamismo}{83}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Reconfiguraci\IeC {\'o}n Din\IeC {\'a}mica}{84}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Tipos de Reconfiguraci\IeC {\'o}n}{85}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Operaciones B\IeC {\'a}sicas de Reconfiguraci\IeC {\'o}n}{86}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Descripci\IeC {\'o}n arquitect\IeC {\'o}nica de los DHD}{87}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Dise\IeC {\~n}o para la inyecci\IeC {\'o}n}{88}{subsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.1.1}Enfoque partiendo de Framework e-learnig originales}{89}{subsubsection.4.6.1.1}
+\contentsline {subsubsection}{\numberline {4.6.1.2}\IeC {\'A}reas de integraci\IeC {\'o}n}{93}{subsubsection.4.6.1.2}
+\contentsline {section}{\numberline {4.7}Conclusiones}{96}{section.4.7}
+\contentsline {chapter}{\numberline {5}Contratos sensibles al contexto}{97}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{97}{section.5.1}
+\contentsline {section}{\numberline {5.2}Hacia la definici\IeC {\'o}n de ContratoDHD}{97}{section.5.2}
+\contentsline {section}{\numberline {5.3}ContratosDHD: Contratos sensibles al contexto para el DHD}{100}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Sistema que proveen soportes para el desarrollo de software basado en contratos}{101}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Componentes esenciales de los contratos sensibles al contexto}{105}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Una implementaci\GenericError {(inputenc) }{Package inputenc Error: Unicode char ´ (U+B4)\MessageBreak not set up for use with LaTeX}{See the inputenc package documentation for explanation.}{Your command was ignored.\MessageBreak Type I <command> <return> to replace it with another command,\MessageBreak or <return> to continue without it.}o del subsistema para CEC\#1}{107}{subsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.1}Infraestructura para serviciosDHD}{108}{subsubsection.5.3.3.1}
+\contentsline {subsection}{\numberline {5.3.4}Coordinaci\IeC {\'o}n de los contratos sensibles al contexto}{108}{subsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.4.1}Coordinaci\IeC {\'o}n}{110}{subsubsection.5.3.4.1}
+\contentsline {section}{\numberline {5.4}Condicionales especiales para las reglas de los contratos}{111}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}MCondicionales}{111}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}Modelo de integraci\IeC {\'o}n}{113}{subsubsection.5.4.1.1}
+\contentsline {subsection}{\numberline {5.4.2}DMCondicionales}{114}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}Modelo de integraci\IeC {\'o}n}{118}{subsubsection.5.4.2.1}
+\contentsline {paragraph}{Mecanismo de comunicaci\IeC {\'o}n}{119}{section*.20}
+\contentsline {paragraph}{Caso de uso}{119}{section*.21}
+\contentsline {section}{\numberline {5.5}Conclusiones}{121}{section.5.5}
+\contentsline {chapter}{\numberline {6}Framework para la inyecci\IeC {\'o}n de contratos sensibles al contexto en entornos Web colaborativos}{123}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introducci\IeC {\'o}n}{123}{section.6.1}
+\contentsline {section}{\numberline {6.2}Contractos con caracter\IeC {\'\i }sticas sensibles al contexto}{125}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Elementos de los contratos sensibles al contexto}{126}{subsection.6.2.1}
+\contentsline {section}{\numberline {6.3}Modelo de integraci\IeC {\'o}n de Sakai con contratos}{127}{section.6.3}
+\contentsline {section}{\numberline {6.4}Implementaci\IeC {\'o}n de contratos en Sakai}{129}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Niveles de flexibilidad de Sakai}{129}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Patrones de dise\IeC {\~n}o para la coordinaci\IeC {\'o}n de contratos sensible al contexto}{130}{subsection.6.4.2}
+\contentsline {section}{\numberline {6.5}Caso de estudio para la implementaci\IeC {\'o}n de contratos}{132}{section.6.5}
+\contentsline {paragraph}{Fragmentos del primer archivo - (archivo 1)}{133}{section*.22}
+\contentsline {paragraph}{Fragmentos del segundo archivo - (archivo 2)}{133}{section*.23}
+\contentsline {section}{\numberline {6.6}Conclusi\IeC {\'o}n}{135}{section.6.6}
+\contentsline {chapter}{\numberline {7}Implementaciones del framework DHD: Casos de usos}{137}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introducci\IeC {\'o}n}{137}{section.7.1}
+\contentsline {section}{\numberline {7.2}Usos de los contratos sensibles al contexto: Evidencias en el uso de entornos E-learning}{137}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Contratos context-Aware para transacciones en los DHD}{139}{subsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.1.1}Elementos de la componente contrato}{139}{subsubsection.7.2.1.1}
+\contentsline {subsection}{\numberline {7.2.2}Documentaci\IeC {\'o}n de los DHD procesos}{140}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}UWATc+: una adaptaci\IeC {\'o}n de UWAT+ para el modelado de DHD procesos }{142}{subsection.7.2.3}
+\contentsline {subsubsection}{\numberline {7.2.3.1}Requerimientos para el dise\IeC {\~n}o de DHD Transacciones}{143}{subsubsection.7.2.3.1}
+\contentsline {subsection}{\numberline {7.2.4}Dise\IeC {\~n}o de procesos e-learning con UWATc+}{144}{subsection.7.2.4}
+\contentsline {subsubsection}{\numberline {7.2.4.1}Determinaci\IeC {\'o}n de Requerimientos}{145}{subsubsection.7.2.4.1}
+\contentsline {subsubsection}{\numberline {7.2.4.2}Dise\IeC {\~n}o de DHD-Transacciones}{146}{subsubsection.7.2.4.2}
+\contentsline {subsubsection}{\numberline {7.2.4.3}Diagrama de un Contrato}{148}{subsubsection.7.2.4.3}
+\contentsline {section}{\numberline {7.3}Desarrollos Context Aware en el campo del sonido}{148}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Conclusi\IeC {\'o}n}{151}{subsection.7.3.1}
+\contentsline {section}{\numberline {7.4}DHD: Prototipo experimental}{151}{section.7.4}
+\contentsline {section}{\numberline {7.5}Intervenci\IeC {\'o}n del DHDCca en un modelo de simulaci\IeC {\'o}n DEVS para DHD}{151}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}Construcci\IeC {\'o}n de m\IeC {\'e}tricas para el DHD}{151}{subsection.7.5.1}
+\contentsline {subsection}{\numberline {7.5.2}Integraci\IeC {\'o}n en el modelo DEVS}{154}{subsection.7.5.2}
+\contentsline {subsubsection}{\numberline {7.5.2.1}Condicionales para la coordinaci\IeC {\'o}n de contratos}{157}{subsubsection.7.5.2.1}
+\contentsline {subsubsection}{\numberline {7.5.2.2}Modelo conceptual de integraci\IeC {\'o}n}{158}{subsubsection.7.5.2.2}
+\contentsline {subsubsection}{\numberline {7.5.2.3}Implementaci\IeC {\'o}n en un caso de uso}{159}{subsubsection.7.5.2.3}
+\contentsline {subsection}{\numberline {7.5.3}Consideraciones generales}{162}{subsection.7.5.3}
+\contentsline {chapter}{\numberline {8}Otras implementaciones de los ContratosDHD}{163}{chapter.8}
+\contentsline {section}{\numberline {8.1}Condicionales DEVS en la coordinaci\IeC {\'o}n de contratos sensibles al contexto para los DHD}{163}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Introducci\IeC {\'o}n}{163}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Aspecto tecnol\IeC {\'o}gico de los DHD}{164}{subsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.2.1}Condicionales para la coordinaci\IeC {\'o}n de contratos}{167}{subsubsection.8.1.2.1}
+\contentsline {subsection}{\numberline {8.1.3}Modelo conceptual de integraci\IeC {\'o}n}{168}{subsection.8.1.3}
+\contentsline {subsection}{\numberline {8.1.4}Implementaci\IeC {\'o}n en un caso de uso}{170}{subsection.8.1.4}
+\contentsline {subsubsection}{\numberline {8.1.4.1}Representaci\IeC {\'o}n de los Condicionales DEVS a trav\IeC {\'e}s de UWATc}{171}{subsubsection.8.1.4.1}
+\contentsline {subsubsection}{\numberline {8.1.4.2}Ejemplo de ejecuci\IeC {\'o}n de la m\IeC {\'e}trica en PowerDEVS}{172}{subsubsection.8.1.4.2}
+\contentsline {subsection}{\numberline {8.1.5}Conclusiones}{173}{subsection.8.1.5}
+\contentsline {section}{\numberline {8.2}SEPI: una herramienta para el Seguimiento y Evaluaci\IeC {\'o}n de Procesos Interactivos del DHD}{174}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Introducci\IeC {\'o}n}{174}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Elementos para la integraci\IeC {\'o}n}{175}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Modelo conceptual de integraci\IeC {\'o}n}{177}{subsection.8.2.3}
+\contentsline {subsection}{\numberline {8.2.4}Implementaci\IeC {\'o}n en un caso de uso}{179}{subsection.8.2.4}
+\contentsline {paragraph}{Paso 1: Escritura y lectura del XML}{179}{section*.24}
+\contentsline {paragraph}{Paso 2: Acceso a la base de datos}{179}{section*.25}
+\contentsline {paragraph}{Paso 3: Configuraci\IeC {\'o}n de coeficientes de la m\IeC {\'e}trica}{180}{section*.26}
+\contentsline {paragraph}{Paso 4: Ejecuci\IeC {\'o}n de la simulaci\IeC {\'o}n}{181}{section*.27}
+\contentsline {paragraph}{Paso 5: Lectura de resultados}{181}{section*.28}
+\contentsline {paragraph}{Paso 6: Insertar valores en los contratos}{181}{section*.29}
+\contentsline {subsection}{\numberline {8.2.5}Conclusiones}{182}{subsection.8.2.5}
+\contentsline {chapter}{\numberline {9}Conclusiones y trabajos Futuros}{185}{chapter.9}
+\contentsline {section}{\numberline {9.1}Conclusiones}{185}{section.9.1}
+\contentsline {section}{\numberline {9.2}Lineas de trabajo futuras}{185}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Propuesta de actividades}{187}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Factibilidad}{188}{subsection.9.2.2}

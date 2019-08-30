@@ -1,0 +1,1244 @@
+%-------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Chapter 3 -------------------------------------------------
+\chapter{Aplicaciones de CAP como CTF activo}
+En esta secci{\'o}n se resume las estrategias de aplicaci{\'o}n del CAP y CFRAP visto en cap{\'\i}tulos previos como una
+metodolog{\'\i}a directa de de CTF activo. Inicialmente se presenta un marco de referencia respecto de los tipos
+de fallas tratadas en esta tesis as{\'\i} como su representaci{\'o}n. B{\'a}sicamente, las estrategias recorren un camino
+incremental en complejidad resolviendo problemas concretos que se presentan en procesos industriales. Los
+casos de aplicaci{\'o}n de estas estrategias parten de un simple caso acad{\'e}mico hasta llegar a un reactor
+qu{\'\i}mico con camisa. De forma incremental las metodolog{\'\i}as CAP y CFRAP son integradas para contar con ambos
+beneficios bajo una estructura denominada CAPFRA, para posteriormente ser complementadas con un sistema de
+detecci{\'o}n y estimaci{\'o}n de fallas (SDEF). El SDEF propuesto como soporte del CAPFRA esta dise{\~n}ado bajo
+herramientas de identificaci{\'o}n de sistemas y de procesamiento de la informaci{\'o}n como la transformada wavelet
+discreta. Los eventos anormales propuestos aqu{\'\i} est{\'a}n definidos como modificaciones del proceso en si mismo
+como cambios en la ganancia, din{\'a}mica y retardo temporal entre entrada/salida, y por fallas de los elementos
+del proceso tales como senores y actuadores. Este cap{\'\i}tulo resume una alternativa de aplicaci{\'o}n en lazos
+simples de control de CAP integrado al CTF activo, generando la base de trabajo de posteriores desarrollos
+en el {\'a}rea de SDEF integradas al CTF en procesos multivariables.
+
+\section{Clasificaci{\'o}n de las fallas}\label{sec_fallas}
+Las fallas son eventos que pueden ocurrir en diferentes partes del proceso controlado. Los elementos mas
+importantes involucrados en todo lazo de control son los sensores y actuadores. En esta tesis en general se
+considerar{\'a}n los siguientes posibles eventos: fallas en sensores, fallas en actuadores, perturbaciones y
+cambios de puntos operativos. En particular se definir{\'a}n las fallas como:
+\begin{description}
+    \item[Fallas en actuadores:] Pueden representar una p{\'e}rdida parcial o total de las acciones de control.
+    Un ejemplo de p{\'e}rdida total de acciones de control es un \textit{bloqueo} del actuador. Este tipo de
+    falla puede ocurrir por problemas de cableado o por problemas mec{\'a}nicos. Las fallas del tipo parciales,
+    degradan las acciones de control, como su nombre lo indica en forma parcial, dependiendo de la magnitud
+    de dicha falla pueden resultar en incorrectas acciones de control hasta la p{\'e}rdida total de estabilidad
+    del lazo. Pueden incluir errores en r{\'e}gimen (offset), retardos de acci{\'o}n (delay) o efectos no lineales
+    (hist{\'e}resis). En general estas fallas se deben a p{\'e}rdidas hidr{\'a}ulicas o neum{\'a}ticas o a problemas
+    mec{\'a}nicos. Incrementar la redundancia de hardware duplicando los actuadores para mejorar las
+    condiciones de tolerancia a fallos puede resultar en costos extremadamente altos.
+    \item[Falla en sensores:] Este tipo de fallas corresponden a errores de lectura de las variables del
+    proceso. En este caso tambi{\'e}n se pueden dividir las fallas como parciales y totales. Las fallas en sensores del
+    tipo total producen informaci{\'o}n que no esta relacionada con las variables f{\'\i}sicas, y en general son
+    debidas a problemas de cableado, p{\'e}rdidas de contacto, etc. Para el caso de fallas parciales , las
+    lecturas del sensor son influenciadas por una reducci{\'o}n de ganancia, errores (offset), retardos (delay)
+    o ruido. Incrementar la redundancia duplicando o triplicando sensores no resulta en un dise{\~n}o
+    econ{\'o}micamente eficiente.
+\end{description}
+
+A lo largo de esta tesis se propone analizar y compensar los efectos producidos por fallas en sensores del
+tipo parcial y en actuadores del tipo total y parcial. Los sensores se consideran sujetos a ruido de
+medici{\'o}n y/o a posibles offset (error de medici{\'o}n constante) abruptos como fallas habituales. Es decir,
+siendo $y(t)$ la variable real del proceso que se quiere medir y $y_m(t)$ su medici{\'o}n, una falla que ocurre
+en un instante temporal $T_f$ en el sensor puede representarse como:
+\begin{equation}\label{e3_1}
+y_m(t)=\left\{
+\begin{array}{ll}
+  y(t)+r(t)      &, \text{\textrm{si}}\quad t<T_f\\
+  y(t)+r(t)+o_{ff} &, \text{\textrm{si}}\quad t\geq T_f\\
+\end{array}
+\right.
+\end{equation}
+siendo $o_{ff}$ el error constante introducido por el sensor y $r(t)$ el ruido de medici{\'o}n.
+
+Para los actuadores se considera como posibles fallas su bloqueo y eventos parciales como adici{\'o}n de retardo
+en las acciones de control. Es decir, si $u(t)$ es la acci{\'o}n efectiva de control entregada por el actuador
+al proceso y $u_c(t)$ la correspondiente se{\~n}al entregada por el algoritmo de control, una falla del tipo
+parcial, en este caso retardo extra en el lazo de control, en un instante $T_f$ puede representarse como:
+\begin{equation}\label{e3_2}
+u(t)=\left\{
+\begin{array}{ll}
+  u_c(t)        &, \text{\textrm{si}}\quad t<T_f\\
+  u_c(t+t_d)    &, \text{\textrm{si}}\quad t\geq T_f\\
+\end{array}
+\right.
+\end{equation}
+es decir, la se{\~n}al entregada a la planta es una versi{\'o}n retrasada de la obtenida por el controlador, siendo
+$t_d$ el retardo involucrado. En el caso de fallas totales en actuadores, como un bloqueo, simplemente la
+se{\~n}al de control entregada al proceso de repente toma un valor constante, $u_0$.
+
+Las fallas propuestas aqu{\'\i} siempre ser{\'a}n analizadas bajo influencia de los lazos de control, ya sea
+decentralizado como multivariable. Adem{\'a}s, estos eventos anormales han sido recopilados de informaci{\'o}n
+existente otorgada por diferentes tipos de industrias al consorcio \cite{ASM} y organizaciones como
+\cite{CEFIC}.
+% Figure-------------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering \subfigure[Respuesta al
+escal{\'o}n]{\includegraphics[width=7cm,height=7cm]{Ch3/planta5_step}\label{f3_1a}} \subfigure[Modelo
+FIR]{\includegraphics[width=7cm,height=7cm]{Ch3/planta5_fir}\label{f3_1b}} \caption{Respuesta del proceso y
+FIR estimado} \label{f3_1}
+\end{figure}
+%--------------------------------------------------------------------------------------------------
+
+\section{Caso de aplicaci{\'o}n N\textordmasculine 1: Caso acad{\'e}mico}
+Con el fin de poder visualizar concretamente el efecto producido por las fallas en un lazo de control y
+familiarizarse con algunos conceptos, se presenta un proceso lineal definido por la funci{\'o}n de transferencia
+en el dominio transformado de Laplace de la ec. \ref{e3_3}.
+\begin{equation}\label{e3_3}
+    G(s)=\frac{(1+2s)}{(1+10s)(1+7s)(1+3s)}
+\end{equation}
+Se pretende entonces desarrollar inicialmente un controlador predictivo basado en modelo FIR como se muestra
+en la secci{\'o}n \ref{sec_FIR}. Para ello, se excita la planta con una entrada del tipo escal{\'o}n de magnitud
+$\Delta u$ y se observa la respuesta del sistema denominada con $h(k)$ a instantes regulares denominados
+instantes de muestreo $T_s=4$ segundos, como se observa en la Fig. \ref{f3_1a}.
+
+El modelo FIR nominal, $G_0(z^{-1})=g_0(1)z^{-1}+g_0(2)z^{-2}+\ldots+g_0(N)z^{-N}$, de la Fig. \ref{f3_1b}
+puede estimarse de forma aproximada de la respuesta al escal{\'o}n $h(k)$ experimental mediante
+$[g_0(1),g_0(2),\ldots,g_0(N)]=[h(2)-h(1),\ldots,h(N+1)-h(N)]/\Delta u$, donde $N$ es el orden seleccionado
+del modelo (\cite{JmBmZd:06,ZdBmJmCa:06}).
+
+Resolviendo entonces el funcional de la Ec. \ref{e2_45} del cap{\'\i}tulo anterior se obtiene la ley de control
+de la Ec. \ref{e2_56} en el dominio de la transformada $Z$ y el diagrama de bloques de la Fig. \ref{f2_13}.
+Los par{\'a}metros del controlador predictivo se resumen en la Tabla \ref{t3_1}, siendo $T_s$ el tiempo de
+muestreo medido en segundos, $N_w$ y $N_p$ el inicio y final del horizonte de predicci{\'o}n del modelo medidos
+en cantidad de muestras, $N_u$ el horizonte de control, $N$ el orden del modelo FIR, $\alpha_i$ los
+coeficientes de peso para el error planta-modelo, con $i=H_w,\ldots,H_p$, y finalmente $\beta_j$ los
+coeficientes de peso para la magnitud de la se{\~n}al de control, con $j=1,ldots,H_u$. El par{\'a}metro $\alpha_r$
+define el coeficiente de suavizado del filtro pasa bajos que se aplica sobre la se{\~n}al de referencia $w(k)$
+resultando en $y_r(k)=\alpha_ry_r(k-1)+(1-\alpha_r)w(k)$.
+%--------------------------------------------------------------------------------
+\begin{table}[t]
+\caption{Par{\'a}metros del controlador predictivo}
+\label{t3_1}%
+\centering
+  \rmfamily
+  \begin{tabular}{cccccccc}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+  $T_s$  & $H_w$ & $H_p$ & $H_u$ & $N$ & $\alpha_r$ & $\alpha_i$ & $\beta_j$    \\
+  (seg.) &(mues.)&(mues.)&(mues.)&     &            &            &              \\
+  \midrule[0.08em]
+  4      & 1     & 3     & 1     & 20  & 0.4        &1           & 0.05\\
+  \bottomrule[0.1em]
+  \end{tabular}
+  \normalsize\sffamily
+\end{table}
+%--------------------------------------------------------------------------------
+
+En la Fig. \ref{f3_2} se muestra el comportamiento de la planta de la ec. \ref{e3_3} controlada mediante un
+control predictivo fijo cuyos par{\'a}metros se definen en la Tabla \ref{t3_1}. En la Fig. \ref{f3_2a} se puede
+observar la evoluci{\'o}n temporal de la variable controlada (VC) siguiendo las variaciones de la trayectoria de
+referencia. En este caso se supone que no existen fallas afectando a la planta. Por otro lado, en la Fig.
+\ref{f3_2b} se presenta la evoluci{\'o}n de la variable manipulada (VM), se{\~n}al de control.
+
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering \subfigure[Salida]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_y}\label{f3_2a}}
+\subfigure[Entrada]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_u}\label{f3_2b}}
+\caption{Comportamiento a lazo cerrado} \label{f3_2}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+A continuaci{\'o}n se presentar{\'a} el efecto que tienen las fallas definidas en las ecs. \ref{e3_1} y \ref{e3_2}
+sobre el proceso controlado visto anteriormente.
+
+Inicialmente propondremos que el actuador que tiene su efecto sobre la planta no es ideal y que debido a un
+mal funcionamiento mec{\'a}nico introduce un retardo extra en el lazo de control. Siendo, $T_f=300$ seg. el
+instante en que aparece la falla y $t_d=4,8,12$ seg. tres valores diferentes del retardo introducido. En la
+Fig. \ref{f3_3} se presenta la evoluci{\'o}n temporal de la VC cuando el retardo introducido por la v{\'a}lvula toma
+los valores definidos anteriormente en un instante temporal $t_d$. Se puede observar de la Fig. \ref{f3_3a}
+como claramente el lazo de control se torna cada vez mas oscilante (inestable) a medida que el retardo
+aumenta, decreciendo a su vez el rendimiento en cuanto al seguimiento de la trayectoria de referencia. El la
+Fig. \ref{f3_3b} se presenta una ampliaci{\'o}n de una zona particular para poder apreciar con mas detalles las
+diferencias en las evoluciones de la VC.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering \subfigure[VC]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_y_delay}\label{f3_3a}}
+\subfigure[Ampliaci{\'o}n]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_y_delay_zoom}\label{f3_3b}}
+\caption{Variable controlada con diferentes valores del retardo} \label{f3_3}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+Por otro lado, en la Fig. \ref{f3_4} se puede observar la evoluci{\'o}n temporal de la VM para los tres valores
+de retardo extra en el lazo (4, 8, 12 seg.) en comparaci{\'o}n con el caso en que el actuador es ideal (libre de
+retardo). Claramente de las Figs. \ref{f3_4}(a,b,c), muestran la tendencia a la inestabilidad cuando el
+retardo aumenta, ocasionando acciones de control inadmisibles.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering \subfigure[VM, $t_d=4$
+seg.]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_u_delay4}\label{f3_4a}} \subfigure[VM, $t_d=8$
+seg.]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_u_delay8}\label{f3_4b}} \subfigure[VM, $t_d=12$
+seg.]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_u_delay12}\label{f3_4c}} \caption{Variable
+manipulada con diferentes valores del retardo} \label{f3_4}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+Por otro lado, se pretende observar el efecto de las fallas en sensores definidas en la ec. \ref{e3_1}
+cuando se encuentran en lazos de control. En este caso se supone que el sensor que mide la variable de
+salida no es ideal y esta sujeto a posibles errores del tipo bias de valor fijo $o_{ff}$ y que no existe
+ruido de medici{\'o}n $r(t)=0$, siendo nuevamente $T_f$ el instante en que ocurre la falla.
+
+En la Fig. \ref{f3_5} se resumen la simulaciones realizadas para dos valores diferentes de offset en el
+sensor. Por un lado, en las Figs. \ref{f3_5a} y \ref{f3_5b} la falla posee una magnitud positiva de
+$o_{ff}=1$, y aparece en un instante temporal de $T_f=300$ seg. Mientras que en las Figs. \ref{f3_5c} y
+\ref{f3_5d} la falla posee una magnitud negativa de $o_{ff}=-1$, y aparece en el mismo instante temporal. En
+ambos casos se puede observar que la VC, que es la variable medida (observada), $y_m(t)$, parece operar
+normalmente luego de un peque{\~n}o transitorio ocasionado por la aparici{\'o}n de la falla. En realidad ese
+supuesto buen funcionamiento no es tan cierto, si se observa la variable real del proceso $y(t)$ que se esta
+intentando controlar en realidad se encuentra desplazada hacia otro punto operativo (Figs. \ref{f3_5a} y
+\ref{f3_5c}). Es decir, el lazo de control act{\'u}a de forma tal de rechazar la falla aditiva en el sensor como
+si se tratara de una perturbaci{\'o}n de salida. Para llevar esto a cabo la VM debe modificarse de forma
+proporcional (Figs. \ref{f3_5b} y \ref{f3_5d}) a el valor de dicho evento (respecto de la condici{\'o}n normal
+de operaci{\'o}n) y como resultado el proceso se ve desplazado hacia un nuevo punto de trabajo.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC, $o_{ff}=1$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_y_offset_1pos}\label{f3_5a}}
+\subfigure[VM, $o_{ff}=1$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_u_offset_1pos}\label{f3_5b}}
+\subfigure[VC, $o_{ff}=-1$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_y_offset_1neg}\label{f3_5c}}
+\subfigure[VM, $o_{ff}=-1$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPfijo_u_offset_1neg}\label{f3_5d}}
+\caption{Evoluci{\'o}n a lazo cerrado y fallas en el sensor} \label{f3_5}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+Como se observa de las simulaciones anteriores (Figs. \ref{f3_3}, \ref{f3_4} y \ref{f3_5}), las estrategias
+de control cl{\'a}sicas no pueden solucionar el problema de eventuales fallas en los elementos del proceso. No
+poseen los medios necesarios para detectar ni compensar sus efectos. En estos casos particulares de fallas
+en sensores y actuadores, se puede apreciar como un retardo extra en el lazo de control puede traer
+aparejado problemas importantes en la estabilidad del proceso y en consecuencia poner en riesgo, la
+integridad de equipos, humanos, medio ambiente, rendimiento, etc.. Estos retardos extras introducidos pueden
+ser variables en el tiempo, pudiendo tomar cualquier valor dentro de una rango determinado, lo que dificulta
+a{\'u}n mas su posible detecci{\'o}n y compensaci{\'o}n. Por otro lado, las fallas en sensores vistas anteriormente,
+producen el desplazamiento de la planta hacia un nuevo punto operativo, generando problemas de rendimiento
+en la producci{\'o}n y dependiendo de la magnitud de la falla podr{\'\i}a ocasionar la saturaci{\'o}n de la VM y poner en
+riesgo la controlabilidad del lazo.
+
+Dise{\~n}ar sistemas de control avanzados y supervisores que tengan en cuenta estos y otros factores posibles
+resulta de crucial importancia. Poder compensar el efecto de potenciales fallas en elementos del proceso tan
+r{\'a}pido como sea posible resulta de sumo inter{\'e}s si se pretende garantizar calidad en la producci{\'o}n,
+integridad de equipos y personal y mantener las condiciones ambientales. Todo esto resulta en una
+complejidad creciente si pensamos en grandes procesos qu{\'\i}micos donde existen una cantidad considerables de
+lazos de control, unidades de proceso, realimentaciones, etc.
+
+\subsection{Control adaptivo predictivo}\label{sec_CPA_apli}
+El primer paso l{\'o}gico para tratar de dar soluci{\'o}n a el problema planteado en la secci{\'o}n anterior, es pensar
+en alg{\'u}n tipo de sistema que pueda incorporar informaci{\'o}n de las modificaciones sufridas por el proceso
+durante su operaci{\'o}n. Todas las miradas recaen sobre el popular control adaptivo. En esta secci{\'o}n se
+presentar{\'a} una estrategia de control predictivo adaptivo para tratar de dar soluci{\'o}n a los problemas
+planteados con fallas en sensores y actuadores.
+
+Retomando las ideas y conceptos desarrollados en las secciones \ref{sec_CPBM} y \ref{sec_CPA}, y
+considerando el modelo FIR de la planta de la ec. \ref{e3_3}, podemos reescribir las predicciones de dicho
+modelo en un instante $k$ como:
+\begin{equation}\label{e3_4}
+\begin{split}
+\hat{y}(k) & = \sum_{j=1+d}^{N}\hat{g}(j)\left[u(k-j)-u_{00}\right] + y_{00} + \hat{\eta}(k)\\
+           & = \sum_{j=1+d}^{N}\hat{g}(j)u(k-j) + \hat{ppo} + \hat{\eta}(k)\\
+\end{split}
+\end{equation}
+donde $\hat{g}(j)$ son estimaciones de los coeficientes del modelo FIR de la planta, $u(k)$ es la se{\~n}al de
+control real aplicada al proceso, $\hat{y}(k)$ la predicci{\'o}n de modelo, $\hat{\eta}(k)=y(k)-\hat{y}(k)$ el
+error planta-modelo (estimaci{\'o}n de perturbaci{\'o}n), $\hat{ppo}=y_{00}-\sum_{j=d+1}^{N}\hat{g}(j)u_{00}$ es el
+denominado par{\'a}metro de punto operativo ($ppo$), que tiene en cuenta el punto de operaci{\'o}n
+$[y_{00},u_{00}]$, y $d$ es el tiempo muerto estimado fuera de l{\'\i}nea del proceso.
+
+La ec. \ref{e3_4} puede escribirse entonces de la forma
+\begin{equation}\label{e3_5}
+    \hat{y}(k)=\psi_{au}(k)^{T}\hat{\theta}_{au}(k)+\eta(k)
+\end{equation}
+donde
+\begin{equation}\label{e3_6}
+\begin{split}
+    \psi_{au}(k)&=[u(k-1),\ldots,u(k-N),1]^{T}\\
+    \hat{\theta}_{au}(k)&=[\hat{g}(1,k),\ldots,\hat{g}(N,k),\hat{ppo}]^{T}\\
+\end{split}
+\end{equation}
+son las versiones aumentadas del regresor y el vector de parametros de las mostradas en la secci{\'o}n
+\ref{sec_CPA} para considerar ahora el par{\'a}metro de punto operativo $ppo$.
+
+Recordando ahora la estima de m{\'\i}nimos cuadrados con factor de olvido $\lambda$ dada por la ec. \ref{a_2} y
+la expresi{\'o}n de la matrix de covarianza de los datos de la ec. \ref{a_3}, del ap{\'e}ndice \ref{A_1}, se puede
+representar dicha matriz como una factorizaci{\'o}n del tipo $P_N=U_*D_*U_*^T$, denominada \textit{factorizaci{\'o}n
+UD} (ver el ap{\'e}ndice en la secci{\'o}n \ref{A_4}). De esta forma, se evitan problemas con matrices mal
+condicionadas dando mayor robustez a el algoritmo. La actualizaci{\'o}n recursiva de la matriz de covarianza se
+realiza mediante la actualizaci{\'o}n recursiva de su factorizaci{\'o}n, una versi{\'o}n resumida del algoritmo de
+factorizaci{\'o}n UD aplicado a m{\'\i}nimos cuadrados resulta
+\begin{equation}\label{e3_7}
+\begin{split}
+    \hat{\theta}_{au}(k)&=\hat{\theta}_{au}(k-1)+U_*(k)D_*(k)U_*(k)^T\psi_{au}(k)\left[y(k)-\psi_{au}(k)^T\hat{\theta}_{au}(k-1)\right]\\
+    U_*(k)&=f_{U_*}\left(U_*(k-1),\psi_{au}(k),\lambda\right)\\
+    D_*(k)&=f_{D_*}\left(D_*(k-1),\psi_{au}(k),\lambda\right)\\
+\end{split}
+\end{equation}
+
+Es conocido que los algoritmos de estimaci{\'o}n recursiva sufren algunas dificultades cuando el regresor no es
+una excitaci{\'o}n lo suficientemente persistente. Con la finalidad de evitar actualizaciones indeseadas de la
+estima de par{\'a}metros en momentos donde esta persistencia se ha perdido, \cite{Kr:88} y \cite{Jm:90}
+desarrollan y aplican {\'\i}ndices de monitoreo para la excitaci{\'o}n. De esta forma el indicador $z_n(k)$ definido
+en la ec. \ref{e3_8} y su versi{\'o}n filtrada, $s_1(k)$ de la ec. \ref{e3_9} conformar{\'a}n la ley de conmutaci{\'o}n
+de la ec. \ref{e3_10}, que permitir{\'a} actualizar la estima y redise{\~n}ar el controlador.
+\begin{equation}\label{e3_8}
+    z_n(k)=\frac{\lambda}{\lambda+\psi^T(k)U_*(k-1)D_*(k-1)U_*(k-1)^T\psi(k)}
+\end{equation}
+donde $0\leq z_n(k)\leq 1$, indicando que un sistema esta bien excitado cuando este {\'\i}ndice esta cercano a
+$0$ y pobremente excitado cuando se encuentra cercano a $1$. Su versi{\'o}n filtrada viene dada por
+\begin{equation}\label{e3_9}
+s_{1}(k)=\begin{cases}
+0.7s_{1}(k-1)+0.3z_{n}^{2}(k) & ,\text{\textrm{si} $s_{1}(k-1)\leq 0.8z_{n}(k)$}\\
+0.99s_{1}(k-1)+0.01z_{n}^{2}(k) & ,\text{\textrm{en otro caso}}.
+\end{cases}
+\end{equation}
+de esta forma se habilitar{\'a} la actualizaci{\'o}n de la estima de par{\'a}metros y el redise{\~n}o del controlador cuando
+\begin{equation}\label{e3_10}
+    z_n(k)<s_1(k)
+\end{equation}
+adem{\'a}s el redise{\~n}o del controlador permanecer{\'a} en ese estado de actualizaci{\'o}n durante $N$ instantes de
+muestreo, donde $N$ es el orden del modelo FIR. As{\'\i}, las matrices que definen el controlador predictivo (ver
+secciones \ref{sec_CPBM} y \ref{sec_CPA}) se actualizar{\'a}n correctamente acorde al nuevo modelo del proceso
+identificado.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_delay12_consinN1}\label{f3_6a}}
+\subfigure[VM]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_delay12_consinN1_u}\label{f3_6b}} \caption{CAP
+ante falla en el actuador} \label{f3_6}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+Inicialmente en la Fig. \ref{f3_6} se observa la evoluci{\'o}n temporal de la variable controlada (Fig.
+\ref{f3_6a}) y su respectiva variable manipulada (Fig. \ref{f3_6b}) cuando una falla en el actuador ocurre
+en el instante $T_f=300$ seg. de una magnitud de $t_d=12$ seg.. En la Fig. \ref{f3_6a} se pueden apreciar
+dos comportamientos utilizando CAP, en una primera instancia el algoritmo de estimaci{\'o}n recursiva actualiza
+el modelo FIR y las matrices del controlador manteniendo fijo el inicio del horizonte de predicci{\'o}n, $H_w$.
+De esta forma se logra la estabilizaci{\'o}n del lazo de control si compramos esta figura con la Fig.
+\ref{f3_3}. Una forma de mejorar el rendimiento de dicho lazo de control cuando existen tiempos muertos es
+incluir esta informaci{\'o}n en el algoritmo de control, mediante la actualizaci{\'o}n de $H_w$. Esto modifica las
+dimensiones de las matrices del controlador, de forma tal que solo se consideran las predicciones en el
+intervalo $[H_w(k),H_p(k)]$, donde $\hat{d}(k)$ es el tiempo muerto estimado utilizando las actualizaciones
+del modelo FIR y esta definido como se muestra en la ec. \ref{e3_11}.
+\begin{equation}\label{e3_11}
+    \hat{d}(k)=\min\left(\hat{g}(i,k)>\zeta\right), \quad \text{\textrm{con}} \quad i=1,\ldots,N
+\end{equation}
+donde $\zeta$ es un valor de umbral. De esta forma el inicio del horizonte de predicci{\'o}n puede actualizarse
+como $H_w(k)=\hat{d}(k)+1$, as{\'\i} las predicciones se eval{\'u}an sin considerar las $\hat{d}(k)$ muestras en el
+funcional de la ec. \ref{e2_45} y se evita generar excesivas magnitudes en las acciones de control. La
+incorporaci{\'o}n de esta estrategia de actualizaci{\'o}n y estimaci{\'o}n del retardo puede observarse en la Fig.
+\ref{f3_6}, claramente se observa una mejora en el rendimiento de seguimiento de la trayectoria de
+referencia.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[Coeficientes, $\hat{g}(1,k)$, $\hat{g}(2,k)$, $\hat{g}(3,k)$ y
+$\hat{g}(6,k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_coef_fir}\label{f3_7a}} \subfigure[Modelo
+FIR, $\hat{G}_{0}(z^{-1})$ y
+$\hat{G}(z^{-1},k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_coef_fir_t653}\label{f3_7b}}
+\caption{Actualizaci{\'o}n del modelo FIR} \label{f3_7}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+En la Fig. \ref{f3_7a} se puede apreciar la evoluci{\'o}n temporal de algunos de los coeficientes estimados en
+forma recursiva del modelo FIR, en este caso particular, $\hat{g}(1,k)$, $\hat{g}(2,k)$, $\hat{g}(3,k)$ y
+$\hat{g}(6,k)$. Se observa claramente como los primeros tres coeficientes se adaptan tomando un valor
+pr{\'o}ximo a cero y por consiguiente indicando el retardo presente en el lazo, $\hat{d}=3$ muestras y como el
+tiempo de muestreo se ha seleccionado en $T_s=4$ seg., efectivamente el retardo identificado representa los
+12 segundos de tiempo muerto introducido por el actuador. Esto puede apreciarse tambi{\'e}n en la Fig.
+\ref{f3_7b}, donde se compara el modelo FIR original (antes de la falla) y el modelo FIR adaptado en el
+instante $t=653$ seg..
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[Indicadores, $z_n(k)$ y
+$s_1(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_zn_s1}\label{f3_8a}}
+\subfigure[Actualizaci{\'o}n/reconfiguraci{\'o}n]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_id_control}\label{f3_8b}}
+\subfigure[$K_g(k)$, $H_w(k)$ y
+$\hat{ppo}(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_koff_n1_cgl}\label{f3_8c}}
+\caption{Indicadores y par{\'a}metros del CAP ante falla en el actuador} \label{f3_8}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+En la Fig. \ref{f3_8a} se puede observar por ejemplo los indicadores de persistencia a la excitaci{\'o}n
+definidos en la ecs. \ref{e3_8} y \ref{e3_9}. La ley de actualizaci{\'o}n del modelo y de redise{\~n}o del
+controlador en la Fig. \ref{f3_8b}, y tres par{\'a}metros de importancia como son la actualizaci{\'o}n del inicio
+del horizonte de predicci{\'o}n $H_w(k)$, la compensaci{\'o}n est{\'a}tica del lazo de control $K_g(k)$ que otorga error
+est{\'a}tico nulo, y finalmente el par{\'a}metro de punto operativo $\hat{ppo}(k)$ que brinda informaci{\'o}n respecto
+de las modificaciones en el punto de trabajo.
+%--------------------------------------------------------------------------------
+\begin{table}[t]
+\caption{Par{\'a}metros del CAP}
+\label{t3_2}%
+\centering
+  \rmfamily
+  \begin{tabular}{cccccccccc}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+  $T_s$  & $H_w^0$ & $H_p(k)$ & $H_u$ & $N$ & $\alpha_r$ & $\alpha_i$ & $\beta_j$  & $\lambda$ &$\zeta$ \\
+  (seg.) &(mues.)  &(mues.)   &(mues.)&     &            &            &            &           &        \\
+  \midrule[0.08em]
+  4      & 1       &$H_w(k)+2$& 1     & 20  & 0.4        &1           & 0.05       & 0.9       &0.04    \\
+  \bottomrule[0.1em]
+  \end{tabular}
+  \normalsize\sffamily
+\end{table}
+%--------------------------------------------------------------------------------
+
+La Tabla \ref{t3_2} resume el ajuste de los par{\'a}metros mas importantes del CAP. Los valores de
+inicializaci{\'o}n ($k=0$) del horizonte de predicci{\'o}n se encuentran definidos por $[H_w^0,H_p^0]$. Tambi{\'e}n
+podemos encontrar el tiempo de muestreo $T_s$, el horizonte de control $H_u$, el coeficiente de suavizado de
+la trayectoria de referencia $\alpha_r$, los coeficientes de peso en las energ{\'\i}as de error de predicci{\'o}n y
+se{\~n}al de control, $\alpha_i$ y $\beta_j$ respectivamente, con $i=H_w(k),\ldots,H_p(k)$ y $j=1,\ldots,H_u$,
+el factor de olvido $\lambda$ y el par{\'a}metro de umbral $\zeta$.
+
+Antes de abordar el problema de offset en el sensor, como vimos anteriormente, es necesario recordar algunas
+expresiones. Inicialmente retomando la soluci{\'o}n del problema de minimizaci{\'o}n sin restricciones como fue
+presentado en la secci{\'o}n \ref{sec_CPBM} para el caso FIR, se ten{\'\i}a que el movimiento actual de la se{\~n}al de
+control era
+\begin{equation}\label{e3_12}
+\hat{u}(k)=[1,0,\ldots,0]\mathbf{\hat{u}}(k)=\mathbf{R}(k)\left[\mathbf{y_{r}}(k)-\mathbf{\hat{\eta}}(k)\right]-
+           \mathbf{D}(k)\mathbf{\psi}(k)
+\end{equation}
+recordando ahora que la estimaci{\'o}n de la perturbaci{\'o}n estaba definida como la diferencia planta-modelo,
+$\hat{\eta}(k)=y(k)-\hat{y}(k)$ y la definici{\'o}n del modelo FIR de la ecs. \ref{e3_5} y \ref{e3_6}, se puede
+escribir que
+\begin{equation}\label{e3_13}
+\begin{split}
+\hat{u}(k)&=\mathbf{R}(k)\left[\mathbf{y_{r}}(k)-[1,\ldots,1]^T\left(y(k)-\psi_{au}^T(k)\theta_{au}(k)
+            \right)\right]-\mathbf{D}(k)\mathbf{\psi}(k)\\
+          &=\mathbf{R}(k)\left[\mathbf{y_{r}}(k)-[1,\ldots,1]^T\left(y(k)-\psi^T(k)\theta(k)-\hat{ppo}(k)
+            \right)\right]-\mathbf{D}(k)\mathbf{\psi}(k)\\
+          &=\mathbf{R}(k)\left[\left(\mathbf{y_{r}}(k)+[1,\ldots,1]^T\hat{ppo}(k)\right)-[1,\ldots,1]^T
+          \left(y(k)-\psi^T(k)\theta(k)\right)\right]-\mathbf{D}(k)\mathbf{\psi}(k)\\
+\end{split}
+\end{equation}
+
+Como se observo en las Figs. \ref{f3_5} una falla en sensor del tipo offset abrupto produce que el lazo de
+control la identifique como una perturbaci{\'o}n de salida y trate de rechazarla, a su vez este comportamiento
+produce efectivamente que la variable real del proceso que se quiere controlar se desplace hacia otro punto
+operativo. Como vemos de la {\'u}ltima ecuaci{\'o}n en \ref{e3_13} el CAP en este caso permite incorporar esta
+informaci{\'o}n del desplazamiento v{\'\i}a el par{\'a}metro de punto operativo $\hat{ppo}(k)$. El efecto producido por
+dicha modificaci{\'o}n es semejante a la de modificar la trayectoria de referencia en forma proporcional
+$\mathbf{y_{r}}(k)+[1,\ldots,1]^T\hat{ppo}(k)$ y utilizar como modelo FIR la versi{\'o}n no aumentada para
+computar el error planta modelo $[1,\ldots,1]^T\left(y(k)-\psi^T(k)\theta(k)\right)$.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_concgl_offsetpos1_y}\label{f3_9a}}
+\subfigure[VM]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_concgl_offsetpos1_u}\label{f3_9b}}
+\caption{CAP ante falla en el sensor} \label{f3_9}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+En la Fig. \ref{f3_9} se puede observar el comportamiento de la variable controlada (Fig. \ref{f3_9a}) y
+manipulada (Fig. \ref{f3_9b}) cuando una falla en el sensor de valor $o_{ff}=1$ aparece en forma abrupta a
+los $T_f=300$ seg.. Claramente las modificaciones anteriores en el algoritmo de CAP muestran como la
+variable real del proceso $y(k)$ se mantiene entorno a su trayectoria de referencia original (a diferencia
+de la versi{\'o}n mostrada en las Figs. \ref{f3_5a} y \ref{f3_5b}). La inclusi{\'o}n de la estimaci{\'o}n del par{\'a}metro
+de punto operativo proporciona un efecto de actualizaci{\'o}n de la pol{\'\i}tica de referencia por medio de
+$\mathbf{y_{r}}(k)+[1,\ldots,1]^T\hat{ppo}(k)$, generando que la variable medida $y_m(k)$ siga esta nueva
+trayectoria y compense el error ocasionado por el sensor.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[Indicadores, $z_n(k)$ y
+$s_1(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_concgl_offsetpos1_zns1}\label{f3_10a}}
+\subfigure[Actualizaci{\'o}n/reconfiguraci{\'o}n]{\includegraphics[width=7cm,height=7cm]
+{Ch3/CPA_concgl_offsetpos1_onoff} \label{f3_10b}} \subfigure[$K_g(k)$, $H_w(k)$ y
+$\hat{ppo}(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_concgl_offsetpos1_n1cglkoff}\label{f3_10c}}
+\caption{Indicadores y par{\'a}metros del CAP ante falla en el sensor} \label{f3_10}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+La Fig. \ref{f3_10} resume la evoluci{\'o}n de los par{\'a}metros mas importantes del CAP en este caso. Se puede
+observar el comportamiento de los indicadores de persistencia a la excitaci{\'o}n $z_n(k)$ y $s_1(k)$ de la Fig.
+\ref{f3_10a} que generan oportunamente las se{\~n}ales de actualizaci{\'o}n del modelo FIR y del controlador (Fig.
+\ref{f3_10b}). En la Fig. \ref{f3_10c} se puede apreciar la actualizaci{\'o}n del inicio del horizonte de
+predicci{\'o}n $H_w(k)$, el cual permanece entorno a 1 muestra ya que no existen modificaciones en el tiempo
+muerto del lazo. Por otro lado, claramente se observa como el par{\'a}metro $\hat{ppo}(k)$ converge hacia el
+nuevo punto operativo generado por la falla en el sensor, partiendo de su valor cero para el caso sin
+fallas. A su vez, la compensaci{\'o}n est{\'a}tica $K_g(k)$ permanece entorno a su valor original de 1 ya que no
+existen modificaciones en la ganancia.
+
+\subsection{Modificaciones en el proceso (CAP, CFRAP y CAPFRA)}
+Los resultados mostrados anteriormente corresponden los casos de un mal funcionamiento en los elementos del
+proceso tales como sensores y actuadores. En esta secci{\'o}n se pretende comprobar el funcionamiento de algunos
+algoritmos de control avanzado sujetos a modificaciones propias del proceso. Considerando que la planta
+puede evolucionar y modificar su comportamiento se proponen los cambios de la ec. \ref{e3_14}.
+\begin{equation}\label{e3_14}
+    G(s)=\left\{%
+\begin{array}{ll}
+    \frac{(1+2s)}{(1+10s)(1+7s)(1+3s)}, & \hbox{\textrm{si} $t<t_{f1}$;} \\
+    &\\
+    \frac{(1+2s)e^{-16s}}{(1+10s)(1+7s)(1+3s)}, & \hbox{\textrm{si} $t_{f1}\leq t<t_{f2}$;} \\
+    &\\
+    \frac{(1+2s)e^{-16s}1.5}{(1+10s)(1+7s)(1+3s)}, & \hbox{\textrm{si} $t_{f2}\leq t<t_{f3}$;} \\
+    &\\
+    \frac{(1-5s)e^{-16s}1.5}{(1+10s)(1+7s)(1+3s)}, & \hbox{\textrm{si} $t\geq t_{f3}$.} \\
+\end{array}%
+\right.
+\end{equation}
+
+Se pueden identificar 3 modificaciones sucesivas del proceso. Para $t<t_{f1}=160$ seg. la planta se
+encuentra bajo funcionamiento normal y en este estado se realiza el dise{\~n}o de los controladores respectivos.
+Para $t_{f1}= 160\leq t<t_{f2}=420$ seg., la planta presenta un tiempo muerto extra de 16 seg., a su vez en
+el intervalo $t_{f2}=420\leq t<t_{f3}=700$ seg. su ganancia se a modificado por un factor de 1.5 y
+finalmente para $t\geq t_{f3}=700$ seg. el proceso presenta una modificaci{\'o}n en su din{\'a}mica cambiando un
+cero m{\'\i}nima fase (-1/2) por uno no m{\'\i}nima fase (1/5).
+
+En primer t{\'e}rmino se analizar{\'a} el comportamiento del CAP. En la Fig. \ref{f3_11} se muestran las evoluciones
+de los par{\'a}metros mas representativos en este caso. Por un lado, se puede observar como el algoritmo tiende
+a inestabilizarse en la Fig. \ref{f3_11a} provocando la saturaci{\'o}n de la variable manipulada (Fig.
+\ref{f3_11b}). A su vez, en la Fig. \ref{f3_11c} puede apreciarse el modelo FIR resultante de la
+identificaci{\'o}n recursiva, claramente pueden distinguirse las cuatro muestras de retardo ($T_s=4$ seg.) y la
+respuesta inversa debido al cero no m{\'\i}nima fase. En la Fig. \ref{f3_11d} se observa la actualizaci{\'o}n del
+inicio del horizonte de predicci{\'o}n acorde al retardo identificado y la evoluci{\'o}n de la ganancia est{\'a}tica de
+compensaci{\'o}n $K_g(k)$ que ahora se ha modificado para alcanzar el valor $0.6667=1/1.5$.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_modificaciones_y}\label{f3_11a}}
+\subfigure[VM]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_modificaciones_u} \label{f3_11b}}
+\subfigure[Modelo FIR,
+$\hat{G}(z^{-1},k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_modificaciones_fir}\label{f3_11c}}
+\subfigure[$H_w(k)$,
+$K_g(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPA_modificaciones_n1koff}\label{f3_11d}}
+\caption{Cambios en el proceso, CAP} \label{f3_11}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+En la secci{\'o}n \ref{sec_CFRA} se present{\'o} la estrategia de control mediante filtro robusto adaptivo
+predictivo (CFRAP), como una alternativa a el CAP y como una peque{\~n}a modificaci{\'o}n de este. Como se vio
+oportunamente el CFRAP se basa en utilizar un modelo FIR nominal fijo, mediante el cual se dise{\~n}a un
+controlador predictivo fijo. Esencialmente las actualizaciones del modelo vienen dadas por la ec.
+\ref{e2_78}. A continuaci{\'o}n se presentar{\'a} los resultados de aplicar CFRAP en este caso particular.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC]{\includegraphics[width=7cm,height=7cm]{Ch3/CFRA_modificaciones_y}\label{f3_12a}}
+\subfigure[VM]{\includegraphics[width=7cm,height=7cm]{Ch3/CFRA_modificaciones_u} \label{f3_12b}}
+\subfigure[Modelo FIR,
+$\hat{G}(z^{-1},k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CFRA_modificaciones_fir}\label{f3_12c}}
+\subfigure[$H_w(k)$,
+$K_g(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CFRA_modificaciones_n1koff}\label{f3_12d}}
+\caption{Cambios en el proceso, CFRAP} \label{f3_12}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------------
+\begin{table}[t]
+\caption{Par{\'a}metros del CFRAP}
+\label{t3_3}%
+\centering
+  \rmfamily
+  \begin{tabular}{cccccccccc}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+  $T_s$  & $H_w^0$ & $H_p(k)$ & $H_u$ & $N$ & $\alpha_r$ & $\alpha_i$ & $\beta_j$  & $\lambda$ &$\zeta$ \\
+  (seg.) &(mues.)  &(mues.)   &(mues.)&     &            &            &            &           &        \\
+  \midrule[0.08em]
+  4      & 1       &$H_w(k)+2$& 1     & 20  & 0.01        &1           & 0         & 0.9       &0.04    \\
+  \bottomrule[0.1em]
+  \end{tabular}
+  \normalsize\sffamily
+\end{table}
+%--------------------------------------------------------------------------------
+
+Como se puede apreciar de la Fig. \ref{f3_12} la estrategia de CFRAP resulta ser mas estable que la CAP. En
+\cite{Jm:90} y \cite{JmBmZd:06} se han analizado en detalle las cuestiones relacionadas con la estabilidad
+de los algoritmos. B{\'a}sicamente, la actualizaci{\'o}n progresiva del modelo entorno a uno nominal y el dise{\~n}o del
+controlador predictivo fijo estable inicial, otorgan condiciones mas favorables de operaci{\'o}n. En las Figs.
+\ref{f3_12a} y \ref{f3_12b} se puede observar la VC y la correspondiente VM, las modificaciones en la planta
+introducen efectos transitorios pero de ninguna manera tienden a inestabilizar el sistema ni provocan
+saturaci{\'o}n en la variable de control. En la Fig. \ref{f3_12c} se muestra la actualizaci{\'o}n del modelo FIR en
+este caso realizada seg{\'u}n la ley de la ec. \ref{e2_78} y el algoritmo de estimaci{\'o}n recursiva basado en
+factorizaci{\'o}n UD, pudi{\'e}ndose observar efectivamente las cuatro muestras de retardo (16 seg.) y la respuesta
+inversa del cero no m{\'\i}nima fase. En la Fig. \ref{f3_12d} se puede observar dos par{\'a}metros fundamentales en
+este algoritmo de control, por un lado la actualizaci{\'o}n del inicio del horizonte de predicci{\'o}n $H_w(k)$,
+acorde a el retardo identificado seg{\'u}n la ley de la ec. \ref{e3_11} y en segundo t{\'e}rmino la estimaci{\'o}n de la
+compensaci{\'o}n est{\'a}tica $K_g(k)$, que efectivamente alcanza el valor $0.6667=1/1.5$. Los par{\'a}metros de
+controlador, para este caso, se encuentran resumidos en la Tabla \ref{t3_3}.
+
+Comparando las Figs. \ref{f3_11a} y \ref{f3_12a} se observa que el algoritmo de CFRAP posee mayores
+propiedades de robustez respecto del CAP. A su vez, luego que las modificaciones del proceso ocurrieron el
+CAP presenta mejores caracter{\'\i}sticas de rendimiento respecto del seguimiento de la trayectoria de referencia
+que el CFRAP. Para poder ver mas claramente esto, se propuso simular un tiempo total de 2000 seg. y analizar
+el error de seguimiento para los dos algoritmos utilizando la integral del valor absoluto del error definido
+como se observa en la ec. \ref{e3_15}.
+\begin{equation}\label{e3_15}
+    IAE=\int_T|y_r(t)-y_m(t)|dt
+\end{equation}
+donde $T$ es el per{\'\i}odo temporal considerado, $y_r(t)$ la trayectoria de referencia, e $y_m(t)$ la salida
+medida del proceso que se quiere controlar. Se analiz{\'o} un per{\'\i}odo temporal inmediatamente posterior a la
+ocurrencia de los cambios del proceso de $T=1000$ seg.. Para el caso de CAP present{\'o} un $IAE=166.5$
+comparado con un $IAE=186.5$ para el caso de CFRAP. Indicando que a pesar de que el CAP es menos robusto en
+caso de modificaciones abruptas del proceso posee mejor rendimiento en el seguimiento de la referencia. Esto
+es debido a que el CAP se adapta mucho mas r{\'a}pido y mejor, en condiciones normales de operaci{\'o}n,  que el
+CFRAP. El CFRAP posee mayor robustez a cambios bruscos.
+
+\subsubsection{Control adaptivo predictivo con filtro robusto adaptivo (CAPFRA)}
+La idea de poder tener ambas caracter{\'\i}sticas en un solo algoritmo de control resulta indispensable. Buena
+robustez a cambios del proceso e incertidumbres otorgada por el CFRAP y buen rendimiento de seguimiento de
+la trayectoria de referencia y r{\'a}pida convergencia del CAP en condiciones normales de operaci{\'o}n. De esta
+forma resulta el algoritmo de control predictivo adaptivo con filtro robusto adaptivo (CAPFRA)
+(\cite{Jm:90,ZdBmJmCa:06,JmBmZd:06,ZdBmJmCa:07}), el cual se basa en los algoritmos de control presentados
+en las secciones \ref{sec_FIR}, \ref{sec_CPA} y \ref{sec_CFRA} mas un sistema de sincronizaci{\'o}n.
+% Figure------------------------------------------
+\begin{figure}[t]
+\centering%
+\includegraphics[width=15cm,height=7cm]{Ch3/apcwrf}\caption{Estructura
+del CAPFRA} \label{f3_13}
+\end{figure}
+%-------------------------------------------------
+
+%Figure------------------------------------------
+\begin{figure}[t]
+\centering%
+\includegraphics[width=8cm,height=10cm]{Ch3/sincro}%
+\caption{Algoritmo de sincronizaci{\'o}n/actualizaci{\'o}n del CAPFRA}\label{f3_14}
+\end{figure}
+%-------------------------------------------------
+
+La estructura del controlador puede observarse en la Fig. \ref{f3_13}. El bloque de identificaci{\'o}n
+recursiva esta basado en factorizaci{\'o}n UD y otorga informaci{\'o}n respecto de las actualizaciones del modelo
+necesarias $\Delta \hat{G}(z^{-1},k)$, as{\'\i} como tambi{\'e}n los indicadores de persistencia la excitaci{\'o}n del
+regresor $z_n(k)$ y $s_1(k)$. Dicha informaci{\'o}n es analizada por el bloque de sincronizaci{\'o}n/actualizaci{\'o}n
+para decidir sobre que algoritmo de control aplicar y si los controladores deben ser reconfigurados o no.
+
+El bloque de sincronizaci{\'o}n/actualizaci{\'o}n es presentado en la Fig. \ref{f3_14} y muestra la estrategia de
+interconexi{\'o}n. En la inicializaci{\'o}n ($k=0$) toma lugar la identificaci{\'o}n de la planta fuera de l{\'\i}nea y el
+ajuste de los par{\'a}metros y matrices de los CAP y CFRAP mediante dicho modelo. La variable binaria $modo$
+define el algoritmo de control que se esta ejecutando, as{\'\i} cuando $modo=0$ indicar{\'a} que esta siendo
+utilizado el algoritmo de CAP y cuando $modo=1$ el algoritmo de CFRAP. Inicialmente se define $modo=0$. En
+cada iteraci{\'o}n la variable $modo$ es analizada, si $modo=0$ entonces significa que en la iteraci{\'o}n anterior
+ha sido ejecutado el CAP, de esta forma el an{\'a}lisis contin{\'u}a con una evaluaci{\'o}n de la estabilidad del
+polinomio del controlador $D^*(z^{-1},k)$. En este punto es necesario recordar el origen de dicho polinomio.
+Retomando la estructura del control predictivo basado en modelo FIR de la Fig. \ref{f2_13}, y asumiendo
+$\eta(k)=0$, podemos expresar:
+\begin{equation}\label{e3_16}
+    U(z)=\frac{D^*(1)K_gY_w(z)}{D^*(z^{-1})+\left[G(z^{-1})-\hat{G}(z^{-1})\right]D^*(1)K_g}
+\end{equation}
+siendo $Y_w(z)=z^{H_w}F(z^{-1})R(z)w(z)/R(1)$ la versi{\'o}n filtrada y adelantada de la trayectoria de
+referencia $w(z)$. As{\'\i} vemos que la estabilidad del controlador depende de las ra{\'\i}ces del polinomio:
+\begin{equation}\label{e3_17}
+    D^*(z^{-1})+\left[G(z^{-1})-\hat{G}(z^{-1})\right]D^*(1)K_g
+\end{equation}
+suponiendo que las actualizaciones del modelo adaptivo son correctas, la diferencia planta-modelo,
+$[G(z^{-1})-\hat{G}(z^{-1})]\rightarrow 0$ cuando $t\rightarrow \infty$, es decir, puede despreciarse
+resultando la estabilidad directamente vinculada con el polinomio $D^*(z^{-1})$. Pero esta es una conclusi{\'o}n
+aproximada, puede que este polinomio resulte estable y debido a las grandes diferencias entre planta y
+modelo el polinomio de la ec. \ref{e3_17} se convierta en inestable. Para evitar esto, se agrega una
+condici{\'o}n adicional sobre el requerimiento de estabilidad de $D^*(z^{-1})$, es decir garantizar adem{\'a}s que
+las estimaciones del modelo sean confiables. En el caso de que este polinomio resulte estable una nueva
+evaluaci{\'o}n se realiza pero ahora sobre el grado de excitaci{\'o}n del regresor, mediante la condici{\'o}n
+$z_n(k)<s_1(k)$, si esto resulta afirmativo, el sistema de sincronizaci{\'o}n/actualizaci{\'o}n decide seguir
+aplicando el algoritmo de CAP y las matrices del controlador y el modelo son actualizados oportunamente. En
+el caso de que el polinomio $D^*(z^{-1},k)$ resulte inestable o que el grado de excitaci{\'o}n del regresor no
+sea el suficiente, el algoritmo de CAP es desactivado y se conmuta hacia el algoritmo de CFRAP con la
+variable $modo=1$ indicando esta situaci{\'o}n. El algoritmo de CFRAP permanece activado durante $N$ muestras
+antes de retornar a el algoritmo de CAP y actualizar los par{\'a}metros del controlador. Esto garantiza que las
+matrices ser{\'a}n correctamente actualizadas con datos estables.
+
+En el caso de el algoritmo de CAP las estimaciones recursivas del modelo ser{\'a}n actualizadas si se cumplen
+los requisitos de riqueza en la excitaci{\'o}n. En el caso del algoritmo de CFRAP esta estimaciones son siempre
+actualizadas sin considerar estos requisitos. Esto es debido a que en el primer caso (CAP) las matrices del
+controlador ($R(z,k)$ y $D^*(z^{-1},k)$) dependen de dicho modelo estimado en l{\'\i}nea $\hat{G}(z^{-1},k)$,
+grandes errores en el modelo ocasionar{\'a}n ajustes err{\'o}neas de los controladores y la consecuente
+inestabilidad del lazo. Por otro lado, el caso de CFRAP esta basado en un modelo ($\hat{G}_0(z^{-1})$) y un
+controlador ($R_0(z)$ y $D^*_0(z^{-1})$) ambos estables y calculados fuera de l{\'\i}nea. Las estimaciones de los
+residuos del modelo $\Delta \hat{G}(z^{-1},k)$ est{\'a}n permitidas a actualizarse en todo momento ya que
+introducen m{\'\i}nimas modificaciones entorno al modelo nominal ($\hat{G}(z^{-1},k)=\hat{G}_0(z^{-1})+\Delta
+\hat{G}(z^{-1},k)$).
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC]{\includegraphics[width=7cm,height=7cm]{Ch3/CPAWFRA_modificaciones_y}\label{f3_15a}}
+\subfigure[VM]{\includegraphics[width=7cm,height=7cm]{Ch3/CPAWFRA_modificaciones_u} \label{f3_15b}}
+\caption{Cambios en el proceso, CAPFRA} \label{f3_15}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[Modelo FIR,
+$\hat{G}(z^{-1},k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPAWFRA_modificaciones_fir}\label{f3_16a}}
+\subfigure[Indicadores, $z_n(k)$ y
+$s_1(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPAWFRA_modificaciones_zns1}\label{f3_16b}}
+\subfigure[Estabilidad y
+modo]{\includegraphics[width=7cm,height=7cm]{Ch3/CPAWFRA_modificaciones_estmodo}\label{f3_16c}}
+\subfigure[$H_w(k)$ y $K_g(k)$]{\includegraphics[width=7cm,height=7cm]{Ch3/CPAWFRA_modificaciones_n1koff}
+\label{f3_16d}} \caption{{\'I}ndices y par{\'a}metros, CAPFRA} \label{f3_16}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+En la Fig. \ref{f3_15} puede observarse el comportamiento de las variables controlada y manipulada cuando la
+estrategia de CAPFRA es aplicada a la planta sujeta a cambios de la ec. \ref{e3_14}. A su vez los par{\'a}metros
+involucrados en el dise{\~n}o de este controlador se pueden apreciar el la Tabla \ref{t3_4}
+%--------------------------------------------------------------------------------
+\begin{table}[t]
+\caption{Par{\'a}metros del CAPFRA}
+\label{t3_4}%
+\centering
+  \rmfamily
+  \begin{tabular}{cccccccccc}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+  $T_s$  & $H_w^0$ & $H_p(k)$ & $H_u$ & $N$ & $\alpha_r$ & $\alpha_i$ & $\beta_j$  & $\lambda$ &$\zeta$ \\
+  (seg.) &(mues.)  &(mues.)   &(mues.)&     &            &            &            &           &        \\
+  \midrule[0.08em]
+  4      & 1       &$H_w(k)+2$& 1     & 20  & 0.01        &1           & 0         & 0.9       &0.04    \\
+  \bottomrule[0.1em]
+  \end{tabular}
+  \normalsize\sffamily
+\end{table}
+%--------------------------------------------------------------------------------
+
+Se puede apreciar como este algoritmo claramente adapta los cambios del proceso, manteniendo la estabilidad,
+evitando saturaciones en la VM y brindando un buen seguimiento de la trayectoria de referencia. De forma
+similar a los casos mostrados en las Figs. \ref{f3_11} y \ref{f3_12}, en este caso se propuso aumentar la
+simulaci{\'o}n a 2000 seg. y analizar el error de seguimiento en los {\'u}ltimos 1000 seg. luego de las
+modificaciones del proceso, resultando en este caso $IAE=130.9$, mostrando mejor rendimiento que los casos
+de CAP y CFRAP individualmente.
+
+En la Fig. \ref{f3_16a} se puede apreciar la actualizaci{\'o}n del modelo FIR en este caso, indicando la
+correcta identificaci{\'o}n del retardo (4 muestras) y el correspondiente efecto de respuesta inversa del cero
+no m{\'\i}nima fase. Por otro lado en la Fig. \ref{f3_16b} puede observarse el comportamiento de los indicadores
+de persistencia de la excitaci{\'o}n que habilitan o no la actualizaci{\'o}n de la estima. A su vez en la Fig.
+\ref{f3_16c} se presenta la evaluaci{\'o}n de la estabilidad del polinomio $D^*(z^{-1},k)$ y la variable $modo$
+indicando en que momento son activados los algoritmos de CAP y CFRAP. Finalmente, en la Fig. \ref{f3_16d}
+se resumen las evoluciones del inicio del horizonte de predicci{\'o}n $H_w(k)$ actualizado con la estimaci{\'o}n
+del retardo y la estimaci{\'o}n de la ganancia est{\'a}tica de compensaci{\'o}n $K_g(k)$ que converge claramente a su
+correcto valor de $0.6667=1/1.5$.
+
+\subsection{Sinopsis}
+En primera instancia y en base a los resultados obtenidos la estrategia de CAPFRA propuesta aqu{\'\i} parece dar
+un abordaje adecuado a el problema de fallas en elementos de proceso. Esta metodolog{\'\i}a permite integrar el
+monitoreo de procesos con un mecanismo de readaptaci{\'o}n para transformar el lazo de control en uno tolerante
+a fallos, as{\'\i} como tambi{\'e}n otorgar un correcto tratamiento de posibles modificaciones propias del proceso.
+De todas formas, estos resultados satisfactorios obtenidos sobre un proceso lineal y SISO deben ser
+analizados mas en detalle sobre plantas mas complejas. En la secci{\'o}n siguiente se propone esta estructura de
+control sobre un reactor de tanque agitado continuo con camisa. Si bien el modelo de la planta es simple
+presenta no linealidades t{\'\i}picas de procesos qu{\'\i}micos.
+
+\section{Caso de aplicaci{\'o}n N\textordmasculine 2: Reactor de tanque agitado continuo (RTAC) con camisa}
+En este caso particular se propone trabajar con un proceso mas realista que una simple funci{\'o}n de
+transferencia. Se definen dos tipos de fallas espec{\'\i}ficas en elementos del proceso como fallas en sensores
+del tipo offset abrupto y retardos extra introducidos por el actuador en el lazo de control. Mientras la
+primera ha sido ampliamente analizada en la literatura los retardos variables en procesos no han tenido
+igual suerte. Solo algunos trabajos abordan este problema como por ejemplo \cite{Rj:03,BsLl:03},
+\cite{GwMgZmLyLy:05} y \cite{JcZd:05} en casos simples y acad{\'e}micos. Muchos procesos qu{\'\i}micos presentan este
+efecto debido ya sea a mal funcionamiento de los actuadores/v{\'a}lvulas como tambi{\'e}n por transporte de materia,
+retardos de comunicaci{\'o}n, etc.
+
+Existen algunos trabajos que abordan la compensaci{\'o}n de fallas en elementos de proceso considerando solo
+alg{\'u}n caso particular y sin proponer fallas secuenciales y perturbaciones no medidas del proceso. Lo cual
+limita demasiado el marco de aplicaci{\'o}n de tales estrategias. Por ejemplo en \cite{TgCsJm:02,EFn:06} abordan
+el problema de compensaci{\'o}n solo de fallas en actuadores del tipo offset abrupto. El primero por una
+metodolog{\'\i}a adaptiva y el segundo por conmutaci{\'o}n de estrategias de control. Por otro lado, en
+\cite{PsSs:05,PsMsNsSs:06} se aborda el problema de compensar offset en sensores y actuadores para procesos
+multivariables con estrategia basada en modelos en ecuaciones de estados.
+
+La propuesta presentada en esta secci{\'o}n es una nueva estrategia de CTF \citep{ZdBmJmCa:06,ZdBmJmCa:07} para
+compensar los efectos de fallas en sensores y actuadores, a{\'u}n cuando est{\'a}n presente perturbaciones no
+medidas del proceso y ruido de medici{\'o}n. La idea general es desarrollar un SDEF que brinde apoyo a una
+pol{\'\i}tica de CAP y CAPFRA. B{\'a}sicamente la estrategia CPAFRA amalgama los beneficios de CAP y CFRA
+individualmente. El SDEF se encuentra desarrollado entorno a herramientas de procesado de se{\~n}al como la
+transformada wavelet discreta e identificaci{\'o}n de sistemas. La integraci{\'o}n SDEF/CAPFRA mejora los
+rendimientos de CAP individual y de la integraci{\'o}n SDEF/ CAP.
+
+En este caso el proceso consiste de un reactor de tanque agitado continuo (RTAC) refrigerado mediante una
+camisa (\cite{PmBm:02}). En dicho reactor toma lugar una reacci{\'o}n irreversible y exot{\'e}rmica de la forma
+$A\rightarrow B$. El modelo si bien es simple presenta aspectos relevantes respecto de una lazo de control
+no lineal. En la Fig. \ref{f3_17a} puede observarse la estrategia de control y el esquema de la planta. El
+proceso se encuentra rigurosamente modelado por un balance de componentes y un balance de energ{\'\i}a
+representados en la ec. \ref{e3_18},
+\begin{equation}\label{e3_18}
+\begin{split}
+  \frac{dC_{A}}{dt}  = & -k_{0}e^{-P/T_{1}}C_{A}+\frac{F_{inA}}{V_{1}}(C_{inA0}-C_{inA})\\
+  \frac{dT_{1}}{dt}  = &  k_{1}e^{-P/T_{1}}C_{A}+\frac{F_{inA}}{V_{1}}(T_{inA}-T_{1})+\frac{Q_{JP}}{\rho_{P}c_{P}V_{1}}
+\end{split}
+\end{equation}
+y un balance de energ{\'\i}a de la camisa de refrigeraci{\'o}n,
+\begin{equation}\label{e3_19}
+      \frac{dT_{J}}{dt}=\frac{F_{J0}}{V_{J}}(T_{J0}-T_{J})-\frac{Q_{JP}}{\rho_{J}c_{J}V_{J}}
+\end{equation}
+donde $Q_{JP}$ es el calor intercambiado. Las definiciones de las variables se muestran en la Tabla
+\ref{t3_5}. La estrategia de control mantiene la temperatura de reacci{\'o}n, $T_{1}$ en un punto operativo
+espec{\'\i}fico manipulando el flujo de refrigerante que ingresa a la camisa, $F_{J0}$. Adem{\'a}s, como la
+temperatura $T_{1}$ esta directamente relacionada con la composici{\'o}n del producto $C_{A}$, esta {\'u}ltima puede
+controlarse indirectamente con esta estrategia. Tambi{\'e}n existe en el proceso variables denominadas
+perturbaciones tales como la concentraci{\'o}n $C_{inA}$, la temperatura $T_{inA}$ y el flujo $F_{inA}$
+asociados al reactante $A$ cuando ingresa al reactor. Estas caracter{\'\i}sticas pueden variar a lo largo del
+per{\'\i}odo de operaci{\'o}n y ocasionar grandes cambios en el punto operativo. Detalles espec{\'\i}ficos respecto del
+proceso pueden encontrarse en \cite{PmBm:02}.
+%------------------------------------------------------------------------
+\begin{table}
+\caption{Variables en RTAC con camisa}%
+\label{t3_5}%
+ \centering
+  \rmfamily
+  \begin{tabular}{lcr}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+  Variables & Definici{\'o}n       & Unidades \\
+  \midrule[0.08em]
+  $F_{inA},F_{J0},F_{J},F_{1}$ & Flujos           & $m^3/sec.$ \\
+  $T_{inA},T_{J0},T_{J},T_{1}$ & Temperaturas     & \textordmasculine $K$\\
+  $C_{inA},C_{A}$              & Concentraciones  & $mol/m^3$\\
+  \bottomrule[0.1em]
+  \end{tabular}
+  \normalsize\sffamily
+\end{table}
+%-------------------------------------------------------------------------
+
+% Figure-------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[Proceso y estrategia de control]{\includegraphics[width=7cm,height=6cm]{Ch3/CSTR}\label{f3_17a}}
+\subfigure[Modelo FIR]{\includegraphics[width=6cm,height=6cm]{Ch3/f0}\label{f3_17b}}%
+\caption{RTAC con camisa y modelo FIR identificado}%
+\label{f3_17}
+\end{figure}
+%--------------------------------------------------
+
+Como se defini{\'o} en secciones anteriores es necesario identificar fuera de l{\'\i}nea un modelo FIR del proceso
+entorno a el punto operativo mas habitual, de la forma
+$[g_0(1),g_0(2),\ldots,g_0(N)]=[h(2)-h(1),\ldots,h(N+1)-h(N)]/\Delta u$, donde $N$ es el orden seleccionado
+del modelo. En la Fig. \ref{f3_17b} puede observarse los modelos FIR identificados cuando $\Delta u=0.5$ y
+$\Delta u=-0.5$ respectivamente. Claramente queda en evidencia el car{\'a}cter no lineal de la relaci{\'o}n
+entrada-salida entre flujo de refrigerante que ingresa a la camisa y temperatura del reactor. En este caso
+se adopt{\'o} el modelo obtenido con $\Delta u=-0.5$.
+
+Se pretende analizar el comportamiento de los algoritmos CAP y el recientemente propuesto CAPFRA en esta
+planta no lineal ya sea bajo comportamiento normal o ante fallas. Los par{\'a}metros de ajuste para dichas
+estrategias de control pueden apreciarse en la Tabla \ref{t3_6}.
+
+En primer lugar se presenta en la Figs. \ref{f3_18a} y \ref{f3_18b} la comparaci{\'o}n de ambos algoritmos de
+control cuando el funcionamiento es el normal. Se observa la evoluci{\'o}n temporal de la VC y la VM
+respectivamente cuando la trayectoria de referencia tiene una pol{\'\i}tica determinada. Por otra parte, la Figs.
+\ref{f3_18c} y \ref{f3_18d} resumen el comportamiento de los controladores cuando una perturbaci{\'o}n del tipo
+escal{\'o}n ocurre en un tiempo $t=400$ de valor $\triangle T_{inA}=-2$ \textordmasculine $K$ en la temperatura
+de ingreso del reactante $A$. La estrategia de CAP demuestra ser un poco mas agresiva que la de CAPFRA,
+presentando ambas buen rechazo de perturbaciones.
+
+Las fallas en elementos del proceso propuestas aqu{\'\i} son las mismas que se han definido en las ecs.
+\ref{e3_1} y \ref{e3_2}. Representando la aparici{\'o}n abrupta de un error del tipo bias en el sensor de
+temperatura de reacci{\'o}n $T_1$ y la presencia de un retardo extra en el lazo de control por un mal
+funcionamiento de la v{\'a}lvula que manipula la entrada de l{\'\i}quido refrigerante a la camisa del reactor
+$F_{j0}$, respectivamente. Bajo funcionamiento normal tanto la v{\'a}lvula como el sensor presentan un retardo
+de 1 seg., es decir, el lazo de control en cuesti{\'o}n presentara 2 segundos de tiempo muerto mas el tiempo
+muerto propio del proceso.
+%---------------------------------------------------------------------------------------------------------------
+\begin{table}[t]
+  \caption{Par{\'a}metros de los controladores}
+  \label{t3_6}
+  \centering
+  \small\rmfamily
+  \begin{tabular}{lccccccccc}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+  Algoritmo    & $T_{s}$ & $N$ & $H_{w}$ & $H_{P}$ & $H_{u}$ & $\alpha_{r}$ & $\mathbf{A}$    &  $\mathbf{B}$ & $\lambda$  \\
+  \midrule[0.08em]
+  CAP          & 2       & 20  & 3       & 7       & 1       & 0.001        & $diag(1,...,1)$ &  0.65         & 0.99    \\
+  CAPFRA       & 2       & 20  & 3       & 7       & 1       & 0.001        & $diag(1,...,1)$ &  0            & 0.95 \\
+  \bottomrule[0.1em]
+  \end{tabular}
+  \normalsize\sffamily
+\end{table}
+%------------------------------------------------------------------------------------------------------------
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[Funcionamiento normal, VC ($T_1$)]{\includegraphics[width=7cm,height=7cm]{Ch3/f1}\label{f3_18a}}
+\subfigure[Funcionamiento normal, VM
+($F_{J0}$)]{\includegraphics[width=7cm,height=7cm]{Ch3/f2}\label{f3_18b}} \subfigure[Perturbaci{\'o}n $T_{inA}$,
+VC ($T_1$)]{\includegraphics[width=7cm,height=7cm]{Ch3/f3}\label{f3_18c}} \subfigure[Perturbaci{\'o}n $T_{inA}$,
+VM ($F_{J0}$)]{\includegraphics[width=7cm,height=7cm]{Ch3/f4}\label{f3_18d}} \caption{Respuesta de los
+algoritmos de CAP y CAPFRA} \label{f3_18}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+La Fig. \ref{f3_19} resume el comportamiento de ambas estrategias de control cuando una falla en el actuador
+se produce en $T_f=0$. Para el caso de CAP la falla posee una magnitud de $t_d=10$ seg. y para el caso de
+CAPFRA una de $t_f=15$ seg., esto es debido a que por construcci{\'o}n el algoritmo CAPFRA posee mayor robustez
+que el CAP.
+
+Como se puede apreciar en este caso de un proceso no lineal las actualizaciones del inicio del horizonte de
+predicci{\'o}n $H_w$ no son lo suficientemente correctas para evitar la inestabilidad del lazo de control y las
+bruscas acciones de la VM que podr{\'\i}an ocasionar saturaciones. Las estimaciones recursivas del modelo FIR no
+son lo suficientemente buenas en caso de sistemas no lineales, provocando que la estimaci{\'o}n del retardo por
+umbralizaci{\'o}n genere valores notoriamente diferentes al valor real. Pensando en detecci{\'o}n y diagn{\'o}stico de
+fallas, este problema podr{\'\i}a ocasionar falsas alarmas o p{\'e}rdida de detecci{\'o}n en algunos casos, adem{\'a}s el
+instante de detecci{\'o}n se ve fuertemente influenciado por la tasa de convergencia de las estimaciones
+recursivas.
+
+Siguiendo con el an{\'a}lisis, en la Fig. \ref{f3_20} se observa el comportamiento de ambas estrategias de
+control cuando una falla ocurre en el sensor de temperatura en un instante $T_f=400$ seg. con un valor de
+$o_{ff}=2$ \textordmasculine $K$. Se puede observar en las Figs. \ref{f3_20a} y \ref{f3_20b} como ambos
+algoritmos de control no logran compensar la modificaci{\'o}n en el punto operativo generada por la falla. Si
+bien la variable medida se encuentra trabajando pr{\'o}xima a su referencia, la variable real se aparta de ella
+significativamente. Esto puede apreciarse mas claramente en la Fig. \ref{f3_20c} donde la variable
+controlada indirectamente (composici{\'o}n del producto $A$) se desplaza efectivamente fuere del punto operativo
+original. Nuevamente las no linealidades del proceso generan problemas en la correcta estimaci{\'o}n de los
+par{\'a}metros del modelo FIR. En este caso los errores ocasionados en las estimaciones del par{\'a}metro de punto
+operativo $\hat{ppo}$ no permiten la correcta compensaci{\'o}n de la falla. Como se dijo anteriormente, este
+tipo de errores podr{\'\i}an ocasionar falsa diagnosis y a{\'u}n diagnosticando correctamente el evento las
+estimaciones son tan pobres que las acciones de compensaci{\'o}n no logran su cometido.
+
+De todo lo visto anteriormente, parece indispensable contar con alg{\'u}n tipo de sistema de diagn{\'o}stico y
+estimaci{\'o}n de fallas (SDEF) que complemente el algoritmo de control. Un SDEF confiable y preciso puede
+mejorar las condiciones de estabilidad, robustez y rendimiento de dicho lazo de control, permitiendo a su
+vez un correcto monitoreo en l{\'\i}nea de las variables mas importantes del proceso.
+
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC, $T_1$]{\includegraphics[width=7cm,height=7cm]{Ch3/f5}\label{f3_19a}} \subfigure[VM,
+$F_{J0}$]{\includegraphics[width=7cm,height=7cm]{Ch3/f6}\label{f3_19b}} \caption{Algoritmos CAP y CAPFRA
+ante fallas en el actuador} \label{f3_19}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC, $T_1$ - CAP]{\includegraphics[width=7cm,height=7cm]{Ch3/f7}\label{f3_20a}} \subfigure[VC,
+$T_1$ - CAPFRA]{\includegraphics[width=7cm,height=7cm]{Ch3/f8}\label{f3_20b}} \subfigure[VC indirectamente,
+$C_A$]{\includegraphics[width=7cm,height=7cm]{Ch3/f9}\label{f3_20c}} \caption{Algoritmos CAP y CAPFRA ante
+fallas en el sensor} \label{f3_20}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+\subsection{Dise{\~n}o del SDEF}
+La idea b{\'a}sica es desarrollar un sistema h{\'\i}brido que permita la correcta actualizaci{\'o}n del controlador y
+compense los efectos producidos por las fallas funcionando en l{\'\i}nea con el proceso. Para el caso de fallas
+en v{\'a}lvulas (tiempo muerto extra), la correcta actualizaci{\'o}n del inicio del horizonte de predicci{\'o}n $H_w$,
+permite redise{\~n}ar las matrices de transformaci{\'o}n $T_{1}$, $T_{2}$, $T_{3}$ y $T_{4}$ del controlador y
+lograr un ajuste correcto acorde a las modificaciones din{\'a}micas del proceso. Por otro lado, las fallas en
+sensores producen la modificaci{\'o}n del punto operativo real de la planta y su efecto en las variables medidas
+es un transitorio de corta duraci{\'o}n, debido a esto el SDEF deber{\'a} ser lo suficientemente r{\'a}pido para no
+perder esta informaci{\'o}n. Lacorrecta estimaci{\'o}n de la magnitud de la falla en el sensor permiitir{\'a} realizar
+la correcta compensaci{\'o}n mediante la estrategia mostrada anteriormente utilizando el par{\'a}metro de punto
+operativo $\hat{ppo}$, que puede ser visto como una actualizaci{\'o}n de la trayectoria de referencia.
+%
+\subsubsection{Detecci{\'o}n y estimaci{\'o}n de fallas en v{\'a}lvulas}
+El problema de estimar el tiempo muerto en procesos ha sido ampliamente estudiado. Durante los {\'u}ltimos a{\~n}os
+diferentes estrategias con variados resultados se han aplicado dependiendo del caso en estudio. Estos
+m{\'e}todos pueden clasificarse seg{\'u}n propone \cite{BsLl:03} como:
+\begin{enumerate}
+    \item Modelo de aproximaci{\'o}n del retardo temporal.
+    \item Par{\'a}metro expl{\'\i}cito del retardo temporal.
+    \item {\'A}rea y momento.
+    \item Estad{\'\i}sticos de orden elevado.
+\end{enumerate}
+cada uno de estas estrategias est{\'a}n basadas en identificaci{\'o}n fuera de l{\'\i}nea.
+
+Como se observ{\'o} anteriormente el modelo FIR esta encargado de modelar la din{\'a}mica entrada-salida completa
+(actuador-planta-sensor) del proceso. Debido a las fuertes no linealidades este modelo puede no actualizarse
+correctamente, es decir, no resulta ser lo suficientemente preciso para realizar la estimaci{\'o}n del retardo
+directamente por umbralizaci{\'o}n.
+
+En este caso se propone utilizar una estrategia local sobre el actuador en cuesti{\'o}n y aplicar {\'e}l m{\'e}todo
+basado en par{\'a}metro expl{\'\i}cito de retardo temporal en l{\'\i}nea. De esta forma se podr{\'a} detectar e identificar de
+forma eficiente el retardo ingresado por un mal funcionamiento del actuador. En primer lugar se propone un
+modelo autoregresivo con entra externa (ARX) para modelar el comportamiento del sistema actuador-v{\'a}lvula.
+Este modelo vincula mediante una relaci{\'o}n lineal la se{\~n}al de control (entrad) y la medici{\'o}n efectiva del
+flujo de refrigerante que ingresa  la camisa (salida). Cuando la v{\'a}lvula trabaja normalmente dentro de una
+rango espec{\'\i}fico su comportamiento se asemeja a uno sistema lineal facilitando obviamente las tareas de
+detecci{\'o}n y estimaci{\'o}n. De esta forma las estimaciones del retardo generadas por el modelo ARX ser{\'a}n
+utilizadas para actualizar el controlador en l{\'\i}nea.
+
+El modelo discreto del sistema actuador/v{\'a}lvula puede observarse en la ec. \ref{e3_20}, donde $y(k)$ es la
+medici{\'o}n del flujo refrigerante, $u(k)$ es la se{\~n}al de control calculada por el controlador, y $\hat{y}(k)$
+es la estimaci{\'o}n del flujo refrigerante dada por el modelo ARX.
+\begin{equation}\label{e3_20}
+      G_{vm}(z^{-1})=\frac{b_{1}+b_{2}z^{-1}+\cdots+b_{n_{b}}z^{-n_{b}+1}}{1+a_{1}z^{-1}+\cdots+a_{n_{a}}z^{-n_{a}}}
+                    z^{-d}
+\end{equation}
+donde $n_{a}$ y $n_{b}$ son los ordenes del denominador y numerador respectivamente, y $d$ es el retardo
+presente. Una identificaci{\'o}n fuera de l{\'\i}nea puede plantearse utilizando m{\'\i}nimos cuadrados (ver secci{\'o}n
+\ref{sec_MC_ARX}) y obtener el modelo ARX en ausencia de fallas.
+
+Por la definici{\'o}n de las fallas propuestas al comienzo de este cap{\'\i}tulo un mal comportamiento en el actuador
+solo produce una modificaci{\'o}n en el retardo presente entre entrada y salida. El objetivo de la metodolog{\'\i}a
+propuesta aqu{\'\i} es adaptar la estrategia de par{\'a}metro expl{\'\i}cito del retardo temporal (que se aplica fuera de
+l{\'\i}nea) para poder realizar una b{\'u}squeda en l{\'\i}nea del retardo en tiempo discreto en una ventana temporal
+m{\'o}vil, llamada $N_{w}$. Es decir, minimizar el error cuadr{\'a}tico medio entra la medici{\'o}n del flujo
+refrigerante y la predicci{\'o}n del modelo ARX como se muestra en la ec. \ref{e3_21}, sobre dicha ventana
+temporal y sobre todos los posibles retardos discretos. Cualquier modificaci{\'o}n del retardo existente en el
+lazo de control es solo detectado e identificado en un comportamiento transitorio (seguimiento de la
+referencia o rechazo de perturbaciones), analizando los datos desde el momento actual hasta y sobre las
+$N_w$ muestras anteriores.
+\begin{equation}\label{e3_21}
+      V(k,d)=\frac{1}{N_{w}}\sum_{i=1}^{N_{w}}\left[F_{J0}(k-i)-G_{vm}(z^{-1},d)u(k-i)\right]^{2}
+\end{equation}
+donde
+\begin{equation}\label{e3_22}
+G_{vm}(z^{-1},d)=\frac{b_{1}z^{-d}}{(1+a_{1}z^{-1})}
+\end{equation}
+es el modelo del sistema actuador/vb{\'a}lvula. La identificaci{\'o}n fuera de l{\'\i}nea con datos hist{\'o}ricos en
+funcionamiento normal ($d=0$) resulto en los siguientes par{\'a}metros del modelo $n_{a}=1$, $n_{b}=1$,
+$a_{1}=0.0067$ y $b_{1}=0.9933$.
+
+De esta forma la identificaci{\'o}n del retardo en l{\'\i}nea puede resumirse como
+\begin{equation}\label{e3_23}
+\hat{d}(k)=\arg\min_d\left[V(k,d)\right],\quad \text{\textrm{con}}\quad 0\leq d\leq d_{max}
+\end{equation}
+
+Por medio de esta estrategia se realiza un monitoreo continuo del lazo. As{\'\i}, cualquier modificaci{\'o}n del
+tiempo muerto en el sistema actuador/v{\'a}lvula es detectado, estimado y reportado en l{\'\i}nea. La metodolog{\'\i}a
+empleada aqu{\'\i} para integrar el SDEF con el control y convertirlo en tolerante es la misma que la mostrada en
+las secciones anteriores, el inicio del horizonte de predicci{\'o}n es actualizado de forma aditiva como
+$H_w(k)=\hat{d}+1$ medido en muestras. De esta forma el orden de las matrices del controlador se adaptan de
+forma correcta.
+%
+\subsubsection{Detecci{\'o}n y estimaci{\'o}n de fallas en el sensor}
+Este tipo de fallas producen un efecto similar a un rechazo de perturbaciones en un lazo cerrado de control.
+Por ello, es indispensable contar con una herramienta de r{\'a}pida acci{\'o}n capaz de detectar cambios r{\'a}pidos y
+de corta duraci{\'o}n en las se{\~n}ales medidas. Una herramienta ampliamente utilizada en el {\'a}rea de procesado de
+se{\~n}ales es la transformada wavelet discreta (ver secci{\'o}n \ref{sec_DWT}). Esta estrategia permite descomponer
+una se{\~n}al mediante un banco de filtros (paso bajo y paso alto) de multiresoluci{\'o}n y analizar dicha se{\~n}al a
+diferentes escalas frecuenciales (\cite{Ms:89,Di:90}). Esta transformada puede implementarse eficientemente
+mediante el algoritmo de \cite{Ms:89}, el cual es un cl{\'a}sico esquema de descomposici{\'o}n utilizado en la
+comunidad de procesamiento de se{\~n}ales.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC - $T_1$ medici{\'o}n original]{\includegraphics[width=7cm,height=7cm]{Ch3/f10}\label{f3_21a}}
+\subfigure[Aproximaci{\'o}n a nivel 1]{\includegraphics[width=7cm,height=7cm]{Ch3/f11}\label{f3_21b}}
+\subfigure[Detalle a nivel 1]{\includegraphics[width=7cm,height=7cm]{Ch3/f12}\label{f3_21c}}
+\caption{Descomposici{\'o}n a nivel 1 de $T_1$ con Daubechies de orden 3} \label{f3_21}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+En esta aplicaci{\'o}n espec{\'\i}fica se ha seleccionado una wavelet madre de la familia Daubechies de orden 3 y el
+nivel de descomposici{\'o}n ha sido seleccionado en 1. De esta forma el algoritmo de descomposici{\'o}n es aplicado
+a la medici{\'o}n de la temperatura de reacci{\'o}n $T_1$ como se puede observar en la Fig. \ref{f3_21}. En este
+caso se proponen tres fallas secuenciales arbitrarias en el sensor del tipo offset abrupto, ocurriendo en
+los instantes $t_{f1}=200$, $t_{f2}=400$ y $t_{f3}=600$ seg., y con magnitudes $o_{ff}=-1$, $o_{ff}=0.5$ y
+$o_{ff}=2$ \textordmasculine $K$ respectivamente. Como se observa en la Fig. \ref{f3_21a} efectivamente cada
+falla producida en el sensor es compensada como si se tratara de una perturbaci{\'o}n de salida, desapareciendo
+(de forma ficticia) su efecto breves instantes despu{\'e}s de ocurrido. Teniendo en cuenta el algoritmo de
+descomposici{\'o}n mostrado en las Figs. \ref{f2_6} y \ref{f2_7}, en este caso la se{\~n}al original denominada como
+$A_0=T_1$ es descompuesta mediante filtrado paso bajo y paso alto en una se{\~n}al de aproximaci{\'o}n a nivel 1,
+$A_1$ y una se{\~n}al de detalle a nivel 1 $D_1$ respectivamente. En la Fig. \ref{f3_21b} se puede apreciar
+dicha aproximaci{\'o}n y claramente es una versi{\'o}n filtrada de la se{\~n}al original. En la Fig. \ref{f3_21c} se
+pueden apreciar los detalles de alta frecuencia de dicha se{\~n}al. Claramente se observa como los valores
+m{\'a}ximos de los picos presentes y sus direcciones de ocurrencia (patr{\'o}n de la falla) en el filtrado paso alto
+guardan informaci{\'o}n directa respecto de la magnitud y signo de la falla ocurrida. Adem{\'a}s, esta estrategia
+presenta una excelente resoluci{\'o}n temporal y aislamiento en la detecci{\'o}n.
+
+Desde el punto de vista del dise{\~n}o esta metodolog{\'\i}a permite por multiresoluci{\'o}n generar diferentes
+aproximaciones y detalles para maximizar o minimizar el contenido frecuencial de la se{\~n}al original.
+Seleccionando entonces la wavelet madre y su orden as{\'\i} como el nivel de descomposici{\'o}n se puede adecuar el
+dise{\~n}o a diferentes escenarios.
+
+La integraci{\'o}n al control tolerante a fallos en este caso es realizada mediante un estrategia similar a la
+mostrada en la ec. \ref{f3_13} considerando el par{\'a}metro de punto operativo $\hat{ppo}(k)$. Si bien
+$\hat{ppo}(k)$ se puede pensar como una modificaci{\'o}n interna y ficticia de la trayectoria de referencia, en
+este caso se utilizar{\'a} la informaci{\'o}n dada por el SDEF para efectivamente actualizar la referencia y
+compensar la falla. Como se observa en la Fig. \ref{f3_21c} desviaciones positivas en los picos de $D_1$
+corresponden a valores negativos en el offset del sensor y vicersa. Adem{\'a}s, experimentalmente se puede
+comprobar que el valor absoluto de dicho pico alcanza, $|p_o|$ esta directamente relacionado con la magnitud
+de la falla presente. As{\'\i}, un mapeo proporcional puede realizarse para estimar dicho valor. Resultando
+entonces, la actualizaci{\'o}n de la trayectoria de referencia original como se muestra en la ec. \ref{e3_24}.
+\begin{equation}\label{e3_24}
+w(k) = w_{0}(k) + \hat{o}_{ff}(k) = w_{0}(k) + \delta_o |p_o(k)|
+\end{equation}
+donde $w(k)$ es la referencia actualizada, $w_{0}(k)$ la referencia original, $\delta_o$ es el par{\'a}metro
+proporcional de dise{\~n}o para la estimaci{\'o}n del offset y $|p_o(k)|$ el valor absoluto de la magnitud m{\'a}xima
+alcanzada por el pico de la se{\~n}al $D_1$ en $k$.
+
+La estructura final de integraci{\'o}n entre la estrategia de control y el SDEF puede observarse en la Fig.
+\ref{f3_22} para el caso de CAPFRA. A su vez los par{\'a}metros de dise{\~n}o del SDEF se presentan en la Tabla
+\ref{t3_8} para las dos estrategias de control analizadas aqu{\'\i}.
+%Figure------------------------------------------
+\begin{figure}[t]
+\centering%
+\includegraphics[width=15cm,height=8cm]{Ch3/apcwrf_SDEF}%
+\caption{Estructura del CAPFRA con SDEF}\label{f3_22}
+\end{figure}
+%-------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------
+\begin{table}[t]
+  \caption{Par{\'a}metros de ajuste del SDEF}
+  \label{t3_8}
+  \centering
+  \small\rmfamily
+  \begin{tabular}{lccccccc}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+  Algoritmo    & $T_{s}$ & Wavelet-orden       & Nivel de       & $N_{w}$ & $a_{1}$ & $a_{2}$ & $\delta_o$\\
+               &         &                     & descomposici{\'o}n &         &         &         &  \\
+  \midrule[0.08em]
+  APC/APCWRF   & 1       & Daubechies-$3^{rd}$ & 1              & 200      & 0.0067  & 0.9933 & 3 \\
+  \bottomrule[0.1em]
+  \end{tabular}
+ \normalsize\sffamily
+\end{table}
+%-----------------------------------------------------------------------------------------------------------
+
+En la Fig. \ref{f3_23} se puede apreciar el comportamiento de ambos sistemas de control (CAP y CAPFRA)
+cuando ha sido integrado con el SDEF dise{\~n}ado anteriormente. Estas gr{\'a}ficas se corresponden con el caso
+presentado en las Fig. \ref{f3_19}. En la Fig. \ref{f3_23a} claramente se puede apreciar como la correcta
+estimaci{\'o}n del retardo dado en la Fig. \ref{f3_23c} permite estabilizar el lazo de control mejorando el
+rendimiento del proceso. Por otro lado, en la Fig. \ref{f3_23b} se presenta la VM en este caso para ambos
+algoritmos de control indicando acciones menos agresivas y mas estables.
+
+Siguiendo con el an{\'a}lisis de los sistemas de control con y sin SDEF en la Fig. \ref{f3_24} se presenta en
+caso an{\'a}logo a lo presentado en la Fig. \ref{f3_20} pero en este caso con SDEF integrado. Claramente en la
+Fig. \ref{f3_24a} pude verse la actualizaci{\'o}n de la trayectoria de referencia utilizando la informaci{\'o}n
+otorgada por el SDEF respecto al offset estimado (Fig. \ref{f3_24d}). Esta actualizaci{\'o}n permite compensar
+la falla conduciendo la variable real del proceso a su punto operativo normal (Fig. \ref{f3_24b}) y por
+consiguiente la VC indirectamente tambi{\'e}n (Fig. \ref{f3_24c}).
+
+El rendimiento de los algoritmos de control ante los distintos tipos de fallas se resumen en la Tabla
+\ref{t3_9}. En este caso se ha utilizado el {\'\i}ndice IAE para comparar los comportamientos de las estrategias
+con y sin SDEF. Claramente pude observarse la mejora en el caso de integraci{\'o}n con el SDEF siendo mas
+evidente en el caso de falla en sensores ya que este tipo produce el cambio de punto operativo de la
+variable real. En el caso de fallas en actuadores adem{\'a}s de producir una mejora en el {\'\i}ndice IAE la
+integraci{\'o}n incrementa las condiciones de estabilidad y robustez.
+
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC - $T_1$]{\includegraphics[width=7cm,height=7cm]{Ch3/f13}\label{f3_23a}} \subfigure[VM -
+$F_{J0}$]{\includegraphics[width=7cm,height=7cm]{Ch3/f14}\label{f3_23b}} \subfigure[Estimaci{\'o}n del
+retardo]{\includegraphics[width=7cm,height=7cm]{Ch3/f15}\label{f3_23c}} \caption{Algoritmo de CAP y CAPFRA
+integrado con el SDEF - Falla en actuador} \label{f3_23}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC - $T_1$ medida]{\includegraphics[width=7cm,height=7cm]{Ch3/f16}\label{f3_24a}} \subfigure[VC -
+$T_1$ real]{\includegraphics[width=7cm,height=7cm]{Ch3/f17}\label{f3_24b}} \subfigure[VC Indirectamente -
+$C_A$]{\includegraphics[width=7cm,height=7cm]{Ch3/f18}\label{f3_24c}} \subfigure[Estimaci{\'o}n del
+offset]{\includegraphics[width=7cm,height=7cm]{Ch3/f19}\label{f3_24d}} \caption{Algoritmo de CAP y CAPFRA
+integrado con el SDEF - Falla en sensor} \label{f3_24}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------------------------------------
+\begin{table}[t]
+  \caption{Rendimiento con fallas en actuadores y sensores}
+  \label{t3_9}
+  \centering
+  \small\rmfamily
+  \begin{tabular}{lcccccccc}
+  \addlinespace[0.3cm]
+  \toprule[0.1em]
+           &                \multicolumn{4}{c}{Falla en actuador}                        &       \multicolumn{4}{c}{Falla en sensor}         \\
+  \cmidrule[0.08em](l{0.6em}r{0.6em}){2-5} \cmidrule[0.08em](l{0.6em}r{0.6em}){6-9}
+  M{\'e}todo   & \multicolumn{2}{c}{CAP($d=10$seg.)} & \multicolumn{2}{c}{CAPFRA($d=15$seg.)} &\multicolumn{2}{c}{CAP} & \multicolumn{2}{c}{CAPFRA} \\
+  \midrule[0.08em]
+  Con SDEF &        No   &   Si                  &  No        & Si                        &  No         &   Si      &    No        &  Si               \\
+       IAE &      5.99   & 4.09                  &    5.70    & 4.72                      &  850.52     &   183.77  &    912.7     &  167.79\\
+  \bottomrule[0.1em]
+  \end{tabular}
+  \normalsize\sffamily
+\end{table}
+%---------------------------------------------------------------------------------------------------------
+
+A continuaci{\'o}n  se pretende probar esta estrategia de control tolerante a fallos en diferentes condiciones
+de operaci{\'o}n del proceso. En la Fig. \ref{f3_25} se propone analizar el algoritmo de CAPFRA integrado con el
+SDEF cuando suceden diferentes eventos secuenciales. En primer lugar la trayectoria de referencia es
+cambiante, en segundo t{\'e}rmino aparece en $t_p=200$ seg una perturbaci{\'o}n no medida en la planta referente a
+$T_{inA}$ de magnitud $-2$ \textordmasculine $K$. Finalmente aparece un offset en el sensor de temperatura
+de reacci{\'o}n a los $t_f=400$ seg. con un valor de $2$ \textordmasculine $K$. En las Figs. \ref{f3_25a} y
+\ref{f3_25b} se presenta el efecto que tienen dichos eventos sobre la VC ($T_1$) y la VC indirectamente
+($C_A$). Se puede observar claramente como el control tolerante permite la compensaci{\'o}n de la falla en el
+sensor de forma efectiva retornando la variable real del proceso a su punto operativo original y manteniendo
+la VC indirectamente en su trayectoria deseable. La perturbaci{\'o}n es rechazada correctamente. La informaci{\'o}n
+entregada por el SDEF se puede observar en la Fig. \ref{f3_25c} la cual posee una correcta resoluci{\'o}n
+temporal de detecci{\'o}n y el adecuado valor del offset estimado. En la Fig. \ref{f3_25d} se puede apreciar el
+detalle a nivel 1 ($D_1$) resultante de la descomposici{\'o}n wavelet en este caso. Claramente puede
+distinguirse la muy buena resoluci{\'o}n temporal de la detecci{\'o}n as{\'\i} como tambi{\'e}n el aislamiento de la falla
+otorgando robustez y evitando el falso diagn{\'o}stico del SDEF ante diferentes eventos simult{\'a}neos. Tanto la
+perturbaci{\'o}n como los cambios en la trayectoria de referencia est{\'a}n en el mismo orden de magnitud que el
+valor de la falla, es decir son todos eventos que afectan al proceso de forma similar.
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC - $T_1$]{\includegraphics[width=7cm,height=7cm]{Ch3/f20}\label{f3_25a}} \subfigure[VC
+Indirectamente - $C_A$]{\includegraphics[width=7cm,height=7cm]{Ch3/f21}\label{f3_25b}} \subfigure[Estimaci{\'o}n
+del offset]{\includegraphics[width=7cm,height=7cm]{Ch3/f22}\label{f3_25c}} \subfigure[Detalle wavelet a
+nivel 1 - $D_1$]{\includegraphics[width=7cm,height=7cm]{Ch3/f23}\label{f3_25d}} \caption{Algoritmo CAPFRA
+con SDEF - Falla en sensor, perturbaci{\'o}n y seguimiento de la referencia} \label{f3_25}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+% Figure----------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering%
+\subfigure[VC - $T_1$, sin SDEF]{\includegraphics[width=7cm,height=5cm]{Ch3/f24}\label{f3_26a}}
+\subfigure[VC - $T_1$, con SDEF]{\includegraphics[width=7cm,height=5cm]{Ch3/f25}\label{f3_26b}}
+\subfigure[VC Indirectamente - $C_A$]{\includegraphics[width=7cm,height=5cm]{Ch3/f27}\label{f3_26c}}
+\subfigure[Estimaci{\'o}n del retardo y offset]{\includegraphics[width=7cm,height=5cm]{Ch3/f26}\label{f3_26d}}
+\subfigure[Detalle wavelet a nivel 1 - $D_1$]{\includegraphics[width=7cm,height=5cm]{Ch3/f28}\label{f3_26e}}
+\caption{Algoritmo CAPFRA con SDEF - Falla en sensor, en el actuador, ruido de medici{\'o}n y perturbaci{\'o}n}
+\label{f3_26}
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+
+Finalmente las simulaciones que se muestran en la Fig. \ref{f3_26} permiten analizar el funcionamiento del
+algoritmo de control tolerante CAPFRA/SDEF bajo un funcionamiento regulador y con la presencia de diferentes
+eventos secuenciales. En este caso la medici{\'o}n de temperatura se ve afectada por ruido blanco aditivo pe
+potencia $0.01$. En el instante $t_{f1}$ la v{\'a}lvula comienza a fallar introduciendo un retardo adicional en
+el lazo de $15$ seg.. De forma secuencial, en $t_p=200$ seg. aparece una perturbaci{\'o}n no medida $\Delta
+T_{inA}=-2$ \textordmasculine $K$ y  finalmente en $t_{f2}=400$ seg. ocurre un offset en el sensor de $T_1$
+de magnitud $2$ \textordmasculine $K$. En la Fig. \ref{f3_26a} se puede observar el comportamiento temporal
+de la VC cuando no existe ning{\'u}n SDEF integrado, claramente se observa como la falla en v{\'a}lvula hace su
+efecto tratando de inestabilizar el lazo de control y a su vez como la falla en el sensor no puede ser
+compensada resultando en un cambio del punto operativo real del proceso. La perturbaci{\'o}n es rechazada
+correctamente. En contraposici{\'o}n, en la Fig. \ref{f3_26b} se puede apreciar el mismo comportamiento pero con
+un SDEF integrado con el algoritmo CAPFRA. Inicialmente se observa como la compensaci{\'o}n del retardo extra
+introducido por al v{\'a}lvula resulta en menos oscilaciones sobre la VC otorgando mejor rendimiento como
+regulador, a su vez la reconfiguraci{\'o}n de la trayectoria de referencia permite retornar a la variable real a
+las proximidades del punto operativo deseado. La Fig. \ref{f3_26c} resume el comportamiento de la VC
+indirectamente $C_A$ considerando el algoritmo de CAPFRA y el control tolerante CAPFRA/SDEF. Los beneficios
+de contar con una estrategia integrada son evidentes, ya que aseguramos tener dicha variable bajo
+especificaci{\'o}n. La Fig. \ref{f3_26d} muestra las salidas del SDEF, por un lado la estimaci{\'o}n del retardo
+presente en el lazo de control y por otro la predicci{\'o}n del valor y direcci{\'o}n del offset introducido por el
+sensor. Como se puede apreciar la resoluci{\'o}n temporal de detecci{\'o}n es correcta as{\'\i} como los valores
+estimados de las fallas. El efecto producido por la medici{\'o}n ruidosa de la temperatura puede observarse en
+la Fig. \ref{f3_26e}, aqu{\'\i} se presenta el detalle a nivel 1 ($D_1$) generado de la descomposici{\'o}n wavelet.
+Las buenas caracter{\'\i}sticas de aislamiento de la falla son evidentes, permitiendo una buena discriminaci{\'o}n
+del efecto de la falla. En el caso de que la potencia del ruido se tal que compromete el aislamiento, la
+descomposici{\'o}n puede realizarse utilizando una mayor cantidad de niveles (o una familia wavelet diferente) y
+aislando los efectos en diferentes detalles. De todas formas existe una cuesti{\'o}n de compromiso entre la
+potencia del ruido y la magnitud m{\'\i}nima de la falla que se puede detectar, aislar y estimar.
+
+\subsection{Sinopsis}
+Los resultados mostrados en esta secci{\'o}n resumen los beneficios de contar con un SDEF integrado con una
+estrategia de control. As{\'\i}, el lazo resultante es transformado en tolerante a fallos (activo) mediante
+reconfiguraci{\'o}n del propio controlador y por medio del ajuste en l{\'\i}nea de la trayectoria de referencia.
+Adem{\'a}s desde el punto de vista del algoritmo de control se pudo observar como la estrategia de CAPFRA
+resulta en una alternativa interesante para los algoritmos de CAP que deban operar bajo condiciones
+cambiantes de la planta y de escasa persistencia en la excitaci{\'o}n. Desde el punto de vista del dise{\~n}o del
+SDEF se pudo observar como estrategias de dise{\~n}o h{\'\i}bridas (identificaci{\'o}n de sistemas y procesado de se{\~n}al)
+permiten manipular la informaci{\'o}n del proceso y decidir respecto de su estado. La informaci{\'o}n resultante del
+SDEF es utilizada directamente para mejorar las condiciones de rendimiento y estabilidad del lazo de
+control, utilizando t{\'e}cnicas de actualizaci{\'o}n en l{\'\i}nea. La capacidad del SDEF de cuantificar la magnitud de
+las fallas resulta de vital importancia a la hora de poder compensar el efecto de los eventos anormales.
+Diferentes entornos de trabajo, en una escala creciente de complejidad, se han probado a lo largo de la
+secci{\'o}n anterior: sistema lineal fijo, cambiante (delay, ganancia, ceros), un sistema no lineal (RTAC) libre
+de fallas, RTAC con fallas, comportamiento como servo, como regulador, mediciones ruidosas, fallas
+secuenciales, as{\'\i} como tambi{\'e}n diferentes combinaciones, en todos los casos el beneficio de contar con una
+estrategia de SDEF integrada con la de control resulta evidente y para ello se han evaluado {\'\i}ndices de
+rendimiento tales como IAE.
+
+El dise{\~n}o e integraci{\'o}n de un SDEF puede resultar relativamente simple y efectivo en casos como los
+mostrados en las secciones anteriores, donde el proceso en cuesti{\'o}n resulta ser SISO (lineal o no). En estos
+casos simples estrategias de dise{\~n}o del SDEF basadas en modelos simplificados y procesado de se{\~n}al pueden
+representar una soluci{\'o}n adecuada. Por otro lado cuando el proceso incrementa su complejidad, ya sea por
+dimensi{\'o}n o por las no linealidades existentes, estrategias de dise{\~n}o basadas en modelos simplificados
+pueden brindar solo soluciones parciales vinculadas a rangos de aplicaci{\'o}n, por otro lado estrategias de
+procesado de se{\~n}al como la mostrada aqu{\'\i} deber{\'\i}an repetirse por cada lazo de control dando una restricci{\'o}n
+obvia de complejidad computacional. A{\'u}n pudiendo salvar estos inconvenientes la estrategia as{\'\i} definida
+puede ser vista como una que genera soluciones locales a los lazos de control y no posee una estructura
+global de manejo de la informaci{\'o}n. La secci{\'o}n siguiente presenta el dise{\~n}o de un sistema de detecci{\'o}n,
+diagn{\'o}stico y estimaci{\'o}n de fallas (SDDEF) para grandes y complejos procesos qu{\'\i}micos y la integraci{\'o}n a la
+estrategia de control existente.

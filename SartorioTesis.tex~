@@ -1,0 +1,90 @@
+\input{preamble}
+\setcounter{tocdepth}{5}
+
+%
+%\includeonly{titlepage,acknowledgements,abstract,glossary,variables,Ch0/chap0,Ch1/chap1} %,Ch2/chap2,Ch3/chap3} %Appendix/appendixa}
+%
+\begin{document}
+% ----- cambia enunciado Cuadros por Tabla -----------
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{{\'I}ndice de tablas}
+
+% ---P{\'a}gina de t{\'\i}tulo ---
+\include{titlepage}
+%\pagenumbering{roman}
+%----------------------------- P{\'A}GINA DE CERTIFICACI{\'O}N --------------------------------------------------
+\thispagestyle{empty}%
+Certifico que el trabajo incluido en esta tesis es el resultado de tareas de investigaci{\'o}n originales y que no ha sido presentado para optar a un t{\'\i}tulo de postgrado en ninguna otra
+Universidad o Instituci{\'o}n.\\
+\vspace{0.5cm}
+\begin{flushright}
+\large\fontfamily{augie}\selectfont
+%\calligra\fontsize{0.25in}{0.45in}\selectfont
+xxxxx\\
+\normalsize\sffamily
+xxxxx
+\end{flushright}
+%--------------------------------------------------------------------------------------------------------
+
+% --------- Archivo Agradecimientos -----------
+%\addcontentsline{toc}{chapter}{Agradecimientos}
+%\include{acknowledgements}
+
+% --------- Archivo Resumen -----------
+%\addcontentsline{toc}{chapter}{Resumen}
+%\include{abstract}
+
+% ------------ Glosario y Variables ------------
+%\addcontentsline{toc}{chapter}{Glosario}
+%\include{glossary}
+%\addcontentsline{toc}{chapter}{Variables}
+%\include{variables}
+
+% ---- Lista de contenidos, figuras y tablas ----
+\tableofcontents 
+%\listoffigures 
+%\listoftables
+
+\renewcommand{\baselinestretch}{1.2} % cambio el interlineado
+
+% -- Archivo Cap{\'\i}tulo N� 0 \chapter{Introduction} --
+\include{Ch0/chap0}
+
+%\include{DHD/DHD}
+% -- Archivo Cap{\'\i}tulo N� 1  \chapter{State of the Art} --
+\include{Ch1/chap1}
+
+% -- Archivo Cap{\'\i}tulo N� 2  \chapter{Target Models and Architectures} --
+\include{Ch2/chap2}
+
+% -- Archivo Cap{\'\i}tulo N� 4 \chapter{Context Aware Contract} -
+\include{Ch4/chap4}
+
+% -- Archivo Cap{\'\i}tulo N� 5  \chapter{Framewrok to Implemet Context Aware Contract in E-learning Environment}-- 
+\include{Ch5/chap5}
+
+% -- Archivo Cap{\'\i}tulo N� 6 \chapter{Design Frameworks for Context Aware Contract Web E-learning Application} --
+%\include{Ch6/chap6}
+
+% -- Archivo Cap{\'\i}tulo N� 7 \chapter{A Case Study of DHD Framework Implementation} --
+\include{Ch7/chap7}
+
+% -- Archivo Cap{\'\i}tulo N� 9 \chapter{Further Works}
+\include{Ch9/chap9}
+
+% -- Archivo Cap{\'\i}tulo N� 8 \chapter{Conclusions}
+\include{Ch8/chap8}
+
+% -- Archivo Cap{\'\i}tulo N� 8 \chapter{Conclusions}
+\include{Biblio/biblio}
+
+
+% ----- Archivo Ap{\'e}ndice -----
+%\include{Appendix/appendixa}
+
+% --------- Archivo Bibliograf{\'\i}a -----------
+\addcontentsline{toc}{chapter}{Bibliograf{\'\i}a}
+\bibliographystyle{plainnat}
+%\bibliography{bib}
+\end{document}
+  

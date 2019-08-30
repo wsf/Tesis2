@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Elementos de la componente contrato</TITLE>
+<META NAME="description" CONTENT="Elementos de la componente contrato">
+<META NAME="keywords" CONTENT="Sartorio_Cacic2007-Prueba">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Sartorio_Cacic2007-Prueba.css">
+
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html53"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html51"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html47"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html54"
+  HREF="node4.html">DOCUMENTACI&#195;&#147;N DE LOS PROCESOS</A>
+<B> Up:</B> <A NAME="tex2html52"
+  HREF="node2.html">CONTATOS CONTEXT-AWARE PARA TRANACCIONES</A>
+<B> Previous:</B> <A NAME="tex2html48"
+  HREF="node2.html">CONTATOS CONTEXT-AWARE PARA TRANACCIONES</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00021000000000000000">
+Elementos de la componente contrato</A>
+</H2>
+
+<P>
+El contrato puede ser configurado por medio de diferentes mecanismos, desde el lenguaje cotidiano hasta un lenguaje de especificaci&#195;&#179;n formal y un lenguaje basado en XML para los casos que sean necesarias especificaciones que puedan ser procesadas por m&#195;&#161;quinas. 
+
+<P>
+El tipo de tecnolog&#195;&#173;a y forma de implementaci&#195;&#179;n de los contratos es transparente para los objetos que consumen los servicios en donde se encuentran involucrados.
+La configuraci&#195;&#179;n de un elemento contrato que forma parte de  las componentes de un servicio, representa la informaci&#195;&#179;n necesaria del mismo para ser utilizado por el invocador, sin necesidad que el dicho objeto tenga detalles de la ejecuci&#195;&#179;n.
+El contrato representa una enriquecida y efectiva interface de construcci&#195;&#179;n que contiene toda la informaci&#195;&#179;n sobre las componentes de los servicios, y deber&#195;&#161; tener referencias sobre alg&#195;&#186;n tipo de informaci&#195;&#179;n de contexto para su utilizaci&#195;&#179;n.
+
+<P>
+En la figura <A HREF="#contratoca">1</A> se puede observar los elementos conceptuales b&#195;&#161;sicos de esta componente a trav&#195;&#169;s de una serie de elementos que lo relacionan.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="contratoca"></A><A NAME="39"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+<SMALL CLASS="SMALL"><I CLASS="slanted">Meta-modelo del contrato context-aware</I></SMALL></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+  WIDTH="500" HEIGHT="200" ALIGN="BOTTOM" BORDER="0"
+ SRC="./contratoca.png"
+ ALT="Image contratoca">
+                
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Para una mejor comprensi&#195;&#179;n de las componentes del modelo se explica su caracterizaci&#195;&#179;n y funciones particulares: 
+
+<P>
+<SPAN  CLASS="textit">Identificador</SPAN> &#226;&#128;&#147; Una componente servicio es identificada para un determinado contexto por un &#195;&#186;nico nombre en el espacio de nombre.
+
+<P>
+<SPAN  CLASS="textit">Comportamiento</SPAN> -  De acuerdo con los roles asignados en un determinado contexto, una componente servicio expone comportamientos correspondientes a la provisi&#195;&#179;n y pedido de operaciones, y/o publicaciones y recepci&#195;&#179;n  desde/hacia cada contexto. Las operaciones pueden ser definidas en dos tipos &#226;&#128;&#147; operaciones que ejecutan c&#195;&#179;mputos o transformaciones (tipo &#226;&#128;&#156;update&#226;&#128;&#157;) y operaciones que proveen alg&#195;&#186;n tipo de informaci&#195;&#179;n sobre consultas  (tipo &#226;&#128;&#156;query&#226;&#128;&#157;). Estas, se encuentran enteramente especificadas en base a  un contrato, con el uso de pre-condici&#195;&#179;n, post-condici&#195;&#179;n y condicionales para lograr la coordinaci&#195;&#179;n entre contratos. En las condiciones de coordinaci&#195;&#179;n se especifican c&#195;&#179;mo requerir y proveer operaciones. Para lograr una comunicaci&#195;&#179;n precisa con una componente servicio, no s&#195;&#179;lo se tiene en cuenta qu&#195;&#169; operaci&#195;&#179;n fue provista o requerida y c&#195;&#179;mo el ejecutor ha lanzado el evento apropiado, sino tambi&#195;&#169;n, c&#195;&#179;mo todas esas actividades est&#195;&#161;n mutuamente relacionadas para ser aprovechadas por el objeto cliente. Un evento del contexto que lanza una operaci&#195;&#179;n dada, puede ser parte de un conjunto de pre-condici&#195;&#179;n, mientras que un evento emitido a trav&#195;&#169;s de una exitosa operaci&#195;&#179;n puede ser parte de una pos-condici&#195;&#179;n. 
+
+<P>
+<SPAN  CLASS="textit">Tipos de Informaci&#195;&#179;n</SPAN> &#226;&#128;&#147;  Una componente de servicio debe  manejar, usar,  crear o tener cierta informaci&#195;&#179;n de recursos con el prop&#195;&#179;sito de proveer servicios adecuadamente.  Este elemento del contrato define el tipo de informaci&#195;&#179;n relevante para las componentes  asociadas al contrato, as&#195;&#173; como tambi&#195;&#169;n restricciones y reglas sobre instancias de esos tipos. Esto representa un modelo de informaci&#195;&#179;n l&#195;&#179;gica de una componente de servicio. Formalmente, esta informaci&#195;&#179;n de tipos puede ser considerada como definiciones de tipos de  los par&#195;&#161;metros de las operaciones, o tipos relacionados a ellos.
+
+<P>
+<SPAN  CLASS="textit">Configuraci&#195;&#179;n de Par&#195;&#161;metros Context-Aware</SPAN> &#226;&#128;&#147; Una componente servicio depende del contexto de su actual entorno. Para utilizarse en diferentes contextos logrando la adaptaci&#195;&#179;n a eventuales cambios debe tener definido un conjunto de par&#195;&#161;metros de configuraci&#195;&#179;n.  Ejemplos de estos par&#195;&#161;metros pueden ser: Contexto-del-Usuario (CU), locaci&#195;&#179;n en tiempo y espacio de los servicios consumidos y suministrados. Estos par&#195;&#161;metros pueden ser enviados dentro de las invocaciones de las operaciones de los servicios o por medio de otros caminos, mediante componentes de servicios que pueden adaptar su comportamiento ante el cambio de contexto en una determinada situaci&#195;&#179;n.  
+
+<P>
+<SPAN  CLASS="textit">Par&#195;&#161;metros no funcionales</SPAN> &#226;&#128;&#147; Una componente servicio puede definir un conjunto de los llamados par&#195;&#161;metros no funcionales que caracterizan a la &#226;&#128;&#156;calidad&#226;&#128;&#157; de sus prestaciones dentro de un determinado contexto. Estos par&#195;&#161;metros, son elementos para los consumidores de los servicios que permiten optar por el uso de un determinado  servicio, o buscar otro con el mismo o similar contrato. Como ejemplo de par&#195;&#161;metros no funcionales podemos mencionar: Performance, Fiabilidad, Tolerancia a Fallos, Costos, Prioridad y Seguridad.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html53"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html51"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html47"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html54"
+  HREF="node4.html">DOCUMENTACI&#195;&#147;N DE LOS PROCESOS</A>
+<B> Up:</B> <A NAME="tex2html52"
+  HREF="node2.html">CONTATOS CONTEXT-AWARE PARA TRANACCIONES</A>
+<B> Previous:</B> <A NAME="tex2html48"
+  HREF="node2.html">CONTATOS CONTEXT-AWARE PARA TRANACCIONES</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Alejandro Sartorio
+2010-04-11
+</ADDRESS>
+</BODY>
+</HTML>

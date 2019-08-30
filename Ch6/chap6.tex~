@@ -1,0 +1,11 @@
+%--------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Chapter 5 --------------------------------------------------------
+\chapter{Context Aware Contract}
+\pagenumbering{arabic}
+
+
+\section{Conceptual Design}
+\section{Logical Design}
+\section{Model-Driver development of DHD}
+\subsection{Dynamic Model Driver}
+\subsection{UWATc: A 

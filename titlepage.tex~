@@ -1,0 +1,45 @@
+%--------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Title Page -------------------------------------------------------
+\thispagestyle{empty}
+%******************************************TITLE PAGE***************************************************************
+\begin{titlepage}
+\begin{center}
+\begin{tabular}{lc}
+\multirow{4}{2.5cm}{\includegraphics[width=2.5cm,height=2.5cm]{unrlogo}}
+                                                  & \large Universidad Nacional De La Plata (UNLP)\\
+                                                  & \large Facultad De Informática \\
+                                                  & \large Centro Internacional Franco Argentino de Ciencias de la\\
+                                                  & \large Informaci{\'o}n y Sistemas (CIFASIS)\\ & \large CONICET--UNICAM III--UNR\\
+\end{tabular}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\huge Tesis Doctoral\\
+\vspace{2cm}
+\huge{\textbf{Contratos sensibles al contexto para el Dispositivo Hipermedial Dinámico}}\\
+\vspace{2cm}
+\huge Alejandro R. Sartorio\\
+\vspace{2cm}
+\end{center}
+\begin{flushright}
+\begin{tabular}{rl}
+\large \textbf{Director:}& Dro. Gustavo Rossi\\
+\large \textbf{Co-Director:}& Dra. Patricia San Martín\\
+\large \textbf{Asesor Científico:}& Ms. Maximiliano Critía\\
+&\\
+&\\
+\large \textbf{Miembros del jurado:}& Jurado 1\\
+                                    & Jurado 2\\
+                                    & Jurado 3\\
+\end{tabular}
+\end{flushright}
+\vspace{0.5cm}
+\begin{center}
+\large Tesis presentada en la Facultad de Informática de La Plata, en cumplimiento
+parcial de los requisitos para optar al t{\'\i}tulo de:\\
+\vspace{0.5cm} \huge Doctor en Informática\\
+\vspace{0.5cm}
+\normalsize
+FECHA DE PRESENTACI{\'O}N
+\end{center}
+\end{titlepage}

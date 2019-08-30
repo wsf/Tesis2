@@ -1,0 +1,84 @@
+\input{preamble}
+%
+%\includeonly{titlepage,acknowledgements,abstract,glossary,variables,Ch0/chap0,Ch1/chap1} %,Ch2/chap2,Ch3/chap3} %Appendix/appendixa}
+%
+\begin{document}
+% ----- cambia enunciado Cuadros por Tabla -----------
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{{\'I}ndice de tablas}
+
+% ---P{\'a}gina de t{\'\i}tulo ---
+\include{titlepage}
+\pagenumbering{roman}
+
+%----------------------------- P{\'A}GINA DE CERTIFICACI{\'O}N --------------------------------------------------
+\thispagestyle{empty}%
+Certifico que el trabajo incluido en esta tesis es el resultado de tareas de investigaci{\'o}n originales y que
+no ha sido presentado para optar a un t{\'\i}tulo de postgrado en ninguna otra
+Universidad o Instituci{\'o}n.\\
+\vspace{1cm}
+\begin{flushright}
+\large\fontfamily{augie}\selectfont
+%\calligra\fontsize{0.25in}{0.45in}\selectfont
+Alejandro R. Sartorio \\
+\normalsize\sffamily
+Alejandro R. Sartorio
+\end{flushright}
+%--------------------------------------------------------------------------------------------------------
+
+% --------- Archivo Agradecimientos -----------
+\addcontentsline{toc}{chapter}{Agradecimientos}
+\include{acknowledgements}
+
+% --------- Archivo Resumen -----------
+\addcontentsline{toc}{chapter}{Resumen}
+\include{abstract}
+
+% ------------ Glosario y Variables ------------
+\addcontentsline{toc}{chapter}{Glosario}
+%\include{glossary}
+\addcontentsline{toc}{chapter}{Variables}
+%\include{variables}
+
+% ---- Lista de contenidos, figuras y tablas ----
+\tableofcontents \listoffigures \listoftables
+
+% -- Archivo Cap{\'\i}tulo N� 0 --
+\include{Ch0/chap0}
+
+% -- Archivo Cap{\'\i}tulo N� 1 --
+\include{Ch1/chap1}
+
+% -- Archivo Cap{\'\i}tulo N� 2 --
+\include{Ch2/chap2}
+
+% -- Archivo Cap{\'\i}tulo N� 3 --
+\include{Ch3/chap3}
+
+% -- Archivo Cap{\'\i}tulo N� 4 --
+\include{Ch4/chap4}
+
+% -- Archivo Cap{\'\i}tulo N� 5 --
+\include{Ch5/chap5}
+
+% -- Archivo Cap{\'\i}tulo N� 5 --
+%\include{Ch6/chap6}
+
+% -- Archivo Cap{\'\i}tulo N� 5 --
+%\include{Ch7/chap7}
+
+% -- Archivo Cap{\'\i}tulo N� 5 --
+%\include{Ch8/chap8}
+
+% -- Archivo Cap{\'\i}tulo N� 5 --
+%\include{Ch9/chap9}
+
+
+% ----- Archivo Ap{\'e}ndice -----
+%\include{Appendix/appendixa}
+
+% --------- Archivo Bibliograf{\'\i}a -----------
+\addcontentsline{toc}{chapter}{Bibliograf{\'\i}a}
+\bibliographystyle{plainnat}
+\bibliography{bib}
+\end{document}

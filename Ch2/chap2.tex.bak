@@ -1,0 +1,1337 @@
+%--------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Chapter 2 --------------------------------------------------------
+\chapter{Herramientas y T{\'e}cnicas}
+\section*{Introducci{\'o}n}
+En este cap{\'\i}tulo se presentar{\'a}n las herramientas y t{\'e}cnicas utilizadas a lo largo del desarrollo de esta
+tesis. Las diferentes estrategias involucradas evidencian el car{\'a}cter multidiciplinario de este trabajo. La
+clasificaci{\'o}n inicial se basa en dos grandes subgrupos como \textit{A. Procesamiento de la informaci{\'o}n} y
+\textit{B. Control de procesos}. As{\'\i} en el primero podemos encontrar herramientas tales como: Transformada
+Wavelet Discreta (TWD), An{\'a}lisis de Componentes Principales (ACP), Redes Neuronales Artificiales (RNA),
+Sistema Experto (SE) y de L{\'o}gica-Difusa (LD) e Identificaci{\'o}n de Sistemas (IS). Por otro lado, el segundo
+grupo involucra las herramientas y t{\'e}cnicas referentes a control de procesos tales como: Control Predictivo
+basado en Modelos (CPM) y Control Predictivo Adaptivo (CPA) entre
+otros.\\
+
+\addcontentsline{toc}{section}{\textbf{A. Procesamiento de la Informaci{\'o}n}} \Large \noindent \textbf{A.
+Procesamiento de la Informaci{\'o}n} \normalsize
+\section{An{\'a}lisis de componentes principales (ACP)}\label{sec_PCA}
+Consideremos un matriz $\mathbf{X}$ de $m \times n$ la cual contiene $m$ muestras de $n$ variables del
+proceso recogidas bajo condiciones normales de operaci{\'o}n. Asumiremos que cada columna de $\mathbf{X}$ posee
+una distribuci{\'o}n normal de probabilidad de sus datos. Denominaremos con $\bar{\mathbf{X}}$ a la versi{\'o}n
+normalizada de $\mathbf{X}$ de forma tal que cada columna de $\bar{\mathbf{X}}$ tenga media cero y varianza
+unidad, es decir, sea una versi{\'o}n auto-escalada como muestra la Ec. \ref{e2_1}.
+\begin{equation}\label{e2_1}
+    \bar{\mathbf{X}}=(\mathbf{X}-\mathbf{1}_m\mathbf{b})/\mathbf{S}
+\end{equation}
+donde $\mathbf{1}_m=[1,1,\ldots,1]^T$ es un vector de unos de dimensi{\'o}n $m$,
+$\mathbf{b}=[\mu_1,\mu_2,\ldots,\mu_n]$ el vector de valores medios y
+$\mathbf{S}=diag(\sigma_1,\sigma_2,\ldots,\sigma_n)$ la matriz diagonal de varianzas respectivamente
+obtenidas de los datos bajo condiciones normales de operaci{\'o}n $\mathbf{X}$, siendo $\mu_i$ y $\sigma_i$ el
+valor medio y la varianza para la variable de proceso $i$, con $i=1,2,\ldots,n$. Notar que $(\cdot)^T$ indica
+el operador transpuesta.
+
+Podemos estimar la matriz de correlaci{\'o}n de los datos como
+\begin{equation}\label{e2_2}
+    \mathbf{R}=\frac{\bar{\mathbf{X}}\bar{\mathbf{X}}^{T}}{m-1}
+\end{equation}
+y realizando la descomposici{\'o}n en valores singulares (DVS) de $\mathbf{R}$ como se muestra en la Ec.
+\ref{e2_3}
+\begin{equation}\label{e2_3}
+    \mathbf{R}=\mathbf{U}\mathbf{D}_{\lambda}\mathbf{U}^{T}
+\end{equation}
+obtenemos la matriz diagonal $\mathbf{D}_\lambda=diag(\lambda_1,\lambda_2,\ldots,\lambda_n)$ conteniendo los
+$n$ autovalores de $\mathbf{R}$ ordenados en forma decreciente $(\lambda_1<\lambda_2<\ldots<\lambda_n)$. Los
+autovectores correspondientes a cada autovalor (columnas de la matriz $\mathbf{U}$) son denominados
+\textit{componentes principales}, $\mathbf{p}_{i}$ con $i=1,\ldots,n$, los cuales a su vez forman una base
+ortonormal en $\Re^n$.
+
+Los componentes principales pueden dividirse en dos conjuntos ortogonales (no correlacionados),
+$\mathbf{P}=[\mathbf{p}_1,\mathbf{p}_2,\ldots,\mathbf{p}_A]$ y
+$\bar{\mathbf{P}}=[\mathbf{p}_{A+1},\mathbf{p}_{A+2},\ldots,\mathbf{p}_n]$, el primero contiene la mayor
+parte de la varianza (informaci{\'o}n) del proceso denominado subespacio de variaci{\'o}n dominante (SVD) y es un
+espacio no correlacionado de baja dimensi{\'o}n, el segundo describe la varianza debido al ruido llamado
+subespacio residual (SR).
+
+Puede lograrse una reducci{\'o}n dimensional entonces proyectando (combinando linealmente) cada muestra
+normalizada de las variables del proceso $\bar{\mathbf{x}}(k)^T$ sobre el espacio de los componentes
+principales $\mathbf{P}$, obteniendo as{\'\i} el \textit{vector de variables latentes}
+$\mathbf{t}(k)=\mathbf{P}^T\bar{\mathbf{x}}(k)^T$ para el instante de muestreo $k$. Debe notarse aqu{\'\i} que
+$\bar{\mathbf{x}}(k)$ es un vector de dimensiones $1 \times n$ conteniendo las $n$ variables medidas del
+proceso en el instante de muestreo $k$ y normalizado respecto de los par{\'a}metros de escala ($\mathbf{b}$ y
+$\mathbf{S}$), a su vez $\mathbf{P}$ es de dimensi{\'o}n $n\times A$, con $A$ el n{\'u}mero de componentes
+principales retenidos, as{\'\i} el vector de variables latentes resulta de dimensi{\'o}n $A\times 1$ y la reducci{\'o}n
+dimensional es evidente ya que normalmente seleccionamos $A\ll n$.
+
+
+\subsection{Selecci{\'o}n de los componentes principales}
+Una buena revisi{\'o}n de las t{\'e}cnicas ampliamente utilizadas se puede encontrar en trabajos como el de
+\cite{HdSrGc:94} o el de \cite{LwYhVCsQs:00}. La cantidad de componentes principales retenidos afectar{\'a}
+directamente la varianza (informaci{\'o}n) que contendr{\'a} nuestro modelo respecto del funcionamiento normal.
+Algunos de los m{\'e}todos mas populares son:
+
+\begin{itemize}
+    \item[A-] Punto de Quiebre (PQ) o Scree Plot: Graficando cada autovalor versus su correspondiente
+    componente principal vemos que resulta en una curva r{\'a}pidamente descendente en sus primeros autovalores
+    y luego de un punto de quiebre la curva decrece mas lentamente. Este punto de quiebre sugiere la
+    separaci{\'o}n entre informaci{\'o}n del proceso (varianza) y ruido. Generalmente la cantidad de componentes
+    principales que dan lugar a este punto es seleccionada como $A$.
+    \item[B-] Promedio de los Autovalores (PA): Esta estrategia selecciona los autovalores cuya magnitud
+    sea mayor al valor medio de todos los autovalores y descarta los restantes. La cantidad de autovalores
+    que se encuentren por encima de dicho l{\'\i}mite determinan $A$.
+    \item[C-] Porcentaje de Varianza Acumulada (PVA): Este {\'\i}ndice es una medida del porcentaje de
+    varianza capturada por los primeros $l$ componentes principales y puede expresarse como:
+    \begin{equation}\label{e2_4}
+    pva(l)=\frac{\sum_{j=1}^{l}\lambda_j}{\sum_{j=1}^{n}\lambda_j}100\%
+    \end{equation}
+    de esta forma el n{\'u}mero de componentes principales retenidos $A$ estar{\'a} dado por el valor $l$ para el
+    cual $pva(l)$ alcanza o supera un l{\'\i}mite predeterminado, digamos por ejemplo $95\%$ de informaci{\'o}n.
+\end{itemize}
+
+En la Figura \ref{f2_1} podemos observar los tres m{\'e}todos anteriormente discutidos. En este caso se utilizan
+40 mediciones de un proceso de producci{\'o}n de pulpa y papel. Como podemos apreciar la diferencia entre
+estrategias de selecci{\'o}n no resulta sustancial. A lo largo de esta tesis utilizaremos el {\'\i}ndice PVA para
+seleccionar los componentes principales.
+
+% Figure---------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=10cm,height=8cm]{Ch2/pc_select}
+\caption{Selecci{\'o}n de componentes principales} \label{f2_1}
+\end{figure}
+%----------------------------------------------------------
+
+\subsection{Estad{\'\i}sticos de control basados en ACP}
+\subsubsection{Estad{\'\i}stico de Hotelling ($T^2$)}
+Recordando que la matriz de componentes principales retenidos $\mathbf{P}$ fue generada considerando los
+datos del proceso en comportamiento normal (causas comunes de variaci{\'o}n), el comportamiento futuro del
+proceso puede ser referenciado a esta zona.
+
+De esta forma el estado del proceso puede ser monitoreado en todo momento utilizando el estad{\'\i}stico de
+Hotelling, el cual es una medida de la distancia Mahalanobis a el origen del SVD y puede ser expresada como
+se muestra en la Ec. \ref{e2_5} para el caso de $A$ componentes principales retenidos.
+\begin{equation}\label{e2_5}
+    T^2(k)=\left\|\mathbf{D}_{\lambda A}^{-2}\mathbf{P}^T\bar{\mathbf{x}}(k)^T\right\|^2
+\end{equation}
+donde $\mathbf{D}_{\lambda A}$ es la matriz diagonal de autovalores de la matriz de correlaci{\'o}n cuando solo
+han sido seleccionados los primeros $A$ de ellos.
+
+Este monitoreo consiste en declarar funcionamiento normal del proceso solo si $T^2(k)\leq \delta_{T^2}$,
+donde $\delta_{T^2}$ es el l{\'\i}mite de confianza para $T^2$. Podr{\'\i}a ocurrir que alg{\'u}n tipo de evento anormal
+o falla no posea la variaci{\'o}n suficiente como para ser detectado sobre el SVD, produciendo que $T^2$ se
+mantenga por debajo de su l{\'\i}mite de confianza. Para evitar esta p{\'e}rdida de detecci{\'o}n este estad{\'\i}stico se
+complementa con uno adicional denominado error cuadr{\'a}tico de predicci{\'o}n ($ECP$) o $Q$.
+
+\subsubsection{Estad{\'\i}stico error cuadr{\'a}tico de predicci{\'o}n ($ECP$)}
+Este estad{\'\i}stico esta definido como la suma de los errores cuadr{\'a}ticos entre las mediciones del proceso
+auto-escaladas y las predicciones efectuadas por el modelo ACP (reconstrucci{\'o}n de las se{\~n}ales reales). Es
+decir, recordando que $\mathbf{t}(k)=\mathbf{P}^T\bar{\mathbf{x}}(k)^T$ tenemos que
+\begin{equation}\label{e2_6}
+    \Delta \bar{\mathbf{x}}(k)=\bar{\mathbf{x}}^T-\mathbf{P}\mathbf{t}(k)
+    =\bar{\mathbf{x}}^T-\mathbf{P}\mathbf{P}^T\bar{\mathbf{x}}(k)^T
+    =\left(\mathbf{I}-\mathbf{P}\mathbf{P}^T\right)\bar{\mathbf{x}}(k)^T
+    =\tilde{\mathbf{C}}\bar{\mathbf{x}}(k)^T
+\end{equation}
+as{\'\i} podemos definir el estad{\'\i}stico $SPE$ como
+\begin{equation}\label{e2_7}
+    Q(k) = \left\|\Delta \bar{\mathbf{x}}(k)\right\| = \left\|\tilde{\mathbf{C}}\bar{\mathbf{x}}(k)^T
+    \right\|
+\end{equation}
+nuevamente aqu{\'\i}, si $Q(k)\leq \delta_{Q}$ el proceso se encuentra en funcionamiento normal, donde
+$\delta_{Q}$ es el l{\'\i}mite de confianza. Este estad{\'\i}stico complementa el de Hotelling permitiendo detectar
+eventos nuevos no contenidos en el conjunto de causas mas comunes.
+
+\subsubsection{L{\'\i}mites de confianza ($\delta_{T^2}$ y $\delta_{Q}$)}
+Los l{\'\i}mites de confianza pueden computarse considerando que los estad{\'\i}sticos siguen determinado tipo de
+distribuci{\'o}n. Para el caso de $T^2$ podemos utilizar la distribuci{\'o}n $F$ (cociente entre dos distribuciones
+$\chi^2$) (\cite{LsMeMaGp:03}) y estimar una cota superior como muestra la Ec. \ref{e2_8}.
+\begin{equation}\label{e2_8}
+    \delta_{T^2}=\frac{A(m-1)}{(m-A)}F_{A,m-A,\alpha}
+\end{equation}
+donde como dijimos $A$ es el n{\'u}mero de componentes principales seleccionados, $m$ es la cantidad de
+muestras utilizadas en la construcci{\'o}n del modelo, y $F_{A,m-A,\alpha}$ es el valor de la distribuci{\'o}n $F$
+para $A$ y $m-A$ como grados de libertad y $\alpha$ es un valor que indica el grado de confianza (por
+ejemplo, $\alpha=0.05$ para 95\% de confianza). Por otro lado, bajo la misma suposici{\'o}n de se{\~n}ales
+normalmente distribuidas, los residuos generados por el m{\'e}todo $ECP$ est{\'a}n definidos por seguir muy bien
+una forma cuadr{\'a}tica de una distribuci{\'o}n normal (\cite{LsMeMaGp:03,LwYhVCsQs:00}) y en este caso la
+expresi{\'o}n del l{\'\i}mite de confianza viene dada por la Ec. \ref{e2_9}.
+\begin{equation}\label{e2_9}
+    \delta_{Q}=\theta_1\left[1+\frac{\theta_2h(h-1)}{\theta_1^2}+
+    \frac{c_\alpha\sqrt{2\theta_2h^2}}{\theta_1}\right]^{1/h}
+\end{equation}
+donde
+\begin{equation}
+\theta_1=\sum_{i=A+1}^{n}\lambda_i,\quad \theta_2=\sum_{i=A+1}^{n}\lambda^2_i,\quad
+\theta_3=\sum_{i=A+1}^{n}\lambda^3_i,\quad h=1-\frac{2\theta_1\theta_3}{3\theta_2^2}
+\end{equation}
+y $c_\alpha$ es la desviaci{\'o}n normal est{\'a}ndar para un dado $\alpha$.
+
+Estos l{\'\i}mites generalmente se calculan para 95\% o 99\% de confianza, es decir, en condiciones normales de
+funcionamiento el 95\% o 99\% de los datos que conforman los estad{\'\i}sticos se encuentran bajo estos l{\'\i}mites.
+Debe considerarse que esta forma de computar los l{\'\i}mites es aproximada ya que se basa en suposiciones y
+simplificaciones tales como considerar distribuci{\'o}n normal de los datos, no correlaci{\'o}n temporal entre las
+variables y correlaci{\'o}n lineal. Generalmente en la pr{\'a}ctica estos umbrales deben ser actualizados en l{\'\i}nea
+(\cite{Me:05}) para obtener mejor rendimiento de monitoreo.
+
+Por otro lado, existe una forma simple de aproximar dichos l{\'\i}mites de confianza basado en la suposici{\'o}n de
+que las mediciones del proceso se encuentran distribuidas en forma Gaussiana (\cite{Ws:1994,Rd:01}). As{\'\i},
+el c{\'a}lculo del l{\'\i}mite superior de confianza resulta seg{\'u}n la Ec. \ref{e2_10}.
+\begin{equation}\label{e2_10}
+    \delta_i=\mu_i+\nu\sigma_i, \qquad i=T^2,Q \qquad \nu=2,3
+\end{equation}
+donde $\delta_i$ hace referencia al l{\'\i}mite de confianza, $\mu_i$ es el valor medio y $\sigma_i$ la
+desviaci{\'o}n est{\'a}ndar, todo referido al estad{\'\i}stico $i$. En este caso $\nu=2,3$ refiere a 95\%,99\% de
+confianza respectivamente.
+
+Como un ejemplo, veamos el caso en que los datos normales del proceso $\mathbf{X}$ posee dimensi{\'o}n $m=1801$
+y $n=40$. Utilizando la versi{\'o}n auto-escalada de esta matriz se construye el modelo estad{\'\i}stico mediante
+ACP considerando $pva\geq 90\%$. Como resultado $A=12$ componentes principales fueron retenidos. La idea
+entonces es comparar los l{\'\i}mites de confianza obtenidos por los m{\'e}todos anteriores resumidos en las Ecs.
+\ref{e2_8}, \ref{e2_9} y \ref{e2_10}. De esta forma llamaremos, como se muestra el la Fig. \ref{f2_2},
+$\delta_{i,a}$, $\delta_{i,b}$ y $\delta_{i,c}$ respectivamente, siendo $i=99\%,95\%$ de confianza.
+% Figure-------------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering \subfigure[Estad{\'\i}stico $T^2$]{\includegraphics[width=7cm,height=7cm]{Ch2/t2}}
+\subfigure[Estad{\'\i}stico $Q$]{\includegraphics[width=7cm,height=7cm]{Ch2/spe}} \caption{L{\'\i}mites de confianza
+-- Monitoreo en l{\'\i}nea} \label{f2_2}
+\end{figure}
+%--------------------------------------------------------------------------------------------------
+
+En la Fig. \ref{f2_2} observamos la evoluci{\'o}n de los estad{\'\i}sticos $T^2$ y $Q$ realizando tareas de
+monitoreo en l{\'\i}nea del proceso. En este caso particular vemos el comportamiento cuando un evento anormal se
+hace presente a los $t=1500$ min.. No existen diferencias sustanciales entre los m{\'e}todos propuestos
+anteriormente para el c{\'a}lculo de los l{\'\i}mites de confianza. En el caso de $T^2$ los l{\'\i}mites calculados
+mediante la estrategia de la Ec. \ref{e2_10} son un poco mas conservadores que los calculados mediante la
+Ec. \ref{e2_8}, esto robustece el monitoreo, evitando falsas detecciones debido al ruido. Como dijimos
+anteriormente estos son m{\'e}todos aproximados de c{\'a}lculo y deber{\'\i}amos realizar alg{\'u}n tipo de actualizaci{\'o}n
+peri{\'o}dica en l{\'\i}nea si queremos mejor rendimiento.
+
+Pensando justamente en las caracter{\'\i}sticas de actualizaci{\'o}n recursiva en l{\'\i}nea pueden ser mas propicios
+algunos m{\'e}todos mas que otros. En esta tesis en particular trabajaremos con la estrategia presentada en la
+Ec. \ref{e2_10} y su versi{\'o}n adaptiva en el futuro.
+
+\subsection{Diferentes estrategias de ACP}
+\subsubsection{ACP Din{\'a}mico}
+Cuando se construye un modelo ACP se asume que el proceso es est{\'a}tico y lineal. A{\'u}n con estas suposiciones
+en general el modelo ser{\'a} capaz de monitorear el proceso correctamente aunque algunas caracter{\'\i}sticas de
+incorrelaci{\'o}n se pierdan. Uno de los problemas principales se evidencia en que los l{\'\i}mites de confianza
+deber{\'a}n ser mas conservadores, para evitar falsas detecciones, con el inconveniente adicional de que el
+sistema no ser{\'a} capaz de detectar peque{\~n}as fallas o perturbaciones (p{\'e}rdidas de detecci{\'o}n). Para solucionar
+estos problemas se ha desarrollado una versi{\'o}n din{\'a}mica del ACP (ACPD) (\cite{KwSrGc:95,LwQs:01}), que
+consiste en aumentar la matriz de datos original $\mathbf{X}$ incluyendo datos del proceso con cierto
+retardo (desplazamiento) temporal, es decir
+\begin{equation}
+    \mathbf{X}=\left[\mathbf{X}(k),\mathbf{X}(k-1),\ldots,\mathbf{X}(k-l)\right]
+\end{equation}
+donde $l$ es el retardo sugerido y que debe ser conocido a priori. La variables del proceso son
+decorrelacionadas entre si y con sus valores pasados.
+
+\subsubsection{ACP Multiresoluci{\'o}n}
+Los m{\'e}todos presentados de dise{\~n}o son a simple escala. La mayor{\'\i}a de los procesos qu{\'\i}micos poseen efectos a
+multiples escalas por naturaleza:
+\begin{itemize}
+    \item Los eventos ocurren en diferentes locaciones a diferentes tiempos y frecuencias.
+    \item Las variables del proceso son medidas a diferentes tasas de muestreo o con p{\'e}rdidas de datos.
+\end{itemize}
+
+Uno de los principales problemas del ACP cl{\'a}sico (simple escala) es su limitada capacidad de eliminar ruido.
+Este problema se torna mas evidente en la detecci{\'o}n de peque{\~n}as fallas que podr{\'\i}an ser no detectadas y de
+algunas fallas de valor considerables que son detectadas con alg{\'u}n retardo temporal. Un modelo ACP a
+multiples escalas (ACPME) es un m{\'e}todo para manipular las informaci{\'o}n generada en una descomposici{\'o}n a
+multiples escalas mediante transformada wavelet (\cite{MmYhQsLc:02,WdRj:05,MaWdRj:06}). De esta forma los
+diferentes eventos a diferentes tiempos y frecuencias pueden ser observados en las diferentes escalas y
+detectados eficientemente.
+
+\subsubsection{ACP Adaptivo}
+Una de las limitaciones del ACP cl{\'a}sico es la naturaleza cambiante de los procesos industriales. En general
+estos procesos poseen diferentes condiciones y modos de operaci{\'o}n. La metodolog{\'\i}a cl{\'a}sica de ACP podr{\'\i}a
+generar un excesivo n{\'u}mero de falsas alarmas o eventualmente p{\'e}rdida de detecci{\'o}n de las fallas
+(\cite{TdLkJl:04}).
+
+Existen tres direcciones para solucionar estos problemas
+\begin{itemize}
+    \item Desarrollar una estrategia de identificaci{\'o}n de los diferentes modos de operaci{\'o}n del proceso y
+    construir un modelo ACP para cada uno.
+    \item Actualizar el modelo ACP adaptivamente para reflejar los cambios en las condiciones y modos de
+    operaci{\'o}n.
+    \item Desarrollar un modelo ACP cl{\'a}sico teniendo en cuenta todos los posibles modos.
+\end{itemize}
+La primera estrategia sufre del inconveniente de obtener un sistema de identificaci{\'o}n de modos confiable. La
+tercer estrategia propuesta puede resultar en un monitoreo del proceso demasiado conservativo. La segunda es
+la estrategia mas explorada, y existen diferentes algoritmos:
+\begin{itemize}
+    \item ACP m{\'o}vil (ACPM): los par{\'a}metros de escala del modelo ACP se actualizan instante a instante por
+    medio de una ventana temporal m{\'o}vil sobre los datos en estado normal de funcionamiento.
+    \item ACP adaptivo (ACPA): El modelo completo es actualizado en l{\'\i}nea, matriz de correlaci{\'o}n,
+    componentes principales, par{\'a}metros de escala, l{\'\i}mites de confianza, etc..
+    \item ACP pesado exponencialmente (ACPPE): Similar a ACPA pero poniendo {\'e}nfasis en los datos nuevos
+    recolectados.
+\end{itemize}
+\cite{Ws:1994} propone la utilizaci{\'o}n de filtros de media m{\'o}vil pesados exponencialmente (MMPE) con ACP y
+m{\'\i}nimos cuadrados parciales (MCP). En \cite{LwYhVCsQs:00} se analizan algoritmos de actualizaci{\'o}n recursiva
+de la matrix de correlaci{\'o}n de los datos, de la media, de los componentes principales seleccionados, de los
+l{\'\i}mites de confianza, etc.. Una aplicaci{\'o}n de ACPPE puede encontrarse en \cite{LsMeMaGp:03}.
+
+\section{Sistemas de l{\'o}gica difusa (SLD)}
+Un SLD es el {\'u}nico que puede simult{\'a}neamente manejar conocimiento num{\'e}rico y ling{\"u}{\'\i}stico. Existe un gran
+n{\'u}mero de aplicaciones de l{\'o}gica difusa (LD) en diferentes {\'a}reas como control, clasificaci{\'o}n de datos,
+sistemas expertos, optimizaci{\'o}n, modelado de procesos, procesado de se{\~n}al, etc. A continuaci{\'o}n se dar{\'a} una
+breve descripci{\'o}n de los aspectos mas relevantes acerca de esta estrategia (\cite{fuzzy:02,Me:05}).
+
+Esencialmente un SLD realiza un mapeo no lineal de un espacio de entrada dentro de un espacio de salida.
+Esquem{\'a}ticamente esto puede observarse en la Figura \ref{f2_3}. El proceso de mapeo se encuentra dividido en
+tres zonas:
+\begin{itemize}
+    \item[a-] Mapeo de las variables de entrada en conjuntos difusos. Este procedimiento es conocido como
+    \emph{fuzzificaci{\'o}n}\footnote{t{\'e}rmino castellanizado del ingl{\'e}s \textit{fuzzification}}.
+    \item[b-] Proceso donde se lleva a cabo la inferencia. Aqu{\'\i} la \emph{l{\'o}gica difusa} y la \textit{base
+    de reglas} son aplicadas sobre los conjuntos difusos obtenidos previamente.
+    \item[c-] Finalmente la salida del SLD es obtenida utilizando m{\'e}todos de \emph{defuzzificaci{\'o}n}\footnote{t{\'e}rmino castellanizado del ingl{\'e}s \textit{defuzzification}}. El resultado de la inferencia
+    (conjunto difuso agrupado) es convertido nuevamente en un valor escalar representando la salida del sistema.
+\end{itemize}
+% Figure----------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=10cm,height=5cm]{Ch2/FL1}\label{f2_3}
+\caption{Sistema de L{\'o}gica Difusa}
+\end{figure}
+%-----------------------------------------------------------
+
+\subsection{Fuzzificaci{\'o}n de las entradas}
+La teor{\'\i}a de FL comienza con la definici{\'o}n de conjunto difuso. Un conjunto difuso es aquel el cual no posee
+un l{\'\i}mite claramente definido y contiene elementos solo con un grado parcial de pertenencia. Es decir, sea
+$X$ un conjunto de objetos cuyos elementos son denotados por $x$, un conjunto difuso $A$ de $X$ es denotado
+como un conjunto de pares ordenados:
+\begin{equation}
+    A = \left\{\left[x,f_A(x)\right]|x\in X\right\}
+\end{equation}
+donde $f_A(x)$ es llamada la funci{\'o}n de pertenencia (FP) de $x$ en $A$. La FP es una curva que mapea cada
+elemento del espacio de entrada $X$ a un valor de pertenencia (o grado de pertenencia) entre 0 y 1. Existen
+diferentes tipos de curvas de pertenencia, en forma general, su construcci{\'o}n se basa en funciones lineales a
+trozos, funciones de distribuci{\'o}n Gaussiana, curva sigmoidal y curvas polinomiales cuadr{\'a}ticas y c{\'u}bicas.
+Algunas formas comunes de estas funciones se muestran en la Fig. \ref{f2_4}.
+
+De esta forma todas las entradas son mapeadas en conjuntos difusos teniendo en cuenta las funciones de
+pertenencia requeridas por la base de reglas.
+% Figure--------------------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering \subfigure[Sigmoidal]{\includegraphics[width=5cm,height=5cm]{Ch2/mf1}\label{f2_4a}}
+\subfigure[Trapezoidal]{\includegraphics[width=5cm,height=5cm]{Ch2/mf2}\label{f2_4b}}
+\subfigure[Gaussiana]{\includegraphics[width=5cm,height=5cm]{Ch2/mf3}\label{f2_4c}} \caption{Funciones de
+pertenencia} \label{f2_4}
+\end{figure}
+%---------------------------------------------------------------------------------------------------------
+
+\subsection{Operaciones l{\'o}gicas y base de reglas}
+Los conjuntos difusos y los operadores difusos conforman las declaraciones condicionales que sustentan la
+l{\'o}gica difusa. As{\'\i} una regla simple general puede estar conformada como se muestra a continuaci{\'o}n,
+\begin{center}
+\textrm{si ($x$ es $A$) Y ($r$ es $B$) entonces ($z$ es $C$)}
+\end{center}
+donde $A$, $B$ y $C$ son valores  ling{\"u}{\'\i}sticos definidos por los conjuntos difusos ($f_A$, $f_B$ y $f_C$)
+que mapean los espacios de $X$, $R$ y $Z$ respectivamente. La parte ``\textrm{si ($x$ es $A$) Y ($r$ es
+$B$)}'' es denominada antecedente o premisa y la parte ``\textrm{entonces ($z$ es $C$)}'' es llamada
+consecuente o conclusi{\'o}n.
+
+El antecedente es una interpretaci{\'o}n que devuelve un n{\'u}mero entre 0 y 1 como resultado de operar l{\'o}gicamente
+sobre la fuzzificaci{\'o}n de las entradas, por otro lado el consecuente es una asignaci{\'o}n de un conjunto difuso
+$C$ a la variable de salida $z$, la cual ser{\'a} posteriormente defuzzificada, como veremos.
+
+Como vemos el razonamiento l{\'o}gico difuso esta basado en la l{\'o}gica Booleana est{\'a}ndar. Es decir, si la
+fuzzificaci{\'o}n de las entradas se realizara seg{\'u}n sus extremos, 1 para completamente verdadero y 0 para
+completamente falso, las operaciones l{\'o}gicas est{\'a}ndar se pueden aplicar. Ahora bien, recordando que la
+defuzzificaci{\'o}n propuesta anteriormente donde a un espacio de entrada le asign{\'a}bamos un grado de pertenencia
+entre 0 y 1 dado por el tipo de FP, debemos de alguna forma alterar las funciones l{\'o}gicas est{\'a}ndar para
+poder trabajar con valores en este rango, de esta forma resultan las siguientes analog{\'\i}as t{\'\i}picas (Uno
+podr{\'\i}a tambi{\'e}n crear sus propios m{\'e}todos):
+\begin{enumerate}
+\item La conjunci{\'o}n l{\'o}gica $[f_A(x)$ \textrm{Y} $f_B(r)]$, es reemplazada por la conjunci{\'o}n difusa\\
+$\min(f_A(x),f_B(r))$.
+\item La disjunci{\'o}n l{\'o}gica $[f_A(x)$ \textrm{O} $f_B(r)]$, es reemplazada por la disjunci{\'o}n difusa\\
+$\max(f_A(x),f_B(r))$.
+\item El complemento l{\'o}gico \textrm{NO}$(f_A(x))$, es reemplazado por el complemento difuso\\
+$[1-f_A(x)]$.
+\end{enumerate}
+
+De esta forma, utilizando la l{\'o}gica difusa el antecedente puede ser evaluado resultando en un valor escalar
+entre cero y uno. Este valor se denomina \textit{grado de soporte} de la regla y permite cuantificar el
+grado de verdad o falsedad de dicho antecedente (1 completamente verdadero, 0 completamente falso).
+
+El consecuente de una regla es un conjunto difuso representado por una FP la cual es elegida para
+representar las cualidades de las premisas. Una vez calculado el grado de soporte de la regla, este valor es
+utilizado por el llamado \textit{m{\'e}todo de implicaci{\'o}n} para transformar la FP de la salida. Existen dos
+formas diferentes para realizar esta modificaci{\'o}n:
+\begin{enumerate}
+    \item Utilizando la funci{\'o}n $\min(\cdot)$ que produce el truncamiento de la FP teniendo en cuenta el
+    valor de soporte  de la regla.
+    \item Utilizando la funci{\'o}n $\text{\textrm{prod}}(\cdot)$ que produce un escalado del conjunto difuso de salida.
+\end{enumerate}
+
+Este proceso es repetido para cada una de las reglas. Los conjuntos difusos de salida truncados por el
+m{\'e}todo de implicaci{\'o}n son agrupadas y combinados utilizando el llamado \textit{m{\'e}todo de agregaci{\'o}n}. Este
+proceso puede llevarse a cabo mediante tres formas diferentes:
+\begin{enumerate}
+    \item Utilizando la funci{\'o}n $\max(\cdot)$ que agrupa los conjuntos difusos qued{\'a}ndose con los m{\'a}ximos.
+    \item Utilizando la funci{\'o}n $\text{\textrm{probor}}(f_A(x),f_B(r))=f_A(x)+f_B(r)-f_A(x)f_B(r)$ que
+    produce una especie de funci{\'o}n disjunci{\'o}n difusa probabil{\'\i}stica.
+    \item o simplemente utilizando la funci{\'o}n $\text{\textrm{sum}}(\cdot)$ que produce la suma de las FP truncadas de salida.
+\end{enumerate}
+
+\subsection{Defuzzificaci{\'o}n}
+El proceso por el cual el conjunto difuso resultante del m{\'e}todo de agregaci{\'o}n es convertido a un valor
+num{\'e}rico simple es llamado defuzzificaci{\'o}n. As{\'\i}, dicho conjunto puede ser representado por un escalar.
+
+Existen diferentes m{\'e}todos para llevar a cabo este proceso de defuzzificaci{\'o}n, los mas populares son:
+\begin{enumerate}
+    \item Promedio de los m{\'a}ximos, Mayor de los m{\'a}ximos y Menor de los m{\'a}ximos: Estos tres m{\'e}todos se
+    aplican sobre los valores m{\'a}ximos de la funci{\'o}n miembro agregada. Si el conjunto difuso posee solo un
+    valor m{\'a}ximo los tres m{\'e}todos coincidir{\'a}n.
+    \item Centroide: Calcula el centro del {\'a}rea bajo la curva (centro de gravedad).
+    \item Bisector: Calcula la l{\'\i}nea vertical que divide el conjunto difuso en dos subregiones de igual
+    {\'a}rea. A veces este m{\'e}todo coincide con la l{\'\i}nea del centroide.
+\end{enumerate}
+% Figure----------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=13cm,height=8cm]{Ch2/FLesquema}
+\caption{Estructura general de un SLD} \label{f2_5}
+\end{figure}
+%-----------------------------------------------------
+
+La metodolog{\'\i}a utilizada y desarrollada a lo largo de esta secci{\'o}n puede resumirse mediante el diagrama de
+inferencia mostrado en la Fig. \ref{f2_5}. El flujo de informaci{\'o}n (l{\'\i}nea a trazos) es recogido de las
+entradas y en primera instancia fuzzificado teniendo en cuenta las FP involucradas en cada regla (R1,R2),
+posteriormente las reglas son evaluadas mediante l{\'o}gica difusa (premisas y conclusiones). El proceso
+contin{\'u}a con el m{\'e}todo de implicaci{\'o}n generando los conjuntos difusos finales de cada regla. Cada uno de
+estos conjuntos son combinados en una sola FP de salida mediante el m{\'e}todo de agregaci{\'o}n para
+posteriormente ser defuzzificada. El resultado de la defuzzificaci{\'o}n es el valor escalar correspondiente a
+nuestra salida en cuesti{\'o}n.
+
+\subsection{Tipos de SLD}
+Los tipos de SLD ampliamente utilizados son los modelos Mamdami y Sugeno. En un modelo difuso Mamdami las
+entradas escalares son fuzzificadas de acuerdo con un conjunto de FP. Los operadores l{\'o}gicos difusos en las
+reglas se implementan mediante composiciones de funciones $\max$--$\min$ o variaciones de estas. El
+conjunto difuso obtenido es defuzzificado a un valor escalar nuevamente mediante estrategias como centroide
+o medio de los m{\'a}ximos. Por otro lado, los modelos difusos Sugeno han sido desarrollados para construir un
+m{\'e}todo sistem{\'a}tico para generar reglas desde una base de datos entrada-salida. Una regla t{\'\i}pica en un
+modelo Sugeno posee la forma ``\textrm{si ($x$ es $A$)Y($r$ es $B$) entonces $z=f(x,r)$}'', donde $A$ y $B$
+son conjuntos difusos del antecedente, mientras que $z=f(x,r)$ es una funci{\'o}n en el consecuente que
+devuelve un escalar. Usualmente $f(x,r)$ es un polinomio de las variables de entrada $x$ y $r$, pero podr{\'\i}a
+ser cualquier funci{\'o}n que pueda describir correctamente la salida dentro de la regi{\'o}n difusa especificada
+por el antecedente de la regla.
+
+\section{Transformada wavelet discreta (TWD)}\label{sec_DWT}
+Generalmente los datos obtenidos de fen{\'o}menos reales est{\'a}n compuestos por una superposici{\'o}n de
+comportamientos de baja y alta frecuencia localizados a lo largo del dominio temporal. Estas se{\~n}ales
+contienen numerosas caracter{\'\i}sticas no estacionarias o transitorias, como, derivas, tendencias, cambios
+abruptos, informaci{\'o}n acerca de comienzo y finales de eventos, etc..
+
+Hist{\'o}ricamente existen diferentes herramientas en el {\'a}rea de procesado de se{\~n}al. Por un lado el an{\'a}lisis de
+Fourier nos permite descomponer nuestra se{\~n}al mediante funciones base compuestas por sinusoides de
+diferentes frecuencias. As{\'\i}, se puede realizar un mapeo \emph{amplitud--tiempo} a
+\emph{amplitud--frecuencia}. El principal problema que presenta esta estrategia es la p{\'e}rdida de informaci{\'o}n
+relacionada con el tiempo. Es decir visualizando la transformada de Fourier de una determinada se{\~n}al es
+imposible determinar cuando un evento particular toma lugar. Una versi{\'o}n adaptada de la transformada de
+Fourier resulta de considerar peque{\~n}as secciones de la se{\~n}al en el tiempo, constituyendo la conocida
+transformada de Fourier enventanada que mapea la se{\~n}al a un dominio \emph{tiempo--frecuencia}. Esto provee
+alg{\'u}n grado de informaci{\'o}n acerca de cuando y a que frecuencia ocurren los eventos. La precisi{\'o}n en tiempo y
+frecuencia no pueden elegirse individualmente resultando en una relaci{\'o}n de compromiso. La dimensi{\'o}n de la
+ventana limita directamente la precisi{\'o}n y en este procedimiento es el mismo para todas la frecuencias.
+Muchas se{\~n}ales requieren una metodolog{\'\i}a mas flexible, es decir una herramienta que pueda modificar la
+dimensi{\'o}n de la ventana ya sea para mejorar resoluciones en tiempo o en frecuencia
+(\cite{Ms:89,Di:90,wavelet:02}).
+
+\subsection{An{\'a}lisis wavelet}
+En an{\'a}lisis wavelet representa el paso l{\'o}gico en herramientas de procesado de se{\~n}ales: \emph{una t{\'e}cnica
+enventanada de dimensi{\'o}n variable}. As{\'\i}, utilizando grandes intervalos de tiempo se hace mas precisa la
+informaci{\'o}n a baja frecuencia y con regiones peque{\~n}as se focaliza la informaci{\'o}n de alta frecuencia. El
+mapeo resultante es de la forma \emph{escala--tiempo}, estando la frecuencia directamente relacionada con
+la escala.
+
+En la transformada wavelet las funciones bases son peque{\~n}as se{\~n}ales llamadas wavelets (onditas). As{\'\i} la
+se{\~n}al a analizar $s(t)$ es descompuesta utilizando versiones escaladas y desplazadas temporalmente de un
+{\'u}nica funci{\'o}n $\psi(t)$ llamada wavelet madre. Este conjunto de se{\~n}ales
+\begin{equation}\label{e2_11}
+    \psi(a,b,t)=\frac{1}{\sqrt{a}}\psi\left(\frac{t-b}{a}\right)
+\end{equation}
+conforman una base ortonormal (conformaran una representaci{\'o}n no redundante) de funciones, donde $a$ y $b$
+son los par{\'a}metros de escala y desplazamiento temporal respectivamente. Sea $s(t)$ la se{\~n}al a analizar, la
+TWD esta definida por el producto interno:
+\begin{equation}\label{e2_12}
+    C(a,b)=\int s(t)\psi(a,b,t)dt
+\end{equation}
+donde $a=2^j$ y $b=k2^j$ con $j,k$ $\in$ $Z$, son los valores discretos de escalado y desplazamiento
+conocidos como valores di{\'a}dicos. El {\'\i}ndice $j$ se conoce como nivel y $1/a$ o $2^{-j}$ como resoluci{\'o}n.
+Desde un punto de vista intuitivo la descomposici{\'o}n wavelet consiste en calcular un \emph{{\'\i}ndice de
+semejanza} $C(a,b)$ entre la se{\~n}al y la wavelet localizada en $b$ y escalada por $a$.
+
+De forma similar a las dem{\'a}s herramientas de procesado de se{\~n}al existe un transformada wavelet inversa. Es
+decir, una metodolog{\'\i}a de s{\'\i}ntesis por la cual se reconstruye la se{\~n}al original utilizando los coeficientes
+wavelets de la descomposici{\'o}n. Esta transformada inversa puede expresarse como:
+\begin{equation}\label{e2_13}
+    s(t)=\sum_{j\in Z}\sum_{k\in Z}C(j,k)\psi(j,k,t)=\sum_{j\in Z}D_j(t)
+\end{equation}
+donde $D_j(t)=\sum_{k\in Z}C(j,k)\psi(j,k,t)$ se denomina detalle de la se{\~n}al original a nivel $j$. Tomando
+como referencia un nivel dado por ejemplo $J$ podemos expresar:
+\begin{equation}\label{e2_14}
+    \sum_{j\in{Z}}D_j=D_1+D_2+\ldots+D_J+D_{J+1}+\ldots+D_N= D_J + A_J
+\end{equation}
+donde $A_J=\sum_{j>J}D_j$ se denomina aproximaci{\'o}n a nivel $J$ y agrupa todos los detalles a niveles
+superiores al $J$ los cuales representan una aproximaci{\'o}n de la se{\~n}al a menor resoluci{\'o}n. Los detalles de
+mayor resoluci{\'o}n ($j\leq J$) son agrupados en $D_J=\sum_{j\leq J}D_j$ y se denominan detalles de la se{\~n}al a
+nivel $J$. As{\'\i}, podemos obtener una relaci{\'o}n entre niveles para las aproximaciones y detalles de la forma
+\begin{equation}\label{e2_15}
+    A_J=A_{J+1}+D_{J+1}
+\end{equation}
+dando una estructura de descomposici{\'o}n piramidal o {\'a}rbol de descomposici{\'o}n como se puede observar en la Fig.
+\ref{f2_6}, donde $A_0=s(t)$ indica el comienzo de la estructura.
+% Figure---------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=5cm,height=6cm]{Ch2/wavelet1}
+\caption{Estructura de descomposici{\'o}n mediante wavelets} \label{f2_6}
+\end{figure}
+%----------------------------------------------------------
+
+Un algoritmo eficiente para realizar la descomposici{\'o}n wavelet fue desarrollado por \cite{Ms:89}. Este es un
+algoritmo popular en la comunidad de procesado de se{\~n}ales y esta basado en reformular la descomposici{\'o}n
+wavelet como una estructura piramidal compuesta de convoluciones con filtros espejo en cuadratura (FEC) y
+tasa de muestreo variable dependiendo del nivel $j$ (filtrado multiresoluci{\'o}n). Una instancia de
+descomposici{\'o}n puede observarse en la Fig. \ref{f2_7} para un nivel gen{\'e}rico $j$. La se{\~n}al discreta de
+aproximaci{\'o}n $A_{j+1}$ es convolucionada con los filtros $\tilde{G}$ y $\tilde{H}$ para posteriormente ser
+diezmada en forma di{\'a}dica (mantener a la salida una muestra de dos).
+
+Los filtros $G$ (pasa-alto) y $H$ (pasa-bajo) con respuestas al impulso $g(k)$ y $h(k)$ respectivamente son
+filtros espejo $(g(k)=(-1)^{1-k}h(1-k))$ y est{\'a}n directamente definidos por la wavelet $\psi(t)$ y la
+funci{\'o}n de escala $\phi(t)$ seleccionadas. Los filtros $\tilde{G}$ y $\tilde{H}$ poseen respuestas al
+impulso $\tilde{g}(k)=g(-k)$ y $\tilde{h}(k)=h(-k)$ respectivamente.
+% Figure---------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=6cm,height=2cm]{Ch2/wavelet2}
+\caption{Algoritmo de descomposici{\'o}n de Mallat} \label{f2_7}
+\end{figure}
+%----------------------------------------------------------
+
+Una estrategia similar a la mostrada en la Fig. \ref{f2_7} puede utilizarse para realizar la reconstrucci{\'o}n
+de la se{\~n}al. En este caso los filtros utilizados son $G$ y $H$. Antes de la convoluci{\'o}n con los filtros las
+se{\~n}ales son aumentadas en forma di{\'a}dica, insertando ceros entre las muestras.
+% Figure--------------------------------------------------------------------------------------------------
+\begin{figure}[th]
+\centering \subfigure[Funci{\'o}n wavelet
+$\psi(k)$]{\includegraphics[width=5cm,height=5cm]{Ch2/wavelet3}\label{f2_8a}} \subfigure[Funci{\'o}n de escala
+$\phi(k)$]{\includegraphics[width=5cm,height=5cm]{Ch2/wavelet4}\label{f2_8b}} \subfigure[Filtro
+$\tilde{h}(k)$]{\includegraphics[width=5cm,height=5cm]{Ch2/wavelet5}\label{f2_8c}} \subfigure[Filtro
+$\tilde{g}(k)$]{\includegraphics[width=5cm,height=5cm]{Ch2/wavelet6}\label{f2_8d}} \caption{Familia
+Daubechies de orden 3} \label{f2_8}
+\end{figure}
+%---------------------------------------------------------------------------------------------------------
+
+En la Fig. \ref{f2_9} se puede observar un ejemplo de descomposici{\'o}n hasta el nivel $j=5$ con wavelet
+Daubechies de orden 9. La se{\~n}al original bajo an{\'a}lisis $s(t)$ est{\'a} compuesta por la superposici{\'o}n de tres
+efectos seg{\'u}n se muestra en la Ec. \ref{e2_16} y en la Fig. \ref{f2_9a}
+\begin{equation}\label{e2_16}
+    s(t)=r(t)+\text{\textrm{sen}}(2\pi ft)+\frac{t^2}{10}
+\end{equation}
+donde $r(t)$ es ruido uniformemente distribuido con media cero y varianza unidad; el segundo aporte viene
+dado por una contribuci{\'o}n senoidal de frecuencia de $f=1$ $Hz.$ y finalmente el tercer aporte representado
+por una evoluci{\'o}n cuadr{\'a}tica. El detalle a nivel 1, $D_1$ (Fig. \ref{f2_9b}) pr{\'a}cticamente posee toda la
+informaci{\'o}n respecto del ruido aditivo. De forma similar la aproximaci{\'o}n a nivel 5, $A_5$ (Fig. \ref{f2_9f})
+resume la informaci{\'o}n de la contribuci{\'o}n cuadr{\'a}tica y finalmente el detalle a nivel 5, $D_5$ extrae el
+comportamiento de la contribuci{\'o}n seniodal.
+% Figure-------------------------------------------------------------------------------------------------
+\begin{figure}[th]
+\centering \subfigure[Se{\~n}al original $s(k)$]{\includegraphics[width=7cm,height=6cm]{Ch2/s0}\label{f2_9a}}
+\subfigure[Detalle a nivel 1]{\includegraphics[width=7cm,height=6cm]{Ch2/d1}\label{f2_9b}}
+\subfigure[Aproximaci{\'o}n a nivel 5]{\includegraphics[width=7cm,height=6cm]{Ch2/a5}\label{f2_9f}}
+\subfigure[Detalle a nivel 5]{\includegraphics[width=7cm,height=6cm]{Ch2/d5}\label{f2_9g}}
+\caption{Descomposici{\'o}n wavelet en 5 niveles con Daubechies de orden 9} \label{f2_9}
+\end{figure}
+%--------------------------------------------------------------------------------------------------------
+
+\section{Redes neuronales artificiales (RNA)}\label{sec_ANN}
+Las RNA originariamente surgen como una t{\'e}cnica para modelar (emular) una red neuronal biol{\'o}gica. La mayor{\'\i}a
+de los tipos de RNA pueden incluirse en la siguiente definici{\'o}n \citep{NmRoPnHl:01}, \emph{Sistema de
+elementos de procesamiento simples, \textbf{neuronas}, que est{\'a}n conectadas mediante un conjunto de pesos
+formando una red}. La funci{\'o}n de la red queda determinada por su topolog{\'\i}a, magnitud de sus pesos, y modo de
+operaci{\'o}n de sus unidades de procesamiento.
+
+\subsection{La neurona}
+La neurona (nodo o unidad) es un elemento de procesamiento que toma un n{\'u}mero de entradas $\varphi_i$,
+calcula su suma ponderada por los correspondientes pesos $w_{ij}$ y utiliza este resultado $h_i$ como
+argumento de entrada a una funci{\'o}n escalar llamada \emph{funci{\'o}n de activaci{\'o}n} $f(\cdot)$. La topolog{\'\i}a
+general puede observarse en la Fig. \ref{f2_10} y la expresi{\'o}n matem{\'a}tica en la ec. \ref{e2_17} donde en
+este caso $n=3$. Las entradas a una unidad pueden ser salidas de otras unidades o entradas externas. El
+desplazamiento $w_{i0}$ es llamado bias y puede ser interpretado como el peso aplicado a una entrada cuyo
+valor esta fijo en 1.
+\begin{equation}\label{e2_17}
+    y_i=f_i(h_i)=f_i\left(\sum_{j=1}^{n}\varphi_j w_{ij}+w_{i0}\right)
+\end{equation}
+% Figure-------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=7cm,height=4cm]{Ch2/ANN_neuron}
+\caption{Neurona (unidad de procesamiento)} \label{f2_10}
+\end{figure}
+%--------------------------------------------------------
+
+La funci{\'o}n de activaci{\'o}n puede tomar cualquier forma, pero existen un conjunto de funciones ampliamente
+utilizadas como la tangente hiperb{\'o}lica, la funci{\'o}n signo (escal{\'o}n), la curva sigmoidal, una funci{\'o}n lineal,
+etc..
+
+\subsection{Redes de multiples capas}
+Las unidades de procesamiento pueden combinarse en una red de numerosas maneras. La forma mas com{\'u}n es
+ordenar la neuronas en capas, as{\'\i} las unidades de una determinada capa toman como entrada solo las salidas
+de la capa anterior o entradas externas. En la Fig. \ref{f2_11} se puede observar la estructura de una red
+neuronal formada por dos capas. La primera llamada \emph{capa oculta} contiene las neuronas encargadas de
+vincular las entradas externas con las unidades de salida de la segunda capa conocida como \emph{capa de
+salida}. En este caso particular se presenta una red neuronal completamente conectada con tres entradas, dos
+neuronas en capa oculta y dos neuronas de salida. Como en la estructura de la red no existen caminos de
+realimentaci{\'o}n esta topolog{\'\i}a tambi{\'e}n se conoce con el nombre de red de alimentaci{\'o}n hacia adelante.
+% Figure--------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=10cm,height=6cm]{Ch2/ANN_MLP}
+\caption{Red de multiples capas} \label{f2_11}
+\end{figure}
+%---------------------------------------------------
+
+La expresi{\'o}n matem{\'a}tica de las salidas de la red pude derivarse como:
+\begin{equation}\label{e2_18}
+    \hat{y}_i=g_i(\varphi,\theta)=F_i\left[\sum_{j=1}^{n_h}W_{ij}f_j\left(\sum_{l=1}^{n_\varphi}
+    w_{jl}\varphi_l+w_{j0}\right)+W_{i0}\right]
+\end{equation}
+donde $n_h$ es el n{\'u}mero de neuronas en capa oculta, $n_\varphi$ en n{\'u}mero de entradas externas, $\hat{y}_i$
+la predicci{\'o}n realizada por la red para la salida $i$ y $\theta=[w_{jl},W_{ij}]$ el vector de par{\'a}metros
+conteniendo todos los pesos y bias de la red.
+
+\subsection{Aprendizaje de la red}
+Para determinar el valor de los pesos de la red es necesario contar con ejemplos (datos) de como las salidas
+$\hat{y}_i$ se relacionar{\'a}n con la entradas $\varphi_l$. La tarea de determinar los pesos utilizando estos
+ejemplos se denomina \emph{entrenamiento} o \emph{aprendizaje} de la red neuronal y b{\'a}sicamente consiste en
+un problema convencional de estimaci{\'o}n de par{\'a}metros. As{\'\i}, los pesos son estimados teniendo en cuenta alg{\'u}n
+tipo de m{\'e}trica que permita cuantificar cuan aproximado es el modelo respecto de los datos reales. La medida
+ampliamente utilizada es el error cuadr{\'a}tico medio, definiendo as{\'\i} el funcional costo $V_N$ de la ec.
+\ref{e2_19}.
+\begin{equation}\label{e2_19}
+    V_N(\theta,Z^N)=\frac{1}{2N}\sum_{k=1}^{N}\left[y(k)-\hat{y}(k)\right]^2
+\end{equation}
+donde $Z^N=[[\varphi_1,\ldots,\varphi_N]^T,[y_1,\ldots,y_N]^T]$ es el conjunto de datos de entrenamiento
+conteniendo $N$ muestras de las variables de entrada y salida respectivamente. La metodolog{\'\i}a entonces
+radica en entrenar la red neuronal (obtener el valor de los pesos) de forma tal que minimice el criterio de
+la ec. \ref{e2_19}, es decir
+\begin{equation}\label{e2_20}
+    \hat{\theta}=\arg \min_{\theta}V_N(\theta,Z^N)
+\end{equation}
+cuando el criterio es cuadr{\'a}tico en el error de predicci{\'o}n el entrenamiento es tambi{\'e}n llamado
+\emph{problema de m{\'\i}nimos cuadrados no lineales ordinario} que es un caso especial de optimizaci{\'o}n sin
+restricciones.
+
+Una condici{\'o}n suficiente para que $\theta^*$ sea un m{\'\i}nimo de $V_N(\theta,Z^N)$ es que el gradiente sea
+igual a cero
+\begin{equation}\label{e2_20}
+    \left.\frac{dV_N(\theta,Z^N)}{d\theta}\right|_{\theta=\theta^*}=0
+\end{equation}
+y que el Hessiano sea definido positivo
+\begin{equation}\label{e2_21}
+    v^T\left[\left.\frac{d^2V_N(\theta,Z^N)}{d\theta^2}\right|_{\theta=\theta^*}\right]v>0
+\end{equation}
+para cualquier vector $v$ distinto de cero. As{\'\i}, el m{\'\i}nimo es encontrado usualmente utilizando alg{\'u}n m{\'e}todo
+de b{\'u}squeda iterativa. Estos tipos de m{\'e}todos parten de una condici{\'o}n inicial $\theta^{(0)}$ y toman la
+forma
+\begin{equation}\label{e2_22}
+\theta^{(i+1)}=\theta^{(i)}+\alpha^{(i)}\xi^{(i)}
+\end{equation}
+donde $\theta^{(i)}$ especifica la iteraci{\'o}n actual $(i)$, $\xi^{(i)}$ es la direcci{\'o}n de b{\'u}squeda y
+$\alpha^{(i)}$ la magnitud del paso. Las iteraciones contin{\'u}an hasta que $\theta^{(i)}$ se encuentre
+suficientemente cerca del m{\'\i}nimo $\hat{\theta}$.
+
+El criterio en forma general podr{\'\i}a tener mas que un m{\'\i}nimo, desafortunadamente esta metodolog{\'\i}a no
+garantiza converger hacia el m{\'\i}nimo global. Que este m{\'\i}nimo global se alcance depender{\'a} de las condiciones
+iniciales $\theta^{(0)}$.
+
+Una gran cantidad de m{\'e}todos existen para abordar este tipo de problemas. Entre ellos podemos enumerar: el
+m{\'e}todo del gradiente, el de Newton, el de Gauss-Newton, el Pseudo-Newton y el Levenberg-Marquardt.
+Esencialmente los m{\'e}todos se diferencian en la forma de seleccionar la ley de actualizaci{\'o}n para
+$\theta^{(i+1)}$, en particular la direcci{\'o}n de b{\'u}squeda $\xi^{(i)}$ y el paso $\alpha^{(i)}$
+\citep{NmRoPnHl:01,neural:02}.
+
+\section{Identificaci{\'o}n de sistemas (IS)}
+La idea central en identificaci{\'o}n de sistemas es tratar de vincular observaciones de un sistema din{\'a}mico con
+modelos matem{\'a}ticos. Entendi{\'e}ndose por sistema a un objeto en el cual variables de diferentes formas
+interact{\'u}an generando se{\~n}ales observables. Estas se{\~n}ales observables generalmente son denominadas salidas
+del sistema. El sistema es afectado por se{\~n}ales externas que pueden ser manipuladas por el observador
+denominadas entradas, o no manipuladas denominadas perturbaciones. Estas {\'u}ltimas a su vez pueden
+clasificarse en medibles o no medibles.
+
+\subsection{Procedimiento en IS}
+La construcci{\'o}n de un modelo desde datos observados de entrada-salida involucra tres entidades b{\'a}sicas seg{\'u}n
+explica \cite{Ll:99},
+\subsubsection{Conjunto de datos}
+Los datos entrada-salida son a veces recolectados durante un experimento dise{\~n}ado espec{\'\i}ficamente para
+identificaci{\'o}n. El objetivo en el dise{\~n}o del experimento es seleccionar los datos m{\'a}ximamente informativos.
+En otros casos no existe posibilidad de modificar el experimento y debe utilizarse datos recolectados de
+condiciones normales de operaci{\'o}n.
+\subsubsection{Estructura de modelo}
+La tarea mas importante y a la vez dif{\'\i}cil del procedimiento de IS es la selecci{\'o}n de la estructura del
+modelo o el conjunto de modelos candidatos. A veces los modelos son construidos basados en par{\'a}metros
+f{\'\i}sicos desconocidos utilizando leyes f{\'\i}sicas b{\'a}sicas. En otros casos pueden utilizarse modelos lineales sin
+ning{\'u}n fundamento f{\'\i}sico. Los modelos cuyos par{\'a}metros no reflejen consideraciones f{\'\i}sicas son denominados
+\textit{modelos caja negra}.
+\subsubsection{Regla de evaluaci{\'o}n}
+Es necesario tambi{\'e}n una regla para determinar el mejor modelo en el conjunto. El m{\'e}todo de identificaci{\'o}n
+permite evaluar la calidad del modelo teniendo en cuenta como {\'e}ste reproduce los datos observados.
+
+\subsection{Problema cl{\'a}sico: Modelo ARX-M{\'\i}nimos cuadrados lineales}\label{sec_MC_ARX}
+Las entradas y salidas del sistema en un instante arbitrario $k$ ser{\'a}n denotados como $u(k)$ e $y(k)$
+respectivamente. La relaci{\'o}n mas b{\'a}sica para vincular entrada y salida quiz{\'a}s sea una ecuaci{\'o}n en
+diferencias lineal, del tipo
+\begin{equation}\label{e2_23}
+    y(k)+a_1y(k-1)+\cdots+a_ny(k-n)=b_1u(k-1)+\cdots+b_mu(k-m)
+\end{equation}
+como los datos son recolectados generalmente por muestreo es mas conveniente representar el modelo en tiempo
+discreto. El intervalo de muestreo se asume en una unidad para facilitar la notaci{\'o}n. A este tipo de modelos
+se los conoce con el nombre de autorregresivo con entrada externa (ARX) (\cite{Ll:99}).
+
+Reordenando el modelo de la ec. \ref{e2_23} para expresar la salida en funci{\'o}n de observaciones previas
+podemos escribir:
+\begin{equation}\label{e2_24}
+\begin{split}
+    y(k)=&-a_1y(k-1)-\cdots-a_ny(k-n)+b_1u(k-1)+\cdots+b_mu(k-m)\\
+        =&\left[-y(k-1),\cdots,-a_ny(k-n),u(k-1),\cdots,u(k-m)\right]\left[a_1,\cdots,a_n,b_1\cdots,b_m\right]^T
+    \end{split}
+\end{equation}
+llamando a
+\begin{equation}\label{e2_25}
+\begin{split}
+\varphi(k)=&\left[-y(k-1),\cdots,-a_ny(k-n),u(k-1),\cdots,u(k-m)\right]^T\\
+    \theta=&\left[a_1,\cdots,a_n,b_1\cdots,b_m\right]^T
+\end{split}
+\end{equation}
+el regresor lineal en las observaciones y el vector de par{\'a}metros respectivamente, podemos expresar la ec.
+\ref{e2_24} en forma compacta como
+\begin{equation}\label{e2_26}
+    y(k)=\varphi(k)^T\theta
+\end{equation}
+
+Suponiendo que desconocemos los valores del vector de par{\'a}metros $\theta$ pero contamos con datos de
+entrada-salida recolectados durante el intervalo temporal $1\leq k\leq N$
+\begin{equation}\label{e2_27}
+   Z^N=\{u(1),y(1),\ldots,u(N),y(N)\}
+\end{equation}
+entonces podemos utilizar la estructura del modelo propuesto en la ec. \ref{e2_26},
+$\hat{y}(k)=\varphi(k)^T\theta$, de forma tal que las predicciones $\hat{y}(k)$ se ajusten lo mas posible
+con a las observaciones de la base de datos, mediante el m{\'e}todo de m{\'\i}nimos cuadrados, es decir
+\begin{equation}\label{e2_28}
+    \min_{\theta} V_N\left(\theta,Z^N\right)
+\end{equation}
+donde
+\begin{equation}\label{e2_29}
+V_N\left(\theta,Z^N\right)=\frac{1}{N}\sum_{k=1}^{N}\left(y(k)-\hat{y}(k)\right)^2=
+                           \frac{1}{N}\sum_{k=1}^{N}\left(y(k)-\varphi(k)^T\theta\right)^2
+\end{equation}
+de esta forma la estima de m{\'\i}nimos cuadrados puede representarse como
+\begin{equation}\label{e2_30}
+    \hat{\theta}_{N}=\arg\min_{\theta} V_N\left(\theta,Z^N\right)
+\end{equation}
+donde $\hat{\theta}_{N}$ indica que se han utilizado $N$ datos entrada-salida para su c{\'a}lculo.
+
+Como el criterio $V_N$ es cuadr{\'a}tico en $\theta$ podemos encontrar f{\'a}cilmente el m{\'\i}nimo valor igualando su
+derivada a cero
+\begin{equation}\label{e2_31}
+    0=\frac{dV_N\left(\theta,Z^N\right)}{d\theta}=\frac{2}{N}\sum_{k=1}^{N}\varphi(k)\left(y(k)-\varphi(k)^T\theta\right)
+\end{equation}
+reordenando
+\begin{equation}\label{e2_32}
+\sum_{k=1}^{N}\varphi(k)y(k)=\sum_{k=1}^{N}\varphi(k)\varphi(k)^T\theta
+\end{equation}
+o equivalentemente
+\begin{equation}\label{e2_33}
+\hat{\theta}_N=\left[\sum_{k=1}^{N}\varphi(k)\varphi(k)^T\right]^{-1}\sum_{k=1}^{N}\varphi(k)y(k)
+\end{equation}
+
+\subsection{M{\'\i}nimos cuadrados recursivos (MCR)} \label{sec_MCR}
+Una variante a la estrategia mostrada anteriormente es la versi{\'o}n recursiva de m{\'\i}nimos cuadrados, es decir
+la posibilidad de actualizar el vector de par{\'a}metros estimados a medida que nuevos datos de entrada-salida
+son adquiridos desde el proceso (\cite{Ll:99,Jm:90}).
+
+Definiendo ahora en la ec. \ref{e2_33}
+\begin{equation}\label{e2_34}
+    P_{N}=\left[\sum_{k=1}^{N}\varphi(k)\varphi(k)^T\right]^{-1}
+\end{equation}
+resulta que tambi{\'e}n podemos escribir
+\begin{equation}\label{e2_35}
+    P^{-1}_{N}=\sum_{k=1}^{N-1}\varphi(k)\varphi(k)^T+\varphi(N)\varphi(N)^T=
+    P^{-1}_{N-1}+\varphi(N)\varphi(N)^T
+\end{equation}
+y el vector de par{\'a}metros estimado queda
+\begin{equation}\label{e2_36}
+\begin{split}
+\hat{\theta}_{N}=&P_{N}\left[\sum_{k=1}^{N-1}\varphi(k)y(k)+\varphi(N)y(N)\right]\\
+                =&P_{N}\left[P_{N-1}^{-1}\hat{\theta}_{N-1}+\varphi(N)y(N)\right]\\
+                =&\hat{\theta}_{N-1}+P_{N}\varphi(N)\left[y(N)-\varphi(N)^T\hat{\theta}_{N-1}\right]
+\end{split}
+\end{equation}
+de esta forma entonces se tiene el siguiente algoritmo recursivo:
+\begin{equation}\label{e2_37}
+ \begin{split}
+      \hat{\theta}_{N}=& \hat{\theta}_{N-1}+K(N)\left[y(N)-\varphi(N)^T\hat{\theta}_{N-1}\right]\\
+      K(N)            =& P_{N}\varphi(N)\\
+      \varepsilon(N)  =& y(N)-\varphi(N)^T\hat{\theta}_{N-1}
+\end{split}
+\end{equation}
+De las ecuaciones anteriores $\varepsilon(N)$ debe interpretarse como el error de predicci{\'o}n de la salida en
+el instante $N$ calculado en funci{\'o}n de la estima en el instante $N-1$. La primera de las ecuaciones indica
+que la estima de los par{\'a}metros en el instante $N$ se calcula mediante la estima en el instante anterior mas
+una correcci{\'o}n que depende del error de predicci{\'o}n. El t{\'e}rmino $K(N)$ tiene por finalidad indicar en cuanto
+debe modificarse la estima anterior cuando se produce la actualizaci{\'o}n de los datos.
+
+El inconveniente que se observa de las anteriores ecuaciones es que para implementar el algoritmo recursivo
+se debe realizar la inversi{\'o}n de una matriz para el calculo de $P_{N}$ en cada instante de muestreo. Este
+problema puede evitarse recurriendo al lema de inversi{\'o}n de matrices, el cual establece que:
+\begin{equation}\label{e2_38}
+    \left[A+BCD\right]^{-1}=A^{-1}-A^{-1}B\left[DA^{-1}B+C^{-1}\right]^{-1}DA^{-1}
+\end{equation}
+re-escribiendo la Ec. (\ref{e2_34})
+\begin{equation}\label{e2_39}
+    P_{N}=\left[P^{-1}_{N-1}+\varphi(N)\varphi(N)^T\right]^{-1}
+\end{equation}
+y aplicando el lema anterior, llegamos a que:
+\begin{equation}\label{e2_40}
+    P_{N}=P_{N-1}-\frac{P_{N-1}\varphi(N)\varphi(N)^TP_{N-1}}{1+\varphi(N)^TP_{N-1}\varphi(N)}
+\end{equation}
+que es una expresi{\'o}n recursiva para el c{\'a}lculo de $P_{N}$. De esta forma llegamos a representar el algoritmo
+recursivo de m{\'\i}nimos cuadrados mediante las ecuaciones que se detallan a
+continuaci{\'o}n:
+\begin{equation}\label{e2_41}
+\begin{split}
+      \hat{\theta}_{N} =& \hat{\theta}_{N-1}+K(N)\left[y(N)-\varphi(N)^T\hat{\theta}_{N-1}\right]\\
+      K(N)             =& P_{N}\varphi(N)\\
+      \varepsilon(N)   =& y(N)-\varphi(N)^T\hat{\theta}_{N-1}\\
+      P_{N}            =& P_{N-1}-\frac{P_{N-1}\varphi(N)\varphi(N)^TP_{N-1}}{1+\varphi(N)^TP_{N-1}\varphi(N)}
+\end{split}
+\end{equation}
+
+Tambi{\'e}n se puede desarrollar una estrategia similar considerando los errores en el funcional de la ec.
+\ref{e2_29} pesados de diferente forma teniendo en cuenta el instante temporal. As{\'\i} surge el algoritmo de
+MCR con factor de olvido presentado en el ap{\'e}ndice \ref{A_1}.\\
+
+\addcontentsline{toc}{section}{\textbf{B. Control de Procesos}} \Large \noindent \textbf{B. Control de
+Procesos} \normalsize
+\section{Control predictivo basado en modelos (CPM)}\label{sec_CPBM}
+El control predictivo o control predictivo basado en modelos es la {\'u}nica estrategia de control avanzada que
+ha tenido un impacto significativo y extenso en el control de procesos industriales. La raz{\'o}n principal es
+que es la {\'u}nica tecnolog{\'\i}a gen{\'e}rica de control que puede ocuparse rutinariamente del equipo y de las
+condiciones de seguridad.
+
+La incorporaci{\'o}n del control predictivo dentro de la pr{\'a}ctica industrial ha sido sustentada por
+caracter{\'\i}sticas tales como:
+\begin{itemize}
+    \item[*] La idea detr{\'a}s de la estrategia es f{\'a}cil de entender.
+    \item[*] La formulaci{\'o}n b{\'a}sica es extendida a plantas multivariables pr{\'a}cticamente sin modificaciones.
+    \item[*] Es mas poderoso que una estrategia de control por PID, a{\'u}n en lazos simples sin restricciones
+    sin ser mucho mas complicado de ajustar.
+    \item[*] Puede tener en cuenta las limitaciones de los actuadores.
+\end{itemize}
+
+El control predictivo ha sido desarrollado y utilizado en la industria aproximadamente por 20 a{\~n}os antes de
+atraer la atenci{\'o}n de la comunidad acad{\'e}mica de control. Por otra parte el avance en la velocidad de los
+ordenadores y las mejoras en los algoritmos de optimizaci{\'o}n de los {\'u}ltimos a{\~n}os hacen aplicable esta
+estrategia de control no solo a procesos con din{\'a}mica lenta (\cite{Mjm:00}).
+
+\subsection{La idea b{\'a}sica}
+La Fig. \ref{f2_12} muestra la idea b{\'a}sica del control predictivo. En esta presentaci{\'o}n b{\'a}sica discutiremos
+el caso de controlar una planta simple entrada--simple salida (SISO). Asumiremos que trabajamos en tiempo
+discreto donde el tiempo actual es denominado con $k$. Para este instante de tiempo la salida de la planta
+es $y(k)$ mostr{\'a}ndose tambi{\'e}n en la figura la historia previa de la salida y  la trayectoria de set point
+$s(k)$ que idealmente la variable medida de la planta deber{\'\i}a seguir.
+
+Distinta de la trayectoria de set point es la trayectoria de referencia $r(k)$. Esta comienza desde la
+salida actual $y(k)$ y define una trayectoria ideal a trav{\'e}s de la cual la planta deber{\'\i}a volver a la
+trayectoria de set point, en caso de perturbaci{\'o}n por ejemplo. Frecuentemente se asume que la trayectoria de
+referencia tiende a la trayectoria de set point exponencialmente desde la actual salida del proceso, con una
+constante de tiempo denotada por $T_{ref}$ que definir{\'a} la velocidad de la respuesta. Definiendo entonces el
+error actual de seguimiento como
+\begin{equation}\label{e2_42}
+    \epsilon(k)=s(k)-y(k)
+\end{equation}
+entonces la trayectoria de referencia es seleccionada de forma tal que que el error decaiga
+exponencialmente, as{\'\i} $i$ muestras despu{\'e}s ser{\'a}
+\begin{equation}\label{e2_43}
+    \epsilon(k+i)=e^{-iT_{s}/T_{ref}}\epsilon(k)=\lambda^{i}\epsilon(k)
+\end{equation}
+donde $T_{s}$ es el tiempo de muestreo y $\lambda=e^{-T_{s}/T_{ref}}$.
+
+De esta forma la trayectoria de referencia esta definida por
+\begin{equation}\label{e2_44}
+    r(k+i)=s(k+i)-\epsilon(k+i)=s(k+i)-e^{-iT_{s}/T_{ref}}\epsilon(k)
+\end{equation}
+
+Existen definiciones alternativas para la trayectoria de referencia, por ejemplo, una l{\'\i}nea recta desde la
+salida actual que alcance el set point luego de un tiempo determinado.
+
+Un control predictivo posee un modelo interno que es utilizado para predecir el comportamiento de la planta,
+comenzando en el instante actual, sobre un futuro horizonte de predicci{\'o}n denotado por $[H_w,H_p]$. Este
+comportamiento predicho depende de la trayectoria de entrada asumida $\hat{u}(k+i)$, con
+$i=0,1,\ldots,H_{p}-1$, que ha sido aplicada sobre el horizonte de predicci{\'o}n.
+%-----------------------------------------------------------
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=8cm,height=9cm]{Ch2/MPC_idea}\\
+  \caption{Idea b{\'a}sica del control predictivo}\label{f2_12}
+\end{figure}
+%-----------------------------------------------------------
+
+Generalmente es preferible imponer alguna estructura simple a la trayectoria de entrada parametrizada por un
+n{\'u}mero peque{\~n}o de variables. Es decir podemos permitir solo $H_{u}$ variaciones futuras de la se{\~n}al de
+control y que el restante intervalo sobre el horizonte de predicci{\'o}n dicha se{\~n}al se mantenga constante
+(\cite{Mjm:00,Jm:90}). $H_{u}$ es conocido como el horizonte de control. En el caso de la Fig. \ref{f2_12}
+la trayectoria de entrada varia las seis primeras muestras y luego se mantiene constante, es decir
+$\hat{u}(k+5)=\hat{u}(k+6)=\ldots=\hat{u}(k+H_{p}-1)$, as{\'\i} la trayectoria de entrada posee 6 par{\'a}metros a
+seleccionar $\hat{u}(k),\ldots,\hat{u}(k+5)$.
+
+La obtenci{\'o}n de dicha trayectoria de entrada depender{\'a} de los objetivos de control. B{\'a}sicamente podemos
+suponer que el modelo interno es lineal, que la funci{\'o}n costo es cuadr{\'a}tica, que las restricciones est{\'a}n
+dadas en la forma de desigualdades lineales y que todo es invariante en el tiempo. En particular podemos
+definir que el funcional costo penaliza la magnitud de la trayectoria de referencia $u(k)$ pero no a sus
+cambios $\triangle u(k)$.
+
+As{\'\i} podemos sugerir la funci{\'o}n costo mostrada en la Ec. \ref{e2_45} por ejemplo. Donde se penaliza las
+desviaciones de las salidas controladas predichas $\hat{y}(k+i)$ respecto a la trayectoria de referencia
+$r(k+i)$. El horizonte de predicci{\'o}n posee una longitud de $H_{p}$ muestras pero no es necesario comenzar la
+penalizaci{\'o}n inmediatamente ($H_{w}=1$), en el caso de procesos con tiempos muertos por ejemplo es
+conveniente ajustar $H_{w}>T_{d}$ para no forzar inicialmente grandes cambios en la se{\~n}al de control, donde
+$T_{d}$ es el tiempo muerto del proceso. Siempre asumiremos que $H_{u}\leq H_{p}$ y que
+$\triangle\hat{u}(k+i)=0$ para $i\geq H_{u}$.
+\begin{equation}\label{e2_45}
+    V(k)=\sum_{i=H_{w}}^{H_{p}}\alpha^2_i\left[\hat{y}(k+i)-r(k+i)\right]^2+
+    \sum_{i=0}^{H_{u}-1}\beta^2_i\left[\hat{u}(k+i)\right]^2
+\end{equation}
+donde $\alpha_i$ y $\beta_i$ son coeficientes de penalizaci{\'o}n para el error de seguimiento y la se{\~n}al de
+control respectivamente (\cite{JmBmZd:06,ZdBmJmCa:07}).
+
+El inicio y el final del horizonte de predicci{\'o}n ($H_w$ y $H_p$), el horizonte de control ($H_u$), los
+coeficientes  $\alpha_i$ y $\beta_i$ y la trayectoria de referencia $r(k+i)$ todos afectan el comportamiento
+a lazo cerrado entre planta y controlador.
+
+El funcional costo tambi{\'e}n puede estar dotado de restricciones provenientes de las variables manipuladas
+(VM) o de las variables controladas (VC). As{\'\i} el funcional costo puede completarse con las desigualdades que
+conforman las restricciones en las Ecs. \ref{e2_46}.
+\begin{equation}
+    \begin{array}{r}\label{e2_46}
+      \mathbf{E}\left[\triangle\hat{u}(k),\ldots,\triangle\hat{u}(k+H_u-1),1\right]^T \leq\left[0,\ldots,0\right]^T \\
+      \mathbf{F}\left[\hat{u}(k),\ldots,\hat{u}(k+H_u-1),1\right]^T \leq\left[0,\ldots,0\right]^T \\
+      \mathbf{G}\left[\hat{y}(k+H_w),\ldots,\hat{y}(k+H_p),1\right]^T \leq\left[0,\ldots,0\right]^T \\
+    \end{array}
+\end{equation}
+donde $\mathbf{E}$, $\mathbf{F}$ y $\mathbf{G}$ son matrices de dimensi{\'o}n adecuada. Podemos utilizar esta
+estructura de las restricciones para representar posibles limitaciones en la tasa de cambio en actuadores ,
+rango en actuadores y restricciones sobre las salidas controladas respectivamente.
+
+\subsection{Modelo FIR} \label{sec_FIR}
+Suponiendo que el proceso se modela mediante un modelo lineal FIR
+\begin{equation}
+    y(k)=g(1)u(k-1)+g(2)u(k-2)+\ldots+g(N)u(k-N)=\sum^{N}_{i=1}g(i)u(k-i)
+\end{equation}
+donde $[g(1),g(2),\ldots,g(N)]$ son los coeficientes FIR y $N$ el orden del modelo. La funci{\'o}n objetivo en
+la ec. \ref{e2_45} puede evaluarse en forma matricial como
+\begin{equation}\label{e2_47}
+    J(k)=\mathbf{e}^{T}(k)\mathbf{A}^{2}\mathbf{e}(k)+
+    \mathbf{\hat{u}}^{T}(k)\mathbf{B}^{2}\mathbf{\hat{u}}(k)
+\end{equation}
+donde $\mathbf{e}(k)$ es el error de predicci{\'o}n sobre el horizonte $[H_w,H_p]$ y las matrices $\mathbf{A}=
+diag(\alpha_{H_w},\ldots,\alpha_{H_p})$ y $\mathbf{B}=diag(\beta_{1},\ldots,\beta_{H_u})$ representan los
+coeficientes de penalizaci{\'o}n de las energ{\'\i}as del error de predicci{\'o}n y de la se{\~n}al de control,
+respectivamente.
+\begin{equation}\label{e2_48}
+    \mathbf{e}(k)=\mathbf{y_{r}}(k)-\mathbf{\hat{y}}(k)=\mathbf{y_{r}}(k)-
+                   \mathbf{T}_{1}\mathbf{GT}_{2}\mathbf{\hat{u}}(k)-
+                   \mathbf{T}_{3}\mathbf{ST}_{4}\mathbf{\psi}(k)-\mathbf{\hat{\eta}}(k)
+\end{equation}
+con $ \mathbf{y_{r}}(k)=[y_{r}(k+H_w),\cdots,y_{r}(k+H_p)]^{T}$ la trayectoria de referencia y
+\begin{equation}
+\mathbf{\hat{y}}(k)=\mathbf{T}_{1}\mathbf{GT}_{2}\mathbf{\hat{u}}(k)-\mathbf{T}_{3}\mathbf{ST}_{4}
+\mathbf{\psi}(k)-\mathbf{\hat{\eta}}(k)
+\end{equation}
+la predicci{\'o}n del modelo FIR (Ver ap{\'e}ndice \ref{A_2}), donde se puede apreciar claramente las tres partes
+involucradas, la informaci{\'o}n futura, la pasada y la predicci{\'o}n de la perturbaci{\'o}n
+\begin{align}
+\mathbf{\hat{u}}(k) & = \left[\hat{u}(k),\cdots,\hat{u}(k+H_{u}-1)\right]^{T}   \\
+   \mathbf{\psi}(k) & = \left[u(k-1),\cdots,u(k-N+H_w)\right]^{T}               \\
+\mathbf{\hat{\eta}}(k) & = \left[1,\cdots,1\right]^{T}\left[y(k)-\hat{y}(k)\right]
+\end{align}
+respectivamente. Con $\mathbf{T}_{1}$, $\mathbf{T}_{2}$, $\mathbf{T}_{3}$ y $\mathbf{T}_{4}$ como matrices
+de transformaci{\'o}n que est{\'a}n constituidas por ceros y unos y que permiten seleccionar partes espec{\'\i}ficas de
+las matrices din{\'a}micas $\mathbf{G}$ y $\mathbf{S}$ que dependen del modelo FIR (\cite{Jm:90}).
+
+Reemplazando la expresi{\'o}n de la ec. \ref{e2_48} dentro de la ec. \ref{e2_47} y operando podemos expresar el
+funcional como
+\begin{equation}\label{e2_49}
+J(k)=\mathbf{C}^T(k)T\mathbf{A}^2\mathbf{C}(k)
+     -2\mathbf{\hat{u}}^{T}(k)\mathbf{T}_{2}^T\mathbf{G}^T\mathbf{T}_{1}^T\mathbf{A}^2\mathbf{C}
+     +\mathbf{\hat{u}}^{T}(k)\left[\mathbf{T}_{2}^T\mathbf{G}^T\mathbf{T}_{1}^T\mathbf{A}^2\mathbf{T}_{1}\mathbf{G}\mathbf{T}_{2}+\mathbf{B}^{2}\right]\mathbf{\hat{u}}(k)
+\end{equation}
+con $\mathbf{C}(k)=\mathbf{y_{r}}(k)-\mathbf{\hat{\eta}}(k)-\mathbf{T}_{3}\mathbf{ST}_{4}\mathbf{\psi}(k)$.
+Considerando el caso de trabajar sin restricciones podemos hallar una soluci{\'o}n {\'o}ptima para
+$\mathbf{\hat{u}}(k)$ haciendo $\partial J(k)/\partial \mathbf{\hat{u}}(k)=0$, as{\'\i}
+\begin{equation}\label{e2_50}
+\mathbf{\hat{u}}(k)=\left[\mathbf{T}_{2}^T\mathbf{G}^T\mathbf{T}_{1}^T\mathbf{A}^2\mathbf{T}_{1}\mathbf{G}\mathbf{T}_{2}+\mathbf{B}^{2}\right]^{-1}
+\mathbf{T}_{2}^T\mathbf{G}^T\mathbf{T}_{1}^T\mathbf{A}^2\left[\mathbf{y_{r}}(k)-\mathbf{\hat{\eta}}(k)-\mathbf{T}_{3}\mathbf{ST}_{4}\mathbf{\psi}(k)\right]
+\end{equation}
+notar que $\mathbf{\hat{u}}(k)$ es un vector de $H_u$ componentes.
+
+La filosof{\'\i}a del control predictivo sugiere que para el instante temporal $k$ solo se aplique la primer
+componente $\hat{u}(k)$ de la ec. \ref{e2_50} al sistema controlado y que el procedimiento completo se
+repita en el pr{\'o}ximo instante $k+1$. De esta forma
+\begin{equation}\label{e2_51}
+\hat{u}(k)=[1,0,\ldots,0]\mathbf{\hat{u}}(k)=\mathbf{R}\left[\mathbf{y_{r}}(k)-\mathbf{\hat{\eta}}(k)\right]-
+           \mathbf{D}\mathbf{\psi}(k)
+\end{equation}
+con
+\begin{equation}\label{e2_52}
+\begin{split}
+\begin{bmatrix}
+r_{1}\\
+r_{2}\\
+\vdots\\
+r_{N_{p}-N_{w}+1}
+\end{bmatrix}^{T}&=\quad[1,0,\ldots,0]\left[\mathbf{T}_{2}^{T}\mathbf{G}^{T}\mathbf{T}_{1}^{T}\mathbf{A}^{2}\mathbf{T}_{1}
+                   \mathbf{GT}_{2}+\mathbf{B}^{2}\right]^{-1}\left[\mathbf{T}_{2}^{T}\mathbf{G}^{T}\mathbf{T}_{1}^{T}
+                   \mathbf{A}^{2}\right]\\
+\begin{bmatrix}
+d_{1}\\
+d_{2}\\
+\vdots\\
+d_{N-N_{w}}
+\end{bmatrix}^{T}&=\quad[r_{1},r_{2},\ldots,r_{N_{p}-N_{w}+1}]\mathbf{T}_{3}\mathbf{ST}_{4}
+\end{split}
+\end{equation}
+de esta forma la componente actual de control puede expresarse como
+\begin{equation}\label{e2_53}
+\hat{u}(k)\left[1+\sum_{i=1}^{N-N_w}d_iz^{-i}\right]=z^{N_w}y_r(k)\left[\sum_{i=1}^{N_p-N_w+1}r_iz^{i-1}\right]-
+                                                      \left[y(k)-\hat{y}(k)\right]\left[\sum_{i=1}^{N_p-N_w+1}r_i\right]
+\end{equation}
+denominando ahora
+\begin{equation}\label{e2_54}
+    D^*(z^{-1})=1+\sum_{i=1}^{N-N_w}d_iz^{-i}, \quad
+    R(z)=\sum_{i=1}^{N_p-N_w+1}r_iz^{i-1}, \quad
+    R(1)=\sum_{i=1}^{N_p-N_w+1}r_i
+\end{equation}
+resulta entonces en t{\'e}rminos de la transformada $Z$ que
+\begin{equation}\label{e2_55}
+\hat{U}(z)=\frac{R(1)}{D^*(z^{-1})}\left[z^{N_w}\frac{R(z)}{R(1)}Y_r(z)-\left(Y(z)-\hat{Y}(z)\right)\right]
+\end{equation}
+
+La ecuaci{\'o}n de control \ref{e2_55} necesitar{\'a} compensaci{\'o}n est{\'a}tica si queremos obtener cero error de
+seguimiento en estado estacionario, as{\'\i} resulta la estructura de control de la ec. \ref{e2_56}.
+\begin{equation}\label{e2_56}
+\hat{U}(z)=\frac{D^*(1)K_{g}}{D^*(z^{-1})}\left[z^{N_w}\frac{R(z)}{R(1)}Y_r(z)-\left(Y(z)-\hat{Y}(z)\right)\right]
+\end{equation}
+donde $D^*(1)=1+\sum_{i=1}^{N-N_w}d_i$ y $K_g=1/\sum_{i=1}^{N}g(i)$. La estructura de control anterior
+guarda similitudes con el cl{\'a}sico control por modelo interno y puede representarse en diagrama de bloques
+como muestra la Fig. \ref{f2_13}. Donde $F(z^{-1})$ es un filtro para suavizar el set point $w(k)$ y
+producir la trayectoria de referencia $y_r(k)$.\\
+%------------------------------------------------------------------------
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=12cm,height=4cm]{Ch2/apc_fir}\\
+  \caption{Estructura de control predictivo con modelo FIR}\label{f2_13}
+\end{figure}
+%------------------------------------------------------------------------
+
+Existen numerosas aplicaciones y trabajos en esta {\'a}rea. En \cite{Jm:90,JmBmZd:06} y
+\cite{ZdBmJmCa:06,ZdBmJmCa:07} se presentan aplicaciones de control predictivo y control predictivo adaptivo
+a un reactor qu{\'\i}mico con camisa utilizando modelo FIR. Adem{\'a}s, una extensa revisi{\'o}n bibliogr{\'a}fica se propone
+respecto a esta {\'a}rea.
+
+\subsection{Modelo en ecuaciones de estado}
+En este caso el modelo esta representado mediante ecuaciones de estado en tiempo discreto
+\begin{equation}\label{e2_57}
+    \begin{array}{rcl}
+      \mathbf{x}(k+1) & = & \mathbf{Ax}(k)+\mathbf{Bu}(k) \\
+      \mathbf{y}(k)   & = & \mathbf{Cx}(k) \\
+    \end{array}
+\end{equation}
+donde $\mathbf{x}(k)$ es el vector de estado de dimensi{\'o}n $n$, $\mathbf{u}(k)$ es el vector de entradas de
+dimensi{\'o}n $l$ e $\mathbf{y}(k)$ es el vector de salidas del proceso a ser controladas de dimensi{\'o}n $p$.
+
+Considerando la estructura de modelo propuesta en la ec. \ref{e2_57} y utilizando en este caso las
+diferencias en la se{\~n}al de control,
+$\Delta\mathbf{\hat{u}}(k+i)=\mathbf{\hat{u}}(k+i)-\mathbf{\hat{u}}(k+i-1)$, en lugar de su valor,
+$\mathbf{\hat{u}}(k+i)$, podemos obtener una expresi{\'o}n de las predicciones del modelo sobre un horizonte de
+predicci{\'o}n $[1,H_p]$ (Ver ap{\'e}ndice \ref{A_3})
+\begin{equation}\label{e2_58}
+ \mathbf{\hat{Y}}(k)=\Psi \mathbf{\hat{x}}(k)+\Gamma \mathbf{u}(k-1)
+                     +\Theta \Delta\mathbf{\hat{U}}(k)+\hat{\eta}(k)
+\end{equation}
+donde $\Psi$, $\Gamma$ y $\Theta$ son matrices de dimensiones espec{\'\i}ficas y
+\begin{equation}\label{e2_59}
+\begin{split}
+\mathbf{\hat{Y}}(k)      &=\left[\mathbf{\hat{y}}(k+1),\ldots,\mathbf{\hat{y}}(k+H_p)\right]^T \\
+\Delta\mathbf{\hat{U}}(k)&=\left[\Delta\mathbf{\hat{u}}(k),\ldots,\Delta\mathbf{\hat{u}}(k+H_u-1)\right]^T\\
+            \hat{\eta}(k)&=\left[1,\ldots,1\right]\left[\mathbf{y}(k)-\mathbf{\hat{y}}(k)\right]
+\end{split}
+\end{equation}
+son las predicciones de las salidas, los movimientos futuros de la se{\~n}al de control y la estimaci{\'o}n de la
+perturbaci{\'o}n (error planta--modelo). La estimaci{\'o}n actual de los estados (cuando estos no pueden ser
+medidos) vienen dados por $\mathbf{\hat{x}}(k)$ y el vector de se{\~n}ales de control aplicadas en el instante
+pasado $k-1$ esta representado por $\mathbf{u}(k-1)$. Donde $H_u$ representa el horizonte de control.
+
+Recordando el funcional costo de la ec. \ref{e2_45}, este puede reescribirse de la forma
+\begin{equation}\label{e2_60}
+    V(k)=\sum_{i=H_{w}}^{H_{p}}||\mathbf{\hat{y}}(k+i)-\mathbf{y_r}(k+i)||^2_{\mathbf{Q}(i)}+
+    \sum_{i=0}^{H_{u}-1}||\Delta\mathbf{\hat{u}}(k+i)||^2_{\mathbf{R}(i)}
+\end{equation}
+y matricialmente como
+\begin{equation}\label{e2_61}
+    V(k)=||\mathbf{\hat{Y}}(k)-\mathcal{T}(k)||^2_\mathcal{Q}+||\Delta \mathbf{\hat{U}}(k)||^2_\mathcal{R}
+\end{equation}
+donde $\mathbf{\hat{Y}}(k)$ y $\Delta \mathbf{\hat{U}}(k)$ tienen la forma de las ecs. \ref{e2_59}. Los
+restantes componentes de la expresi{\'o}n anterior est{\'a}n definidos como
+\begin{equation}\label{e2_62}
+\begin{split}
+   \mathcal{T}(k)&=\left[\begin{array}{c}
+      \mathbf{y_r}(k+H_w) \\
+      \vdots \\
+      \mathbf{y_r}(k+H_p) \\
+    \end{array}\right]\\
+    \mathcal{Q}&=\left[\begin{array}{cccc}
+      \mathbf{Q}(H_w) & 0       & \cdots & 0 \\
+      0      & \mathbf{Q}(H_w+1)& \cdots & 0 \\
+      \vdots & \vdots  & \ddots & \vdots \\
+      0      & 0       & \cdots & \mathbf{Q}(H_p) \\
+    \end{array}\right]\\
+   \mathcal{R}&=\left[\begin{array}{cccc}
+      \mathbf{R}(0) & 0       & \cdots & 0 \\
+      0      & \mathbf{R}(1)& \cdots & 0 \\
+      \vdots & \vdots  & \ddots & \vdots \\
+      0      & 0       & \cdots & \mathbf{R}(H_u-1) \\
+    \end{array}\right]
+    \end{split}
+\end{equation}
+con
+\begin{equation}\label{e2_63}
+    \mathbf{Q}(i)=\left[\begin{array}{cccc}
+      q_1(i) & 0       & \cdots & 0 \\
+      0      & q_2(i)  & \cdots & 0 \\
+      \vdots & \vdots  & \ddots & \vdots \\
+      0      & 0       & \cdots & q_p(i) \\
+    \end{array}\right], \quad
+     \mathbf{R}(j)=\left[\begin{array}{cccc}
+      r_1(j) & 0       & \cdots & 0 \\
+      0      & r_2(j)  & \cdots & 0 \\
+      \vdots & \vdots  & \ddots & \vdots \\
+      0      & 0       & \cdots & r_l(j) \\
+    \end{array}\right]
+\end{equation}
+como las matrices de peso para el error de predicci{\'o}n y los movimientos de la se{\~n}al de control en el
+instante $i$ y $j$ respectivamente, siendo $H_w \leq i \leq H_p$ y $1 \leq j \leq H_u$, con $p$ el numero de
+salidas controladas y $l$ el n{\'u}mero de variables manipuladas (\cite{Mjm:00}).
+
+Recordando las predicciones dadas por el modelo en la ec. \ref{e2_58} podemos expresar el error de
+predicci{\'o}n sobre el horizonte como:
+\begin{equation}\label{e2_64}
+\begin{split}
+\mathbf{\hat{Y}}(k)-\mathcal{T}(k)&=\Psi \mathbf{\hat{x}}(k)+\Gamma \mathbf{u}(k-1)+
+                                    \Theta \Delta\mathbf{\hat{U}}(k)-\mathcal{T}(k)+\hat{\eta}(k)\\
+                                  &=\Theta \Delta\mathbf{\hat{U}}(k)-\mathcal{E}(k)
+\end{split}
+\end{equation}
+donde $\mathcal{E}(k)=\mathcal{T}(k)-\Psi \mathbf{\hat{x}}(k)-\Gamma \mathbf{u}(k-1)-\hat{\eta}(k)$.
+
+Resultando el funcional de la ec. \ref{e2_60}
+\begin{equation}\label{e2_65}
+\begin{split}
+    V(k)&=||\Theta \Delta\mathbf{\hat{U}}(k)-\mathcal{E}(k)||^2_\mathcal{Q}+
+          ||\Delta \mathbf{\hat{U}}(k)||^2_\mathcal{R}\\
+        &=\mathcal{E}(k)^T\mathcal{Q}\mathcal{E}(k)-2\Delta\mathbf{\hat{U}}(k)^T\Theta^T\mathcal{Q}\mathcal{E}(k)+
+        \Delta\mathbf{\hat{U}}(k)^T\left[\Theta^T\mathcal{Q}\Theta+\mathcal{R}\right]\Delta\mathbf{\hat{U}}(k)\\
+        &=\mathcal{E}(k)^T\mathcal{Q}\mathcal{E}(k)-\Delta\mathbf{\hat{U}}(k)^T\mathcal{G}+
+        \Delta\mathbf{\hat{U}}(k)^T\mathcal{H}\Delta\mathbf{\hat{U}}(k)
+\end{split}
+\end{equation}
+donde es
+\begin{equation}\label{e2_66}
+\mathcal{G}=2\Theta^T\mathcal{Q}\mathcal{E}(k), \quad \text{y} \quad \mathcal{H}=\Theta^T\mathcal{Q}\Theta+
+\mathcal{R}
+\end{equation}
+
+Considerando el caso de trabajar sin restricciones podemos encontrar una expresi{\'o}n anal{\'\i}tica para el {\'o}ptimo
+$\Delta\mathbf{\hat{U}}(k)$. Computando entonces el gradiente de la funci{\'o}n costo respecto de $\Delta
+\mathbf{\hat{U}}(k)$ e igualando a cero, obtenemos que
+\begin{equation}\label{e2_67}
+    \nabla_{\Delta\mathbf{\hat{U}}(k)}V(k)=-\mathcal{G}+2\mathcal{H}\Delta\mathbf{\hat{U}}(k)
+\end{equation}
+y de esta forma podemos obtener la trayectoria {\'o}ptima de control para este instante temporal, dada por
+\begin{equation}\label{e2_68}
+\Delta\mathbf{\hat{U}}(k)=\frac{1}{2}\mathcal{H}^{-1}\mathcal{G}
+\end{equation}
+
+Recordar que solo utilizaremos parte de esta soluci{\'o}n correspondiente al primer elemento de esta secuencia
+en relaci{\'o}n directa con la filosof{\'\i}a de \emph{horizonte deslizante o m{\'o}vil}. De esta forma entonces si
+tenemos $l$ se{\~n}ales de control solo utilizaremos las primeras $l$ filas de
+$\Delta\mathbf{\hat{U}}(k)_{opt}$, es decir
+\begin{equation}\label{e2_69}
+\Delta\mathbf{\hat{u}}(k)=[\mathbf{I},\underbrace{\mathbf{0},\ldots,\mathbf{0}}_{(H_u-1)
+\text{veces}}]\Delta\mathbf{\hat{U}}(k)
+\end{equation}
+donde $\mathbf{I}$ es la matriz identidad de dimensi{\'o}n $l\times l$ y $\mathbf{0}$ es la matriz cero de
+dimensi{\'o}n $l\times l$.
+
+En realidad la Ec. \ref{e2_68} se resuelve en sentido de media cuadr{\'a}tica utilizando la pseudo inversa de la
+forma
+\begin{equation}\label{e2_70}
+\Delta\mathbf{\hat{U}}(k)=\frac{1}{2}\left[\mathcal{H}^T\mathcal{H}\right]^{-1}\left[\mathcal{H}^T\mathcal{G}
+\right]
+\end{equation}
+resultando entonces la se{\~n}al de control {\'o}ptima a aplicar a la planta como
+\begin{equation}\label{e2_71}
+\begin{split}
+\Delta\mathbf{\hat{u}}(k)&=[\mathbf{I},\mathbf{0},\ldots,\mathbf{0}]
+                                 \frac{1}{2}\left[\mathcal{H}^T\mathcal{H}\right]^{-1}
+                                 \mathcal{H}^T\mathcal{G}\\
+                               &=[\mathbf{I},\mathbf{0},\ldots,\mathbf{0}]
+                                 \left[\mathcal{H}^T\mathcal{H}\right]^{-1}
+                                 \mathcal{H}^T\Theta\mathcal{Q}\mathcal{E}(k)\\
+                               &=\mathbf{K}_{MPC}\mathcal{E}(k)\\
+\end{split}
+\end{equation}
+donde
+\begin{equation}\label{e2_72}
+\mathbf{K}_{MPC}=[\mathbf{I},\mathbf{0},\ldots,\mathbf{0}]
+                 \left[\mathcal{H}^T\mathcal{H}\right]^{-1}\mathcal{H}^T\Theta\mathcal{Q}
+\end{equation}
+y $\mathcal{E}(k)=\mathcal{T}(k)-\Psi\mathbf{\hat{x}}(k)-\Gamma\mathbf{u}(k-1)$. Resultando entonces en el
+diagrama de bloque mostrado en la Fig. \ref{f2_14}.\\
+%------------------------------------------------------------------------------------------
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=12cm,height=5cm]{Ch2/apc_ee}\\
+  \caption{Estructura de control predictivo con modelo en espacio de estados}\label{f2_14}
+\end{figure}
+%------------------------------------------------------------------------------------------
+
+En \cite{Mjm:00} se puede encontrar una excelente recopilaci{\'o}n te{\'o}rica y aplicaciones de control predictivo
+basado en modelos de estados lineales. En \cite{PsMsNsSs:06} se proponen nuevas estrategias de modelado en
+EE y control predictivo multivariable aplicado a CTF.
+
+\subsection{Efecto de las restricciones}
+Recordando el formato de las restricciones dada en la ec. \ref{e2_46}
+\begin{equation}
+    \begin{array}{r}
+      \mathbf{E}\left[\triangle\hat{u}(k),\ldots,\triangle\hat{u}(k+H_u-1),1\right]^T \leq\left[0,\ldots,0\right]^T \\
+      \mathbf{F}\left[\hat{u}(k),\ldots,\hat{u}(k+H_u-1),1\right]^T \leq\left[0,\ldots,0\right]^T \\
+      \mathbf{G}\left[\hat{y}(k+H_w),\ldots,\hat{y}(k+H_p),1\right]^T \leq\left[0,\ldots,0\right]^T \\
+    \end{array}
+\end{equation}
+y el funcional de la ec. \ref{e2_49} (o la ec. \ref{e2_64}) vemos que la estructura del problema a resolver
+ahora resulta
+\begin{equation}\label{e2_73}
+\min_{\theta}\left[\frac{1}{2}\theta^{T}\Phi\theta+\phi^{T}\theta\right], \quad \text{sujeto a}\quad
+\Omega\theta\leq\omega
+\end{equation}
+que es un problema cl{\'a}sico de optimizaci{\'o}n conocido como \emph{Problema de Programaci{\'o}n Cuadr{\'a}tica (QP)} y
+existen numerosos algoritmos disponibles para su resoluci{\'o}n. En este caso la estructura general de control
+puede representarse como se muestra en la Figura \ref{f2_15}.
+%------------------------------------------------------------------------------------------
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=12cm,height=5cm]{Ch2/apc_rest}\\
+  \caption{Estructura de un CPM con restricciones}\label{f2_15}
+\end{figure}
+%------------------------------------------------------------------------------------------
+
+\section{Control adaptivo predictivo (CAP)}\label{sec_CPA}
+Reescribiendo la expresi{\'o}n del modelo FIR de la secci{\'o}n \ref{sec_FIR} como
+\begin{equation}\label{e2_74}
+    \hat{y}(k)=\psi(k)^{T}\hat{\theta}(k)+\eta(k)
+\end{equation}
+donde
+\begin{equation}\label{e2_75}
+\begin{split}
+    \psi(k)&=[u(k-1),\ldots,u(k-N)]^{T}\\
+    \hat{\theta}(k)&=[\hat{g}(1,k),\ldots,\hat{g}(N,k)]^{T}\\
+\end{split}
+\end{equation}
+podemos aplicar una estrategia recursiva de IS como se muestra en la secci{\'o}n \ref{sec_MCR} por ejemplo, para
+contar con un modelo del proceso que se actualiza en cada instante de muestreo.
+
+Retomando el caso de la secci{\'o}n \ref{sec_FIR} donde se desarrollo un control predictivo basado en modelo FIR
+simple entrada--simple salida, podemos entonces construir un CAP actualizando nuestro modelo y las matrices
+del controlador, las cuales a su vez tambi{\'e}n dependen del modelo.
+
+En este caso la estructura de control de la ec. \ref{e2_56} se modifica a
+\begin{equation}\label{e2_76}
+\hat{U}(z)=\frac{D^*(1,k)K_{g}(k)}{D^*(z^{-1},k)}\left[z^{N_w}\frac{R(z,k)}{R(1,k)}Y_r(z)-\left(Y(z)-\hat{Y}(z)\right)\right]
+\end{equation}
+donde $k$ hace referencia a la dependencia de las matrices del controlador con el modelo FIR
+\begin{equation}\label{e2_77}
+\hat{G}(z^{-1},k)=\hat{g}(1,k)z^{-1}+\hat{g}(2,k)z^{-2}+\ldots+\hat{g}(N,k)z^{-N}
+\end{equation}
+identificado en dicho instante temporal.\\
+%------------------------------------------------------------------------------------------
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=13cm,height=6cm]{Ch2/apc3}\\
+  \caption{Estructura de un CPM adaptivo}\label{f2_16}
+\end{figure}
+%------------------------------------------------------------------------------------------
+
+En esta {\'a}rea tambi{\'e}n existen numerosas publicaciones y trabajos. Un excelente tratamiento de los aspectos de
+estabilidad, convergencia y robustez en CAP puede encontrarse en \cite{SsBm:89}. Por otro lado \cite{Kr:88}
+y \cite{Jm:90} proponen nuevas estrategias de CAP focalizados en monitorear las caracter{\'\i}sticas de robustez
+y convergencia de los algoritmos. Adem{\'a}s, se presentan tanto aplicaciones acad{\'e}micas como experimentaci{\'o}n en
+laboratorio. Un tratamiento de sistemas con retardo variable en el tiempo y CAP puede encontrarse en
+\cite{GwMgZmLyLy:05}. Y versiones de CAP para procesos altamente no lineales se resumen en \cite{LxZxDd:05}.
+
+\section{Control con filtro robusto adaptivo predictivo (CFRAP)}\label{sec_CFRA}
+La idea b{\'a}sica en este tipo de controlador radica en modificar ligeramente la estrategia mostrada en la
+secci{\'o}n \ref{sec_FIR} introduciendo una correcci{\'o}n adaptiva de la estimaci{\'o}n dada por el modelo FIR nominal
+$\hat{G}_0(z^{-1})$ estimado fuera de l{\'\i}nea.
+
+Podemos considerar que el modelo FIR esta compuesto por un modelo nominal estable $\hat{G}_0(z^{-1})$ mas el
+efecto adaptivo $\Delta\hat{G}(z^{-1},k)$ alrededor de dicho modelo, como se muestra en la ec. \ref{e2_78},
+\begin{equation}\label{e2_78}
+\hat{G}(z^{-1},k)=\Delta\hat{G}(z^{-1},k)+G_{0}(z^{-1}),
+\end{equation}
+donde
+\begin{equation}\label{e2_79}
+\begin{split}
+\Delta\hat{G}(z^{-1},k)&=\Delta\hat{g}(1,k)z^{-1}+\dots+\Delta\hat{g}(N,k)z^{-N}\\
+      \hat{G}_0(z^{-1})&=\hat{g}_0(1)z^{-1}+\dots+\hat{g}_0(N)z^{-N}
+\end{split}
+\end{equation}
+donde los $\hat{g}_{0}(i)=[h(i)-h(i-1)]/\Delta u(k)$, con $h(k)$ la respuesta de la planta a una excitaci{\'o}n
+del tipo escal{\'o}n en $u(k)$ de magnitud $\Delta u(k)$. Este modelo nominal estable ($\hat{G}_0(z^{-1})$)
+genera mediante la metodolog{\'\i}a mostrada en la secci{\'o}n \ref{sec_FIR} un controlador estable dado por
+$D_0^*(z^{-1})$, $R_0(z)$.
+%------------------------------------------------------------------------------------------
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=13cm,height=6cm]{Ch2/apc4}\\
+  \caption{Estructura de un CFRAP}\label{f2_17}
+\end{figure}
+%------------------------------------------------------------------------------------------
+
+Reescribiendo  las predicciones de este modelo FIR como
+\begin{equation}\label{e2_80}
+\hat{y}(k)=\sum_{i=1}^{N}\Delta\hat{g}(i)u(k-i)+\sum_{i=1}^{N}\hat{g}_{0}(i)u(k-i)+\eta(k)
+\end{equation}
+y considerando la estrategia de identificaci{\'o}n recursiva de la secci{\'o}n \ref{sec_CPA} resulta que el filtro
+puede actualizarse considerando
+\begin{equation}\label{e2_81}
+\begin{split}
+    \psi(k)&=[u(k-1),\ldots,u(k-N)]^{T}\\
+    \Delta\hat{\theta}(k)&=[\Delta\hat{g}(1,k),\ldots,\Delta\hat{g}(N,k)]^{T}\\
+\end{split}
+\end{equation}
+como regresor en las entradas y vector de par{\'a}metros respectivamente. Como se puede observar de la ecs.
+\ref{e2_81} y \ref{e2_75} las estrategias CFRAP y CPA presentan en com{\'u}n el mismo regresor, facilitando y
+promoviendo una futura interconexi{\'o}n.
+
+En este caso la compensaci{\'o}n est{\'a}tica resulta de
+\begin{equation}\label{e2_82}
+K_g(k)=\frac{1}{\Delta\hat{G}(1,k)+\hat{G}_0(1)}
+\end{equation}
+
+En \cite{Jm:90,JmBmZd:06} y \cite{ZdBmJmCa:06,ZdBmJmCa:07} se presentan aplicaciones de CAP y CFRAP basados
+en modelos FIR y aplicaciones tanto acad{\'e}micas como experimentales.

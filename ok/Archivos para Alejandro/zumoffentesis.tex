@@ -1,0 +1,106 @@
+\input{preamble}
+%
+%\includeonly{titlepage,acknowledgements,abstract,glossary,variables,Ch0/chap0} %,Appendix/appendix5,Appendix/appendix6} %,Ch2/chap2,Ch3/chap3} %Appendix/appendixa}
+%
+\begin{document}
+% ----- cambia enunciado Cuadros por Tabla -----------
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{\'{I}ndice de tablas}
+
+% ---P\'{a}gina de t\'{\i}tulo ---
+\include{titlepage}
+\pagenumbering{roman}
+
+%----------------------------- P\'{A}GINA DE CERTIFICACI\'{O}N --------------------------------------------------
+\thispagestyle{empty}%
+Certifico que el trabajo incluido en esta tesis es el resultado de tareas de investigaci\'{o}n originales y que
+no ha sido presentado para optar a un t\'{\i}tulo de postgrado en ninguna otra
+Universidad o Instituci\'{o}n.\\
+\vspace{1cm}
+\begin{flushright}
+\large\fontfamily{augie}\selectfont
+David Alejandro R. Zumoffen \\
+\normalsize\sffamily
+\end{flushright}
+\vspace{15cm}
+\begin{flushleft}
+\setlength\fboxrule{0.8pt}\setlength\fboxsep{2mm}%
+\begin{tabular}{ll}
+\multirow{2}{1.8cm}{\fontfamily{augie}\selectfont\huge GIAIP \small}
+                                        & \small Grupo de Inform\'{a}tica Aplicada a Ingenier\'{\i}a de Procesos.\\
+                                        & \small CIFASIS (UNR-UPCAM-CONICET).\\
+                                        & \small RMN - Planta Alta.\\
+                                        & \small Blvd. 27 de Febrero 210 Bis.\\
+                                        & \small 2000 Rosario, Argentina.\\
+                                        & \small TE: +54 - 0341 - 4821771 Ext. 104.\\
+                                        & \small E-mail: zumoffen@cifasis-conicet.gov.ar\\
+                                        & \small A\~{n}o: 2008.
+\end{tabular}
+\end{flushleft}
+%--------------------------------------------------------------------------------------------------------
+
+% --------- Archivo Agradecimientos -----------
+\addcontentsline{toc}{chapter}{Agradecimientos}
+\include{acknowledgements}
+
+% --------- Archivo Resumen -----------
+\addcontentsline{toc}{chapter}{Resumen}
+\include{abstract}
+
+% --------- Archivo Publicaciones -----------
+\addcontentsline{toc}{chapter}{Publicaciones}
+\include{publications}
+
+% ------------ Glosario y Variables ------------
+\addcontentsline{toc}{chapter}{Glosario}
+\include{glossary}
+\addcontentsline{toc}{chapter}{Variables}
+\include{variables}
+
+% ---- Lista de contenidos, figuras y tablas ----
+\tableofcontents \listoffigures \listoftables
+
+% -- Archivo Cap\'{\i}tulo Nº 0 --
+\include{Ch0/chap0}
+
+% -- Archivo Cap\'{\i}tulo Nº 1 --
+%\include{Ch1/chap1}
+
+% -- Archivo Cap\'{\i}tulo Nº 2 --
+%\include{Ch2/chap2}
+
+% -- Archivo Cap\'{\i}tulo Nº 3 --
+%\include{Ch3/chap3}
+
+% -- Archivo Cap\'{\i}tulo Nº 4 --
+%\include{Ch4/chap4}
+
+% -- Archivo Cap\'{\i}tulo Nº 5 --
+%\include{Ch5/chap5}
+
+% ----- Archivos de Ap\'{e}ndice -------------
+%\fancyhead{}%
+%\addcontentsline{toc}{chapter}{Ap\'{e}ndice A}
+%\include{Appendix/appendix1}
+%\addcontentsline{toc}{chapter}{Ap\'{e}ndice B}
+%\include{Appendix/appendix2}
+%\addcontentsline{toc}{chapter}{Ap\'{e}ndice C}
+%\include{Appendix/appendix3}
+%\addcontentsline{toc}{chapter}{Ap\'{e}ndice D}
+%\include{Appendix/appendix4}
+%\addcontentsline{toc}{chapter}{Ap\'{e}ndice E}
+%\include{Appendix/appendix5}
+%\addcontentsline{toc}{chapter}{Ap\'{e}ndice F}
+%\include{Appendix/appendix6}
+
+% --------- Archivo Bibliograf\'{\i}a -----------
+\fancyhead[LE,RO]{\nouppercase{\textbf{\rightmark}}}%
+\fancyhead[LO,RE]{}%
+\addcontentsline{toc}{chapter}{Bibliograf\'{\i}a}
+\bibliographystyle{plainnat}
+\bibliography{bib}
+
+% --------- Mis publicaciones ---------
+%\addcontentsline{toc}{chapter}{Anexo}
+%\include{anexo}
+\end{document}

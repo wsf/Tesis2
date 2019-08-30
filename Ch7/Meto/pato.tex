@@ -1,0 +1,132 @@
+% This is LLNCSDE2.TEX, a variation of LLNCS.DEM
+% (the demonstration file of
+
+% the LaTeX macro package from Spring
+%%Verlag
+% for Lecture Notes in Computer Science,
+% version 2.2 for LaTeX2e),
+
+% which can be used by volume editors for the preparation
+% of the front matter pages and the author index
+%
+% Last changes: 04.08.1999, Antje Endemann (endemann@springer.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% In order to generate an Author Index do the following:
+% After TeXing this document start the program MakeIndex by typing
+% MAKEINDX -S SPRMINDX.STY <filename>
+% (generates an IND file for the Author Index)
+% into the DOS command line.
+% (At other systems you may have to use the command MAKEINDEX.)
+% Now TeX this file once again, then you will get an Author Index.
+% TeX this file once more, then the TOC will be complete.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt]{llncs}
+%\documentclass[10pt]{article}
+%\usepackage[latin1]{inputenc}
+%\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}  % allows for indexgeneration
+\usepackage[latin1]{inputenc}
+%\usepackage{fancyhdr,epsfig}
+\usepackage{graphicx}
+\usepackage{a4wide}
+\usepackage{listings}
+
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{layout}
+
+\usepackage{pslatex}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+%\usepackage{a4wide}
+
+\renewcommand{\baselinestretch}{1}
+
+\makeindex
+%
+\begin{document}
+%
+\frontmatter          % for the preliminaries
+%
+%%%%%%\setcounter{page}{5}
+%
+\pagestyle{headings}  % switches on printing of running heads
+\addtocmark{Hamiltonian Mechanics} % additional mark in the TOC
+%
+
+
+\title{Contratos context-aware para e-learning}
+
+\author{Alejandro Sartorio}
+
+\index{Ekeland, Ivar} \index{Temam, Roger}
+
+% use the command \index{<name>} for index entries
+
+%\institute{Lifia. Facultad de Informatica, Universidad Nacional de La Plata \and Consejo Nacional de Investigaciones Cientficas
+%y Tcnicas CONICET \and Facultad de Humanidades y Artes,Universidad Nacional de Rosario \and Gidis. Facultad de Ciencias Exactas
+%Ingeniera y Agrimensura, Universidad Nacional de Rosario \\}
+
+
+\institute{Facultad de Ciencias Exactas Ingeniera y Agrimensura, Universidad Nacional de Rosario \\}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\begin{quote}
+
+\small{\textbf{Palabras Claves:} Coordinacin de contratos, e-learning, "Context-Aware"}
+
+
+\end{quote}
+
+
+
+\section{Contratos}
+
+Bajo que condicionamiento estar'ia dichos datos .....
+
+habilitaci'on de servicios de los dispositivos hipermediales. 
+
+
+Relaciones vol'atiles para poder poner el contrato.
+
+Deficini'on de terminos para obra abierta.
+
+
+Poderaci'on MCondicionales y DM condicionales
+
+\begin{itemize}
+\item contextos
+\item reglas
+\subitem condicionales
+\subitem acciones
+\end{itemize}
+
+
+
+
+
+
+
+
+\setcounter{page}{13}
+
+\addtocmark[2]{Author Index} % additional numbered TOC entry
+\renewcommand{\indexname}{Author Index}
+\printindex
+
+\newpage
+\begin{thebibliography}{1}
+    \bibitem{ceri} Stefano Ceri, Florian Daniel, Maristella Matera, Federico M. Facca. 20YY. {Model-driven Development of 
+\end{thebibliography}
+
+
+\end{document}

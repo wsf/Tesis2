@@ -1,0 +1,146 @@
+%--------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Preamble ---------------------------------------------------------
+\documentclass[a4paper,11pt,openright]{report}
+\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{framed}
+\usepackage{color}
+
+\definecolor{myblue}{rgb}{0,0,0.7}
+\definecolor{mygrey}{rgb}{0.6,0.6,0.6}
+\definecolor{myred}{rgb}{0.8,0,0}
+\definecolor{myred2}{rgb}{0.7,0,0}
+\usepackage[colorlinks=false,citecolor=myblue,linkcolor=myblue]{hyperref}
+%\usepackage[center]{subfigure}
+\usepackage{verbatim} % comentarios
+\usepackage{graphics,graphicx}
+\usepackage[spanish]{babel}
+\usepackage{newlfont}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\usepackage{mathdots}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[dvips]{graphicx}
+\usepackage{wrapfig} 
+\usepackage{fancyhdr,epsfig}
+\usepackage{colortbl}
+
+\usepackage{pdfpages}
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.pdf}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.pdf}
+
+%\usepackage{a4wide}
+%\usepackage{amssymb}
+%\usepackage[latin1]{inputenc}
+%\usepackage[spanish]{babel}\setcounter{secnumdepth}{0} 
+
+\setcounter{secnumdepth}{3} % para que ponga 1.1.1.1 en subsubsecciones
+
+\setcounter{tocdepth}{3} % para que ponga subsubsecciones en el indice
+
+
+\DeclareGraphicsExtensions{.bmp,.png,.pdf,.jpg,.eps}
+
+
+\bibpunct{\textcolor{myblue}{(}}{\textcolor{myblue}{)}}{\textcolor{myblue}{;}}{a}{\textcolor{myblue}{,}}{\textcolor{myblue}{,}}
+
+
+% ---- graphics file types -----
+%\DeclareGraphicsExtensions{.png}
+
+% ------- Fonts --------
+%\usepackage[T1]{fontenc}
+% Cambia el formato y posici{\'o}n de las divisiones del documento
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries}
+
+% ------------- Fancy Chapters ---------------
+\usepackage[Sonny]{fncychap}
+%Sonny, Lenny, Glenn, Conny, Rejne and Bjarne.
+\ChNameVar{\fontencoding{T1}
+  \fontfamily{cmss}
+  \fontseries{m}
+  \fontshape{n}
+  \fontsize{30}{12}
+  \selectfont}
+\ChNumVar{\fontencoding{T1}
+  \fontfamily{cmss}
+  \fontseries{m}
+  \fontshape{n}
+  \fontsize{30}{12}
+  \selectfont}
+\ChTitleVar{\fontencoding{T1}
+  \fontfamily{cmss}
+  \fontseries{m}
+  \fontshape{n}
+  \fontsize{30}{12}
+  \selectfont}
+
+% ------------------------------ Page Layout ------------------------------------
+
+\usepackage[a4paper,text={13cm,24cm},bindingoffset=2cm,top=3cm,twoside]{
+geometry }
+
+
+%\usepackage[a4paper,left=5cm,top=3cm,right=2cm,twoside]{geometry}
+
+%---------------------- Fancy Header ------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy} \fancyhead{} \fancyfoot{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+%\fancyhead[R]{\textbf{\thepage}}
+%\fancyhead[L]{\nouppercase{\textbf{\rightmark}}}
+\fancyhead[LE,RO]{\nouppercase{\textbf{\rightmark}}}
+\fancyhead[LO,RE]{}
+\fancyfoot[LE,RO]{\textbf{\thepage}}
+\fancyfoot[LO,RE]{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+% ----------------------------------- Draft Version Stamp --------------------------------------------
+\usepackage[draft,time,scrtime]{prelim2e}
+\renewcommand{\PrelimWords}{\normalsize\fontfamily{augie}\selectfont\color{myred}Versi{\'o}n Borrador: 1.0}
+%
+\renewcommand{\thefootnote}{\textrm{\alph{footnote}}}
+
+%--- Tree Diagram ---
+\usepackage{dirtree}
+\DeclareGraphicsExtensions{.bmp,.png,.pdf,.jpg,.eps}
+\usepackage{graphics,graphicx}
+\usepackage{wrapfig} 
+
+%\setglossgroup{A}{Abreviaciones}%
+%\setglossgroup{S}{S{\'\i}mbolos}
+
+%\newcommand{\mydrop}[1]{\setbox0\vbox{\noindent\fontsize{30}{30}\selectfont\noindent #1}
+%\wd0=0pt\ht0=0pt\box0 \hangindent=6mm\hangafter =-4\vspace{-3mm} \normalsize\noindent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Setting to control figure placement
+% These determine the rules used to place floating objects like figures
+% They are only guides, but read the manual to see the effect of each.
+   \renewcommand{\topfraction}{.99}
+   \renewcommand{\bottomfraction}{.99}
+   \renewcommand{\textfraction}{.01}
+%\parindent=1.3cm
+%\parindent=2cm
+%\parskip=1cm
+
+\newtheorem{defi}{{\sc Definición}}
+\newtheorem{ejemplo}{\rule{0.3in}{0.11in} {\rm Ejemplo }}
+\textwidth=13cm
+
+%-----------Formato Codigo----------
+\usepackage{listings}
+\lstset{basicstyle=\fontfamily{augie}}
+
+
+

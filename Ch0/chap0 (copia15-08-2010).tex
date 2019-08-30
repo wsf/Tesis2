@@ -1,0 +1,672 @@
+%-------------------------------------------------------------------------------
+--------------------------------
+%------------------------------------------------- Chapter 1 --------------------------------------------------------
+\parskip=0.6cm
+
+\chapter{Introducción}
+\pagenumbering{arabic}
+
+
+En esta tesis partimos de las motivaciones y metáforas que
+iniciaron el primer
+acercamiento hacia la conceptualización de un nuevo marco referencial sobre una
+propuesta del uso e implementación de los TICs para investigar, aprender,
+dialogar, confrontar, componer, evaluar, diseminar bajo la modalidad de taller
+físico-virtual. Esto permitirá la elaboración de las primeras hipótesis
+para establecer los marcos que delimitan el estudio de la Ingeniería de
+Software y Ciencias de la Computación aplicada a la interpretación de un tipo
+de requerimiento especial y su correspondiente infraestructura de resolución.
+
+
+Los principales desafíos que se enfrentaron tienen que ver, primero, con
+la interpretación y la construcción de un espacio acorde que permita entender
+la idea conceptual subyacentes en los DHD. Luego se comenzó a trabajar sobre
+el estado del arte acerca de las propuestas tecnológicas/filosóficas en
+las que se trataban aspectos comunes a los DHD. Del mismo modo se analizaron las
+posibilidades de integrar las soluciones parciales para resolver nuevos
+problemas. En esta etapa de la investigación se comienza con el recorrido
+para el estudios de proyectos donde traten problemáticas similares a la de
+esta tesis.
+
+Los sistemas colaborativos parecen un propuesta racional para sostener modelos
+donde se puedan implementar soluciones tecnológicas para requerimientos
+funcionales que deriven de un requisito de mas alto nivel en los que aumenta
+el grado de subjetividad debido a que se deben tener en cuenta cuestiones de
+contexto, tipos de relaciones y vínculos que agregan diferentes niveles de
+complejidad y de interpretación. 
+
+Actualmente se evidencia un creciente
+interés por formas de trabajo más
+efectivas, que aprovechen de forma
+integral, el potencial de las personas. Se
+busca generar conocimiento útil a partir de
+la información disponible y el desarrollo de
+habilidades que permitan aplicar ese
+conocimiento efectivamente. No obstante,
+la complejidad de muchos problemas
+requiere del trabajo de grupos de
+personas capaces de interactuar de forma
+sinérgica para enfrentarlos \cite{cap1.1}. La mirada
+multidisciplinaria ha dejado de ser una
+opción para convertirse en una necesidad. 
+
+Debido al papel protagónico que han
+jugado las tecnologías de la información y
+las comunicaciones en muchos de los
+escenarios que la sociedad actual ha
+construido, y el vertiginoso desarrollo que
+han tenido en los últimos años, se han
+planteado paradigmas y esquemas de
+trabajo que integran a las ciencias
+computacionales con otros campos del
+conocimiento, como las ciencias humanas
+y sociales, las ciencias administrativas, el
+diseño gráfico y artístico, etc, en un
+intento por aprovechar el soporte que
+pueden brindar dichas tecnologías, pero
+reconociendo al tiempo, que pese a su
+potencial, gran parte de los problemas
+que debemos resolver, no pueden ser
+atacados exclusivamente desde una
+perspectiva tecnológica \cite{cap1.2,cap1.3}. 
+
+La elecci´on de metodolog´ias y paradigmas en los que se integran tecnolog´ias
+y funcionalidades conceptuales necesitan ser interpretados como las posibles
+instancias que se pueden configurar. Esto quiere decir que se puede interpretar
+propiedades generales de los sistemas a partir de las posibles configuraciones
+de un estado determinado de un caso de uso concreto. Este an´alisis es abordado
+a trav´es de la teor´ia de los sistemas complejos y se tiene en cuenta como
+items para la clasificaci´on de aplicaciones Groupware.
+
+
+Los aspectos sobre los sistemas colaborativos que se tendr´an en cuenta en esta
+tesis son:
+
+
+Nivel de automatización: Las aplicaciones “GROUPWARE” como considera
+Patricia Schnaidt, se pueden clasificar de acuerdo al tipo de trabajo en grupo
+que apoyan: \footnote{SCHNAIDT, Patricia. Workflow Applications. An
+emerging Method for Sharing Work: LAN Magazine. Feb. 1992}
+
+
+\textit{Flujo de documentos, Automatización de procesos, Automatización de
+tareas, Herramientas flexibles de trabajo en grupo.}
+
+\begin{itemize}
+
+\item De acuerdo al espacio-tiempo de los miembros del grupo: Considera las
+aplicaciones “groupware” de acuerdo al tipo de interacción de los miembros del
+grupo de trabajo \cite{cap1.4.groupware}.
+
+\begin{itemize}
+ \item Interacción sincrónica:
+ \item Interacción Asincrónica:
+ \item Distribución sincrónica:
+\end{itemize}
+
+
+
+\item De acuerdo al manejo de información. De acuerdo al soporte que brindan
+\cite{cap1.5.groupware} los sistemas “groupware” pueden clasificarse en:
+\begin{itemize}
+ \item Sistemas para compartir Información.
+ \item Sistemas cooperativos.
+ \item Sistemas concurrentes.
+\end{itemize}
+
+
+\item De acuerdo al propósito de la aplicación: Podemos encontrar dos tipos de
+aplicaciones dependiendo de su propósito.
+\begin{itemize}
+ \item Aplicaciones de propósito general:.
+ \item Aplicaciones de propósito específico:.
+\end{itemize}
+
+
+\item De acuerdo al tipo de aplicación: Dependiendo del tipo de aplicación
+y funcionalidad se pueden clasificar en los siguientes grupos.
+
+\begin{itemize}
+ \item Sistemas de mensajes por computador
+ \item GDSSs (Group Decision Support Systems).
+ \item Sistemas de coordinación: Orientados a la formas, orientados al proceso,
+orientados al di´alogo, orientados a la estructura de comunicaci´on.	
+\end{itemize}
+
+
+\item De acuerdo al tipo de reconfiguraci´on orientadas a las relaciones
+intersujetivas \cite{libro.unr}. Dependiendo del grado de expresi´on que se
+tiene para reconfigurar el sistema dependiendo de informaci´on de contexto
+interna y del entorno.
+
+\begin{itemize}
+ \item Reconfiguraci´on din´amica.
+ \item Adaptabilidad
+ \item Sensibilidad al contexto.
+ \item Sistemas expertos.
+\end{itemize}
+
+\end{itemize}
+
+
+Los aportes de esta tesis toman bases todos los avances en proyectos y
+publicaciones sobre los primeros items y propone un aporte original referido al
+´ultimo items de reconfiguraci´on orientada a las relaciones intersujetivas.
+
+
+
+\section{Motivación}
+
+
+A medida que el avance en la investigación y desarrollo de plataformas
+e-learning brindan mejoras e innovaciones en herramientas (videoconferencias,
+porfolios, wikis, workshops, etc.) y sus respectivos servicios, crece la
+cantidad de posibles configuraciones de los espacios e-learning.
+
+
+Estas configuraciones abarcan diferentes tipos de requerimientos pertenecientes
+a las  etapas de diseño, desarrollo e incluso exigen que el espacio e-learning
+se adapte en tiempo de ejecución. A partir de estos requerimientos iniciales se
+definen los procesos e-learning (que nosotros denominamos Pe-lrn)
+\cite{cacic2007.7} de manera semejante a procesos de negocio en otro dominio de
+aplicación. Al igual que los
+procesos de negocios en una Aplicación Web convencional, los Pe-lrn están
+compuestos por transacciones Web \cite{cacic2007.7}. En este contexto, una
+transacción (o transacción e-learning) es definida como una secuencia de
+actividades que un usuario ejecuta a través de una Aplicación e-learning con el
+propósito de efectuar una tarea o concretar un objetivo, donde el conjunto de
+actividades, sus propiedades y las reglas que controlan sus ejecuciones dependen
+del Pe-lrn que la Aplicación debe brindar. Un ejemplo de estrategia didáctica es
+la posibilidad de que un alumno acceda a determinado tipo de material (vídeos,
+archivos, etc.) dependiendo de sus intervenciones en los Foros. Estos tipos de
+requerimientos resultan difíciles de implementar con las actuales aplicaciones
+e-learning de extendido uso a nivel global.
+
+
+Las características funcionales de las actuales aplicaciones Web e-learning
+(AWe-lrn), como Sakai \cite{sakai}, se basan en brindar navegación entre
+páginas a través de links y ejecución de transacciones e-learning por desde las
+herramientas (ej., Foros, Anuncios, Exámenes, Blogs, etc.) que utilizan los
+servicios de la plataforma (ej., edición, manejo de audio y vídeo, consultas,
+navegación, etc.).
+
+
+En el marco de los análisis efectuados podemos sostener que el proyecto Sakai
+brinda una de las propuestas más consolidadas de diseño y desarrollo de
+entornos colaborativos, teniendo en cuenta los anteriores items analizados.
+Sakai est´a orientado a herramientas que se implementan a través de servicios
+comunes (servicios bases). Por ejemplo, el servicio de edición de mensajes es
+utilizado en las herramientas Foro, Anuncio,Blog, PorFolio, etc. Más aun, otras
+de las características salientes de Sakai es la versatilidad para su extensión
+y/o configuración. En efecto, Sakai permite alterar ciertas configuraciones  en
+tiempo de ejecución, por ejemplo, instrumentar una nueva funcionalidad en un
+servicio base de Sakai.
+
+
+Sin embargo, estas soluciones no pueden resolver aquellos Pe-lrn que involucren
+cambios en el comportamiento de la relaciones entre un componente (cliente) que
+ocasiona, a través de un pedido, la ejecución de un componente servidor
+(proveedor). Estos tipos de cambios refieren a la capacidad de adaptación
+dinámica del sistema \cite{cacic2007.14} extendiendo, personalizando y
+mejorando los servicios sin la necesidad de recompilar y/o reiniciar el
+sistema. 
+
+
+En este tesis se presenta un propuesta para la incorporación (agregado) de
+propiedades  de adaptación dinámicas, reconfiguraci´on e inteligencia
+(AdRI) \label{AdRI} a los servicios bases del framework Sakai,
+especialmente diseñadas para implementar Pe-lrn definidos en el marco de
+\cite{cacic2007.9} donde se requieren nuevos aspectos de adaptación
+\cite{cacic2007.1} implementados a partir del framework Sakai. Dicha
+implementaci´on se ajusta a los requisitos y requerimientos \ref{requisitos,
+requerimietos} bajo la perspectiva de los Dispositivos Hipermediales Dinámicos
+en actividades sociales que posibilitan a los sujetos realizar con el otro
+acciones en interacción responsable para \textit{investigar}, \textit{aprender},
+\textit{dialogar}, \textit{confrontar}, \textit{componer}, \textit{evaluar},
+diseminar bajo la modalidad de taller físico-virtual.  
+
+Cuando hablamos de las propiedades de inteligencia de un framework nos
+referimos a un entorno con caracter´isticas  heterogénea de numerosos
+componentes software y hardware \cite{cap1.133}. Esta mezcla implica ciertos
+desafíos que debemos tener presente especialmente en los dise\~nos para
+prepararlos para este tipo de uso:
+
+
+\begin{itemize}
+ 
+\item
+Se han de integrar y gestionar distintos tipos de tecnología, con
+el consecuente aumento de complejidad en el desarrollo. El usuario puede
+utilizar múltiples modos (habla, gestos, tacto, etc.) para interaccionar con
+el entorno, con lo que se requieren interfaces de usuario muy variadas. Por
+otro lado la distribución de la información requiere distintos tipos de redes,
+según la naturaleza de ésta.
+
+\item
+Los componentes pueden estar altamente distribuidos. Tanto los
+sensores, que se encargan de recoger la información del entorno, como los
+actuadores, que transmiten la respuesta del entorno al usuario, pueden
+tener localizaciones distribuidas. Nuevamente se añade una dificultad extra a la
+hora de desarrollar aplicaciones.
+
+\item
+La configuración del entorno es dinámica. No se puede prever siempre
+el momento en que se conectan y desconectan nuevos dispositivos o entran
+y salen nuevos usuarios.
+
+\item
+El sistema tiene que estar funcionando siempre. Esto quiere decir que se
+deben evitar la mayor cantidad posibles de tareas en tiempo de compilaci´on. En
+este sentido se ven afectados cuestiones de dise\~no, arquitectura e
+implementaci´on que permitan la mayor versatilidad para la ejecuci´on de
+cambios en tiempo de ejecuci´on. Adem´as, es importante tener en cuenta
+previamente, cu´ales van a ser las componentes de los sistemas y qu´e lugares
+ocupan para prepararlas para el cambio o reconfiguraci´on din´amicas. 
+
+\end{itemize}
+
+La combinación de las aplicaciones sensibles al contexto y los entornos activos
+conlleva una serie de dificultades adicionales. A la información contextual
+generada por usuarios, dispositivos y aplicaciones hay que añadir el contexto
+del entorno.
+
+Dentro de un entorno activo se pueden encontrar fuentes de información
+contextual de diversa naturaleza. Las fuentes pueden ser muy cercanas al mundo
+físico, o por el contrario pueden estar relacionadas con el mundo virtual. El
+primer conjunto se compone de toda clase de dispositivos ligados al entorno que
+interaccionan con el mundo físico tales como sensores, conmutadores,
+electrodomésticos, pantallas, micrófonos, altavoces, etc. El segundo conjunto
+incluye aquellos componentes puramente computacionales, tales como gestores de
+diálogos, agentes inteligentes, clientes de correo, etc. Ya se ha mencionado la
+naturaleza distribuida de estos componentes, lo cual implica mayor complejidad
+en el desarrollo de aplicaciones.
+
+
+Un problema importante surge por la diferencia en cuanto al nivel de abstracción
+en la información contextual aportada por los distintos componentes. Los
+sensores manejan información de alta resolución que es rica en detalles pero
+pobre en cuanto a abstracción. En cambio las aplicaciones pueden requerir
+información contextual más elaborada que la que aportan los sensores. Los
+desarrolladores tienen que convivir con información que tiene distinta
+resolución, lo que implica distintos formatos y distintas redes de
+distribución.
+
+
+Finalmente, la interfaz con el usuario debe ser lo más flexible posible, para
+así poder obtener un interacción intersujetivas (cap´itulo \ref{cap:2}),
+permitiendo que esta tecnología las actividades cotidianas del usuario.
+Adem´as, se debe tener el cuidado que las interfaces tengan el suficiente nivel
+de expresi´on para que pueda instrumentar adecuadamente las reconfiguraciones
+din´amicas, ya que en ellas se encuentran la m´axima complijidad
+funcional. En este punto el contexto también juega un papel importante. La
+interacción persona-ordenador no es tan efectiva como la comunicación entre dos
+personas. Un factor que contribuye a esta ineficiencia es que una parte
+importante de la comunicación se basa en un conocimiento común que poseen las
+personas que permite entender una situación. Este conocimiento implícito de la
+situación facilita la comunicación y permite desambiguar partes del discurso. En
+la comunicación persona-ordenador ocurren dos fenómenos paralelos e igualmente
+nocivos, por un lado la imposibilidad por parte del usuario de utilizar los
+mismos códigos que emplearía con una persona, por otro lado por parte del
+ordenador de capturar esa información contextual. Como resultado la persona se
+adecúa a la máquina y no al revés. Un punto importante es determinar cuál es la
+información contextual que el usuario debe suministrar al ordenador para
+conseguir una interacción más natural. Una vez determinado el contexto, es
+preciso capturarlo. Para ello se requiere de múltiples sensores e interfaces de
+tal forma que se pueda captar tanto la interacción explícita como la implícita
+del usuario, teniendo en cuenta que este proceso se realice de
+forma no intrusiva.  
+
+Tal como se deduce del título \footnote{Los contratos sensibles al contexto
+para los Dispositivos Hipermediales Din´amicos} el planteamiento de esta tesis
+tiene en cuenta el contexto como una componente de primera clase.
+
+Ahora bien, el término información contextual tiene múltiples acepciones
+que dependen del dominio de aplicación. Incluso si se restringe éste al campo de
+las ciencias de la computación, todavía el espectro de posibles definiciones es
+muy amplio. En la presente tesis se considera el contexto en el mismo sentido
+que le dan los trabajos realizados en aplicaciones sensibles al contexto. Esta
+área engloba aplicaciones y dispositivos que consideran como una entrada más del
+sistema la información sobre las circunstancias bajo las cuales operan. Estas
+circunstancias pueden ser la localización, la tarea que está realizando el
+usuario, otros recursos que se encuentren cerca, las condiciones ambientales del
+entorno, etc. La definición y representación del contexto es un punto central de
+esta tesis que se tratará en profundidad en el capítulo \ref{}
+
+El alcance del estudio queda acotado a las aplicaciones sensibles al contexto
+que operan dentro de un entorno inteligente. Este consiste en una
+infraestructura restringida por unas barreras físicas y compartida por un
+conjunto de aplicaciones, dispositivos y personas. El adjetivo inteligente se
+emplea para indicar la habilidad de adquirir información de forma autónoma y de
+emplearla para adaptarse a las necesidades de los sujetos intervinientes. El
+entorno se convierte en una aplicación sensible al contexto más, contribuyendo
+activamente en la interacción con el usuario. Así, en la literatura también se
+pueden encontrar referencias a los entornos inteligentes como entornos activos
+(``Active environment``) o espacios activos (''Active Spaces''). En la vida
+diaria una persona desarrolla sus actividad en múltiples tipos de entornos. Un
+hogar, una oficina, una clase, un vehículo o un restaurante son ejemplos
+posibles de entornos activos. Gran parte de las conclusiones que se han extraído
+son extrapolables a otros entornos, aunque se han tomado ciertas consideraciones
+particulares al hogar, que se irán indicando a medida que vayan surgiendo en el
+documento.
+
+Para entender mejor la importancia del contexto y su relación con los entornos
+inteligentes es necesario referirse a la Computación Ubicua, una tercera área de
+investigación que engloba a los dos temas centrales de la tesis. La Computación
+Ubicua 6, también conocida como Computación Pervasiva (``Pervasive
+Computing``). Otra cuesti´on a contemplar tiene que ver con Computación Ubicua
+(Mark Weiser, 1993), el cual propone trasladar la capacidad de computación de
+los rígidos y voluminosos ordenadores personales a miles de dispositivos
+diseminados por el entorno, de forma que las computadoras se fundan con el
+entorno hasta volverse invisibles al usuario.
+
+Otras de los requerimientos que se deben perseguir es lograr el m´aximo posible
+del nivel de encapsulamente para los procesos de reconfiguraci´on din´amica y
+usos de servicios reconfigurados. Esto quiere decir que desde la ´optica de los
+usuario no deber´ian poder deducir el secreto de c´omo est´an implementadas las
+reconfiguraciones y su abilitaci´on para el uso. De alguna manera esto
+determina alcanzar un nivel de transparencia hacia el usuario que est´a que
+estar´a mediado por el tipo de tecnolog´ia. En este sentido para alcanzar
+niveles ´optimos de transparencia ser´a necesario un salto tecnol´ogico
+importante. Dicho según las palabras de Donald Norman \cite{cap1.196}:
+
+\begin{quote}
+Necesitamos movernos hacia la tercera generación de ordenadores
+personales, la generación donde la máquina desaparece de la vista,
+donde podemos volver a concentrarnos en las actividades y objetivos
+de nuestra vida.
+\begin{flushright} Donald Norman \end{flushright}
+\end{quote} 
+
+Hay tres transformaciones que devienen de la Computación Ubicua en las
+aplicaciones informáticas que tambi´en se deben tener en cuenta como
+condiciones a respetar. Estos fundamentan las decisiones el uso de
+aplicaciones Web sobre las de escritorio.
+
+\begin{itemize}
+ 
+\item Reconocer el contexto. 
+
+Uno de los puntos débiles de las aplicaciones de escritorio es la insensibilidad
+ante los cambios del contexto del usuario.
+Mientras que se ha hecho un considerable avance en la modelización del usuario
+y la adaptación según diferentes perfiles y preferencias, las aplicaciones
+tradicionales muestran el mismo comportamiento independientemente de la
+situación en que se encuentre el usuario. El contexto se ha reconocido como
+una parte fundamental de la comunicación humana \cite{cap1.69}, por lo que
+debe ser incorporado también el diseño de los sistemas informáticos para
+acercarlos a nuestros códigos de comunicación. La localización, la actividad o
+el foco de atención del usuario, entre otras variables contextúales, tienen que
+formar parte de las nuevas aplicaciones ubicuas.
+
+\item Actuar proactivamente. 
+
+El diálogo entre la aplicación y el usuario puede
+ser iniciado o bien por el usuario, o bien por la aplicación, o bien una
+mezcla de ambos. En general, la mayor parte de las aplicaciones de escritorio
+son pasivas, ya que es el usuario el que debe tomar la iniciativa. Un
+campo que ha prestado especial interés por la proactividad son los agentes
+personales. Éstos se encargan de buscar y mostrar información según la
+preferencias del usuario pero sin necesitar supervisión explícita. En el marco
+de la Computación Ubicua es preciso introducir en el diseño de las aplicaciones
+cierto grado de proactividad que permita liberar la atención del usuario
+cuando no sea imprescindible. Para ello se hace necesario realizar modelos
+del comportamiento humano \cite{cap1.198} que permitan inferir las
+necesidades del usuario.
+
+\item Funcionalidades ubicuas. 
+
+Actualmente para que una aplicación sea ubicua
+es necesario instalarla en cada uno de los dispositivos donde se quiere emplear,
+teniendo en cuenta que para cada dispositivo se cargará una versión distinta que
+se ajuste a las restricciones que éste imponga. Esto incrementa la complejidad
+en el desarrollo, mantenimiento e interoperatibilidad de las diferentes
+versiones de la aplicación. Una aproximación para solucionar este problema es
+mantener una funcionalidad única y generar la interfaz dinámicamente adaptándose
+al dispositivo que requiera el usuario en cada momento \cite{cap1.205}. En este
+sentido se están realizando importantes esfuerzos en estandarizar lenguajes de
+representación de interfaces de usuario abstractas como UIML \cite{cap1.16} o
+XIML \cite{cap1.214}, de modo que se pueda definir una interacción genérica
+independiente del modo a emplear y ligarla con la funcionalidad dinámicamente.
+\end{itemize}
+
+La consecución de estos objetivos recae sobre tres tecnologías: la computación
+ubicua, las aplicaciones sensibles al contexto y los entornos inteligentes.
+Recientemente, a la combinación de estas tres áreas se le ha denominado
+Inteligencia  Ambientad. Esta se refiere a la presencia de un entorno digital
+que es interactivo, sensible, y adaptativo a la presencia de sus ocupantes
+\cite{cap1.16}.
+
+La Inteligencia Ambiental pretende fundir los conceptos de ubicuidad y
+transparencia en un diseño centrado en el usuario que dé como resultado un
+verdadero ordenador invisible. Para esta tesis, esta premisa es tenida en
+cuenta para la elecci´on de propuestas tecnol´ogicas externas utilizadas en las
+implementaciones. Esto quiere decir, que no necesariamente nos ocupemos de
+formar Ambientes Inteligentes a partir de dispositivos f´isicos. En este caso,
+la intensi´on es recoger estos fundamentos para aplicarlos en el tipo de
+propuesta de soluci´on que se persigue. 
+
+En resumen, se puede recoger que la soluci´on planteada de promover  el diseño
+centrado en el usuario y el uso de sistemas altamente interactivos. El objetivo
+final es conseguir que las tecnologías previamente mencionadas ayuden de manera
+no invasiva en los procesos (mediados por la tecnolog´ia) de los DHD.
+
+\section{Solución propuesta y contribución}
+
+Nuestra propuesta de solución a los requerimientos mencionados sobre
+Adaptación dinámica, Reconfiguraci´on e Inteligencia (AdRI) est´a enfocada a la
+inyecci´on de una nueva componente dentro de un sistema original. Esta
+componentes a su ves est´a conectada con nuevos subsistemas que de forma
+estratificada se incorporan al original. Una posible representaci´on de esta
+interpretaci´on se describe en la figura \ref{fig:solucion} para ayudar al
+entendimiento de cu´al es la estructura en la que se basa la propuesta de
+soluci´on.
+
+
+
+\begin{figure}[h]
+\begin{center}
+ \includegraphics[width=4 in,totalheight=3 in] {Ch0/solucion}
+ % .: 0x0 pixel, 0dpi, 0.00x0.00 cm, bb=
+\caption{Estructura de la soluci´on} \label{fig:solucion}
+\end{center}
+\end{figure}
+
+En la parte gis de la figura representa las componentes de un sistema original
+con sus componentes y relaciones. Luego se representa el agregado de una nueva
+componente (componente agregada) que se relacionan con las componentes
+originales del sistema por medio de \textit{nuevas conexiones}. Esta nueva
+relaci´on se denomina \textit{inyecci´on de componentes}. Luego la Componente
+Agregada se conecta con diferentes subsistemas. De esta manera queda conformada
+un nuevo sistema a partir del original, proponi´endose una estructura
+denominada estructura de la soluci´on para el DHD (EstDHD).
+
+En este caso la componentes agregada tiene que ver con el comienzo de la
+comienza con la construcción de un modelo de contrato orientado a la
+implementación de servicios sensibles al contexto. El uso de contratos parte de
+la noción de Programación por Contrato (”Programing by Contract”) de Meyer
+\cite{cap1.11} basada en la metáfora de que un elemento de un sistema de
+software colabora con otro, manteniendo obligaciones y beneficios mutuos. En
+nuestro dominio de aplicación consideraremos que un objeto cliente y un objeto
+servidor “acuerdan“ a través de un contrato (representado con un nuevo objeto)
+que el objeto servidor satisfaga el pedido del cliente, y al mismo tiempo el
+cliente cumpla con las condiciones impuestas por el proveedor.
+
+
+Como ejemplo de la aplicación de la idea de Meyer en un dominio de
+sistemas colaborativo e-learning planteamos la situación en que un
+usuario (cliente) utiliza un servicio de edición de mensajes (servidor) a través
+de un contrato que garantizará las siguiente condiciones: el usuario debe poder
+editar aquellos mensajes que tiene autorización según su perfil (obligación del
+proveedor y beneficio del cliente); el proveedor debe tener acceso a la
+información del perfil del usuario (obligación del cliente y beneficio del
+proveedor).
+
+
+A partir de la conceptualización de contratos según Meyer se propone una
+extensión por medio del agregado de nuevas componentes para instrumentar
+mecanismos que permitan ejecutar acciones dependiendo del contexto (figura
+\ref{fig:solucion}).
+
+En aplicaciones sensibles al contexto \cite{cap1.6}, el contexto (o información
+de contexto) es definido como la información que puede ser usada
+para caracterizar la situación de una entidad más allá de los atributos que la
+definen. En nuestro caso, una entidad es un usuario (alumno, docente, etc.),
+lugar (aula, biblioteca, sala de consulta, etc.), recurso (impresora, fax, etc),
+u objeto (examen, trabajo práctico, etc.) que se comunica con otra entidad a
+través del contrato. En \cite{cap1.2} se propone una especificación del concepto
+de contexto partiendo de las consideraciones de Dourish \cite{cap1.20} y
+adaptadas al dominio e-learning, que será la que consideraremos en este trabajo.
+Contexto es todo tipo de información que pueda ser censada y procesada, a través
+de la aplicación e-learning, que caracterizan a un usuario o entorno, por
+ejemplo: intervenciones en los foros, promedios de notas, habilidades, niveles
+de conocimientos, máquinas (direcciones ip) conectas, nivel de intervención en
+los foros, cantidad de usuarios conectados, fechas y horarios, estadísticas
+sobre cursos, etc.
+
+En términos generales, la coordinación de contratos es una conexión
+establecida entre un grupo de objetos aunque en este trabajo se consideran sólo
+dos objetos: un cliente y un servidor.
+
+
+Cuando un objeto, cliente efectúa una llamada a un objeto servidor (ej., el
+servicio de edición de la herramienta Foro), el contrato ”intercepta” la
+llamada y establece una nueva relación teniendo en cuenta el contexto del
+objeto cliente, el del objeto servidor, e información relevante adquirida
+y representada como contexto del entorno [20]. Como condición necesaria, el uso
+de contratos no debe alterar la funcionalidad de la implementación de los
+objetos participantes, aunque sí se espera que altere la funcionalidad del
+sistema.
+
+
+A continuación se presenta un modelo conceptual resumido de contratos sensibles
+al contexto desde el cual parten las distintas soluciones propuesta en esta
+tesis. Se brindarán detalles sobre algunas de los componentes y relaciones
+esenciales para la integración de este modelo con el framework colaborativo que
+se identifica con la parte gris de la figura \ref{fig:solucion} y algunos de
+sus sub-sistemas representados.
+
+
+\subsection{Primera noción de los elementos intervinientes en la solución}
+
+
+Un contrato que siga las ideas de Meyer contiene toda la información
+sobre los servicios que utilizarán los clientes. Para incorporar sensibilidad
+al contexto los contratos deberán tener referencias sobre algún tipo de
+información de contexto para su utilización.
+
+
+En el diagrama de relaciones entre entidades analizado en la Figura
+\ref{fig:contratosv1} se describen una primera descripci´on de los elementos
+que componen el concepto de contrato sensible al contexto. A lo largo de la
+tesis este mismo diagrama ser´a utilizado para describir diferentes aspecto de
+una misma soluci´on. 
+
+\begin{figura} [h!]
+\begin{center}
+ \includegraphics[width=5 in,totalheight=4 in] {Ch0/f1}
+ % .: 0x0 pixel, 0dpi, 0.00x0.00 cm, bb=
+\caption{Componentes conceptuales de los contrartos sensibles al contexto.
+Versi´on 1} \label{fig:contratosv1 }
+\end{center}
+\end{figura}
+
+La configuraci´on de este diagrama sentar´a en las etapas de dise\~no e
+implementaci´on de diferentes modelos de integraci´on con sub-sistemas
+(cap´itulos \ref{cap:5, cap:6, cap:7}). Adem´as,
+
+
+El propósito de la presentación de este modelo de contrato sensible al
+contexto es identificar cuales son los componentes que lo componen y que serán
+referenciados en la siguiente sección para la implementación de un modelo de
+integración con el framework Sakai.
+
+La figura comienza con la representación de un contrato según Meyer donde se
+caracterizan los principales elementos que lo componen (pre-condiciones,
+acciones, pos-condiciones). La flechas salientes de la zona gris indican los dos
+tipos de relaciones que se debe instrumentar para incorporar un mecanismo que
+provea a los contratos la característica de sensibilidad al contexto. La
+primera de estas relaciones indica que desde las acciones del contrato se
+invocan a los servicios que provee un objeto servidor. La segunda relación se
+da debido los invariantes pueden depender de información de contexto. En la
+porción derecha de la Figura 1 aparecen las entidades necesarias para obtener
+contratos sensibles al contexto. Las explicamos a continuación.
+
+
+\textbf{Servicios}: En esta componente se representan los elementos necesarios
+para la identificación de un servicios y clasificación de los servicios que
+pueden formar parte de las acciones de los contratos. Por ejemplo, nombre del
+servicio, identificadores, alcance, propósito, etc. Para más detalles
+consultar [5]. El comportamiento funcional de cada servicio se expone a través
+de la componente Comportamiento.
+
+
+\textbf{Comportamiento}: El comportamiento de un servicio se logra a partir de
+combinar operaciones y eventos que son representadas con el las componente
+Operaciones y Eventos. De la misma manera el servicio puede ser implementado a
+través del uso de eventos, representados con  el componente Eventos, que puede
+lanzado operaciones del componente Operaciones. Por ejemplo, de acuerdo con los
+roles (ej., alumno, instructor, docente, etc.) asignados a un usuario de una
+herramienta involucrado en un Pe-lrn, en un determinado contexto del entorno
+(ej., si está en un espacio Foro) y del usuario (ej., si tiene permiso de
+moderador), la componente servicio brindan distintas funcionalidades (ej.,
+editar un mensaje), que son instrumentadas por medio de operaciones concretas
+(ej., guardar un mensaje en una tabla) y/o a través de la publicación o
+subscripción de eventos. Las operaciones pueden ser de dos tipos: operaciones
+que cambian el estado del sistema (tipo “update”) y/o operaciones que proveen
+algún tipo de información sobre consultas (tipo “query”). Estas operaciones
+pueden ser creadas creadas por el programador o utilizadas a partir de las
+operaciones provista por el núcleo del framework sakai (ej., adquirir el id de
+un canal de mensajes) usadas en los servicios bases (ej., el servicio de
+edición de mensajes).
+
+
+\textbf{Parámetros Context-Aware}: Se denomina parámetros context-aware a la
+representación de la información de contexto que forma parte de los
+parámetros de entrada de las funciones y métodos exportados por los servicios,
+estableciendo de esta manera una relación entre el componente Servicios y el
+componente Parámetros contex-aware. La influencia de estos parámetros en el
+comportamiento funcional de los servicios es representada a través de
+la relación entre los componentes Parámetros context-aware y Comportamiento.
+
+
+\textbf{Contexto}: Este componente representa el contexto o información de
+contexto definida anteriormente en esta sección. Para nuestro modelo este tipo
+de información es utilizada de dos maneras diferentes: en primer lugar para la
+asignación de los valores que toman los Parámetros context-aware; en segundo
+lugar esta información puede ser utilizada para definir los invariantes que se
+representan en los contratos.
+
+
+Otros de los elementos importantes que se tendrá en cuenta para nuestra
+propuesta de solución tienen que ver con el tipo de representación que se
+determina para el entorno. Para este propósito se tendrá en cuenta:
+
+Ligado al entorno se provee una infraestructura que permite distribuir
+el contexto producido por las fuentes. Esta infraestructura se denominada capa
+de contexto, y sirve de intermediaria entre las fuentes contextúales y
+los elementos que permitirán  inyectar las propiedades de sensibilidad al
+al contexto a los DHD.
+
+
+\section{Limitaciones}	
+
+
+
+
+\section{Organización del documento}
+
+\begin{description}
+ \item[Capítulo 1:]
+ \item[Capítulo 2:]
+ \item[Capítulo 3:]
+ \item[Capítulo 4:]
+ \item[Capítulo 5:]
+ \item[Capítulo 6:]
+ \item[Capítulo 7:]
+ \item[Capítulo 8:]
+ \item[Apéndice:]
+ \item[Bibliografía:]
+\end{description}
+
+
+\section{Publicaciones de Apoyo}

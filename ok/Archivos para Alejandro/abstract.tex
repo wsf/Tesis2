@@ -1,0 +1,67 @@
+%------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Abstract -------------------------------------------------
+\chapter*{Resumen}
+En las {\'u}ltimas tres d{\'e}cadas se ha incrementado notablemente el inter{\'e}s en sistemas de monitoreo aplicado a
+grandes plantas qu{\'\i}micas . Esto es debido esencialmente a condiciones de operaci{\'o}n m{\'a}s exigentes de los
+procesos debido a cuestiones de seguridad de equipos y personas, costos operativos y restricciones
+ambientales. La creciente complejidad en aspectos vinculados al dise{\~n}o de grandes plantas y su
+correspondiente pol{\'\i}tica de control hace que los sistemas de monitoreo resulten cada vez m{\'a}s sofisticados en
+aspectos tales como velocidad de detecci{\'o}n, robustez, facilidad de explicaci{\'o}n, requerimientos de modelado y
+almacenamiento de datos, adaptabilidad, etc.. Esta fuerte interacci{\'o}n entre informaci{\'o}n y acciones de
+control tiene lugar fundamentalmente a trav{\'e}s de sensores y actuadores. Sin embargo, estos elementos son
+potenciales fuentes de fallas comunes en procesos industriales. En este contexto, se advierte que el {\'a}rea de
+sistemas de monitoreo integrados al control tolerante a fallas, aplicado a plantas qu{\'\i}micas completas, es
+a{\'u}n un problema abierto. En la actualidad, se han encontrado s{\'o}lo algunas soluciones particularizadas
+dependientes del caso de aplicaci{\'o}n (en general acad{\'e}micos).
+
+En tal sentido, el objetivo de esta tesis es abordar el problema de dise{\~n}o de sistemas de detecci{\'o}n,
+diagnostico y estimaci{\'o}n de fallas (SDDEF) integrados al control tolerante a fallos (CTF) en procesos
+qu{\'\i}micos. El desarrollo est{\'a} focalizado en automatizar el correcto manejo de situaciones anormales (MSA) y
+brindar una correcta interacci{\'o}n con el usuario y la pol{\'\i}tica de control existente. El tratamiento del
+problema distingue claramente las herramientas que deben emplearse de acuerdo con la dimensi{\'o}n del mismo.
+As{\'\i}, se presentan soluciones alternativas para una sola unidad de proceso y varias de ellas fuertemente
+interconectadas. En todos los casos se contemplan a los sistemas bajo esquemas de control convencional y
+avanzado. El desarrollo de un novedoso SDDEF, apto para plantas de diferentes dimensiones y contemplando los
+requerimientos fundamentales que impone hoy la industria qu{\'\i}mica constituye uno de los principales aportes
+de esta tesis. Herramientas tales como transformada wavelet discreta, identificaci{\'o}n de sistemas, an{\'a}lisis
+de componentes principales, sistemas de l{\'o}gica difusa y redes neuronales artificiales son integradas
+adecuadamente para el desarrollo del SDDEF. En este contexto se presenta una nueva metodolog{\'\i}a general para
+el correcto MSA en grandes procesos basado en un SDDEF h{\'\i}brido y estrategias de integraci{\'o}n al CTF activo,
+ya sea de pol{\'\i}ticas de control existentes o nuevas.  El SDDEF se dise{\~n}a de forma tal que resulte
+independiente de factores tales como, dimensi{\'o}n, complejidad, operabilidad y tipo de los procesos y de sus
+estrategias de control.
+
+Esta tesis est{\'a} organizada como sigue: el cap{\'\i}tulo 1 presenta el marco de referencia de los problemas reales
+encontrados habitualmente en procesos industriales y sus consecuencias. El cap{\'\i}tulo 2 presenta una extensa
+recopilaci{\'o}n bibliogr{\'a}fica que permite adquirir un panorama amplio del estado del arte en el abordaje de
+MSA, dise{\~n}o de sistemas de monitoreo y CTF desde el punto de vista acad{\'e}mico e industrial. El cap{\'\i}tulo 3
+realiza una breve descripci{\'o}n de las principales herramientas utilizadas a lo largo de esta tesis tanto en
+el campo del procesamiento de la informaci{\'o}n como del {\'a}rea de control de procesos. El cap{\'\i}tulo 4 aborda el
+problema principalmente orientado a unidades aisladas de proceso que contemplan menor n{\'u}mero de variables.
+Aqu{\'\i} se presentan los principales resultados obtenidos en la aplicaci{\'o}n de control predictivo adaptivo como
+CTF activo. Dado que se confrontan los resultados alcanzados con y sin sistema de diagn{\'o}stico, es posible
+realizar una evaluaci{\'o}n rigurosa de los alcances de emplear el SDDEF integrado al CTF.Se discuten aqu{\'\i}
+dise{\~n}os basados en la TWD e identificaci{\'o}n de sistemas para la conformaci{\'o}n del SDDEF. Los resultados
+obtenidos provienen tanto de planteos te{\'o}ricos como de un caso de aplicaci{\'o}n de un reactor tipo tanque
+agitado continuo con camisa. Adem{\'a}s, se proponen nuevas alternativas de control adaptivo predictivo,
+pol{\'\i}ticas de integraci{\'o}n y manejo de eventos anormales en lazos simples de control. Fallas t{\'\i}picas como
+offset en sensores y retardos extras en actuadores son analizadas de forma secuencial y simple, en paralelo
+con diferentes condiciones de operaci{\'o}n de los procesos. El cap{\'\i}tulo 5 presenta el dise{\~n}o de un complejo
+SDDEF h{\'\i}brido para procesos de grandes dimensiones y su integraci{\'o}n al CTF para pol{\'\i}ticas de control
+existentes. La estrategia propuesta es probada sobre casos de aplicaci{\'o}n tales como una planta de
+tratamiento de aguas residuales y una de pulpa y papel (la cual representa el caso m{\'a}s complejo y de mayor
+dimensi{\'o}n existente en la comunidad de investigaci{\'o}n de control de procesos). Adem{\'a}s, se desarrollan varios
+{\'\i}ndices capaces de brindar una correcta evaluaci{\'o}n ya sea de funcionamiento del SDDEF, as{\'\i} como de costos
+involucrados con el empleo del SDDEF integrado al CTF. Se presenta un  conjunto importante de simulaciones
+efectuadas en diferentes escenarios para poder apreciar el aporte concreto de esta estrategia. Fallas en
+sensores del tipo offset y en actuadores del tipo retardo extra y bloqueos son propuestas. Las fallas
+consideradas en cada caso de estudio fueron seleccionadas acorde con la magnitud del problema que produc{\'\i}an
+las mismas. De esta forma se considera que la metodolog{\'\i}a propuesta se somete a pruebas contundentes que
+posibilitan extraer sustentar las conclusiones presentadas en el cap{\'\i}tulo 6. En el mismo tambi{\'e}n se incluyen
+algunas posibles direcciones futuras de trabajos de investigaci{\'o}n. Finalmente, los ap{\'e}ndices dan el soporte
+necesario a tem{\'a}ticas espec{\'\i}ficas como identificaci{\'o}n recursiva con factor de olvido, predicciones con
+diferentes modelos lineales, algoritmos de factorizaci{\'o}n, control basado en modelo interno y control en
+avance.
+
+Durante el desarrollo de esta tesis se han generado diversas publicaciones, las cuales han sido sometidas tanto a arbitrajes nacionales como
+internacionales. Los trabajos m{\'a}s importantes se resumen en el cap{\'\i}tulo denominado publicaciones (y en anexo al final de la tesis).

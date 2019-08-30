@@ -1,0 +1,30 @@
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2007.7.31)  14 MAY 2008 03:00
+entering extended mode
+**Sartorio_Cacic2007.tex
+(./Sartorio_Cacic2007.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for loaded.
+
+! LaTeX Error: File `llncs.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.24 \usepackage
+                [utf8]{inputenc}^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 10 strings out of 95332
+ 215 string characters out of 1187735
+ 44796 words of memory out of 1000000
+ 3186 multiletter control sequences out of 10000+50000
+ 3640 words of font info for 14 fonts, out of 500000 for 2000
+ 0 hyphenation exceptions out of 8191
+ 10i,0n,7p,94b,8s stack positions out of 1500i,500n,5000p,200000b,5000s
+No pages of output.

@@ -1,0 +1,30 @@
+This is BibTeX, Version 0.99cThe top-level auxiliary file: zumoffentesis.aux
+A level-1 auxiliary file: titlepage.aux
+A level-1 auxiliary file: acknowledgements.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: glossary.aux
+A level-1 auxiliary file: variables.aux
+A level-1 auxiliary file: Ch0/chap0.aux
+A level-1 auxiliary file: Ch1/chap1.aux
+A level-1 auxiliary file: Ch2/chap2.aux
+A level-1 auxiliary file: Ch3/chap3.aux
+A level-1 auxiliary file: Ch4/chap4.aux
+A level-1 auxiliary file: Ch5/chap5.aux
+A level-1 auxiliary file: Appendix/appendixa.aux
+The style file: plainnat.bst
+I couldn't open database file bib.bib
+---line 44 of file zumoffentesis.aux
+ : \bibdata{bib
+ :             }
+I'm skipping whatever remains of this command
+I found no database files---while reading file zumoffentesis.aux
+Warning--I didn't find a database entry for "ASM"
+Warning--I didn't find a database entry for "Me:05"
+Warning--I didn't find a database entry for "CEFIC"
+Warning--I didn't find a database entry for "Ll:99"
+Warning--I didn't find a database entry for "ZyLx:99"
+Warning--I didn't find a database entry for "JmBmZd:06"
+Warning--I didn't find a database entry for "Jm:90"
+Warning--I didn't find a database entry for "Rd:07"
+Warning--I didn't find a database entry for "Rd:86"
+(There were 2 error messages)

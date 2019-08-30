@@ -1,0 +1,95 @@
+\relax 
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}A Case Study of DHD Framework Implementation}{1}{chapter.8}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Aplication Domain}{1}{section.8.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.1}Techologial Aspect}{1}{subsection.8.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.2}Functional Aspect}{1}{subsection.8.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Applying The DHD Framework}{1}{section.8.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.3}Using Coordination Context Aware Contract: Evidence for use en e-learning environment}{1}{section.8.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.1}Learning To Contract}{1}{subsection.8.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.2}Theoretical Interpretations}{6}{subsection.8.3.2}}
+\@writefile{toc}{\contentsline {subsubsection}{Alternative Explanations}{8}{section*.43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.3}Implications For Theory Development}{9}{subsection.8.3.3}}
+\citation{transaccion web}
+\@writefile{toc}{\contentsline {subsubsection}{When Contracts May Become Knowledge Repositories}{10}{section*.44}}
+\citation{fiadeiro}
+\citation{libro5}
+\citation{libro}
+\citation{libro}
+\@writefile{toc}{\contentsline {section}{\numberline {8.4}Applying The DHD Mothologogy}{11}{section.8.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.1}Introducci\IeC {\'o}n}{11}{subsection.8.4.1}}
+\newlabel{intro7}{{8.4.1}{11}{Introducción\relax }{subsection.8.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.2}CONTRATOS CONTEXT-AWARE PARA TRANSACCIONES E-LEARNING}{12}{subsection.8.4.2}}
+\newlabel{contrato7}{{8.4.2}{12}{CONTRATOS CONTEXT-AWARE PARA TRANSACCIONES E-LEARNING\relax }{subsection.8.4.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Elementos de la componente contrato}{12}{section*.45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \slshape  Meta-modelo del contrato context-aware}}{12}{figure.8.1}}
+\newlabel{contratoca7}{{8.1}{12}{\small \sl Meta-modelo del contrato context-aware\relax }{figure.8.1}{}}
+\citation{5}
+\citation{10}
+\citation{12}
+\citation{UML}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.3}DOCUMENTACI\IeC {\'O}N DE LOS PROCESOS E-LEARNING}{13}{subsection.8.4.3}}
+\newlabel{documentacion7}{{8.4.3}{13}{DOCUMENTACIÓN DE LOS PROCESOS E-LEARNING\relax }{subsection.8.4.3}{}}
+\citation{UWA}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.4}UWATc+: una adaptaci\IeC {\'o}n de UWAT+ para el modelado de procesos e-learning}{14}{subsection.8.4.4}}
+\newlabel{uwatc7}{{8.4.4}{14}{UWATc+: una adaptación de UWAT+ para el modelado de procesos e-learning\relax }{subsection.8.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \slshape  UWATc+ modelo conceptual y de dise\IeC {\~n}o}}{14}{figure.8.2}}
+\newlabel{drobab7}{{8.2}{14}{\small \sl UWATc+ modelo conceptual y de diseño\relax }{figure.8.2}{}}
+\citation{fiadeiro}
+\citation{informationobject}
+\citation{libro}
+\citation{UWA}
+\@writefile{toc}{\contentsline {subsubsection}{Requerimientos para el dise\IeC {\~n}o de Transacciones e-learning}{15}{section*.46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.5}DISE\IeC {\~N}O DE PROCESOS E-LEARNING CON UWATc+}{15}{subsection.8.4.5}}
+\newlabel{diseno7}{{8.4.5}{15}{DISEÑO DE PROCESOS E-LEARNING CON UWATc+\relax }{subsection.8.4.5}{}}
+\citation{UWA}
+\citation{libro}
+\citation{libro5}
+\citation{fiadeiro}
+\citation{libro5}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \slshape  El proceso de dise\IeC {\~n}ar Pe-lrn en un AWe-lrn con UWATc+}}{16}{figure.8.3}}
+\newlabel{procesodediseno7}{{8.3}{16}{\small \sl El proceso de diseñar Pe-lrn en un AWe-lrn con UWATc+\relax }{figure.8.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Determinaci\IeC {\'o}n de Requerimientos}{16}{section*.47}}
+\newlabel{sdr7}{{8.4.5}{16}{Determinación de Requerimientos\relax }{section*.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \slshape  Objetivos de al alto nivel para un Pe-lrn}}{16}{figure.8.4}}
+\newlabel{requerimientos7}{{8.4}{16}{\small \sl Objetivos de al alto nivel para un Pe-lrn\relax }{figure.8.4}{}}
+\citation{UWAT}
+\citation{7}
+\citation{lenguajeoblog}
+\citation{communit}
+\@writefile{toc}{\contentsline {subsubsection}{Dise\IeC {\~n}o de Transacciones e-learning}{17}{section*.48}}
+\citation{libro}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.5}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \slshape  Modelo de ejecuci\IeC {\'o}n de Procesos con Transacciones e-learning}}{18}{figure.8.5}}
+\newlabel{modelodeejecucion7}{{8.5}{18}{\small \sl Modelo de ejecución de Procesos con Transacciones e-learning\relax }{figure.8.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Diagrama de un Contrato}{18}{section*.49}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces \relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \slshape  Diagrama del contrato: Edici\IeC {\'o}n}}{19}{figure.8.6}}
+\newlabel{diagramacontrato7}{{8.6}{19}{\small \sl Diagrama del contrato: Edición\relax }{figure.8.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.6}Conclusi\IeC {\'o}n}{19}{subsection.8.4.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.5}DHD: Experimental Prototipe}{19}{section.8.5}}
+\@setckpt{Ch7/chap7}{
+\setcounter{page}{20}
+\setcounter{equation}{0}
+\setcounter{enumi}{5}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{3}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{8}
+\setcounter{section}{5}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{6}
+\setcounter{table}{0}
+\setcounter{Item}{18}
+\setcounter{Hfootnote}{8}
+\setcounter{parentequation}{0}
+\setcounter{LT@tables}{0}
+\setcounter{LT@chunks}{0}
+\setcounter{NAT@ctr}{21}
+\setcounter{section@level}{1}
+}

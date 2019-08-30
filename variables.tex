@@ -1,0 +1,200 @@
+%--------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Variables -------------------------------------------------
+\chapter*{Variables}
+\small
+\section*{Cap{\'\i}tulo 2}
+\begin{tabular}{rlrl}
+$d(k)$ & Se{\~n}al de perturbaci{\'o}n &&\\
+$f(k)$ & Evoluci{\'o}n temporal de la falla &&\\
+$u(k)$ & Se{\~n}al de entrada &&\\
+$y(k)$ & Se{\~n}al de salida &&\\
+$\hat{f}(k)$ & Estimaci{\'o}n de la falla &&\\
+$y_{ref}(k)$ & Trayectoria de referencia &&\\
+\end{tabular}
+\section*{Cap{\'\i}tulo 3}
+\begin{tabular}{rlrl}
+$\mathbf{1}_{m}$ & Vector de unos de longitud $m$            & $\mu_i$ & Valor medio de la variable $i$\\
+$a$ & Escalado wavelet                                       & $\sigma_i$ & Varianza de la variable $i$\\
+$A$ & Componentes principales                                & $\lambda_i$ & Autovalor $i$ \\
+$\mathbf{A}$ & Matriz del modelo EE                          & $\Delta \bar{\mathbf{x}}$ & Error de predicci{\'o}n\\
+$A_J$ & Aproximaci{\'o}n a nivel $J$                             & $\delta_{T^2}$ & L{\'\i}mite de confianza para $T^2$\\
+$b$ & Desplazamiento wavelet                                 & $\delta_{Q}$ & L{\'\i}mite de confianza para $Q$\\
+$\mathbf{b}$ & Vector de valores medios                      & $\chi^2$ & Distribuci{\'o}n chi-cuadrado\\
+$\mathbf{B}$ & Matriz del modelo EE                          & $\nu$ & Factor de confianza\\
+$C(a,b)$ & Coeficientes wavelets                             & $\psi(\cdot)$ & funci{\'o}n wavelet madre\\
+$D_j(t)$ & Detalle a nivel $j$                               & $\phi(\cdot)$ & funci{\'o}n de escala\\
+$D^*(z^{-1})$ & Polinomio causal                             & $\theta$ & Vector de par{\'a}metros\\
+$\mathbf{D}_{\lambda}$ & Matriz de autovalores               & $\hat{\theta}$ & Vector de par{\'a}metros estimado\\
+$\mathbf{D}_{\lambda A}$ & Matriz de $A$ autovalores         & $\alpha^{(i)}$ & Paso en la iteraci{\'o}n $i$ \\
+$\mathbf{e}(k)$ & Vector de errores                          & $\xi^{(i)}$ & Direcci{\'o}n de b{\'u}squeda en $i$\\
+$\mathbf{E}$ & Matriz de restricciones                       & $\theta^{(i)}$ & Estima en $i$ \\
+$f_i(\cdot)$ & Funci{\'o}n de pertenencia $i$                    & $\theta^{0}$ & Valor inicial de la estima\\
+$F(z^{-1})$ & Filtro pasa bajo                               & $\varphi_j$ & Entrada $j$ de la neurona\\
+$F_{A,m-A,\alpha}$ & Distribuci{\'o}n $F$                        & $\phi(k)$ & Regresor lineal\\
+$\mathbf{F}$ & Matriz de restricciones                       & $\varepsilon(N)$ & Error de predicci{\'o}n a priori\\
+$g(i)$ & Coeficientes del modelo FIR                         & $\epsilon(k)$ & Error de seguimiento \\
+$G$ & Filtro pasa alto wavelet                               & $\alpha_i$ & Pesos del error\\
+$\tilde{G}$ & Filtro espejo de $G$                           & $\beta_i$ & Pesos del control\\
+$G(z^{-1})$ & Transf. del proceso                            & $\Delta \hat{u}(k)$ & Movimiento futuro de control\\
+$\hat{G}(z^{-1})$ & Transf. estimada del proceso             & $\eta(k)$ & Perturbaci{\'o}n de salida\\
+$\hat{G}_0(z^{-1})$ & Transf. estimada nominal del proceso   & $\hat{\eta}(k)$ & Estimaci{\'o}n de la perturbaci{\'o}n\\
+$\mathbf{G}$ & Matriz de restricciones                       & $\Delta \hat{\mathbf{U}}(k)$ & Movimientos futuros \\
+$h_p$ & Fin horizonte de predicci{\'o}n                          & $\Delta \hat{G}(z^{-1},k)$ & Correcci{\'o}n del modelo\\
+$h_u$ & Horizonte de control                                 & $\Delta \hat{\theta}(k)$ & Correcci{\'o}n de los
+par{\'a}metros
+\end{tabular}
+
+\begin{tabular}{rlrl}
+$h_w$ & Inicio horizonte de predicci{\'o}n &&\\
+$H$ & Filtro pasa bajo wavelet &&\\
+$\tilde{H}$ & Filtro espejo de $H$ &&\\
+$J(k)$ & Funcional costo matricial &&\\
+$K(N)$ & Ganancia del algoritmo MCR &&\\
+$K_g$ & Compensaci{\'o}n est{\'a}tica &&\\
+$n$ & no. variables medidas &&\\
+$n_h$ & no. neuronas en capa oculta &&\\
+$n_\varphi$ & no. de entradas &&\\
+$pva(l)$ & \% de varianza acumulada para $l$ &&\\
+$\mathbf{P}$ & $A$ componentes principales &&\\
+$\bar{\mathbf{P}}$ & subespacio residual &&\\
+$\mathbf{P}_N$ & Inversa de la matriz de correlaci{\'o}n &&\\
+$Q(k)$ & Estad{\'\i}stico ECP &&\\
+$r(t)$ & Ruido de medici{\'o}n &&\\
+$R(z)$ & Polinomio no causal &&\\
+$\mathbf{R}$ & Matrix de correlaci{\'o}n &&\\
+$s(t)$ & Se{\~n}al para an{\'a}lisis wavelet &&\\
+$\mathbf{s}$ & Vector de varianzas &&\\
+$t$ & Tiempo &&\\
+$\mathbf{t}(k)$ & Variables latentes &&\\
+$T_{ref}$ & Tiempo de respuesta &&\\
+$T_s$ & Tiempo de muestreo &&\\
+$T^2(k)$ & Estad{\'\i}stico de Hotelling &&\\
+$\mathbf{T}_1$,$\mathbf{T}_2$,$\mathbf{T}_3$,$\mathbf{T}_4$ & Matrices de transformaci{\'o}n &&\\
+$u(k)$ & Se{\~n}al de entrada &&\\
+$\hat{\mathbf{u}}(k)$ & Vector de entradas futuras &&\\
+$\mathbf{U}$ & Vector de movimientos futuras &&\\
+$V_N(\cdot)$ & funcional costo cuadr{\'a}tico &&\\
+$w_{ij}$ & Peso $j$ de la neurona $i$ &&\\
+$w_{i0}$ & Bias de la neurona $i$ &&\\
+$w(k)$ & Trayectoria de referencia &&\\
+$x(k)$ & Estados del modelo EE &&\\
+$\bar{\mathbf{x}}$ & Medici{\'o}n normalizada del proceso &&\\
+$X$ & Espacio de entrada &&\\
+$\mathbf{X}$ & Matriz de datos &&\\
+$\bar{\mathbf{X}}$ & Matriz de datos normalizada &&\\
+$y(k)$ & Se{\~n}al de salida &&\\
+$y_i$ & Salida de la neurona $i$ &&\\
+$\hat{y}_i$ & Predicci{\'o}n de $y_i$ &&\\
+$\hat{\mathbf{y}}(k)$ & Vector de predicciones &&\\
+$\mathbf{Y}_r$ & Vector de referencias futuras &&\\
+$Z^N$ & Datos entrada/salida con $N$ muestras &&
+\end{tabular}
+
+\section*{Cap{\'\i}tulo 4}
+\begin{tabular}{rlrl}
+$\hat{d}(k)$ & Retardo estimado            &$\alpha_r$ & Cte. tiempo filtro\\
+$G_{vm}(z^{-1})$ & Modelo actuador/v{\'a}lvula &$\phi_{au}$& Regresor aumentado\\
+$h(k)$ & Respuesta al escal{\'o}n              &$\hat{\theta}_{au}$& Estima aumentada\\
+$o_{ff}(t)$ & Offset de medici{\'o}n           &$\zeta$& Umbral del retardo\\
+$p_o(k)$ & Valor de pico en $D_1$          &$\lambda$& Factor de olvido\\
+$\hat{ppo}$ & Par{\'a}metro de punto operativo &$\delta_o$& Par{\'a}metro proporcional\\
+$r(t)$ & Ruido de medici{\'o}n                 &&\\
+$s_1(k)$ & Versi{\'o}n filtrada de $z_n(k)$    &&\\
+$t_d$ & Retardo temporal                   &&\\
+$T_f$ & Tiempo de ocurrencia de la falla   &&\\
+\end{tabular}
+
+\begin{tabular}{rl}
+$u_{00}$ & Punto operativo de la entrada\\
+$u_c(t)$ & Se{\~n}al de control \\
+$u_c(t-t_d)$ & Se{\~n}al de control retrasada en $t_d$ \\
+$w_0(k)$ & Referencia original\\
+$y(t)$ & Variable de salida real \\
+$y_m(t)$ & Variable de salida medida \\
+$y_{00}$ & Punto operativo de la salida\\
+$z_n(k)$ & Indicador de persistencia a la excitaci{\'o}n
+\end{tabular}
+
+\section*{Cap{\'\i}tulo 5}
+\begin{tabular}{rlrl}
+$\mathbf{b}_{VM_j}$ & Valor medio de la $VM_j$             &$\delta_z$& L{\'\i}mite de confianza para $z$\\
+$BTO_j^i$ & Beneficio total de operaci{\'o}n                   &$\delta_{pva}$ & \% de varianza acumulada\\
+$\bar{c}_i$ & Precio costo/venta                           &$\tau_f^i$ & Cte. de tiempo filtro CBMI\\
+$ECMP_j$ & Error cuadr{\'a}tico medio de predicci{\'o}n            &$\eta$ & Par{\'a}metro de dise{\~n}o \\
+$fp_j^i$ & Funci{\'o}n de pertenencia $j$ sobre $i$            &$\mu$ & Conversi{\'o}n de unidades\\
+$F_i$ & Falla tipo $i$                                     &$\tau_m$ & Cte. tiempo del modelo\\
+$\bar{F}_i^j$ & Cantidad de material                       &$\kappa_i$ & Par. del modelo inferencial\\
+$IEA_j^i$ & Integral del error absoluto                    &$\upsilon_i$ & Par. del modelo inferencial\\
+$K_m$ & Ganancia del modelo                                &$\tau_p$ & Cte. tiempo del proceso\\
+$K_p$ & Ganancia del proceso                               &$\theta_p$ & Tiempo muerto del proceso\\
+$K_{PI}$ & Ganancia del PI                                 &$\tau_{PI}$ & Cte. integral del PI\\
+$l_i$ & Valor ling{\"u}{\'\i}stico para $i$                         &&\\
+$[L_{min}^i,L_{max}^i]$ & Rango de operaci{\'o}n normal de $i$ &&\\
+$M_i$ & Modelo inferencial $i$ &&\\
+$N_a$ & N{\'u}mero m{\'a}ximo de alertas de peligro &&\\
+$N_{aux}$ & Dimensi{\'o}n matriz auxiliar &&\\
+$N_{w}$ & Dimensi{\'o}n matriz normal &&\\
+$\hat{o}_{ff}^{VC_j}$ & Estimaci{\'o}n del offset en $VC_j$ &&\\
+$p$ & N{\'u}mero de reglas &&\\
+$PI_i$ & Controlador PI del lazo $i$ &&\\
+$PMB_j^i$ & Porcentaje de mejora del beneficio &&\\
+$PSR_j$ & Porcentaje de soporte de la regla $j$ &&\\
+$PTD$ & Porcentaje de tiempo de detecci{\'o}n &&\\
+$r$ & N{\'u}mero de componentes de $\mathbf{u}_{FL}$ &&\\
+$\mathbf{R}_p$ & Regla del evento $p$ &&\\
+$\mathbf{R}_{matrix}$ & Matriz de reglas &&\\
+$\mathbf{s}_{VC_j}$ & Varianza de la $VC_j$ &&\\
+$s_i$ & Activaci{\'o}n del lazo adicional $i$ &&\\
+$sp_i(k)$ & Referencia para $i$ &&\\
+$sp_i^0(k)$ & Referencia original para $i$ &&\\
+$sp_{pr}^0(k)$ & Ref. original de producci{\'o}n &&\\
+$sp_{pr}^1(k)$ & Ref. actualizada de producci{\'o}n &&\\
+$\hat{t}_d^{VM_j}$ & Estimaci{\'o}n del retardo en $VM_j$ && \\
+$T_c$ & Tiempo de clasificaci{\'o}n &&\\
+$T_d$ & Tiempo de detecci{\'o}n &&\\
+$[T_{iz},T_{fz}]$ & Zona de an{\'a}lisis &&\\
+$T_r$ & Tiempo de reconfiguraci{\'o}n &&\\
+$T_{sd}$ & Din{\'a}mica mas lenta del proceso &&\\
+$T_u$ & Tiempo de actualizaci{\'o}n &&\\
+$u_{FL}(k)$ & Entradas del SLD &&\\
+$u_i^m$ & Valor medio de $i$ &&\\
+$u_i^c$ & Correcci{\'o}n de la ref. de producci{\'o}n &&\\
+$\mathbf{u}_{FL}^m$ & Vector de contribuciones medias &&
+\end{tabular}
+
+\begin{tabular}{rl}
+$V_a(k)$ & Funcional costo adicional \\
+$V_0(k)$ & Funcional costo original \\
+$VA$ & \% de violaci{\'o}n de amon{\'\i}aco \\
+$VN$ & \% de violaci{\'o}n de nitr{\'o}geno \\
+$\bar{\mathbf{X}}_{n}$ & Matriz de datos normales\\
+$\bar{\mathbf{X}}_{aux}$ & Matriz auxiliar\\
+$y_i^m(k)$ & Medici{\'o}n de la salida $i$\\
+$\hat{y}_i^m(k)$ & Inferencia de la salida $i$\\
+$\mathbf{y}_{FL}$ & Salida del SLD\\
+$z(k)$ & Estad{\'\i}stico combinado\\
+\end{tabular}
+
+\section*{Ap{\'e}ndices}
+\begin{tabular}{rlrl}
+$\mathbf{A}$ & Matriz del modelo EE            &$\lambda$& Factor de olvido\\
+$\mathbf{B}$ & Matriz del modelo EE            &$\xi$& Retardo del proceso\\
+$\mathbf{C}$ & Matriz del modelo EE            &$w$& Frecuencia\\
+$C(s)$ & Transferencia del controlador &&\\
+$\mathbf{D}_*$ & Matrix de la factorizaci{\'o}n UD &&\\
+$e_m$ & Error multiplicativo &&\\
+$f_{lp}(s)$ & Transferencia del filtro pasa bajos &&\\
+$\tilde{g}_+(s)$ & Parte no invertible &&\\
+$\tilde{g}_+(s)$ & Parte invertible &&\\
+$G(s)$ & Transferencia del proceso &&\\
+$\tilde{G}(s)$ & Modelo del proceso &&\\
+$G_c(s)$ & Transferencia del CBMI &&\\
+$\mathbf{G}$ & Matriz din{\'a}mica &&\\
+$K_{ff}$ & Transf. del controlador en avance &&\\
+$\mathbf{S}$ & Matriz din{\'a}mica &&\\
+$u(k)$ & Se{\~n}al de entrada &&\\
+$\mathbf{U}_*$ & Matrix de la factorizaci{\'o}n UD &&\\
+$x(k)$ & Estados del modelo EE &&\\
+$y(k)$ & Se{\~n}al de salida &&\\
+\end{tabular}
+\normalsize

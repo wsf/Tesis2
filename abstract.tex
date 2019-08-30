@@ -1,0 +1,144 @@
+%------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Abstract -------------------------------------------------
+\chapter*{Resumen}
+En las {\'u}ltimas d{\'e}cadas el inter{\'e}s en sistemas de monitoreo en grandes procesos qu{\'\i}micos se ha incrementado
+enormemente. Esto es debido esencialmente a condiciones de operaci{\'o}n mas restrictivas de los procesos en
+cuanto a seguridad de equipos y personal, costos operativos y restricciones ambientales. La creciente
+complejidad en cuanto al dise{\~n}o de grandes plantas y su respectiva pol{\'\i}tica de control hace que los sistemas
+de monitoreo deban contar cada vez con mas caracter{\'\i}sticas especiales (rapidez, robustez, facilidad de
+explicaci{\'o}n, requerimientos de modelado y almacenamiento de datos, adaptabilidad, etc.). Esta enorme
+interacci{\'o}n entre informaci{\'o}n y acciones de control tiene lugar a trav{\'e}s de elementos tales como sensores y
+actuadores. Los cuales son potenciales fuentes de fallas comunes en procesos industriales. El {\'a}rea de
+sistemas de monitoreo integrados al control tolerante a fallos es a{\'u}n un camino no explorado en detalle,
+brindando solo algunas soluciones particulares seg{\'u}n el caso de aplicaci{\'o}n (en general acad{\'e}micos).
+
+El objetivo de esta tesis es abordar el problema de dise{\~n}o de sistemas de detecci{\'o}n, diagnostico y
+estimaci{\'o}n de fallas (SDDEF) integrados al control tolerante a fallos (CTF) en procesos qu{\'\i}micos. El
+desarrollo esta focalizado en automatizar el correcto manejo de situaciones anormales (MSA) y brindar una
+correcta interacci{\'o}n con el usuario y la pol{\'\i}tica de control existente. Herramientas tales como transformada
+wavelet discreta, identificaci{\'o}n de sistemas, an{\'a}lisis en componentes principales, sistemas de l{\'o}gica
+difusa, control adaptivo predictivo, control descentralizado y redes neuronales artificiales son integradas
+adecuadamente para generar nuevas y efectivas soluciones en este campo. El aporte concreto de esta tesis es
+el brindar una metodolog{\'\i}a general para el correcto MSA en grandes procesos basado en un SDDEF h{\'\i}brido y
+estrategias de integraci{\'o}n al CTF activo, ya sea de pol{\'\i}ticas de control existentes o nuevas. Este aporte
+resulta independiente de factores tales como, dimensi{\'o}n, complejidad, operabilidad y tipo de los procesos y
+de sus estrategias de control.
+
+Esta tesis esta organizada como sigue: el cap{\'\i}tulo 1 genera el marco de referencia de los problemas reales
+encontrados habitualmente en procesos industriales y sus consecuencias. El cap{\'\i}tulo 2 presenta una extensa
+recopilaci{\'o}n del estado del arte en el abordaje de MSA, dise{\~n}o de sistemas de monitoreo y CTF. El cap{\'\i}tulo
+3 resume una breve descripci{\'o}n de las principales herramientas utilizadas a lo largo de esta tesis tanto en
+el campo del procesamiento de la informaci{\'o}n como del {\'a}rea de control de procesos. El cap{\'\i}tulo 4 resume los
+principales resultados obtenidos en la aplicaci{\'o}n de control predictivo adaptivo como CTF activo con y sin
+sistema de diagn{\'o}stico. Dise{\~n}os basados en la TWD e identificaci{\'o}n de sistemas son discutidos aqu{\'\i}. Los
+casos de estudio utilizados parten de simples casos acad{\'e}micos hasta llegar a un reactor de tanque agitado
+continuo. Adem{\'a}s, se proponen nuevas estrategias de control adaptivo predictivo, pol{\'\i}ticas de integraci{\'o}n y
+manejo de eventos anormales en lazos simples de control. Fallas t{\'\i}picas como offset en sensores y retardos
+extras en actuadores son analizadas de forma secuencial y simple, en paralelo con diferentes condiciones de
+operaci{\'o}n de los procesos. El cap{\'\i}tulo 5 presenta el dise{\~n}o de un complejo SDDEF h{\'\i}brido para grandes
+procesos y su integraci{\'o}n al CTF para pol{\'\i}ticas de control existentes. La estrategia propuesta es probada
+sobre casos de aplicaci{\'o}n tales como una planta de tratamiento de aguas residuales y una de pulpa y papel
+(la cual representa el caso mas complejo y de mayor dimensi{\'o}n existente en el {\'a}rea de investigaci{\'o}n de
+control de procesos). Adem{\'a}s, se desarrollan los {\'\i}ndices necesarios para su correcta evaluaci{\'o}n ya sea de
+funcionamiento del SDDEF, as{\'\i} como de costos del resultante SDDEF integrado al CTF. Se presenta un gran
+conjunto de simulaciones efectuadas en diferentes condiciones de operaci{\'o}n para poder apreciar el aporte
+concreto de esta estrategia y sus beneficios. Fallas en sensores del tipo offset y  en actuadores del tipo
+retardo extra y bloqueos son propuestas. El cap{\'\i}tulo 6 presenta las conclusiones y direcciones futuras.
+Finalmente, los ap{\'e}ndices dan el soporte necesario a tem{\'a}ticas espec{\'\i}ficas como identificaci{\'o}n recursiva
+con factor de olvido, predicciones con diferentes modelos lineales, algoritmos de factorizaci{\'o}n, control
+basado en modelo interno y control en avance.
+
+\clearpage
+
+Durante el desarrollo de esta tesis se han generado diversas publicaciones. Las principales se detallan a
+continuaci{\'o}n:
+\begin{enumerate}
+\small
+    \item[A-] \textbf{An Approach to Improve the Performance of Adaptive Predictive Control Systems: Theory,
+    Simulations and Experiments.} M. Jord{\'a}n and M. Basualdo and D. Zumoffen. \textit{International Journal
+    Of Control}. 2006, 79(10), 1216/1236.
+    \item[B-] \textbf{Robust Adaptive Predictive Fault-Tolerant Control Linked with Fault Diagnosis System
+    Applied On a Nonlinear Chemical Process.} D. Zumoffen and M. Basualdo and M. Jord{\'a}n and A. Ceccatto.
+    \textit{Proceedings of the 45th IEEE Conference on Decision and Control}. 2006, 3512/3517. San Diego,
+    CA, USA.
+    \item[C-] \textbf{Robust Adaptive Predictive Fault-Tolerant Control Integrated To a Fault-Detection
+    System Applied to a Nonlinear Chemical Process.} D. Zumoffen and M. Basualdo and M. Jord{\'a}n and A.
+    Ceccatto. \textit{Ind. Eng.
+    Chem. Res.}. 2007, 46(22), 7152/7163.
+    \item[D-] \textbf{From Large Chemical Plant Data to Fault Diagnosis Integrated to Decentralized
+    Fault-Tolerant Control: Pulp Mill Process Application.} D. Zumoffen and M. Basualdo. \textit{Ind. Eng.
+    Chem. Res.}. 2008, 47(4), 1201/1220.
+    \item[E-] \textbf{Improvements in Fault Tolerance Characteristics for Large Chemical Plants Part I:
+    Waste Water Treatment Plant with Decentralized Control}. D. Zumoffen and M. Basualdo. \textit{Ind. Eng.
+    Chem. Res.}. 2008. \textit{In press.}
+    \item[F-] \textbf{Improvements in Fault Tolerance Characteristics for Large Chemical Plants Part II:
+    Pulp Mill Process with Model Predictive Control.} D. Zumoffen and M. Basualdo. \textit{Ind. Eng. Chem.
+    Res.}. 2008. \textit{In press.}
+\end{enumerate}
+\normalsize
+
+Las publicaciones A, B y C forman parte del cap{\'\i}tulo 3 y la estructura fundamental del cap{\'\i}tulo 4. A su vez
+las publicaciones D, E y F estructuran el cap{\'\i}tulo 5. En cada caso, dichos cap{\'\i}tulos pretenden otorgar un
+visi{\'o}n extendida de las publicaciones documentando nuevos resultados y estrategias.
+
+Adem{\'a}s, numerosos trabajos interdiciplinarios se han llevado a cabo en este per{\'\i}odo. El resultado de dicha
+interacci{\'o}n se ve reflejada en las publicaciones enunciadas anteriormente y los siguientes trabajos
+presentados en congresos y reuniones cient{\'\i}ficas:
+\begin{enumerate}
+\small
+\item \textit{Desarrollo De Un Sensor Virtual De Composiciones Para La Implementaci{\'o}n De Control
+ Con Trayectoria {\'O}ptima Aplicado A Destilaci{\'o}n Batch.} J.P. Ruiz and F. Garetto  and D. Zumoffen and M.
+ Basualdo. Congreso X RPIC, Argentina. 2003.
+
+\item \textit{A Nonlinear Soft Sensor For Quality Estimation And Optimal Control Applied In A Ternary Batch
+Distillation Column.} J.P. Ruiz and D. Zumoffen and M. Basualdo and L. Jimenez  Esteller. ESCAPE 14
+European Symposium on Computer Aided Process Engineering, Portugal. 2004.
+
+\item \textit{Aplicaci{\'o}n De Control Predictivo Funcional Para El Seguimiento De Una Trayectoria {\'O}ptima De
+Temperatura En Una Columna De Destilaci{\'o}n Batch Multicomponente.} D. Zumoffen and L. Garyulo and M.
+Basualdo. XIX  Congreso Argentino de Control Autom{\'a}tico, Argentina. 2004.
+
+\item \textit{Predictive Functional Control Applied To Multicomponent Batch Distillation Column.} D.
+Zumoffen and L. Garyulo and M. Basualdo and L. Jim{\'e}nez. ESCAPE 15, European Symposium on Computer Aided
+Process Engineering, Spain. 2005, 1465/1470.
+
+\item \textit{Sistema De Detecci{\'o}n De Fallas En Un CSTR Controlado Con PFC.} D. Zumoffen and M. Basualdo
+and A. Ceccatto. Congreso XI RPIC, Argentina. 2005.
+
+\item \textit{Control Tolerante Predictivo Funcional aplicado A Un CSTR.} D. Zumoffen and M. Basualdo and
+M. Jord{\'a}n. Congreso XI RPIC, Argentina. 2005.
+
+\item \textit{Control predictivo generalizado no lineal aplicado a una columna de destilaci{\'o}n batch
+ternaria.} J. Walczuk and L. Caviglia and D. Zumoffen and M. Basualdo. Congreso XI RPIC, Argentina. 2005.
+
+\item \textit{On the Design of Fault-Tolerant Systems using Robustness Filtering with Adaptive Control.} M.
+Jord{\'a}n and M. Basualdo and D. Zumoffen. Congreso XI RPIC, Argentina. 2005.
+
+\item \textit{An Industrial Application Of Signal Processing For Developing A Fault Diagnosis System Linked
+With A Fault Tolerant Control Strategy.} M. Basualdo and D. Zumoffen. Workshop on Signal Processing
+(WSP06), Argentina. 2006.
+
+\item \textit{Control Tolerante A Fallos Integrado A Un Sitema De Diagnosis Basado En An{\'a}lisis De
+Principales Componentes Y L{\'o}gica Difusa.} D. Zumoffen and M. Basualdo and G. Molina. XX  Congreso Argentino
+de Control Autom{\'a}tico, Argentina. 2006.
+
+\item \textit{Fault Detection and Estimation System Integrated To Fault Tolerant Control. Part I: FDIE
+System Design.} D. Zumoffen and M. Basualdo. Congreso XII RPIC, Argentina. 2007.
+
+\item \textit{Fault Detection and Estimation System Integrated To Fault Tolerant Control. Part II:
+Reconfiguration of the Control Strategy.} D. Zumoffen and M. Basualdo. Congreso XII RPIC, Argentina. 2007.
+
+\item \textit{Hybrid Fault Diagnosis For Large Chemical Plants Under Control.} D. Zumoffen and M. Basualdo.
+ESCAPE 18, European Symposium on Computer Aided Process Engineering, France. 2008.
+
+\item \textit{Fault Diagnosis and Identification System Applied to a Non-invasive Biosensor of Blood
+Glucose.} M. Basualdo and D. Zumoffen and A. Rigalli. ESCAPE 18, European Symposium on Computer Aided
+Process Engineering, France. 2008.
+
+\item \textit{Monitoreo Y CTF en Grandes Plantas Qu{\'\i}micas. Parte I: Dise{\~n}o del SDDEF.} D. Zumoffen y M.
+Basualdo. XXI Congreso Argentino de Control Autom{\'a}tico, Buenos Aires, Argentina. 2008. \textbf{Enviado}.
+
+\item \textit{Monitoreo Y CTF en Grandes Plantas Qu{\'\i}micas. Parte II: Integraci{\'o}n al CTF.} D. Zumoffen y M.
+Basualdo. XXI Congreso Argentino de Control Autom{\'a}tico, Buenos Aires, Argentina. 2008. \textbf{Enviado}.
+\end{enumerate}
+\normalsize

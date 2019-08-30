@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Dise&#195;&#177;o de Transacciones e-learning</TITLE>
+<META NAME="description" CONTENT="Dise&#195;&#177;o de Transacciones e-learning">
+<META NAME="keywords" CONTENT="Sartorio_Cacic2007-Prueba">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Sartorio_Cacic2007-Prueba.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node7.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html115"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html113"
+  HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html107"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html116"
+  HREF="node10.html">Diagrama de un Contrato</A>
+<B> Up:</B> <A NAME="tex2html114"
+  HREF="node7.html">DISE&#195;&#145;O DE PROCESOS E-LEARNING</A>
+<B> Previous:</B> <A NAME="tex2html108"
+  HREF="node8.html">Determinaci&#195;&#179;n de Requerimientos</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00052000000000000000">
+Dise&#195;&#177;o de Transacciones e-learning</A>
+</H2>
+
+<P>
+El dise&#195;&#177;o de transacciones e-learning retoma la misma idea y modelo propuesto por UWAT+ para el dise&#195;&#177;o de transacciones [<A
+ HREF="node12.html#UWAT">7</A>]. Partiendo de los resultados de la fase de <SPAN  CLASS="textit">Determinaci&#195;&#179;n de Requerimientos</SPAN>, fundamentalmente de la caracterizaci&#195;&#179;n de los contratos, pueden ser seleccionados una series de transacciones, i.e., objetivos que requieran la ejecuci&#195;&#179;n de una o m&#195;&#161;s Actividades para su cumplido. Para cada uno de los objetivos que incluya contrato deben ser dise&#195;&#177;adas Transacciones e-learning (de igual forma que con las transacciones en UWAT+), los cuales en principio deben ser establecidos desde un punto de vista est&#195;&#161;tico (en este trabajo no abordaremos tal consideraci&#195;&#179;n) y luego, desde un punto de vista din&#195;&#161;mico por medio de un modelo de ejecuci&#195;&#179;n. En la figura <A HREF="#modelodeejecucion">5</A> se muestra una porci&#195;&#179;n del modelo de ejecuci&#195;&#179;n de un transacci&#195;&#179;n e-learning cuyo contrato asociado fue caracterizado en la fase de <SPAN  CLASS="textit">Determinaci&#195;&#179;n de Requerimientos</SPAN> (figura <A HREF="node8.html#requerimientos">4</A>, secci&#195;&#179;n <A HREF="node8.html#sdr">5.1</A>). En el dise&#195;&#177;o se describe el flujo de ejecuci&#195;&#179;n entre las Actividades de la transacci&#195;&#179;n. El modelo de ejecuci&#195;&#179;n es una adaptaci&#195;&#179;n del diagrama de actividades de UML [<A
+ HREF="node12.html#7">11</A>] en el que las Actividades y sub-Actividades est&#195;&#161;n representadas por estados (&#195;&#179;valos), y el flujo de ejecuci&#195;&#179;n entre ellos se representa por medio de transiciones (arcos). Los &#195;&#179;valos con el s&#195;&#173;mbolo (*) - un asterisco etre par&#195;&#169;ntesis - refiere a una Actividad que representa a un conjunto de Actividades compuestas, y cuyo modelo de ejecuci&#195;&#179;n debe ser representado con otro diagrama. Un &#195;&#179;valo simple representa una Activiad Elemental. Un &#195;&#179;valo color griz indica una Actividad compuesta de las sub-actividad que se encuentra dentro. Una sub-Actividad representada con un &#195;&#179;valo color griz indica que es dependiente de la Actividad que la contiene, esto quiere decir que su ejecuci&#195;&#179;n estar&#195;&#161; acopa&#195;&#177;ada por otra sub-Actividad y no puede ser incluida en otra composici&#195;&#179;n. Los arcos de lineas continuas indican flujos de ejecuci&#195;&#179;n oblicagorio (transacciones hacia Actividades requeridas), mientras que los actos con lineas de puntos representan flujo de ejecuciones opcionales  (transacciones hacia Actividades opcionales).
+
+<P>
+Cada relaci&#195;&#179;n posible entre actividades es representada por medio de una arco entre ellas. A cada arco se le asocia un texto que indica bajo que condiciones se produce la transacci&#195;&#179;n, o el resultado de la ejecuci&#195;&#179;n de la Actividad de origen. Para describir como colaboran los usuarios de la aplicaci&#195;&#179;n en la ejecuci&#195;&#179;n de la Actitivades puede ser anexado un diagrama UML Swimlanes. 
+
+<P>
+Cuando una Actividad ejecuta servicios implementados por contratos, entonces, se establece un arco saliente hacia un contrato. El contrato tiene un nombre, y entre par&#195;&#169;ntices se indican cuales son los objetos participantes (en el caso de tener ese tipo de informaci&#195;&#179;n). Para represetarlo visualmente se utiliza el estereotipo del elemento componente de UML. Las Actividades que influyan en la modificaci&#195;&#179;n de los contratos en tiempo de ejecuci&#195;&#179;n se conectan a trav&#195;&#169;s de un arco de linea de puntos, igual a los utilizado en la representaci&#195;&#179;n de los flujos opcionales. Los detalles implementativos del contratos se detallan en un diagrama aperte, perteneciente a la fase descripta en la siguiente secci&#195;&#179;n.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="modelodeejecucion"></A><A NAME="111"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+<SMALL CLASS="SMALL"><I CLASS="slanted">Modelo de ejecuci&#195;&#179;n de Procesos de Educaci&#195;&#179;n e investigaci&#195;&#179;n</I></SMALL></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="575" HEIGHT="452" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="\includegraphics[width=5 in,totalheight=4 in]{proceso.eps}">
+                                    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Por ejemplo, una de las opciones de la herramienta Foro de Obra Abierta <!-- MATH
+ $(http://200.80.157.171:8080/portal)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="297" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$(http://200.80.157.171:8080/portal)$"></SPAN> es la visualizaci&#195;&#179;n de las intervensiones de los usuarios en el Foro. Un usuario docente puede seleccionar la opci&#195;&#179;n "Foro" de la p&#195;&#161;gina principal de la Aplicaci&#195;&#179;n, luego seleccionar el tipo de "vista" (mediante un "comboBox") para ingresar en modo "browser" donde se muestran las intervenciones de los usuarios por temas. Una vez seleccionado el tema (por medio de la Actividad "Seleccionar Tema", figura <A HREF="#modelodeejecucion">5</A>), es posible ingresar al espacio de las intervenciones de los usuarios por medio de los roles de docente o alumno. Los docentes y alumnos tienen diferentes tipos de "vistas", permisos y servicios asociados (representadas en las actividades: "Visuazaci&#195;&#179;n de Intervensiones Docentes" y "Visualizaci&#195;&#179;n de Intervensiones Alumnos"). A  trav&#195;&#169;s del Browser (Actividad "Foro Browser") se recorre todo el contendido del espacio y al mismo tiempo puede ser seleccionado otro tema para visualizar.
+
+<P>
+En cambio, si la opci&#195;&#179;n seleccionado es a&#195;&#177;adir o responder temas, se ingresa a una p&#195;&#161;gina Web configurada para editar texto (por medio de la Actividad "Adquirir servicios de escritura"). Algunos de los servivios de edici&#195;&#179;n y configuraci&#195;&#179;n de opciones son implementadas a trav&#195;&#169;s del contrato "Edici&#195;&#179;n" (representado por la figura de la componente UML, con el contorno color griz). El flujo de ejecuci&#195;&#179;n, luego de la intervenci&#195;&#179;n de los contrato, depender&#195;&#161;n de las reglas de coordinaci&#195;&#179;n y se representan con los arcos salientes similares a los usados para representar las relaciones entre estados.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html115"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html113"
+  HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html107"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html116"
+  HREF="node10.html">Diagrama de un Contrato</A>
+<B> Up:</B> <A NAME="tex2html114"
+  HREF="node7.html">DISE&#195;&#145;O DE PROCESOS E-LEARNING</A>
+<B> Previous:</B> <A NAME="tex2html108"
+  HREF="node8.html">Determinaci&#195;&#179;n de Requerimientos</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Alejandro Sartorio
+2010-04-11
+</ADDRESS>
+</BODY>
+</HTML>

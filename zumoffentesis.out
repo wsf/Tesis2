@@ -1,0 +1,99 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}
+\BOOKMARK [1][-]{section.1.1}{Background}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Motivation}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{Objectives}{chapter.1}
+\BOOKMARK [1][-]{section.1.4}{Scope}{chapter.1}
+\BOOKMARK [1][-]{section.1.5}{Approach and Structure}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{State of the Art}{}
+\BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Context}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{Context}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{Context Aware System}{chapter.2}
+\BOOKMARK [1][-]{section.2.4}{Context Aware E-learning Web Applications}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.4.1}{Definition}{section.2.4}
+\BOOKMARK [1][-]{section.2.5}{Dynamic Hypermidial Divices}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.5.1}{Service-Oriented Architectures }{section.2.5}
+\BOOKMARK [1][-]{section.2.6}{Principle Design of Web E-learning Application}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{Target Models and Architectures}{}
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{Models}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Techniques for modeling context}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Graphical Models}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.3}{Logic Based Models}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.4}{Ontology Based Models}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.5}{Our Technique to Model Context}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.6}{Comparison}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{The Architectures of DHD Systems}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{The Anatomy of a DHD Component-Connectors Architecture}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{Connector View}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.3}{Details of the Role of Connection in DHD Architecture}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.4}{Connectors in Adaptive Environments}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.5}{Dynamic Aspects of the DHD Architecture}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.6}{Architectures Assumtions on COTS}{section.3.3}
+\BOOKMARK [1][-]{section.3.4}{Dynamic context aware Web Applications}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.4.1}{Providing e-learning transactional behavior to services coordination}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.2}{Elrn-transactional behavior model}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.3}{Execution engine}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.4}{Reflective Extensions}{section.3.4}
+\BOOKMARK [0][-]{chapter.4}{Models and Architectures}{}
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Models}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{Context Model}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{Graphical Models}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.3}{Logic Based Models}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.4}{Ontology Based Models}{section.4.2}
+\BOOKMARK [1][-]{section.4.3}{Architectures}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.3.1}{Model Drives}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.2}{Dynamic Architecture}{section.4.3}
+\BOOKMARK [1][-]{section.4.4}{Connectors}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.4.1}{The Role of Connection in Architecture}{section.4.4}
+\BOOKMARK [2][-]{subsection.4.4.2}{Connectors in Adaptive Environment}{section.4.4}
+\BOOKMARK [2][-]{subsection.4.4.3}{Connectors in Adaptive Environment}{section.4.4}
+\BOOKMARK [2][-]{subsection.4.4.4}{Dynamic Connectors}{section.4.4}
+\BOOKMARK [1][-]{section.4.5}{Dynamic context aware Web Applications}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Context Aware Contract}{}
+\BOOKMARK [1][-]{section.5.1}{Contract Definition: Toward }{chapter.5}
+\BOOKMARK [2][-]{subsection.5.1.1}{Design by contract Framework}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.2}{The Contract as Connector}{section.5.1}
+\BOOKMARK [1][-]{section.5.2}{Context Aware Contract}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.2.1}{Elements of Context Aware Contract}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.2}{Coordination of Contex Aware Contracts}{section.5.2}
+\BOOKMARK [1][-]{section.5.3}{Especial Conditionals in Contracts Rules}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.3.1}{MConditionals}{section.5.3}
+\BOOKMARK [2][-]{subsection.5.3.2}{DMConditionals}{section.5.3}
+\BOOKMARK [0][-]{chapter.6}{Framewrok to Implemet Context Aware Contract in E-learning Environment}{}
+\BOOKMARK [1][-]{section.6.1}{Introducci\363n}{chapter.6}
+\BOOKMARK [1][-]{section.6.2}{Contractos con caracter\355sticas sensibles al contexto}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.2.1}{Elementos de los contratos sensibles al contexto}{section.6.2}
+\BOOKMARK [1][-]{section.6.3}{Modelo de integraci\363n de Sakai con contratos}{chapter.6}
+\BOOKMARK [1][-]{section.6.4}{Implementaci\363n de contratos en Sakai}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.4.1}{Niveles de flexibilidad de Sakai}{section.6.4}
+\BOOKMARK [2][-]{subsection.6.4.2}{Patrones de dise\361o para la coordinaci\363n de contratos sensible al contexto}{section.6.4}
+\BOOKMARK [1][-]{section.6.5}{Caso de estudio para la implementaci\363n de contratos}{chapter.6}
+\BOOKMARK [1][-]{section.6.6}{Conclusi\363n}{chapter.6}
+\BOOKMARK [1][-]{section.6.7}{Introductions}{chapter.6}
+\BOOKMARK [1][-]{section.6.8}{E-Learning Frameworks}{chapter.6}
+\BOOKMARK [1][-]{section.6.9}{Context Aware Contract Frameworks}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.9.1}{Coordination Contract Framework}{section.6.9}
+\BOOKMARK [2][-]{subsection.6.9.2}{DHD Framework}{section.6.9}
+\BOOKMARK [0][-]{chapter.7}{Design Frameworks for Context Aware Contract Web E-learning Application}{}
+\BOOKMARK [1][-]{section.7.1}{Introduction}{chapter.7}
+\BOOKMARK [1][-]{section.7.2}{Conceptual Design}{chapter.7}
+\BOOKMARK [1][-]{section.7.3}{Logical Design}{chapter.7}
+\BOOKMARK [1][-]{section.7.4}{Model-Driver development of DHD}{chapter.7}
+\BOOKMARK [2][-]{subsection.7.4.1}{Dynamic Model Driver}{section.7.4}
+\BOOKMARK [2][-]{subsection.7.4.2}{UWATc: A comprehensive design model for Web E-learning Transactions}{section.7.4}
+\BOOKMARK [0][-]{chapter.8}{A Case Study of DHD Framework Implementation}{}
+\BOOKMARK [1][-]{section.8.1}{Aplication Domain}{chapter.8}
+\BOOKMARK [2][-]{subsection.8.1.1}{Techologial Aspect}{section.8.1}
+\BOOKMARK [2][-]{subsection.8.1.2}{Functional Aspect}{section.8.1}
+\BOOKMARK [1][-]{section.8.2}{Applying The DHD Framework}{chapter.8}
+\BOOKMARK [1][-]{section.8.3}{Using Coordination Context Aware Contract: Evidence for use en e-learning environment}{chapter.8}
+\BOOKMARK [2][-]{subsection.8.3.1}{Learning To Contract}{section.8.3}
+\BOOKMARK [2][-]{subsection.8.3.2}{Theoretical Interpretations}{section.8.3}
+\BOOKMARK [2][-]{subsection.8.3.3}{Implications For Theory Development}{section.8.3}
+\BOOKMARK [1][-]{section.8.4}{Applying The DHD Mothologogy}{chapter.8}
+\BOOKMARK [1][-]{section.8.5}{DHD: Experimental Prototipe}{chapter.8}
+\BOOKMARK [0][-]{chapter.9}{Conclusions}{}
+\BOOKMARK [0][-]{chapter.10}{Further Works}{}
+\BOOKMARK [0][-]{chapter.10}{Bibliograf\355a}{}

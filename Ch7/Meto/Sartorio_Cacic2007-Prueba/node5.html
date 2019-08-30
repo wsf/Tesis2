@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>UWATc+: una adaptaci&#195;&#179;n de UWAT+ para el modelado de procesos e-learning</TITLE>
+<META NAME="description" CONTENT="UWATc+: una adaptaci&#195;&#179;n de UWAT+ para el modelado de procesos e-learning">
+<META NAME="keywords" CONTENT="Sartorio_Cacic2007-Prueba">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Sartorio_Cacic2007-Prueba.css">
+
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="Sartorio_Cacic2007-Prueba.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html73"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html71"
+  HREF="Sartorio_Cacic2007-Prueba.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html65"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html74"
+  HREF="node6.html">Requerimientos para el dise&#195;&#177;o</A>
+<B> Up:</B> <A NAME="tex2html72"
+  HREF="Sartorio_Cacic2007-Prueba.html">Sartorio_Cacic2007-Prueba</A>
+<B> Previous:</B> <A NAME="tex2html66"
+  HREF="node4.html">DOCUMENTACI&#195;&#147;N DE LOS PROCESOS</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00040000000000000000"></A> <A NAME="uwatc"></A>
+<BR>
+UWATc+: una adaptaci&#195;&#179;n de UWAT+ para el modelado de procesos e-learning
+</H1>
+
+<P>
+Si bien los m&#195;&#169;todos de dise&#195;&#177;o de Transacciones de UWAT+ pueden ser utilizados para la representaci&#195;&#179;n de Transacciones e-learning, es necesario efectuar adecuaciones que tengan en cuenta la inclusi&#195;&#179;n a los contratos (seg&#195;&#186;n secci&#195;&#179;n <A HREF="node2.html#contrato">2</A>). Tal cual fue mencionado en la secci&#195;&#179;n <A HREF="node1.html#intro">1</A>, desde la perspectiva de los dise&#195;&#177;adores, los contratos deben ser visto como una pieza de software para la instrumentaci&#195;&#179;n de los servicios de las herramientas. En consecuencia, es necesario tener un modelo que permita una mejor representaci&#195;&#179;n de los contratos, la visualizaci&#195;&#179;n de su inserci&#195;&#179;n en los servicios y las relaciones que en ellos representan (relaciones entre objetos que implementan servicios, usuarios y herramientas en la Aplicaci&#195;&#179;n). 
+
+<P>
+La figura <A HREF="#drobab">2</A> se muestra un diagrama de clase UML que representa a los conceptos, las relaciones entre conceptos y los modelos para la representaci&#195;&#179;n de Transacciones. Los esquemas en color blanco pertenecen al modelo original UWAT+. El rect&#195;&#161;ngulo y los esquemas grices describen los objetos, modelos y relaciones que  que conforman el nuevo modelo denominado UWATc+.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="drobab"></A><A NAME="61"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+<SMALL CLASS="SMALL"><I CLASS="slanted">UWATc+ modelo conceptual y de dise&#195;&#177;o</I></SMALL></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="575" HEIGHT="323" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="\includegraphics[width=5 in,totalheight=3 in]{drobab.eps}">
+	
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Como se describe en el diagrama, una Transacci&#195;&#179;n Web es un objeto complejo (conceptual) compuestos por dos tipos de objetos principales pertenecientes al modelo original de UWAT+ y un tercer objeto  agregado para la representaci&#195;&#179;n de los contratos pertenecientes a las Transacciones e-learning. En el primer grupo se encuentra <SPAN CLASS="MATH"><IMG
+ WIDTH="80" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$Actividad$"></SPAN> para la distinci&#195;&#179;n de las actividades de los usuarios y del sistema. El objeto <!-- MATH
+ $Flujo de Ejecuci\~{A}\ensuremath{^{3}}n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="160" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$Flujo de Ejecuci\&nbsp;{A}\ensuremath{^{3}}n$"></SPAN> representa el &#195;&#179;rden l&#195;&#179;gico y temporal para la ejecuci&#195;&#179;n de las actividades comprendidas en las Transacciones. A su vez, una Transacci&#195;&#179;n Web puede ser descripta por el <!-- MATH
+ $Modelo Organizacional$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="185" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$Modelo Organizacional$"></SPAN> (desde el punto de vista est&#195;&#161;tico) y el <!-- MATH
+ $Modelo de Ejecuci\~{A}\ensuremath{^{3}}n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="173" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$Modelo de Ejecuci\&nbsp;{A}\ensuremath{^{3}}n$"></SPAN> para la definici&#195;&#179;n de las reglas de ejecuci&#195;&#179;n de la componente actividad (desde el punto de vista din&#195;&#161;mico). 
+
+<P>
+Cuando una Transacci&#195;&#179;n Web contiene un contrato (definida como transacci&#195;&#179;n e-learning) debe ser incluida una nueva componente para el dise&#195;&#177;o (representrada en la figura como una relaci&#195;&#179;n de agregaci&#195;&#179;n en el <!-- MATH
+ $Modelo de Ejecuci\~{A}\ensuremath{^{3}}n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="173" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$Modelo de Ejecuci\&nbsp;{A}\ensuremath{^{3}}n$"></SPAN>), conjuntamente con un nuevo modelo de dise&#195;&#177;o, <!-- MATH
+ $Modelo de Pe-lrn$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="148" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$Modelo de Pe-lrn$"></SPAN>, que permitira la representaci&#195;&#179;n del contrato (caracterizada como relaci&#195;&#179;n de asoci&#195;&#179;n con el objeto <SPAN CLASS="MATH"><IMG
+ WIDTH="76" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$Contrato$"></SPAN>).
+
+<P>
+De esta manera quedan conformados los elementos que componen el modelo UWATc+ (rect&#195;&#161;ngulo gris) y sus relaciones con el modelo original UWAT+. A continuaci&#195;&#179;n se describe en detalle el modelo usado por UWATc+ para el dise&#195;&#177;o de los transacciones que utilizan contratos (transacciones e-learning). 
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html75"
+  HREF="node6.html">Requerimientos para el dise&#195;&#177;o de trasacciones e-learning</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html73"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html71"
+  HREF="Sartorio_Cacic2007-Prueba.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html65"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html74"
+  HREF="node6.html">Requerimientos para el dise&#195;&#177;o</A>
+<B> Up:</B> <A NAME="tex2html72"
+  HREF="Sartorio_Cacic2007-Prueba.html">Sartorio_Cacic2007-Prueba</A>
+<B> Previous:</B> <A NAME="tex2html66"
+  HREF="node4.html">DOCUMENTACI&#195;&#147;N DE LOS PROCESOS</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Alejandro Sartorio
+2010-04-11
+</ADDRESS>
+</BODY>
+</HTML>

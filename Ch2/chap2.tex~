@@ -1,0 +1,1535 @@
+﻿%------------------------------------------------- Chapter
+--------------------------------------------------------
+\chapter{ArqDHD: Arquitectura de Software para los Dispositivos
+Hipermediales Dinámicos}\label{cap:arqdhd}
+
+\pagenumbering{arabic}
+
+\section{Introducción}
+
+En este capítulo se describen los aspectos fundamentales y decisiones adoptadas
+en base al tipo de modelos y arquitecturas que se tuvieron en cuenta en el
+diseño e implementación de los Dispositivos Hipermediales Dinámicos.
+
+Esto se logra mediante la caracterización  de algunos aspectos destacados de un
+proceso de desarrollo específico para los DHD  que se destaca por la inclusión
+de artefactos de arquitectura, permitiendo caracterizar de manera eficiente la
+semántica de aquellas componentes que juegan un papel importante y permiten
+resolver mas eficaz y eficientemente partes de los requerimientos funcionales
+anteriormente mencionado de los DHD (sección \ref{requisitoDHD}).
+
+Entonces a esta caracterización la llamaremos ArqDHD con el propósito de
+sentar algunas precedencias hacia el estudio y definición que sirvan en los
+procesos
+de diseño de los DHD. Como ejemplo de los elementos arquitectónicos a los
+cuales está orientado ArgDHD se pueden mencionar: 
+
+\begin{itemize}
+ \item componentes;
+ \item conectores;
+ \item contratos; 
+ \item subsistemas, o configuración de componentes y conectores;
+ \item puertos, o puntos de interacciones con componentes;
+ \item roles, o puntos de interacciones con conectores;
+ \item artefactos de penetración, los cuales establecen componentes de
+composición  o conectores internos de la arquitectura con elementos sus
+interfaces externas. 
+\end{itemize}
+
+Conceptualmente ArqDHD encierra aquellos aspectos de la arquitectura que juegan
+un rol protagónico en los DHD. Esta apreciación fue motivada debido a que los
+requerimientos de los DHD se deben resolver a partir de la arquitectura sin
+tener en cuenta el modo de implementación de aquellos artefactos que la compone.
+
+Además ArqDHD está orientada a la formalización de algunas de las propiedades
+arquitectónicas singulares en los DHD, promoviendo una mejor representación de
+la semántica para lo conectores y su coordinación.
+
+
+Existen múltiples definiciones de Arquitectura de Software (desde ahora en mas
+lo llamaremos AS), el Software Engineering Institute‘s
+(SEI)\cite{arquitectura23} recoge 75 definiciones distintas del término
+Arquitectura del Software. Por este motivo, se hace imprescindible elegir la
+definición que se ajuste más a la acepción que toma esta propuesta y
+especializarla en el dominio de las aplicaciones Web colaborativas.
+
+De todas las existentes ArqDHD se centra en dos definiciones que más han
+influido en sus modelos:
+
+\begin{quote}
+Definición de IEEE Architecture Working Group [113]: 
+
+\small
+\textit{La arquitectura es la organización fundamental de un sistema
+expresado mediante sus componentes, las relaciones entre cada uno de ellos y
+con su entorno, y los principios que guían su diseño y su evolución“}
+\end{quote}
+
+Se trata de una definición consensuada por un organismo internacional, por
+ese motivo es un intento de simplificación y unificación de las definiciones
+existentes por los diferentes expertos en la materia. Lo primero que destaca
+de esta definición, es que establece al componente como la unidad
+arquitectónica utilizada a la hora de representar la arquitectura de
+la aplicación. El componente es un concepto demasiado ambiguo y que en
+ocasiones puede hacer referencia desde un subsistema hasta un componente
+cliente.
+
+Además, es importante resaltar el hecho de que la definición señala a la AS
+comoresponsable de establecer los mecanismos para guiar el diseño y su
+evolución, ya  sea mediante la captura de los requisitos no funcionales
+o mediante el uso de patrones. De esta manera, Booch [15] señala la
+importancia que tiene la AS en la evolución de un sistema, indicando que
+la presencia de una arquitectura estable en un sistema, asegura las bases
+sobre las cuáles un sistema puede evolucionar continuamente con los
+mínimos desajustes y trabajo.
+Sin embargo, buscando una definición que fuera menos ambigua y aportara un
+pocomás contenido a la hora de modelar el tipo de arquitectura que envuelve los
+DHD,  ArqDHD se basa también en
+la siguiente:
+
+Definición de Buschmann [17]:
+
+\textit{``La arquitectura es la descripción de los subsistemas y componentes de
+un sistema
+software y las relaciones entre ellos, típicamente representado mediante vistas
+que
+muestran las propiedades funcionales y no funcionales más relevantes''}
+
+
+En esta definición de AS, aparecen los subsistemas junto con los componentes
+como unidades arquitectónicas. ArqDHD se basa en esta aproximación capturando
+tanto los subsistemas en el modelo de subsistemas (\ref{contratos}), como los
+componentes
+en los modelos de integración (\ref{integracion}) y de configuración (ver cap.
+6), a la hora de
+representar la arquitectura Web.
+
+Otro aspecto a destacar de la definición, es indicar que la AS debe representar
+los aspectos —más relevantes“ del sistema, abstrayéndose de cierta información
+menos importante (de otra manera no se estaría representando la arquitectura,
+sino que se mostraría todo el sistema). Siendo así la base para proveer
+suficiente información para el análisis, ser ayuda en la toma de decisiones, y
+por lo tanto reducción de riesgos.
+  
+Hay que recordar que la arquitectura no es solamente estructural, (en ocasiones
+es entendida erróneamente como la estructura de la aplicación), sino que provee
+un mecanismo natural de integrar varias vistas del sistema. Aquí aparecen el
+concepto de vista y perspectiva de un sistema, que en el caso de una aplicación
+Web, ArqDHD ha establecido en 8 diferentes vistas. Estas vistas pueden ser tanto
+estructurales, funcionales y de comportamiento. Como se muestra en la sección
+\ref{} de Ingeniería Web, en ArqDHD se utilizan vistas funcionales definidas por
+otras aproximaciones de Ingeniería Web que son representadas de forma
+concurrente a la arquitectura propuesta. 
+
+En el capítulo anterior se han repasado las principales características y
+componentes que componen los DHD para brindar los propiedades de coordinación
+contratos sensibles al contexto, los cuales formarán parte de la arquitectura.
+
+Este punto de vista permite visualizar los dominios de aplicación y los logros
+obtenidos en estos campos. Una vez determinado para qué sirven, el siguiente
+paso es describir cómo funcionan. Esta descripción se facilita si 
+se sigue la estructura marcada por la arquitectura del sistema. Además, ... 
+
+
+La arquitectura del sistema está formada por cuatro subsistemas, cada uno de
+ellos tiene una misión específica. El diseño busca separar los conceptos,
+mejorando de esta manera la evolución independiente de cada subsistema
+\ref{arquitectura1}. Para esta  representación se tuvieron en cuenta algunas de
+las características de los principales patrones para la representación de
+arquitectura, a través de los patrones de distribución definidos por diversos
+autores Buchmann et al. [17], Conallen [24], Trowbridge \& Mancini [118]
+
+
+\section {Conceptos Fundamentales}
+
+
+Ahora se revisarán los conceptos arquitectónico mas relevante que fueron
+necesario tratar en las etapas de diseño. 
+
+
+Desde el punto de vista ling¨uístico, una arquitectura de software
+viene determinada por los componentes –elementos básicos caracterizados por una
+interfaz segmentada en \textit{puertos} y \textit{conectores} que la constituye
+constituyen, así como por una serie de conexiones o enlaces específicos, que
+definen la unión de todos ellos formando una estructura. A esta estructura se
+le da el nombre de configuración, y suele considerarse insertada en una
+jerarquía, independientemente de su granularidad. Ocasionalmente, la
+configuración no se describe de manera monolítica, sino que se estructura en
+diferentes vistas, cada una de las cuales se concentra en un aspecto diferente.
+Cuando lo que interesa no es obtener una configuración concreta, sino
+los patrones genéricos que definen a una familia de sistemas, se habla
+de estilos arquitectónicos [CFBS98]. En definitiva,es la definición de todos
+estos aspectos la que determina una visión concreta de la Arquitectura
+de Software; a este fin se dedicarán los apartados siguientes.
+
+
+
+\subsection {ComponenteDHD} 
+
+El concepto fundamental de la Arquitectura de Software es el de componente. Esto
+se refiere, en términos globales, a cada una de las partes o unidades de
+composición –por definición– en las que se subdivide la funcionalidad de un
+sistema, y cuya unión da lugar al sistema completo. En su sentido
+más genérico, puede hacer referencia a cualquier tipo de elemento estructural,
+esto es, integrado en una estructura; y es precisamente con este significado con
+el que habitualmente se le utiliza en la Arquitectura de Software.
+
+El término de componente no se limita a la arquitectura, sino que es de hecho
+utilizado en múltiples campos de la Ingeniería de Software desde la propuesta
+realizada por Douglas McIlroy [McI69] en la célebre conferencia de la Otan en
+Garmisch-Patenkirchen. En realidad, su connotación más habitual hace
+referencia más bien a aspectos de implementación, vinculados a los estudios de
+Desarrollo Basado en Componentes. Lo cierto es que, en todo caso, el término
+suele ir acompañado de cierta confusión: aunque existe cierto consenso en
+torno a una idea intuitiva, resulta muy difícil obtener una definición
+satisfactoria [BDH+98]. Ni siquiera los distintos intentos por proporcionar una
+descripción formal del concepto [Bro96] han tenido un éxito claro, de modo que
+el significado preciso de la noción es aún un tanto difuso.
+
+No obstante, la siguiente definición ha alcanzado cierta popularidad y se
+considera comúnmente aceptada:
+
+
+\begin{quote}
+\small
+\textit{Un componente es una unidad de composición de aplicaciones
+software, que posee un conjunto de interfaces y un conjunto de requisitos, y que
+ha de poder ser desarrollado, adquirido, incorporado al sistema y compuesto con
+otros componentes de forma independiente, en tiempo y espacio.
+
+\begin{flushright} Clemens Szyperski [Szy98] \end{flushright}
+}
+
+\end{quote}
+
+
+En el contexto del desarrollo de componentes de los DHD, se deben
+hacer adaptaciones, extensiones y agregados para romper de alguna manera con el 
+alto grado de encapsulamiento - sea por abstracción, por seguridad o por
+motivos comerciales - con el propósito de agregarles posibilidades de
+adaptación mediante el uso de envolventes [H¨ol93], adaptadores o mediadores
+[GHJV94] (ver sección \ref{adaptadoresymediadores}). Ese papel ha sido asumido
+en Arquitectura de Software, normalmente, mediante el uso de
+conectores desarrollados específicamente para la ocasión. Por ello, no
+es extraño que cada vez más autores propongan un cambio
+en este sentido - sobre todos en los sistemas colaborativo como el DHD -, de
+modo que todo componente conste de una interfaz privilegiada que permita algún
+tipo de acceso, con grados relativos de seguridad, a detalles internos. Esto
+define lo que se ha dado en llamar una caja gris [BW97], un concepto ya
+propuesto con anterioridad para la Orientación al Objeto [KLM+97, HL95] y que
+será una de las principales ideas que se adoptó en esta tesis para resolver los
+RequerimientoDHD (sección \ref{requerimientosDHD}). De este modo, se obtendrá
+la definición de componentes como una caja gris, como un simple efecto
+secundario del relacionamiento con contratos sensibles al contexto.
+
+
+\subsection{ConectorDHD}
+
+El concepto de conector procede principalmente de los trabajos de Mary
+Shaw  [SG96], a partir de su experiencia en Unicon [SDK+95a]. En un célebre
+artículo [Sha94], propuso considerar por separado las abstracciones relativas a
+la funcionalidad (el componente) y a su interacción (el conector). De este
+modo, se realiza una clara separación de intereses, que permite ampliar el
+nivel de abstracción y aumentar la modularidad del sistema.
+
+Sin embargo, lo que se propone no es simplemente disponer de dos tipos de
+componentes, sino de distinguir dos elementos diferenciados, con funciones muy
+dispares. Los componentes normales –elementos de computación– realizan una
+tarea sin preocuparse de cómo se relacionan con el resto del sistema; por su
+parte, los elementos e interacción, denominados conectores, son los que se
+encargan de resolver todas las cuestiones relativas a la comunicación de los
+primeros.
+
+Shaw insiste en que los conectores deben ser considerados como elementos de
+primera clase, que tienen significado por sí mismos. Esto quiere decir que no
+serán definidos en función de otros elementos, ni diseñados específicamente
+para un componente, sino que podrán ser extraídos y considerados en otro
+contexto.
+
+La forma más sencilla de ver a un conector es como la encarnación de un
+protocolo de comunicación, entendido en su sentido más amplio. En general,
+cualquier artificio –o artefacto– que permita comunicarse a dos o más elementos
+es un conector. Por ejemplo, la llamada de procedimiento es un tipo clásico de
+conector.
+
+No obstante, la definición del concepto supone que hay dos tipos de vínculo
+entre los distintos elementos de una descripción arquitectónica: por una
+parte, el propio conector expresa la interacción existente entre varios
+componentes; pero por otra, esto exige establecer, a su vez,
+el tipo de enlace que relaciona a cada componente con un conector determinado:
+este enlace recibe normalmente el nombre de adjunción o attachment. Sin
+embargo, a lo largo de esta tesis le denominaremos simplemente conexión,
+término que consideramos más intuitivo y menos forzado, y cercano a su uso
+convencional en español \footnote{En inglés, del mismo modo, preferimos el
+término más general de binding, utilizado en algunos lenguajes sin conectores,
+como \δarwin, aunque es tal vez más cercano a aspectos formales o
+de implementación.}
+
+ 
+Es importante señalar que existen ciertas diferencias de matiz en cuanto al
+uso de la palabra conector. Podría decirse, incluso, que se utiliza con
+dos sentidos diferentes, aunque relacionados.
+
+
+Por una parte, suele entenderse que la propuesta original de Shaw exige la
+definición de un nuevo tipo de elemento, análogo a un componente, y que se
+describe del modo indicado. Sin embargo, también se puede mencionar la palabra
+conector, de modo general, como haciendo referencia a cualquier interacción
+explícita entre dos componentes, lo que incluye a los \textit{bindings}
+de δarwin (secci´on \ref{darwin}) o a las conexiones de Rapide (secci´on
+\ref{Rapide}). Este es, por ejemplo, el sentido en que lo usa Medvidovic en
+[MT00], cuando señala que la definición de conectores es uno de los rasgos que
+caracterizan a un Adl (secci´on \ref{adl}). Sin embargo, en pro de la
+claridad, en esta tesis se utilizará la palabra únicamente en el primer sentido,
+es decir, como elemento de primera clase, haciendo siempre una distinción
+explícita entre conector y conexión.
+
+Incluso en su forma más básica, esto es, cuando se los considera como simples
+conexiones, la enumeración de enlaces o asociaciones explícitas entre los
+elementos de un sistema proporciona una descripción, siquiera parcial, de su
+estructura; es decir, de su arquitectura. Puede decirse con Medvidovic [MT00],
+pues, que por el mero hecho de disponer de una noción de conector, un lenguaje
+ya está reforzando su capacidad para especificar configuraciones, lo
+que constituye la tarea principal de cualquier Adl. De hecho, uno de los
+primeros trabajos sobre Rapide [LVM95], uno de los lenguajes con un modelo de
+conexión más simple, demuestra sin embargo que esta característica, por sí
+sola, resulta suficiente para distinguir con claridad un Adl de un
+lenguaje orientado al objeto convencional. Tal vez, sugerir la posibilidad de
+una confusión entre estos dos tipos de lenguajes resulte ahora extraño; sin
+embargo, y debido al énfasis que ambos hacen en el concepto de encapsulación,
+éste es un punto que fue ampliamente debatido en su momento [Cle96], e incluso
+reaparece, todavía hoy, de manera ocasional.
+
+Ha de tenerse en cuenta que se puede ver a los conectores de dos maneras, a
+menudo antagónicas, pero que no tienen por qué serlo: como una
+especificación, o como una simple implementación. El mejor ejemplo de lo
+primero son los conectores de Wright (secci´on \ref{wrigth}), mientras que los
+de Unicon son un adecuado ejemplo de lo segundo. En un lugar intermedio podrían
+situarse los de C2 (secci´on \ref{c2}). Para Wright, los conectores son ante
+todo especificaciones que indican qué es lo que se espera de un componente en
+una interacción dada. Es decir, se trata ante todo de indicar el papel de cada
+uno de los componentes en cada uno de los protocolos; si la especificación del
+conector se corresponde con las de los componentes, se puede verificar la
+corrección del sistema.
+
+Para Unicon, en cambio, un conector no es más que una implementación de un
+protocolo; su objetivo es, ante todo, evitar que el diseñador del componente
+tenga que preocuparse de los aspectos de interacción. Por tanto, se plantea
+como un elemento reutilizable que puede ser conectado a un componente en un
+momento dado, y se encarga desde ese momento de realizar las interacciones
+apropiadas. Nikunj Mehta [MMP00] ha hecho un estudio exhaustivo de todo aquello
+que ha sido o es considerado un conector; aunque es el principio de una
+taxonomía que se hace claramente necesaria, no constituye más que un trabajo
+preliminar, y lamentablemente no parece haber tenido continuidad. No obstante,
+un trabajo de este tipo, completamente desarrollado, será imprescindible para
+que el concepto puede llegar a alcanzar todo su potencial.
+
+Eventualmente, se espera que una comprensión adecuada de la naturaleza del
+conector permita la definición de un álgebra de conectores, que permita su
+combinación, permitiendo la descripción de interacciones aún más elaboradas,
+en las que se ha elevado el nivel de abstracción. Los  conectores así
+obtenidos son los que han sido llamados conectores de orden superior [Gar98];
+aunque en los últimos años ha habido cierto progreso en esta línea [SG01,
+LWF01], todavía está en sus etapas iniciales, y es aún poco más que una
+idea.
+Debe tenerse en cuenta que el propio concepto de conector está en discusión.
+Aunque se trata de una idea generalizada y es aceptada de manera común, no
+todos los autores están plenamente convencidos de su necesidad. Algunos, entre
+los que destaca Jeff Kramer, opinan que la existencia de los conectores
+distorsiona la naturaleza compositiva de una arquitectura de software, que queda
+afectada de manera negativa. Ciertamente, mientras que la composición de dos
+elementos de estructura similar –dos componentes– resulta fácil de expresar,
+sea formal o informalmente, es claro que la introducción de un segundo tipo de
+elemento –el conector– complica la situación. No se trata simplemente de una
+yuxtaposición de funcionalidades, sino que ha de considerarse el tipo de
+composición que define el conector. Existe además toda una serie de problemas
+derivados, como es la diferencia precisa entre componente y conector, o cuál es
+la naturaleza exacta de un compuesto intermedio, en el que alguno de los
+extremos –o roles– de un conector quedase libre. Se ha argumentado que un
+“componente de interacción”, concebido de manera equivalente a un conector,
+pero definido de forma análoga a otros componentes, mantiene las posibilidades
+de reutilización sin perder la composición. Aunque esto rechaza la
+posibilidad que lo consideraba como una abstracción básica, no contradice
+explícitamente a la propuesta de Shaw: el mero hecho de plantear la diferencia
+entre las dimensiones de composición e interacción es ya importante, y
+constituye su verdadera esencia.
+
+En definitiva, la noción de conector se ha convertido en uno de los rasgos
+definitorios del campo: sea como un componente específico, como una conexión
+compleja, o como noción por propio derecho, aparecerá siempre, de algún modo,
+en toda descripción arquitectónica. En esta tesis, el conector está
+fuertemente ligado a la noción de contrato (siguiendo los lineamientos de Meyer
+\cite{Meyer}), especializándolo para un determinado tipo de conexión,
+manteniendo cierto nivel de expresión y cumpliendo propiedades específicas de
+los DHD. 
+
+
+
+\subsection{PuertoDHD} 
+
+El concepto de puerto es cercano al de conector, pero no debe ser confundido con
+éste bajo ningún concepto. Se denomina con este nombre a cada uno de los
+puntos por los que un componente puede realizar cualquier tipo de interacción;
+dicho de otro modo, es cada uno de los fragmentos en los que se segmenta el
+interfaz de un componente.
+
+En definitiva, hace referencia a un punto de entrada o de salida de la caja
+negra que es, de hecho, el componente. Distintos autores lo ven y denominan de
+distinto modo, y la analogía que implícitamente se establece no es idéntica
+en todos los casos. 
+
+Los puertos se han denominado de distintos modos en distintos lenguajes; así,
+en \emph{Wright} se llaman puertos en los componentes, pero roles en los
+conectores,
+mientras que en \emph{Unicon} reciben el nombre de jugadores. En δarwin se
+conocían inicialmente como puertos, para después pasar a llamarse nombres de
+interfaz, de manera consistente con su semántica en cálculo-π.
+
+Actualmente conocen como portales, un nombre que expresa total neutralidad
+respecto del signo de la interacción: es decir, pueden ser de entrada o de
+salida.
+
+Habitualmente los puertos se agrupan definiendo una interfaz; en algunos
+lenguajes se permite, incluso, que definan más de una. Incluso en algunos
+sistemas se asume que el puerto está subestructurado en varios puntos de
+entrada, y por tanto se define todo él como una interfaz completa. Ése es el
+caso, por ejemplo, de Koala [vOvdLKM00].
+
+ArqDHD al estar fuertemente orientado a los conectores, en particular la
+familia de conectoresDHD (secci´on \ref{conectoresDHD}) trata conceptualmente a
+los puertos como partes de los conectores, esto puede verse reflejado en las
+referencias en cuanto al diseño. Entonces, en estos casos no conforma un
+aspecto fundamental, ya que no configura la naturaleza externa de los
+componentes, lo que a su vez no condiciona la estructura de la arquitectura.
+
+
+\section{Visión arquitectónica de los DHD}
+
+Ahora se inicia a definir lineamientos  que permitan describir algunas de las
+características que se pretenden estudiar sobre ArqDHD. Se comienza con el
+recorrido de diferentes propuestas que involucran determinados aspectos de
+ArgDHD y sus interconexiones conforman su espacio de estudio.
+
+\subsection {Propuestas de Arquitectura del Software para los DHD}
+
+A diferencia de lo que ocurre en la parte funcional de la aplicación Web, es
+difícil establecer criterios y formalismos en cuanto a qué aspectos
+(incluyendo los conceptuales) es necesario capturar en la arquitectura Web
+colaborativa. Por lo tanto, es importante mostrar los diferentes tipos de
+aproximaciones existentes, cuáles son sus principales características comunes y
+qué aspectos comparten con ArqDHD. De esta manera comienzan a identificarse las
+características que distinguen a ArqDHD del resto de aproximaciones que
+representan la arquitectura de las aplicaciones Web.
+
+\begin{itemize}
+
+\item {REST}
+
+El Representational State Transfer (REST) [31] consiste en un
+estilo arquitectónico para aplicaciones Web distribuidas. REST está basado en la
+definición de un conjunto de restricciones arquitectónicas centradas en el
+dominio de las aplicaciones Web.
+
+REST propone un proceso de definición de su estilo arquitectónico apoyándose en
+la introducción de restricciones sobre otros estilos arquitectónicos reconocidos
+dentro de la arquitectura del software como Client/Server, Layered, Cache, etc.
+REST hace uso de tres vistas arquitectónicas (Proceso, Conector y Datos) para
+especificar la arquitectura Web. En su especificación ignora los detalles de la
+implementación del componente y la sintaxis del protocolo para enfocarse en los
+roles de los componentes, las restricciones de las interacciones con otros
+componentes y su interpretación de los elementos de datos significativos. Las
+restricciones de REST se fundamentan en los componentes, conectores y los datos
+que definen la base de la arquitectura Web.
+
+El objetivo de REST es ser una guía para que los diseñadores de aplicaciones Web
+definan el conjunto de requisitos no funcionales relevantes para la aplicación.
+Ejemplos de este tipo de requisitos son la obtención de una buena escalabilidad,
+despliegue independiente, reducción de la latencia de interacción entre los
+componentes, refuerzo de la seguridad o la encapsulación de los sistemas
+legados.
+
+La sintaxis utilizada para modelar la arquitectura no se basa en el uso de
+estándares de modelado, ni propone su formalización mediante metamodelos. Esto
+hace difícil su especificación mediante herramientas comerciales.
+
+La clasificación de tipos de componentes realizada por el estilo arquitectónico
+REST ha servido de referencia para la definición de la tipología de componentes
+definida por los estilos de ArqDHD.
+
+
+\item {Architecture Recovery of Web Applications}
+
+Hassan y Holt [42] consideran que las aplicaciones Web se convertirán en los
+próximos años en sistemas legados de difícil mantenimiento. Partiendo de esta
+base, proponen una aproximación que realice una recuperación de la arquitectura
+de las aplicaciones Web a partir de su implementación. El objetivo de esta
+ingeniería inversa de la arquitectura es mejorar el mantenimiento de la
+aplicación, al hacerla más entendible para los desarrolladores.
+
+La aproximación define un conjunto especializado de parsers/extractores que
+analizan el código fuente y binario de las aplicaciones Web existentes y
+obtienen un conjunto de diagramas de arquitectura situados a diferentes niveles
+de abstracción.
+
+La aproximación establece la definición de un conjunto de cinco componentes
+identificados como comunes dentro de la arquitectura Web: Static Pages (Paginas
+Estáticas), Active Pages (Paginas activas de servidor), Web Objects (componentes
+de servidor), Multimedia Objects (objetos multimedia como imágenes, video y
+sonido) y Databases (bases de datos).
+
+La representación de la arquitectura se basa en un conjunto de tres modelos que
+de forma progresiva reducen los detalles obtenidos en la recuperación de datos,
+para mostrar únicamente la información relevante para la arquitectura. El primer
+modelo es ELS (Entity-Level Schema). Este modelo es el nivel de abstracción más
+bajo y muestra las relaciones entre los elementos que viven dentro de los
+componentes Web (objetos, tablas, variables, etc.). A partir de este modelo se
+definen las transformaciones necesarias para subir el nivel de abstracción hasta
+el modelo CLS (Component-Level Schema). CLS representa las relaciones entre los
+componentes de la aplicación Web (StaticPages, ActivePages, Databases, etc.). El
+último nivel de abstracción es el modelo ALS (Abstract-Level Schema) que
+representa las relaciones entre los elementos de mayor granularidad, los
+subsistemas y los componentes que contienen.
+
+Los diferentes modelos representados en esta aproximación se basan en esquemas
+(Schemas) que son básicamente modelos Entidad-Relación (EER). 
+
+\item  WAE: Web Application Extension of UML
+
+La propuesta WAE [24] (Extensión para las aplicaciones Web) definida por Jim
+Conallen propone un conjunto de modelos UML cercanos a la implementación que,
+dentro del contexto del Proceso Unificado de Rational (Racional Unified Process
+[47]), giran en torno a la arquitectura de la aplicación.
+Conallen basa la descripción de la arquitectura de las aplicaciones Web en el
+conocido trabajo de Kruchten —The 4+1 View Model of Architecture“ [64],
+estableciendo los artefactos utilizados en cada una de las vistas que define
+Kruchten para el desarrollo de las aplicaciones Web.
+
+Conallen, partiendo de la idea que una arquitectura nunca aparece de la nada, se
+basa en un conjunto de patrones de arquitectura para su definición en la fase de
+diseño. Por un lado, adapta patrones comunes que considera particularmente
+adecuados para las aplicaciones Web, como son: Façade de Gamma et al. [36], Page
+Composition y Template Page. Otros patrones específicos para la capa
+de presentación son Thin Web, Thick Web y Web Delivery.
+
+Sin embargo, donde verdaderamente la arquitectura comienza a tomar relevancia
+es dentro del proceso definido por Conallen en la fase de diseño. En esta fase
+define WAE, que incluye un conjunto de tipos de componentes especializados en el
+dominio de las aplicaciones Web (p.e. Server Page, Client Page, HTML Form,
+etc.). La definición de cada uno de los componentes la realiza mediante el
+mecanismo de perfiles proporcionado por UML. WAE permite representar una
+aplicación Web muy  detalladamente, acercándose al nivel de implementación
+concreta, con la introducción de aspectos dependientes de ASP y JSP.
+A partir de la representación en WAE, existe un mecanismo de generación
+automática que permite obtener el esqueleto de los diferentes componentes.
+
+\item WebArquitect
+
+WebArchitect [112] es otra propuesta que se centra en la arquitectura y las
+funciones de los lugares Web, más que en la apariencia de cada página. Este
+método comienza con una actividad de análisis en la que, mediante el modelo
+Entidad-Relación, se representar el dominio del problema. A continuación, un
+análisis de escenarios determina cómo los usuarios potenciales interactúan con
+la aplicación Web para cumplir los objetivos de negocio. A partir de las fases
+de análisis, la arquitectura de la aplicación es diseñada en la fase de diseño
+arquitectónico. La arquitectura es representada mediante un modelo denominado
+RMDMW (Relationship Management Data Model for Web-Based Information Systems) que
+consiste en una extensión del modelo propuesto por RMM [48], con la introducción
+de eventos, roles y productos.
+
+Mediante RMDMW el diseñador determina la navegación y el modo de mapear1 la
+navegación a las diferentes páginas.
+
+El método también define atributos para cada página, que son utilizados para el
+mantenimiento de la misma. La implementación y mantenimiento de la aplicación
+resultante es soportada por una herramienta del mismo nombre, que permite a los
+diseñadores manipular de forma directa meta-enlaces entre páginas organizadas en
+un árbol jerárquico. Por otro lado, la visualización de las aplicaciones
+resultantes se realiza mediante un cliente Web denominado Pilot-Boat, que navega
+y deja que los usuarios colaboren a través de los lugares Web.
+
+\item WAM (WebComposition Architecture Model)
+
+WAM [70] es una aproximación muy reciente basada en la extensión de la
+reconocida aproximación WebComposition [35]. WAM introduce una descripción
+arquitectónica que sirve como mapa para el mantenimiento de las trazas de las
+interrelaciones entre diferentes aplicaciones Web federadas. Las aplicaciones
+Web federadas se basan en la idea de las aplicaciones Web que comparten
+componentes y elementos realizados por múltiples proveedores a lo largo de la
+Web. Entre los artefactos modelados están los servicios Web, las propias
+aplicaciones Web y las zonas organizacionales de control que están sujetas a la
+evolución en el sentido de la aproximación WebComposition.
+
+WAM persigue hacer comprensible mediante los modelos la estructura técnica de
+la federación a los actores (stakeholders) que intervienen en el desarrollo de
+la aplicación Web (p.e. arquitectos, desarrolladores y administradores).
+
+WAM se basa en DSLs (Domain-Specific Languages) para representar los diferentes
+elementos identificados como relevantes en la arquitectura Web. Estos son:
+service, application, data provider, process unit, invocation y
+trust relationship. A partir de los elementos del modelo, se establece un mapeo
+a un lenguaje llamado WAM-XML que sirve de base para su tratamiento en
+herramientas y para dar soporte a los sistemas. 
+
+
+
+\item OOHDM -Java 2
+
+OOHDM-Java 2 [51] es un trabajo que propone una línea de producto en J2EE para
+simplificar el desarrollo de aplicaciones utilizando la conocida aproximación de
+Ingeniería Web OOHDM [106]. OOHDM-Java2 es una arquitectura que permite
+desacoplar las decisiones de diseño relacionadas con el modelo de dominio de
+aquellas relacionadas con la navegación y la arquitectura de interfaz.
+OOHDM-Java 2 tiene asociado un framework J2EE que extiende el concepto del
+patrón de Buchmann et al. [17] Model-View-Controller y realiza una separación de
+los nodos de navegación de sus interfaces. Así, introduce la idea de objeto de
+navegación, y reconoce el hecho de que la navegación puede ser dependiente del
+contexto. La estructura de OOHDM-Java 2 contiene elementos que configuran una
+arquitectura que persigue las mejores prácticas y mejores resultados de
+mantenimiento. Este esqueleto (framework) es instanciado para las diferentes
+aplicaciones definidas en OOHDM, mediante un conjunto de tareas definidas que
+debe seguir el diseñador para su utilización.
+
+\end{itemize}
+
+
+
+\subsection {Propuestas basadas en el Desarrollo Dirigido por Modelos para
+Aplicaciones Web}
+
+El último conjunto de propuestas de interés para este trabajo es aquel que se
+basa en el paradigma de ingeniería dirigida por modelos (MDE) [55] para el
+desarrollo de las aplicaciones Web. MDE proporciona como principales ventajas el
+dotar de un mecanismo de trazabilidad desde los modelos hasta la implementación
+mediante el uso de las transformaciones. Sin embargo, debido a la juventud de
+MDE son pocas las herramientas disponibles hasta el momento y la mayoría de las
+implementaciones realizadas por las aproximaciones no se basan en
+transformaciones formales, sino que las implementan directamente mediante
+generación de código. Otro de los aspectos a considerar es el uso de los modelos
+definidos en la Ingeniería Web para representar las diferentes vistas: mientras
+que algunas aproximaciones definen sus propios modelos, otras se valen de
+trabajos reconocidos para definir sus modelos
+
+
+\begin{itemize}
+
+\item Model-Driven Development of Large-Scale Web Applications
+
+
+Tai et al. [111] definen una aproximación basada en MDA para el desarrollo de
+aplicaciones Web de gran tamaño. Para ello, proveen un conjunto de modelos
+basadosen un metamodelo que es usado como contrato principal entre los
+desarrolladores.
+
+El metamodelo juega un papel fundamental al realizar una división en
+subaplicaciones que provee la especificación y que todos los artefactos deben
+cumplir. El metamodelo se ha definido conforme a la arquitectura propuesta para
+la plataforma J2EE. En un futuro se pretende hacer que el metamodelo sea general
+para otras plataformas.
+
+Los modelos definidos por la aproximación son: (1) el modelo de transición de
+páginas (navegación entre los nodos mediante un gráfico), (2) modelo de flujo de
+página (composición de la interfaz de una página) y el (3) modelo de datos
+(información que se almacena a partir de las páginas). Para la definición de
+estos modelos, Tai no se ha basado en los modelos definidos dentro de la
+Ingeniería del Software.
+
+Acompañando a esta aproximación se ha definido una herramienta llamada WAST
+(Web Application development Support Tool). WAST provee un conjunto variado de
+generadores de código (básicamente esqueletos) y mecanismos de validación de
+código para comprobar que los artefactos definidos en las diferentes vistas
+(p.e. los JSPs (Java Server Pages)) son compatibles con el modelo.
+Como parte del proceso de desarrollo se deben definen los diferentes actores
+(stakeholders), cada uno de los cuáles debe seguir las reglas impuestas por el
+metamodelo. Estos actores son el diseñador de pantallas, el mantenedor de
+modelos, el programador de lógica de negocio, el programador de objetos de
+servidor y el ensamblador de la aplicación. Los programadores deben rellenar
+aquellos huecos que los generadores de código dejan, siempre verificando que el
+código introducido respecta el modelo.
+
+\item MIDAS
+
+MIDAS [18] metodología dirigida por modelos para el desarrollo de aplicaciones
+Web. Esta metodología aplica un metamodelo MDA a la plataforma Web utilizando
+XML y tecnología objeto-relacional. MIDAS propone diferentes modelos PIM y PSM
+y define algunas reglas de mapeo entre los modelos.
+
+Los modelos independientes del plataforma (PIM) propuestos por MIDAS están
+definidos utilizando el estándar UML [120]. Los modelos PIM están constituidos
+por contenido, navegación y presentación. Para representar los distintos modelos
+MIDAS se basan principalmente en UWE [61].
+
+MIDAS también define un conjunto de modelos dependientes de plataforma (PSM)
+que representan cada una de las vistas definidas como PIM. Así, para representar
+el modelo de contenido dependiente de plataforma, se ha valido de la tecnología
+objeto- relacional. Sin embargo, para representar la navegación y la
+presentación ha utilizado XML. 
+
+MIDAS propones únicamente las guías para realizar las transformaciones PIM-
+PIM, PIM-PSM y PSM-PSM necesarias para completar su desarrollo. Actualmente,
+está trabajando en implementar las transformaciones para obtener la aplicación
+final sobre plataformas como J2EE y .NET.
+
+
+\item Model-Driven Development Process for UWE
+
+El reciente trabajo [58] redefine el proceso de UWE estableciéndose como un
+proceso de desarrollo dirigido por modelos (ahora llamaremos MDD-UWE). Para su
+definición se ha basado en los principios de MDA, usando los estándares OMG para
+la definición de sus modelos y transformaciones. El proceso de desarrollo de
+MDD- UWE consiste en un conjunto de modelos y transformaciones cuya
+especificación está soportada por metamodelos y reglas de transformación. Los
+metamodelos son el metamodelo de MDD-UWE [59], el metamodelo Web Requirements
+Engineering metamodel (WebRE) [30] y además, utiliza el metamodelo de nuestra
+propia propuesta ArqDHD (Meliá \& Gómez [75]).
+
+El proceso de desarrollo especifica los requisitos funcionales basándose en el
+trabajo de [29] para su automatización de requisitos a contenido funcional. Los
+aspectos funcionales son especificados simultáneamente con los modelos de
+arquitectura especificados por ArqDHD, y posteriormente son integrados. Existe
+otra alternativa para la integración de la arquitectura con un modelo —Big
+Picture“, es decir, un modelo que integra ya las tres vistas funcionales
+(presentación, contenido y navegación).
+
+Las transformaciones definidas se basan en tecnologías y lenguajes diferentes,
+desde el lenguaje estándar de transformaciones QVT [91], ATL
+[5], transformaciones basadas en grafos, e incluso transformaciones
+implementadas en código java en la propia herramienta ArgoUWE [3].
+
+
+\item Consistent and Adaptable W2000 Models
+
+
+Esta propuesta ha evolucionado a través de un reciente trabajo [9] que establece
+el metamodelado de todos los modelos de W2000 mediante MOF. Además, propone la
+definición de las reglas de transformación que permitan a los usuarios acceder y
+controlar la consistencia de los artefactos producidos por el proceso W2000 y
+posteriormente adaptarlos en un modo controlado.
+
+
+La propuesta no propone un proceso de desarrollo determinado ya que prefiere
+dotar de libertad a los desarrolladores para que elijan el que prefieran.
+La corrección de los modelos definidos por los modeladores es controlada
+mediante la definición de los modelos como instancias de metamodelos MOF y
+mediante el establecimiento de las restricciones oportunas mediante el estándar
+OCL [93].
+
+Por otro lado, se propone la definición de reglas de transformación definidas
+mediante el lenguaje de grafos AGG (Attributed Graph Grammar System) [28] que
+representan las reglas de transformación a nivel de metamodelo.
+
+Además, la aproximación tiene el soporte de una herramienta realizada mediante
+un plug-in2 de Eclipse [27] para su parte gráfica, un repositorio MOF comercial,
+MDR [79], que le permite la carga de los modelos mediante XMI y la herramienta
+proporcionada para el lenguaje AGG [28] para definir las reglas de
+transformación
+
+\end{itemize}
+
+
+\subsection {Situación de ArqDHD en la Investigación Actual}}
+
+Realizando un ejercicio de revisión conjunta de las tres tendencias consideradas
+influyentes para el presente trabajo, es muy interesante destacar cuál ha sido
+la  evolución en cada una de ellas y en qué elementos se tuvieron en cuenta en
+nuestra aproximación de modelo.
+La Figura \ref{arquitecura1} muestra una representación del espacio basada en
+tres coordenadas, cada una de las cuáles representa una tendencia: Ingeniería
+Web, Arquitectura Web y MDE. Situándose en un estado evolutivo dentro de cada
+coordenada o tendencia, ArqDHD constituye un cubo cuyo volumen representa el
+espacio que ocupa dentro de la investigación actual.
+
+La coordenada X está representada por la Ingeniería Web, y en ella se presentan
+las diferentes vistas que se han ido introduciendo a lo largo de su existencia.
+En ella puede apreciarse cómo las tres vistas funcionales son las primeras en
+ser capturadas:
+contenido, navegación y presentación. La cuarta vista, también capturada por
+ArqDHD, es la arquitectura estática. La única vista que no es representada por
+ArqDHD es la arquitectura dinámica, que representaría el comportamiento tanto
+externo como interno de los componentes. Esta tarea no ha sido cubierta por el
+presente trabajo.
+
+La coordenada Y es ocupada por la ingeniería dirigida por modelos (MDE) y en
+ella se muestran los diferentes estadios por los que ha ido pasando:
+representación de las vistas mediante modelos (modelado), formalización de los
+modelos mediante el metamodelado, definición de las transformaciones modelo a
+modelo para establecer la traza entre los diferentes modelos del proceso y, por
+último, las transformaciones modelo a texto que permiten obtener la
+implementación a partir de los modelos.
+
+
+ArqDHD ha completado las diferentes tareas de MDE. Queda sin embargo un largo
+camino de interoperabilidad entre los modelos y transformaciones realizadas, que
+permitan establecer una red para compartir los recursos definidos en MDE.
+
+Por último, la coordenada Z la representa la Arquitectura Web. En ella se
+muestra una serie de puntos que representan el papel que ha tenido la
+arquitectura dentro de las aproximaciones. En un principio la arquitectura
+únicamente se utilizaba para documentar. Poco a poco se ha ido extendiendo su
+uso como guía para definir el diseño. El último estadio, que es el ocupado por
+ArqDHD, es aquel en el que la arquitectura define los artefactos más
+importantes, dirigiendo el proceso de desarrollo
+
+\begin{center}
+ \includegraphics[width=6 in,totalheight=4 in]{Ch2/f1}
+ % ArqDHD.: 450x422 pixel, 72dpi, 15.88x14.89 cm, bb=0 0 450 422
+\label{arquitectura1}
+\end{center}
+
+
+
+\subsubsection {Estilo Arquitectónico}
+
+Existe una gran variedad de opiniones al respecto al significado de estilo
+arquitectónico. Una concisa definición proporcionada por Shaw \& Clements [109],
+define un estilo arquitectónico como \textit{`` un conjunto de reglas de diseño
+que identifica los tipos de componentes y conectores 
+que pueden ser usados para componer un sistema junto con las restricciones en el
+modo en que la composición es hecha''}. Una
+similar posición es expresada por Medvidovic [69]. De manera que un estilo es
+entendido como un vocabulario para expresar arquitecturas. Basándonos en estas
+definiciones queda claro, que se establece un vínculo entre el estilo
+arquitectónico y la
+unidad arquitectónica.
+
+En ArqDHD se establece en la fase de análisis dos estilos arquitectónicos que
+representan el sistema basándose en diferentes unidades arquitectónicas y
+relaciones.
+
+Por un lado, el modelo de subsistemas sigue el estilo de capas Buchmann et al.
+[17], donde es el subsistema la unidad arquitectónica, y las relaciones de
+dependencia son los conectores. De forma paralela se define el modelo de
+configuración que sigue un estilo arquitectónico, donde es el componente Web la
+unidad arquitectónica, y en este caso son los conectores mediante puertos e
+interfaces el pegamento entre cada uno de los componentes. 
+
+
+En este caso, la forma de representación de un patrón se realiza mediante una
+determinada configuración de componentes que se aplica para resolver una
+cuestión de integración entre diferentes subsistema que tienen comportamientos
+aislados. A continuación se enumeran los patrones representados por diferentes
+autores y son separados en función de las capas en las que son aplicados:
+
+\begin{itemize}
+  
+\item Model-View-Controler (Modelo-Vista-Controlador) (Buchmann et al. [17]):
+patrón que permite separar el modelado del dominio, la
+presentación y las acciones basadas en las interacciones del usuario en 3
+componentes principales. (1) Modelo: que maneja el comportamiento y
+los datos del dominio de la aplicación, respondiendo a las peticiones de
+información sobre su estado (usualmente desde la vista) (2) Vista: muestra
+la información al usuario final, (3) Controlador: recibe las peticiones del
+usuario, informando al modelo y/o la vista para cambiar. Existen
+diferentes variantes que pueden introducir cambios de comportamiento
+
+
+\item  Page Template (Página Plantilla) (Conallen [24]): Este patrón define
+una única página plantilla que genera todas las páginas Web que obtiene
+el cliente. Su característica especial es que la página plantilla referencia a
+cada una de las partes o fragmentos de página que contiene
+dinámicamente. Además, la configuración de la plantilla puede estar
+almacenada en un fichero independiente, lo que permite gestionar la
+apariencia sin recompilar el código.
+
+\item Page Controller(Trowbridge \& Mancini [118]): Es una especialización
+del MVC, que establece un controlador común llamado BaseController
+que contiene todos los componentes o partes de la página Web que son
+comunes al resto de controladores de cada una de las páginas. Consigue
+reutilizar aquellos componentes o acciones que se van a repetir en
+múltiples controladores de página.
+
+\item Front Controller(Trowbridge \& Mancini [118]): Otra versión del MVC,
+propone que se establezca un único controlador que centralice todas las
+peticiones, y que esté separado en dos aspectos: un manejador de las
+peticiones del cliente y disparador de las peticiones. Este patrón de
+arquitectura hace uso del patrón de diseño Command (Gamma et al.[36])
+para gestionar las peticiones que el controlador recibe de la interfaz.
+Por otro lado, debido a que el estilo arquitectónico permite modelar estos
+patrones, esto proporciona al arquitecto introducir pequeñas variantes a cada
+uno de ellos, sin perder la finalidad última del patrón. Por ejemplo, la
+evolución del MVC en MVC2, donde se independiza la navegación de la vista,
+mejorando la independencia de la vista con el controlador.
+
+\end{itemize}
+
+
+
+\subsection {El contrato como conector}
+
+Entre la diversidad de propuestas de diseño de sistemas e-learning
+con características adaptativas, existen diferentes variantes metodológicas y
+tecnológicas, una de ellas es la incorporación de contratos context-aware. En el
+capítulo 5, expusimos las diferencias más significativas entre los sistemas
+tradicionales para e-learning y nuestra actual propuesta sobre los dispositivos
+hipermediales context aware dinámicos para educación  investigación.
+
+Como avance de la Tercera Fase de las tesis doctoral en curso Contratos para
+Context-Aware dinámico 
+
+ 
+\footnote{El presente capítulo y desarrollos, gráficos y tablas sobre Context
+aware del capítulo anterior, forman parte del texto de la Tesis Doctoral en
+desarrollo del Becario Lic. Alejandro Sartorio. Doctorado en Ciencias
+Informática de la Facultad de Informática de la Universidad Nacional de La
+Plata. Plan de trabajo aprobado por resolución HCA 3300-6865/000 del 16-12-05
+(Univ. Nac. de la Plata) Director: Dr. Gustavo Rossi, Codirectora: Dra. Patricia
+San Martín}
+
+y mostrando resultados de las fases anteriores, en este capítulo explicitaremos,
+qué es un contrato context-aware, cuál es su complejidad y, dónde y cómo se lo
+puede aplicar.
+
+Conceptualizar al contrato como una componente de primera clase, donde las demás
+componentes que lo relacionan dependen de su funcionamiento, nos brindará una
+visión más completa orientada a la arquitectura y a la conexión entres sus
+componentes.
+Pensar el contrato como una pieza de conexión (referenciado con el termino
+“connectors”, conectores, en el área de arquitecturas en ingeniería de software)
+nos permitirá incorporar (conectar) nuevos modelos independientes a los llamados
+framework elearning en términos de dicha ingeniería.
+
+En la figura \ref{f2} representamos la integración de un modelo externo con
+unframework e-learning por medio de un conector referenciado con el nombre
+componente contrato.
+
+
+\begin{center}
+ \includegraphics[width=6 in,totalheight=4 in]{Ch2/f2}
+\end{center}
+\caption{Representación del contrato como conector entre un
+framework colaborativo (tipo e-learning) y un modelo externo.}
+
+
+La componente modelo externo representa una entidad, puede ser un modelo
+conceptual, una herramienta, applets, API (Application Programming Interface), o
+cualquier sistema independiente que cumpla con la funcionalidad de brindar
+información de contexto para ser incorporada en la semántica de la componente
+contrato. Las herramientas y servicios que componen el framework e-learning son
+los puntos de comunicación con la componente contrato. Luego, la entidad sistema
+representa el ambiente del servidor donde se encuentra el entorno de
+la plataforma elearning.
+
+Este entorno abarca servidores web, servidores de base de datos, sistemas
+operativos, archivos y repositorios de recursos, sistemas institucionales, etc.
+La mayoría de los clientes deben ser estándares (similares a Web Browsers) y,
+las salidas de las aplicaciones deben poder ser presentadas a los clientes
+usando lenguaje de marcas tipo HTML.
+
+En el próximo punto, nos centraremos en la importancia del tipo de modelado y
+diseño con los que podríamos tratar a los contratos.
+
+
+\subsubsection{Perspectiva de modelado}
+
+ 
+El modelado y diseño de sistemas orientados a servicios complejos, no sólo
+contribuye a una mejor comprensión de los problemas o posibles soluciones que se
+pueden adoptar en un proyecto de I\&D como Obra Abierta, sino que facilita la
+comunicación entre el grupo de investigación, especialmente cuando se encuentran
+físicamente separados y/o afiliados a diferentes organizaciones.
+
+El trabajo de modelado, es la base de procesos de desarrollo orientados a
+servicios para educación y/o investigación, que debe guiar tanto a los
+diseñadores como a los desarrolladores en el relevamiento de los requerimientos
+pedagógicos y/o investigativos para implementarlos en un artefacto – objeto- de
+software. Esta tarea de modelado puede brindar una guía clara de trabajo al
+equipo de I\&D, entregando las soluciones a tiempo y facilitando el logro de un
+producto final de alta calidad, con bajos riesgos en el desarrollo.
+
+Atendiendo a los cambios de la tecnología y a la continua evolución de
+los estándares, el correcto modelado y diseño de soluciones Web complejas, se
+torna cada vez más importante. Resultado de esto, es el nuevo paradigma
+de desarrollo en sistemas llamado “Model-Driver Architecture” (MDA).
+
+MDA está focalizado en la importancia de los modelos de
+plataformas independientes y plataformas específicas, que permiten una
+separación de la abstracción del dominio de conocimiento del particular entorno
+de implementación. En la actualidad, dependiendo de los objetivos de
+las plataformas, con el desarrollo de herramientas avanzadas para el diseño a
+partir de códigos de programación, el rol que cumple el modelo (o
+modelado) comienza a ser fundamental. A través del uso de MDA, el modelo
+representa a la programación de alto nivel construida para desarrollos de
+aplicaciones como por ejemplo, un dispositivo hipermedial dinámico como el de
+Obra Abierta, con requerimientos factibles de trazar (en el sentido del modelado
+desde el punto de vista de la Ingeniería de Software). Las herramientas
+avanzadas pueden proveer generación automática de código XML, Java u otro código
+de programación a partir de un determinado modelo. Un correcto método de
+modelado debe brindar el soporte necesario para poder tomar la decisión sobre
+qué parte de la aplicación debe ser expuesta como servicio, o qué parte de la
+arquitectura debe ser confeccionada para invocar a los servicios Web.
+
+
+El modelado de soluciones orientadas al servicio no es una tarea simple. Los
+servicios heredan algunas características de sus predecesores – objetos y
+componentes y también usan elementos del flujo de tareas y de los procesos de
+negociación. De esta manera, el modelado de servicios debe cubrir totalmente las
+diferentes facetas funcionales y tecnológicas para su prestación
+e implementación. El uso de Lenguaje Unificado de Modelado (UML, por sus siglas
+en inglés, Unified Modeling Language) como notación semi-formal para el modelado
+de servicios es en la actualidad, una elección consensuada por la
+comunidad informática.
+
+Aunque en su origen, UML fue concebido para el modelado de sistemas orientados a
+objetos, puede ser fácilmente extendido para soportar modelos de otros conceptos
+tal como actividades de negocios, interfaces de usuarios y esquema de datos. Sin
+embargo, podemos observar que para el modelado orientado al servicio, todavía
+este lenguaje se encuentra en una etapa inicial, ya que no ofrece mecanismos
+para la representación de componentes y servicios a nivel lógico.
+
+
+En Obra Abierta adoptamos estrategias y modelos basados en el concepto de
+componentes de servicios; similar a la propuesta de Zoran (2006), en su
+publicación Modeling Services and Components in a Service-Oriented Architecture.
+Una componente servicio es un bloque principal que interviene en algún tipo de
+relación entre objetos del sistema, las componentes que conforman a los
+servicios para educación y/o investigación son modeladas como contratos de
+servicios en donde se efectúan algunos de los procedimientos pedagógicos o
+investigativos (en forma de reglas) como ejecuciones de operaciones entre los
+objetos.
+
+
+El concepto de la componente contrato ha sido introducido en el capítulo
+anterior, como una pieza de software que permitía la adaptación de servicios al
+contexto de los objetos que lo utilizaban, o sea como componente para establecer
+algún tipo de relación “controlada” entre ellos. En este capítulo, a los
+contratos los abordaremos desde la perspectiva de los MDA, haciendo referencia
+al propio modelo adoptado en Obra Abierta.
+
+
+\subsection{Los conectores en entornos adaptativos}
+
+
+\Section{Aspecto Dinámicos de la Arquitectura DHD}
+
+Dichos sistemas son altamente dinámicos, y muestran una estructura evolutiva.
+Continuamente se añaden, eliminan, o reemplazan componentes, a veces incluso
+como parte del funcionamiento normal. Estos detalles ya no son coyunturales,
+sino estructurales, y deben tenerse en cuenta durante el Diseño del sistema.
+Por tanto, para ser realmente útil, un Lenguaje de Descripción de Arquitectura
+(Adl) debe ser capaz de especificarlos. Sin embargo, esto no es lo normal en los
+Adls existentes, cuya naturaleza es mayoritariamente estática. Los pocos que
+muestran capacidades dinámicas muestran también limitaciones, que dependen en
+gran medida de sus orígenes particulares.
+
+Cuando la evolución de una arquitectura es continua, y los cambios en su
+interior siguen un patrón predefinido, entonces ha de considerarse que este
+patrón forma parte intrínseca de la estructura. El objetivo de la Arquitectura
+de Software es describir la estructura de los sistemas, y esto debería incluir
+tanto a sus partes fijas –estáticas–, como a las cambiantes –dinámicas–. De
+hecho, en muchos sistemas, el rasgo diferencial, que lo distingue de otros
+sistemas similares, es el comportamiento dinámico de su arquitectura; a menudo,
+puede resultar aún más importante que el esquema estático de partida. Algunos
+ejemplos de sistemas para los que la definición de dinamismo es esencial son
+los siguientes:
+
+\begin{itemize}
+ \item Los sistemas abiertos y distribuidos, cuya estructura cambia de manera
+constante, a medida
+
+\item Los sistemas evolutivos de varias clases, que se ajustan a un cierto
+patrón.
+
+\item Los sistemas multi-agente (Mas), dentro y fuera del contexto
+deInteligencia Artificial; y en general todos los sistemas capaces de expresar 
+algún grado de movilidad.
+
+\item O, por ejemplo, los sistemas reflexivos, que son interesantes en sí
+mismos, pero que además constituyen la base de la propuesta final de este
+trabajo.
+
+\item Los sistemas continuos, de tiempo real y tolerantes a fallos, en los que
+a menudo se requieren cambios, pero que no pueden ser detenidos para ser
+actualizados.
+
+\item Los sistemas adaptativos o auto-organizados, que modifican su propia
+estructura para adaptarla a cada entorno concreto.
+
+\end{itemize}
+
+
+El DHD es parte de la última familia de sistemas enumerados, donde se permite
+a través de una característica arquitectónica poder resolver requerimientos
+funcionales, en este caso de adaptación, mediante la conjunción (conexión)
+coordinada de subsistemas.
+
+
+Hoy en día, todas estas propuestas han sido desarrolladas, y muchas otras se
+han ido incorporando; muchos sistemas anteriores han sido adaptados o
+reconocidos como Adls dinámicos, y se han desarrollado varias tesis doctorales
+en todo el mundo [Cra97, MG99, Med99, dP99, Sch99, Wer99,Pry00, CV00] dedicadas
+a este tema de algún modo. En definitiva, el desarrollo e interés creciente
+de este campo es innegable, y se presenta, sin duda alguna, como uno de las
+líneas de trabajo más fructíferas de la próxima década.
+
+
+\subsection{Tipos de Dinamismo}
+
+Todo sistema software cuya estructura es descrita como una arquitectura tiene
+siempre asociado algún tipo de comportamiento dinámico. Ahora bien, es
+obvio que este dinamismo no siempre indica el mismo grado de variabilidad.
+Algunos sistemas muestran una estructura inalterable, en la que los distintos
+elementos se limitan a comunicarse; en otros, la topología interna se altera
+continuamente, e incluso se incorporan nuevos tipos de elementos.
+
+Resulta fundamental, para poder realizar una comparación adecuada entre las
+distintas aproximaciones, delimitar los diferentes tipos de dinamismo que
+pueden aparecer en un sistema software.
+
+La clasificación que se incluye más abajo ha sido planteada con este único
+objetivo. No es exacta, ni pretende ser determinante; el límite entre las
+distintas categorías puede aparecer difuminado en algunos casos. Sin
+embargo, parece servir adecuadamente a su objetivo, esto es,
+aclarar el tipo de actividad al que se hace referencia en cada caso; y ya ha
+sido publicada en dos ocasiones [CFBSB00, CFBSB01].
+
+Según esto, entonces, pueden identificarse los siguientes tres tipos de
+dinamismo, en orden creciente de potencial para el cambio:
+
+\begin{itemize}
+\item 
+Dinamismo Interactivo. Este término se refiere al movimiento de datos
+entre componentes, el dinamismo inherente en la comunicación e interacción
+usual. Se relaciona con  cuestiones tales como la sincronización y los
+protocolos, y afecta, no a la estructura, sino al comportamiento de un sistema
+computacional. Está presente de manera implícita en todo sistema, pero resulta
+particularmente obvio en los concurrentes y paralelos.
+
+\item
+Dinamismo Estructural. Hace referencia a los cambios que afectan a los propios
+componentes y sus interacciones, y que normalmente se expresan como la creación
+y destrucción de instancias y enlaces entre componentes. Por tanto, la
+arquitectura de software del sistema resulta alterada, porque lo que cambia es
+la estructura. Este tipo de dinamismo es natural en sistemas distribuidos.
+
+
+\item 
+Dinamismo Arquitectónico. Se refiere a los cambios en los tipos de
+componente e interacción, modificando por lo tanto incluso el significado y
+“vocabulario” del sistema. Se expresa como la inserción de nuevos tipos de
+componente (y conector), y el borrado de algunos ya existentes. Ahora, lo que
+cambia es la infraestructura, el sustrato en el que las arquitecturas se
+definen, su meta-nivel. ´Este es el nivel definitivo de dinamismo, y también el
+más difícil de capturar y utilizar. Aún hay que demostrar su verdadera
+importancia y utilidad, pero está claramente presente en los (auténticos)
+sistemas abiertos.
+
+\end{itemize}
+
+
+\subsection{Reconfiguración Dinámica}
+
+Hay al menos dos aproximaciones a la especificación de dinamismo en sistemas
+software. Una de ellas trata de encontrar un conjunto adecuado de comandos
+imperativos, capaces de expresar cualquier configuración deseable. La otra
+utiliza una sintaxis declarativa, que es generalmente más potente e intuitiva,
+pero no siempre tiene la flexibilidad deseada. El trabajo sobre este tema
+se centró inicialmente en el primer enfoque; sin embargo, a medida que se
+alcanza una mejor comprensión del dinamismo estructural, la presencia del
+segundo tiende a aumentar.
+
+A menudo, la denominación de Arquitectura de Software Dinámica ha sido
+discutida. Muchos autores prefieren el término Reconfiguración Dinámica, que
+ha sido consagrado por años de trabajo previo en el campo específico de la
+configuración de sistemas distribuidos. Con esa expresión se hace referencia,
+en general, a los cambios producidos en la topología de un sistema compuesto
+(esto es, a cualquier alteración en el número y orden de los nodos y
+los enlaces que lo constituyen), que es el grado de dinamismo que actualmente se
+está alcanzando en los Lenguajes de Descripción de Arquitecturas. Según Jeff
+Kramer, el nombre de Arquitectura Dinámica debería reservarse para referirse a
+los sistemas en los que incluso el tipo de componentes implicados puede cambiar.
+Este es, precisamente, el nivel de descripción al que se pretende llegar, por
+lo que a lo largo de este trabajo esa expresión será utilizada a menudo, sin
+mayores consecuencias.
+
+
+....
+
+\subsection{Tipos de Reconfiguración}
+
+Hay varios tipos distintos de reconfiguraciones posibles, que manifiestan
+problemáticas muy diferentes. Con el fin de determinarlas con mayor exactitud,
+se han introducido una serie de clasificaciones. En este trabajo se mencionarán
+dos de ellas, a saber:
+
+\begin{itemize}
+ 
+\item Según el tiempo. Uno de los aspectos críticos en un cambio es el
+momento en que se produzca. La dificultad para realizarlo de manera adecuada
+crece según se avanza en el proceso de desarrollo.
+
+\begin{itemize}
+\item Antes de la Compilación. Los cambios en la estructura prevista del
+sistema se producen antes de su construcción, por lo que sólo hay que asegurar
+su consistencia.
+
+\item Antes de la Ejecución. El sistema ya ha sido elaborado, pero aún no
+está funcionando, por lo que introducir un cambio sólo requiere, de nuevo,
+asegurar la consistencia interna del sistema. Puede equipararse sin problemas
+con el caso anterior.
+
+\item Durante la Ejecución. Esta última es la auténtica Reconfiguración
+Dinámica: los cambios se producen con el sistema en marcha: los componentes
+tienen un estado, y sus enlaces soportan cierto número de transacciones. La
+problemática generada por este tipo de situaciones ha sido el campo de
+investigación de la comunidad de configuración en los últimos diez años.
+\end{itemize}
+
+\item Según el origen. Es decir, según cómo se inicie el proceso; en
+definitiva, quién toma la iniciativa. Existen dos posibilidades, que son las
+siguientes:
+
+\begin{itemize}
+
+ \item  Reconfiguración Programada. Reciben este nombre [EW92, MG99] las
+operaciones que son iniciadas por el propio sistema, mediante una serie de
+reglasproporcionadas como parte de su especificación. También se ha mencionado
+como  reconfiguración restringida en tiempo de ejecución [Ore96], y es el
+nivel de descripción que se desea alcanzar en la Arquitectura de Software.
+
+\item Reconfiguración Ad-Hoc. Además de este nombre [EW92], ha recibido los
+de reconfiguración evolutiva [MG99] o en tiempo de ejecución [Ore96]1. Hace
+referencia a los cambios que son introducidos manualmente por el usuario, y que
+por tanto requieren en concurso de algún tipo de herramienta, que haga
+corresponderse a la arquitectura con un sistema real. Obviamente, no pueden ser
+previstos, aunque en general sí pueden ser controlados
+
+\end{itemize}
+
+\end{itemize}
+
+
+La primera clasificación es obvia, y ha sido planteada entre otros autores por
+Wermelinger [Wer99]. La segunda se debe inicialmente a los trabajos de Markus
+Endler en Gerel [EW92], un lenguaje ligado a δarwin, pero ha sido redescubierta
+en múltiples ocasiones por otros autores; esto explica la gran variedad de
+terminologías utilizadas.
+
+
+\subsection{Operaciones Básicas de Reconfiguración}
+
+Desde casi el principio, se ha determinado que toda configuración ha de poder
+ser descrita en función de cuatro operaciones básicas, cuyo establecimiento
+procede de Conic (§3.6.1). En realidad, no es muy difícil deducirlas de la
+simple observación de un grafo, considerando en este caso al grafo como la
+descripción más simple posible de la topología de cualquier sistema, en la
+que los componentes se expresan como nodos y sus enlaces como aristas.
+
+Las cuatro operaciones mencionadas son las siguientes:
+
+\begin{itemize}
+
+\item 
+Crear (create). Se refiere a la creación de nuevos componentes; para ser
+exacto, la instanciación de un nuevo ejemplar de un tipo de componente conocido
+
+\item
+Destruir (destroy). La inversa de la anterior: permite destruir un
+componente ya
+existente; para ser más exacto, eliminarlo del sistema.
+
+\item
+Enlazar (link). Crea un enlace simple entre dos elementos.
+
+\item 
+Desligar (unlink). La inversa de la anterior: destruye un enlace
+preexistente.
+
+\end{itemize}
+
+No se quiere decir con esto que todo sistema de reconfiguración haya de tener
+estas cuatro operaciones indicadas de manera explícita; al contrario, muchos
+las expresan mediante estructuras declarativas, y ni siquiera tienen
+un equivalente claro para algunas de ellas; lo único que se quiere decir es
+que toda reconfiguración, por compleja que sea, puede realizarse     
+mediante la aplicación sucesiva de estas cuatro operaciones. Del mismo modo, si
+un sistema no es capaz de expresar una transformación que, sin embargo, puede
+ser descrita en función de estas cuatro operaciones, entonces el sistema no es
+completo, en lo que a este tema respecta.
+
+En realidad, estas operaciones sólo proporcionan lo que aquí se ha denominado
+dinamismo estructural, ya que únicamente permiten alterar la topología
+del sistema. Sin embargo, constituyen lo que podría considerarse el límite
+mínimo exigible a cualquier sistema que pretenda expresar arquitecturas
+dinámicas. 
+
+En los DHD el dinamismo está basado en la operación denominada Enlazar
+(link). A lo largo de la revisión quedará claro, no obstante, que hay dos
+modelos conceptuales que predominan claramente sobre cualquier otro; esto no es
+solamente cierto en los Adls dinámicos, sino incluso en los convencionales. 
+
+
+\section{Descripción arquitectónica de los DHD}
+
+En esta sección se describe algunos de los aspectos de ArqDHD que tienen que
+ver con sus atribuciones dinámicas y donde interviene el ContratoDHD. Para ese
+propósito se tomarán los dos modelos conceptuales creados que mejor se
+adaptan a ArqDHD. Se trata de los lenguajes algebraicos, fundamentados
+enálgebras de procesos –si bien en este grupo pueden incluirse
+también, sin problemas, los enfoques basados en eventos–, y los
+lenguajes gráficos, esto es, aquellos que se basan en conceptos de teoría de
+grafos, o incluso teoría de categorías. 
+
+
+
+\subsection{Darwin} 
+
+Existen, en líneas generales, tres versiones del Adl conocido como δarwin. La
+primera, denominada simplemente Darwin, nació como una evolución del ya
+mencionado Conic, durante el desarrollo del proyecto ESPRIT Rex. Fue elaborada
+en la primera mitad de los años 90 por Naranker Dulay [Dul90], un miembro del
+grupo de Kramer, Sloman y Magee.
+
+Aún más importante es la segunda, conocida como δarwin 2. En el plano
+sintáctico es tan sólo un refinamiento de la anterior, pero supuso una
+reelaboración completa en el plano semántico. En esta etapa el lenguaje fue
+formalizado en cálculo-π [MDEK95], y analizado en contextos concurrentes
+[Che94]; se elaboraron varias herramientas visuales [Ng92] e
+interactivas [CDF+95, Fos97], así como un sistema distribuido completo,
+denominado Regis [MKS94, Cra97]. Incluso se desarrolló una implementación
+compatible con CORBA [CD97], por entonces más eficiente que algunas comerciales
+[Cra97]. ´Esta será, por defecto, la versión a la que se hará referencia
+siempre que se hable del Adl, ya que es la que ha sido utilizada con mayor
+frecuencia en trabajos relacionados con la Arquitectura de Software [KM96b,
+MK96]. Su autor principal fue de nuevo Naranker Dulay, con notorias aportaciones
+de John Stephen Crane.
+
+La tercera versión, que podría denominarse δarwin 3, fue elaborada dentro del
+proyecto Tracta, y es debida mayoritariamente a Dimitra Giannakopoulou [Gia99].
+Se realiza una simplificación notable de la parte estructural, para combinarla
+después con un modelo de comportamiento completamente nuevo, basado en Sistemas
+de Transiciones Etiquetadas. En esta versión se fundamentan algunos trabajos
+posteriores [MKG99, Pry00], entre los que cabe destacar el magnífico estudio de
+Moazami-Goudarzi sobre la consistencia frente al cambio [MG99], que continúa la
+línea iniciada por Jeff Kramer una década antes [KM90].
+
+Por otra parte, existe también una variante de δarwin llamada Koala
+[vOvdLKM00], que es empleada exclusivamente como herramienta de desarrollo en el
+interior de la compañía Philips.
+
+Aunque tiene sus propias peculiaridades, ya que ha sido especialmente adaptado a
+la descripción de líneas y familias de productos [JRvdL00], en líneas
+generales es prácticamente el mismo lenguaje, por lo que no se abundará más
+en este punto.
+
+δarwin ha sido definido como un lenguaje Minimal Orientado a Objetos,
+Concurrente, de Configuración, de Coordinación, de Composición y, por
+supuesto, de Descripción de Arquitecturas.
+
+Es uno de los vértices sobre los que se define el propio campo, y representa a
+una visión muy concreta de sus conceptos que resulta, por ejemplo,
+completamente opuesta a la de Wright (§3.7.1). De hecho, estos dos lenguajes han
+sido durante años los ejemplos por excelencia de la visión de la arquitectura
+de software orientada al objeto –δarwin– frente a la arquitectura de software
+orientada al proceso –Wright– [BF97].
+
+
+
+\begin{verbatim}
+
+component contratoDHD (int n) {
+provide input;
+require output;
+array F[n]:ServForo;
+forall k:0..n-1 {
+
+\end{verbatim} 
+
+
+\begin{verbatim}
+
+inst F[k];
+bind F[k].output -- output;
+when k < n-1 bind
+F[k].next -- F[k+1].prev;
+}
+bind
+input -- F[0].prev;
+F[n-1].next -- output;
+}
+
+\end{verbatim} 
+
+
+
+\caption{Una Tubería Extensible en δarwin}
+
+δarwin admite dos notaciones, una textual y otra gráfica. La segunda es más
+intuitiva, mientras que la primera es, obviamente, mucho más potente. Aquí se
+considerará exclusivamente esta última. Sintácticamente, todo en δarwin es un
+componente. De hecho, Jeff Kramer es uno de los principales detractores del
+concepto de conector. Según su visión, tener dos tipos de elementos altera la
+estructura del sistema, y fuerza a un estilo de descripción en ocasiones poco
+natural. Las especificaciones de protocolos se indicarán al nivel de un portal,
+o en un componente específico si resultan demasiado complejas.
+
+Los componentes pueden ser primitivos o compuestos; en el primer caso
+se corresponden directamente con una implementación. En el segundo, se
+construyen jerárquicamente a partir de otros componentes. Dado que no hay
+conectores, tampoco se definen configuraciones; el conjunto total de la
+arquitectura se ve simplemente como un componente compuesto.
+
+Dentro de un componente jerárquico se realizan dos tipos de enlaces (bindings):
+entre dos subcomponentes (instancias) del mismo nivel, y entre distintos niveles
+(enlaces jerárquicos). Se facilita en lo posible la definición de patrones,
+por lo que se admite la parametrización de los componentes, así como el uso de
+bucles (forall), condicionales (when), estructuras de tipo array e
+incluso especificaciones recursivas.
+
+Todo componente tiene unos puntos de interacción definidos, en todo
+equivalentes al concepto
+de puerto. De hecho, la versión original de δarwin los designaba precisamente
+con este término. Ahora se denominan portales, y en la vista de comportamiento
+(ver abajo) su descripción es arbitraria. En cambio, en la versión tradicional
+siempre han podido ser de dos clases, en las que se definen como asimétricos de
+manera intencionada: se trata de los servicios (provide) y los
+requisitos (require). Todo enlace en δarwin va desde un requisito hasta un
+servicio, aunque una vez establecido es completamente bidireccional. Los
+requisitos expresan solicitudes, mientras que los servicios proporcionan la
+respuesta a esas solicitudes; por tanto, se admite una cardinalidad de 1 : N.
+Los portales tienen además asociado un tipo, que indica el esquema
+deinteracción que son capaces de realizar. Los tres básicos son el puerto 
+(port), el flujo (stream) y el evento, aunque es perfectamente posible añadir
+otros nuevos.
+
+El dinamismo de δarwin se manifiesta con claridad en los dos usos de la palabra
+clave dyn, que define declarativamente dos tipos de reconfiguración: la
+instanciación perezosa y la instanciación dinámica [MK96, MDEK95]. En el
+primer caso, un componente es declarado normalmente con su nombre; pero no se
+crea realmente hasta el momento en que es utilizado.
+
+En el segundo caso, ni siquiera se da nombre al componente, al que sólo se
+alude mediante su tipo. Se crea dinámicamente en el momento en que otro
+componente intenta activar uno de sus enlaces; y él mismo genera un nuevo
+enlace, desde el que tomará toda iniciativa de comunicación en adelante –los
+demás no pueden invocarlo, ya que no conocen un nombre con el que hacerlo–.
+En definitiva, el dinamismo de δarwin consiste en un tipo de reconfiguración
+restringida, que expresa unos patrones fijos, pero muy potentes, en los que se
+admite la creación de componentes y enlaces. Por otra parte, la evolución
+dinámica de los enlaces produce de manera habitual alguna reconfiguración
+trivial (al respecto, revisar el enfoque basado en cálculo-π, que se describe
+más abajo). Con todo, su versatilidad sigue siendo inferior a la de Conic.
+Aparte de esto, en [KM96b] se propone la definición de
+arquitecturas auto-organizadas, en las que una serie de restricciones globales
+(replicadas localmente en cada componente) controlan la evolución del sistema,
+sin que tenga que haber un elemento específico que las aplique. Este enfoque,
+muy citado en la Bibliografía, no ha sido sin embargo explorado desde entonces.
+
+Uno de los aspectos más interesantes de δarwin ha sido la especificación
+formal de la sem ántica de sus enlaces en cálculo-π. Esto abarca tanto a los
+enlaces “estáticos” como a las reconfiguraciones dinámicas citadas [MDEK95,
+MK96, Cra97]. Como muestra, se indica en la Figura 3.5 la semántica de un
+requisito, un servicio y un enlace simple, y se indica cómo interaccionan.
+Tras una evolución inicial (el establecimiento del protocolo), puede
+comprobarse que los distintos procesos quedan ligados (cada uno de ellos conoce
+ya a los canales del otro), mientras el servicio (Prov) mantiene la capacidad de
+seguir atendiendo peticiones.
+
+
+Prov(p, s) def = !(p(x).¯xs) Req(r, o) def = r(y).¯yo Bind(r, p) def = ¯rp
+Semántica de un servicio Semántica de un requisito Semántica de un enlace
+
+( Req(r, o) | Bind(r, p) | Prov(p, s) ) ≡ . . . r −→ . . .
+p
+−→ ¯os | Prov(p, s)
+
+Figura 3.5: Establecimiento de un Enlace δarwin en cálculo-π
+
+
+Como ya se ha dicho, la última versión de δarwin parece haber derivado más
+hacia la parte de especificación. A la perspectiva de este nuevo enfoque se le
+denomina vista de comportamiento, y a la tradicional, vista de construcción. La
+descripción de los protocolos ha abandonado parcialmente el cálculo-π en favor
+de los sistemas de transiciones etiquetadas (LTS), que facilitan la
+construcción de herramientas de verificación, como el Labelled Transition
+Systems Analyzer (LTSA) [MKG97, Gia99]. Su mayor problema, la explosión de
+estados, se controla mediante una técnica desarrollada por Jeff Kramer y
+Shing-Chi Cheung, el análisis de alcanzabilidad composicional (CRA). Por su
+parte, Kaveh Moazami-Goudarzi ha utilizado esta técnica para comprobar los
+estados del sistema antes y después de una reconfiguración [GK96, MG99].
+Aunque el sistema de LTS tiene la ventaja de su simplicidad, parece no obstante
+demasiado limitado para llegar a plantearse en sistemas de cierto tamaño.
+En resumen, δarwin es uno de los Adls más potentes y flexibles. Se
+puede utilizar en varios niveles de descripción, y a pesar de no ser formal,
+tiene una semántica formalizada. Sus mayores defectos son precisamente su
+relación ambigua con los aspectos formales, su habitual dependencia de las
+distintas versiones de Regis, y el hecho de tener un dinamismo limitado, aunque
+considerable, en su versión más declarativa.
+
+
+\subsection{Wright Dinámico}
+
+El lenguaje Wright [All97] es uno de los Adls más conocidos, y posiblemente el
+que tiene la sintaxis más formal de todos los existentes. También es el más
+estático de todos ellos [CFBS99]. Plantear la presencia de este lenguaje en un
+Capítulo sobre Arquitectura Dinámica parece casi una contradicción, pero en
+efecto existe una propuesta para una versión de Wright Dinámico [ADG97,
+ADG98]. Una descripción Wright convencional consiste en una configuración
+compuesta por una serie de componentes, cuyo interfaz está segmentado en
+puertos. Los distintos puertos se relacionan entre sí, internamente, a través
+de la computación definida por el componente. Por su parte, la comunicación
+entre componentes requiere la existencia de conectores, cuyo interfaz se
+segmenta en roles, relacionados entre sí mediante un pegamento (glue). La
+combinación de puertos y computación especifica las posibilidades de
+comunicación de un componente; la de roles y pegamento, el protocolo
+proporcionado por un conector. La unión del puerto y el rol adecuado recibe el
+nombre de adjunción(attachment) y es lo que hace posible la comunicación.
+
+Todos estos detalles son  descritos con el lenguaje Csp, un álgebra de procesos
+[Hoa85]. Además, Wright es uno de los pocos lenguajes que admite también la
+especificación de estilos, mediante el uso de una variante de la Lógica de
+Predicados.
+
+La descripción de Wright Dinámico es en principio completamente idéntica, y
+tan sólo añade un detalle, que es el que sigue: en todo sistema dinámico se
+asume la existencia de un componente especial denominado \textit{Configuror},
+que se encargará de realizar las reconfiguraciones requeridas por el sistema.
+
+Para poder hacerlo, el lenguaje es ampliado con las cuatro operaciones básicas
+de la reconfiguración, que aquí reciben los nombres de \textit{new},
+\textit{del}, \textit{attach} y \textit{detach}, y cuya correspondencia con las
+originales resulta evidente. Ha de tenerse en cuenta que estas operaciones sólo
+pueden usarse desde el Configuror, ya que éste elemento será el que contenga
+la especificación completa de los aspectos dinámicos del sistema.
+
+La Figura \ref{wrightdinamico} proporciona parte de la definición de un
+Configuror para un ejemplo donde hay un contrato interviniendo entre un usuario
+y el servicio brindado por el m'etodo \textit{getTheme} del Foro. En
+\ref{metodologia} se presenta una metodología para la aplicación que permite
+calcular y describir el lugar donde se debe poner el ContratoDHD, mediante la
+identificación de la componentes y sus métodos
+
+La parte que no se muestra proporciona la definición del proceso
+\textit{Coordination}, en las que se encuentran todas las actividades de
+coordinación del contrato. 
+
+
+\begin{verbatim}
+Configuror DynamicContractDHD
+  Style CondicionalesDEV
+      new.T:Foro
+      → new.Cdhd : ContratoDHD
+      → new.C : Athour
+      → attach.T.p.getTheme.Cdhd.c → Coordination
+  where . . .
+\end{verbatim} 
+
+
+Para este caso, usando  wright dinámico,  el evento \textit{getTheme}, que se
+comunica desde el puerto \textit{p} del componente \textit{T} (un Foro), hasta
+el rol \textit{r} del conector \textit{Cdhd} (un ContratoDHD) es manejado por el
+sistema como el evento \textit{T.getTheme.p1.Cdhd1.r1}; y un
+componente es identificado por su nombre, seguido de la especificación de la
+conexión de todos sus puertos, de modo que se pueda saber en qué
+configuración concreta se encuentra. Es decir, el componente \textit{T} será,
+en un momento dado, el \textit{T..p1.Cdhd1.r1 . . . pn.Cdhdn.rn}, donde los
+distintos \textit{pi} son sus puertos, y los \textit{ri} los roles de los
+conectores Ni a los que éstos están conectados.
+
+Por tanto, las operaciones \textit{new}, \textit{del}, \textit{attach} y
+\textit{detach} tan sólo cambian el etiquetado; un componente no se crea, sino
+que se le da la etiqueta adecuada; ni tampoco se destruye, sino que simplemente
+se le da un prefijo diferente.
+
+
+\section{Conclusiones}
+
+completar ...

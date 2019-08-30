@@ -1,0 +1,34 @@
+%-------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Chapter 3 -------------------------------------------------
+\chapter{Models and Architectures}
+\pagenumbering{arabic}
+
+\section{Introduction}
+
+This chapter describe the fundamentals aspecto an dicisions 
+
+\section{Models}
+\subsection{Context Model}
+\subsubsection{Key-Value Models}
+\subsubsection{Markup Sheme Models}
+\subsection{Graphical Models}
+\subsubsection{Object Oriented Models}
+\subsection{Logic Based Models}
+\subsection{Ontology Based Models}
+
+
+\section{Architectures}
+\subsection{Model Drives}
+\subsection{Dynamic Architecture}
+\subsubsection {Role of Architecture in Run time System Reconfiguration}
+\subsubsection{Run Time Modifications in Architectures}
+
+
+\section{Connectors}
+\subsection{The Role of Connection in Architecture}
+\subsection{Connectors in Adaptive Environment}
+\subsection{Connectors in Adaptive Environment}
+\subsection{Dynamic Connectors}
+
+\section{Dynamic context aware Web Applications}
+

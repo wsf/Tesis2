@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Requerimientos para el dise&#195;&#177;o de trasacciones e-learning</TITLE>
+<META NAME="description" CONTENT="Requerimientos para el dise&#195;&#177;o de trasacciones e-learning">
+<META NAME="keywords" CONTENT="Sartorio_Cacic2007-Prueba">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Sartorio_Cacic2007-Prueba.css">
+
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html82"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html80"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html76"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html83"
+  HREF="node7.html">DISE&#195;&#145;O DE PROCESOS E-LEARNING</A>
+<B> Up:</B> <A NAME="tex2html81"
+  HREF="node5.html">UWATc+: una adaptaci&#195;&#179;n de</A>
+<B> Previous:</B> <A NAME="tex2html77"
+  HREF="node5.html">UWATc+: una adaptaci&#195;&#179;n de</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00041000000000000000">
+Requerimientos para el dise&#195;&#177;o de trasacciones e-learning</A>
+</H2>
+
+<P>
+En esta secci&#195;&#179;n se describen la caracterizaci&#195;&#179;n de dos tipos representativo de requerimiento que motivaron la creaci&#195;&#179;n de este nuevo modelo de dise&#195;&#177;o (definidos en la secci&#195;&#179;n <A HREF="node1.html#intro">1</A>). En base a experiencias recogidas por el grupo del proyecto Obra Abierta en el dise&#195;&#177;o y configuraci&#195;&#179;n de Aplicaciones e-learning, se presentar&#195;&#161;n dos tipos de requerimientos que deben ser cubiertos por el modelo de dise&#195;&#177;o. En primer lugar se enuncian cuestiones t&#195;&#169;cnicas de dise&#195;&#177;o (desde el punto de vista de la Ingenier&#195;&#173;a de Software), seguido de un comentario sobre el tipo de Transacciones que el dise&#195;&#177;ador puede especificar a trav&#195;&#169;s del modelo.
+
+<P>
+
+<UL>
+<LI>Especificar como son afectadas la ejecuci&#195;&#179;n de las actividades por los objetos contratos. 
+
+<P>
+La relaci&#195;&#179;n de una actividad con un contrato se produce cuando existen objetos interrelacionados por medio de un contrato [<A
+ HREF="node12.html#fiadeiro">9</A>]. De esta manera, el dise&#195;&#177;ador debe poder documentar las informaci&#195;&#179;n de los objetos involucrados, sus m&#195;&#169;todos y par&#195;&#161;metros. El contrato representa un tipo diferente de relaci&#195;&#179;n a la origianal entre los objetos, con la propiedad de reconfiguraci&#195;&#179;n en tiempo de ejecuci&#195;&#179;n. Caracter&#195;&#173;stica que permiten una mejor adaptaci&#195;&#179;n a los requerimientos que resuelven las Transacciones e-learning.
+
+<P>
+</LI>
+<LI>Definir cu&#195;&#161;l y c&#195;&#179;mo la  informaci&#195;&#179;n de los objetos contratos ("information object" [<A
+ HREF="node12.html#informationobject">13</A>]) es afectada por la ejecuci&#195;&#179;n de las Actividades.
+
+<P>
+Una actividad funcional conciste en la ejecuci&#195;&#179;n de uno a m&#195;&#161;s operaciones elementales (inserci&#195;&#179;n, borrado, modificaci&#195;&#179;n, etc.) sobre los datos de la Aplicaci&#195;&#179;n y la informaci&#195;&#179;n de los objetos contratos envuelta en la actividad. El modelo de dise&#195;&#177;o de Transacciones e-learning debe permitir al dise&#195;&#177;ador definir cuales operaciones del contrato son fundamentales para cada actitividad, modelando el camino en que cada actividad elemental afecta la informaci&#195;&#179;n de los objetos involucrados (modificando sus instancias por medios de sus ejecuciones).
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html82"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html80"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html76"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html83"
+  HREF="node7.html">DISE&#195;&#145;O DE PROCESOS E-LEARNING</A>
+<B> Up:</B> <A NAME="tex2html81"
+  HREF="node5.html">UWATc+: una adaptaci&#195;&#179;n de</A>
+<B> Previous:</B> <A NAME="tex2html77"
+  HREF="node5.html">UWATc+: una adaptaci&#195;&#179;n de</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Alejandro Sartorio
+2010-04-11
+</ADDRESS>
+</BODY>
+</HTML>

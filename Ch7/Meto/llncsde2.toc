@@ -1,0 +1,5 @@
+\contentsline {chapter}{Hamiltonian Mechanics}{0}
+\contentsline {title}{hhhhgfhgfgfcs unter besonderer Ber\"ucksichtigung der h\"ohreren Lehranstalten}{1}
+\contentsline {author}{Ivar Ekeland (Princeton University), Roger Temam (Universit\'{e} de Paris-Sud), Jeffrey Dean, David Grove, Craig Chambers (Universit\`a di Geova), Kim B. Bruce (Stanford University), Elisa Bertino (Digita Research Center)}{1}
+\contentsline {title}{Hamiltonian Mechanics2}{7}
+\contentsline {author}{Ivar Ekeland\unskip {} \and Roger Temam\unskip {}}{7}

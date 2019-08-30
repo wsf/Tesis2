@@ -1,0 +1,45 @@
+%--------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Title Page -------------------------------------------------------
+\thispagestyle{empty}
+%******************************************TITLE PAGE***************************************************************
+\begin{titlepage}
+\begin{center}
+\begin{tabular}{lc}
+\multirow{4}{2.5cm}{\includegraphics[width=2.5cm,height=2.5cm]{unrlogo}}
+                                                  & \large Universidad Nacional De La Plata (UNLP)\\
+                                                  & \large Facultad De Informática \\
+                                                  & \large Centro Internacional Franco Argentino de Ciencias de la\\
+                                                  & \large Informaci{\'o}n y Sistemas (CIFASIS)\\ & \large CONICET--UNICAM III--UNR\\
+\end{tabular}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\huge Tesis Doctoral\\
+\vspace{2cm}
+\huge{\textbf{The context aware contract to Dynamic Hypermedial Devices}}\\
+\vspace{2cm}
+\huge Alejandro R. Sartorio\\
+\vspace{2cm}
+\end{center}
+\begin{flushright}
+\begin{tabular}{rl}
+\large \textbf{Director:}& Dro. \\
+\large \textbf{Co-Director:}& Dra.\\
+\large \textbf{Asesor Cientíico:}& Ms. Maximiliano Critía\\
+&\\
+&\\
+\large \textbf{Miembros del jurado:}& Jurado 1\\
+                                    & Jurado 2\\
+                                    & Jurado 3\\
+\end{tabular}
+\end{flushright}
+\vspace{1cm}
+\begin{center}
+\large Tesis presentada en la Facultad de Informática de La Plata, en cumplimiento
+parcial de los requisitos para optar al t{\'\i}tulo de:\\
+\vspace{1cm} \huge Doctor en Informática\\
+\vspace{1cm}
+\normalsize
+FECHA DE PRESENTACI{\'O}N
+\end{center}
+\end{titlepage}

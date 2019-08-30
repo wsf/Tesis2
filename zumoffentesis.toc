@@ -1,0 +1,148 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Motivation}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objectives}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}Scope}{1}{section.1.4}
+\contentsline {section}{\numberline {1.5}Approach and Structure}{1}{section.1.5}
+\contentsline {chapter}{\numberline {2}State of the Art}{1}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{1}{section.2.1}
+\contentsline {section}{\numberline {2.2}Context}{1}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Context}{1}{subsection.2.2.1}
+\contentsline {subsubsection}{Context versus context information}{2}{section*.1}
+\contentsline {subsubsection}{Context modelling}{2}{section*.2}
+\contentsline {section}{\numberline {2.3}Context Aware System}{2}{section.2.3}
+\contentsline {section}{\numberline {2.4}Context Aware E-learning Web Applications}{3}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Definition}{3}{subsection.2.4.1}
+\contentsline {subsubsection}{Capturing context}{4}{section*.3}
+\contentsline {subsubsection}{Situations}{4}{section*.4}
+\contentsline {subsubsection}{Quality of context }{5}{section*.5}
+\contentsline {section}{\numberline {2.5}Dynamic Hypermidial Divices}{5}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Service-Oriented Architectures }{5}{subsection.2.5.1}
+\contentsline {section}{\numberline {2.6}Principle Design of Web E-learning Application}{5}{section.2.6}
+\contentsline {chapter}{\numberline {3}Target Models and Architectures}{1}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{1}{section.3.1}
+\contentsline {section}{\numberline {3.2}Models}{1}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Techniques for modeling context}{1}{subsection.3.2.1}
+\contentsline {subsubsection}{Key-Value Models}{1}{section*.6}
+\contentsline {subsubsection}{Markup Sheme Models}{1}{section*.7}
+\contentsline {subsection}{\numberline {3.2.2}Graphical Models}{1}{subsection.3.2.2}
+\contentsline {subsubsection}{Object Oriented Models}{1}{section*.8}
+\contentsline {subsection}{\numberline {3.2.3}Logic Based Models}{1}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Ontology Based Models}{1}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Our Technique to Model Context}{1}{subsection.3.2.5}
+\contentsline {subsubsection}{Context Structure Model (CSM)}{1}{section*.9}
+\contentsline {subsubsection}{Learning Activity Model (LAM)}{2}{section*.10}
+\contentsline {paragraph}{Activity updates context.}{2}{section*.11}
+\contentsline {paragraph}{Context alters activity.}{2}{section*.12}
+\contentsline {subsection}{\numberline {3.2.6}Comparison}{2}{subsection.3.2.6}
+\contentsline {section}{\numberline {3.3}The Architectures of DHD Systems}{2}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}The Anatomy of a DHD Component-Connectors Architecture}{2}{subsection.3.3.1}
+\contentsline {subsubsection}{Context-Aware Support}{3}{section*.13}
+\contentsline {paragraph}{DISCUSSION OF CONTEXT HANDLING}{3}{section*.14}
+\contentsline {paragraph}{Current Context Handling}{3}{section*.15}
+\contentsline {paragraph}{Current Input Handling}{4}{section*.16}
+\contentsline {paragraph}{ARCHITECTURE REQUIREMENTS}{4}{section*.17}
+\contentsline {paragraph}{ARCHITECTURE REQUIREMENTS}{6}{section*.18}
+\contentsline {paragraph}{DESCRIPTION OF ARCHITECTURE}{6}{section*.19}
+\contentsline {subsubsection}{Run-time Support}{7}{section*.20}
+\contentsline {subsubsection}{Coordination Support}{7}{section*.21}
+\contentsline {subsubsection}{Service Support}{7}{section*.22}
+\contentsline {subsection}{\numberline {3.3.2}Connector View}{7}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Details of the Role of Connection in DHD Architecture}{8}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Connectors in Adaptive Environments}{8}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}Dynamic Aspects of the DHD Architecture}{8}{subsection.3.3.5}
+\contentsline {paragraph}{Separating Adaptation Code from Computational Code}{8}{section*.23}
+\contentsline {subsubsection}{Role of Architecture in Run Time DHD System Reconfiguration}{8}{section*.24}
+\contentsline {paragraph}{Implicit Adaptation}{8}{section*.25}
+\contentsline {paragraph}{Explicit Adaptat}{8}{section*.26}
+\contentsline {subsubsection}{Run Time Modifications in DHD Architectures}{8}{section*.27}
+\contentsline {subsection}{\numberline {3.3.6}Architectures Assumtions on COTS}{8}{subsection.3.3.6}
+\contentsline {section}{\numberline {3.4}Dynamic context aware Web Applications}{8}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Providing e-learning transactional behavior to services coordination}{8}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Elrn-transactional behavior model}{8}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Execution engine}{8}{subsection.3.4.3}
+\contentsline {subsubsection}{Components and Component Frameworks}{9}{section*.28}
+\contentsline {subsection}{\numberline {3.4.4}Reflective Extensions}{9}{subsection.3.4.4}
+\contentsline {subsubsection}{Architecture reflective extension}{9}{section*.29}
+\contentsline {subsubsection}{Interception reflective extension}{9}{section*.30}
+\contentsline {subsubsection}{Interface reflective}{9}{section*.31}
+\contentsline {chapter}{\numberline {4}Models and Architectures}{1}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{1}{section.4.1}
+\contentsline {section}{\numberline {4.2}Models}{1}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Context Model}{1}{subsection.4.2.1}
+\contentsline {subsubsection}{Key-Value Models}{1}{section*.32}
+\contentsline {subsubsection}{Markup Sheme Models}{1}{section*.33}
+\contentsline {subsection}{\numberline {4.2.2}Graphical Models}{1}{subsection.4.2.2}
+\contentsline {subsubsection}{Object Oriented Models}{1}{section*.34}
+\contentsline {subsection}{\numberline {4.2.3}Logic Based Models}{1}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Ontology Based Models}{1}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}Architectures}{1}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Model Drives}{1}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Dynamic Architecture}{1}{subsection.4.3.2}
+\contentsline {subsubsection}{Role of Architecture in Run time System Reconfiguration}{1}{section*.35}
+\contentsline {subsubsection}{Run Time Modifications in Architectures}{1}{section*.36}
+\contentsline {section}{\numberline {4.4}Connectors}{1}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}The Role of Connection in Architecture}{1}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Connectors in Adaptive Environment}{1}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Connectors in Adaptive Environment}{1}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Dynamic Connectors}{1}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Dynamic context aware Web Applications}{1}{section.4.5}
+\contentsline {chapter}{\numberline {5}Context Aware Contract}{1}{chapter.5}
+\contentsline {section}{\numberline {5.1}Contract Definition: Toward }{1}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Design by contract Framework}{2}{subsection.5.1.1}
+\contentsline {subsubsection}{Existing Approaches to Contract Support}{2}{section*.37}
+\contentsline {paragraph}{The Code Library}{2}{section*.38}
+\contentsline {paragraph}{Preprocessor Approaches.}{2}{section*.39}
+\contentsline {paragraph}{Behind-the-Scenes Approaches.}{3}{section*.40}
+\contentsline {paragraph}{Programming Language-Independent Approaches.}{3}{section*.41}
+\contentsline {subsection}{\numberline {5.1.2}The Contract as Connector}{4}{subsection.5.1.2}
+\contentsline {subsubsection}{The State of the art}{5}{section*.42}
+\contentsline {section}{\numberline {5.2}Context Aware Contract}{7}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Elements of Context Aware Contract}{7}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Coordination of Contex Aware Contracts}{8}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Especial Conditionals in Contracts Rules}{10}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}MConditionals}{10}{subsection.5.3.1}
+\contentsline {subsubsection}{Modelo de integraci\IeC {\'o}n}{11}{section*.43}
+\contentsline {subsection}{\numberline {5.3.2}DMConditionals}{12}{subsection.5.3.2}
+\contentsline {subsubsection}{Detalles del modelo de integraci\IeC {\'o}n}{13}{section*.44}
+\contentsline {subsubsection}{Hacia la implementaci\IeC {\'o}n}{15}{section*.45}
+\contentsline {chapter}{\numberline {6}Framewrok to Implemet Context Aware Contract in E-learning Environment}{1}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introducci\IeC {\'o}n}{1}{section.6.1}
+\contentsline {section}{\numberline {6.2}Contractos con caracter\IeC {\'\i }sticas sensibles al contexto}{2}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Elementos de los contratos sensibles al contexto}{3}{subsection.6.2.1}
+\contentsline {section}{\numberline {6.3}Modelo de integraci\IeC {\'o}n de Sakai con contratos}{4}{section.6.3}
+\contentsline {section}{\numberline {6.4}Implementaci\IeC {\'o}n de contratos en Sakai}{4}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Niveles de flexibilidad de Sakai}{5}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Patrones de dise\IeC {\~n}o para la coordinaci\IeC {\'o}n de contratos sensible al contexto}{5}{subsection.6.4.2}
+\contentsline {section}{\numberline {6.5}Caso de estudio para la implementaci\IeC {\'o}n de contratos}{6}{section.6.5}
+\contentsline {paragraph}{Fragmentos del primer archivo - (archivo 1)}{7}{section*.46}
+\contentsline {paragraph}{Fragmentos del segundo archivo - (archivo 2)}{7}{section*.47}
+\contentsline {section}{\numberline {6.6}Conclusi\IeC {\'o}n}{8}{section.6.6}
+\contentsline {section}{\numberline {6.7}Introductions}{12}{section.6.7}
+\contentsline {section}{\numberline {6.8}E-Learning Frameworks}{12}{section.6.8}
+\contentsline {section}{\numberline {6.9}Context Aware Contract Frameworks}{12}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Coordination Contract Framework}{12}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}DHD Framework}{12}{subsection.6.9.2}
+\contentsline {chapter}{\numberline {7}Design Frameworks for Context Aware Contract Web E-learning Application}{1}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introduction}{1}{section.7.1}
+\contentsline {section}{\numberline {7.2}Conceptual Design}{1}{section.7.2}
+\contentsline {section}{\numberline {7.3}Logical Design}{1}{section.7.3}
+\contentsline {section}{\numberline {7.4}Model-Driver development of DHD}{1}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Dynamic Model Driver}{1}{subsection.7.4.1}
+\contentsline {subsection}{\numberline {7.4.2}UWATc: A comprehensive design model for Web E-learning Transactions}{1}{subsection.7.4.2}
+\contentsline {chapter}{\numberline {8}A Case Study of DHD Framework Implementation}{1}{chapter.8}
+\contentsline {section}{\numberline {8.1}Aplication Domain}{1}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Techologial Aspect}{1}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Functional Aspect}{1}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}Applying The DHD Framework}{1}{section.8.2}
+\contentsline {section}{\numberline {8.3}Using Coordination Context Aware Contract: Evidence for use en e-learning environment}{1}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}Learning To Contract}{1}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}Theoretical Interpretations}{6}{subsection.8.3.2}
+\contentsline {subsubsection}{Alternative Explanations}{8}{section*.48}
+\contentsline {subsection}{\numberline {8.3.3}Implications For Theory Development}{9}{subsection.8.3.3}
+\contentsline {subsubsection}{When Contracts May Become Knowledge Repositories}{10}{section*.49}
+\contentsline {section}{\numberline {8.4}Applying The DHD Mothologogy}{11}{section.8.4}
+\contentsline {section}{\numberline {8.5}DHD: Experimental Prototipe}{11}{section.8.5}
+\contentsline {chapter}{\numberline {9}Conclusions}{1}{chapter.9}
+\contentsline {chapter}{\numberline {10}Further Works}{1}{chapter.10}
+\contentsline {chapter}{Bibliograf{\'\i }a}{2}{chapter.10}

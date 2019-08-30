@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Diagrama de un Contrato</TITLE>
+<META NAME="description" CONTENT="Diagrama de un Contrato">
+<META NAME="keywords" CONTENT="Sartorio_Cacic2007-Prueba">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Sartorio_Cacic2007-Prueba.css">
+
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node7.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html123"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html121"
+  HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html117"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html124"
+  HREF="node11.html">CONCLUSI&#195;&#147;N</A>
+<B> Up:</B> <A NAME="tex2html122"
+  HREF="node7.html">DISE&#195;&#145;O DE PROCESOS E-LEARNING</A>
+<B> Previous:</B> <A NAME="tex2html118"
+  HREF="node9.html">Dise&#195;&#177;o de Transacciones e-learning</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00053000000000000000">
+Diagrama de un Contrato</A>
+</H2>
+
+<P>
+Existen diferentes formas de representaci&#195;&#179;n de los contratos definidos en la secci&#195;&#179;n <A HREF="node2.html#contrato">2</A>, la herramienta  CED (Coordination Development Environment) <A NAME="tex2html8"
+  HREF="footnode.html#foot118"><SUP><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/footnote.png"></SUP></A> los implementa a trav&#195;&#169;s de un lenguaje llamado Oblog [<A
+ HREF="node12.html#lenguajeoblog">10</A>]. En [<A
+ HREF="node12.html#communit">14</A>] se muestra como a trav&#195;&#169;s de CommUnity se definen primitivas de modelado y t&#195;&#169;cnicas de dise&#195;&#177;o basadas en la separaci&#195;&#179;n de la "coordinaci&#195;&#179;n" del "c&#195;&#179;mputo". 
+
+<P>
+En UWATc+ se brinda un diagrama de representaci&#195;&#179;n de contrato, donde se describen todos los datos que lo instancian. Cada tipo de dato y valor, pertenece a un elemento del meta-modelo de la figura <A HREF="node3.html#contratoca">1</A>. Teniendo en cuenta la figura <A HREF="#diagramacontrato">6</A>, en primer lugar (item 1) se identifican los objetos participantes en el contrato; en el ejemplo de la figura <A HREF="#diagramacontrato">6</A> <!-- MATH
+ $DiscussionAction$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="144" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$DiscussionAction$"></SPAN> y <SPAN CLASS="MATH"><IMG
+ WIDTH="95" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$UserAction$"></SPAN> hacen referencias a dos clases reales pertenecente a la implementaci&#195;&#179;n de la herramienta Foro y Usuarios de la Aplicaci&#195;&#179;n Obra Abierta, respectivamente. Luego, se identifican los nombres de los par&#195;&#161;metros context-aware significativos para el contrato, alineados en la misma columna del objeto que lo comparte (item 2). En Servicios (item 3) deben ser represetados los m&#195;&#169;todos del objeto, que al ser ejecutados, provocan la intervenci&#195;&#179;n del contrato. Para este ejemplo <SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$initState$"></SPAN> y <SPAN CLASS="MATH"><IMG
+ WIDTH="110" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$getIdentifier$"></SPAN> son ejecutados cuando un usuario ingresa a la herramienta Foro y las posteriores funcionalidades (servicios) disponibles  dependen de la ejecuci&#195;&#179;n del contrato <!-- MATH
+ $Edici\~{A}\ensuremath{^{3}}n$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="78" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$Edici\&nbsp;{A}\ensuremath{^{3}}n$"></SPAN> (la figura <A HREF="node9.html#modelodeejecucion">5</A> muestra la superposici&#195;&#179;n del contrato entre los servicios de edici&#195;&#179;n y las nuevas interfaces o funcionalidades). Las siguentes filas (items 4 y 5) se refieren a las pre y post-condiciones que se deben cumplir en la ejecuci&#195;&#179;n del contrato. Por &#195;&#186;ltimo se explicitan las reglas de coordinaci&#195;&#179;n. Siguiendo con el ejemplo, en la parte del condicional <!-- MATH
+ $u.contexto=\^{a}l1;p1;docente;r1;c1;\^{a}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="288" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$u.contexto=\^{a}l1;p1;docente;r1;c1;\^{a}$"></SPAN> verifica si el contexto del usuario <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$u$"></SPAN> est&#195;&#161; compuesto por la locaci&#195;&#179;n <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$l1$"></SPAN>, tienen el perfil <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$p1$"></SPAN>, es un <SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$docente$"></SPAN>, cumple el rol <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$r1$"></SPAN> y pertenece a la categor&#195;&#173;a <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$c1$"></SPAN> (este tipo de representaci&#195;&#179;n de contexto se encuentra desarrollado en [<A
+ HREF="node12.html#libro">2</A>]). En cuanto a la acci&#195;&#179;n de la regla de coordinaci&#195;&#179;n, continuando con el mismo ejemplo, se induce la ejecuci&#195;&#179;n del m&#195;&#169;todo <SPAN CLASS="MATH"><IMG
+ WIDTH="114" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$showMessage$"></SPAN> del objeto <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$d$"></SPAN> (DiscussionAction). El final del diagrama est&#195;&#161; dedicado a comentarios generales; cada comentario dede ir acompa&#195;&#177;ado con el n&#195;&#186;mero de item (1,2,3,4,5 o 6) al que hace referencia. 
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=5><SMALL CLASS="SMALL"> 
+<SPAN><SPAN  CLASS="textbf">Contrato:</SPAN> Edici&#195;&#179;n</SPAN></SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+1.</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57><SMALL CLASS="SMALL"> <SPAN  CLASS="textit">Participantes</SPAN>: 	</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL"> <SPAN  CLASS="textbf">d</SPAN>:DiscussionAction </SMALL></TD>
+<TD></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL"> <SPAN  CLASS="textbf">u</SPAN>:UserAction </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+ 
+2.</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57><SMALL CLASS="SMALL"> <SPAN  CLASS="textit">Param. c-a</SPAN>: 	</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL">	state, portlet, rundata, context </SMALL></TD>
+<TD></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL">  	context<SPAN CLASS="MATH"><IMG
+ WIDTH="5" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$_$"></SPAN>identifier, identifier 	</SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+3.</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57><SMALL CLASS="SMALL"> <SPAN  CLASS="textit">Servicios</SPAN>:		</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL"> 	initState()		 	 </SMALL></TD>
+<TD></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL">	getIdentifier()				</SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+4.</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57><SMALL CLASS="SMALL"> <SPAN  CLASS="textit">Pre-Cond</SPAN>: 		</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL"> existe <SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$&lt;contexto&gt;$"></SPAN> </SMALL></TD>
+<TD></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL"> existe <SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$&lt;contexto&gt;$"></SPAN> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+5.</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57><SMALL CLASS="SMALL"> <SPAN  CLASS="textit">Pos-Cond</SPAN>: 		</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL"> modifica <SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$&lt;contexto&gt;$"></SPAN> </SMALL></TD>
+<TD></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><SMALL CLASS="SMALL"> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+ 
+6.</SMALL></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57><SMALL CLASS="SMALL"> <SPAN  CLASS="textit">Reglas      de Coordinaci&#195;&#179;n</SPAN>: </SMALL></TD>
+<TD ALIGN="LEFT" COLSPAN=3><SMALL CLASS="SMALL"> <SPAN><SPAN  CLASS="textbf">Si</SPAN> <SPAN  CLASS="textbf">u</SPAN>.contexto='p1;d;r1;c1;' <SPAN  CLASS="textbf">entonces</SPAN> <SPAN  CLASS="textbf">d</SPAN>.showMessage(data,string)</SPAN>  </SMALL></TD>
+</TR>
+<TR><TD ALIGN="CENTER" COLSPAN=5><SMALL CLASS="SMALL"><SPAN><SPAN  CLASS="textbf">Comentario</SPAN></SPAN> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT" COLSPAN=5><SMALL CLASS="SMALL"> 
+<SPAN>1. DiscussionAction y  UserAction  pertenecen a clases implementadas en JAVA del proyecto Sakai. </SPAN> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT" COLSPAN=5><SMALL CLASS="SMALL"> 
+<SPAN>4 y 5. <SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$&lt;contexto&gt;$"></SPAN> refiere a un objeto donde se oculta toda la informaci&#195;&#179;n de contexto</SPAN> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT" COLSPAN=5><SMALL CLASS="SMALL"><SPAN>que caracterisa a los usuarios de la plataforma</SPAN> </SMALL></TD>
+</TR>
+<TR><TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+</TR>
+</TABLE></DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="diagramacontrato"></A><A NAME="165"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+<SMALL CLASS="SMALL"><I CLASS="slanted">Diagrama del contrato: Edici&#195;&#179;n</I></SMALL></CAPTION>
+<TR><TD></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html123"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html121"
+  HREF="node7.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html117"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html124"
+  HREF="node11.html">CONCLUSI&#195;&#147;N</A>
+<B> Up:</B> <A NAME="tex2html122"
+  HREF="node7.html">DISE&#195;&#145;O DE PROCESOS E-LEARNING</A>
+<B> Previous:</B> <A NAME="tex2html118"
+  HREF="node9.html">Dise&#195;&#177;o de Transacciones e-learning</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Alejandro Sartorio
+2010-04-11
+</ADDRESS>
+</BODY>
+</HTML>

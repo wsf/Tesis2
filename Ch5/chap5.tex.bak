@@ -1,0 +1,131 @@
+%--------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------- Chapter 5 --------------------------------------------------------
+\chapter{Conclusiones}
+En la {\'u}ltima d{\'e}cada, el inter{\'e}s en sistemas de monitoreo para procesos se ha incrementado enormemente debido
+a la demanda de una mejor operaci{\'o}n de plantas, teniendo en cuenta condiciones econ{\'o}micas y ambientales mas
+restrictivas. Reduciendo de esta forma el n{\'u}mero de accidentes. Un aspecto importante es asegurar la
+operaci{\'o}n del proceso en una zona segura, estable y rentable.
+
+A su vez, las nuevas estrategias de dise{\~n}o de grandes plantas completas se han vuelto mas complicadas e
+intrincadas tratando me minimizar costos y maximizar beneficios. Estos dise{\~n}os requieren de mas complejas
+pol{\'\i}ticas de control. Por otro lado, el avance en elementos tales como sensores y actuadores hacen posible
+esta interacci{\'o}n de forma adecuada. Parad{\'o}jicamente, a medida que el grado de automatizaci{\'o}n avanza en estas
+nuevas plantas, los requisitos de monitoreo y toma de decisiones por parte de lo operarios se incrementa en
+cantidad y complejidad. Es decir, es necesario contar con alg{\'u}n tipo de sistema inteligente de monitoreo y
+supervisi{\'o}n para soporte en la toma de decisiones.
+
+A lo largo del trabajo presentado aqu{\'\i} se pudo observar como los sistemas h{\'\i}bridos de DDEF pueden mejorar
+las caracter{\'\i}sticas deseables comparado con herramientas individuales. El dise{\~n}o de SDDEF h{\'\i}bridos permite
+que metodolog{\'\i}as, individualmente deficientes, se compensen entre si para generar sistemas confiables y
+eficaces de monitoreo. Se han presentado las caracter{\'\i}sticas de cada estrategia de dise{\~n}o y sus
+limitaciones. El dise{\~n}o basado en modelos cuantitativos carece de aplicabilidad (o se ve sumamente reducida)
+en grandes escalas debido a factores como complejidad, no linealidad, dimensi{\'o}n, etc. Por otro lado, lo
+dise{\~n}os basados en modelos cuantitativos pueden resultar impracticables con el incremento de la dimensi{\'o}n y
+complejidad. Debido a estas limitaciones en esta tesis se ha propuesto un dise{\~n}o modular, dejando las tareas
+especificas a herramientas adecuadas para tal fin. Aqu{\'\i} se ha propuesto esencialmente trabajar con dise{\~n}os
+basados en datos hist{\'o}ricos y procesado de se{\~n}al.
+
+Por otro lado, las estrategias de automatizaci{\'o}n de compensaci{\'o}n de fallas como el CTF, son {\'a}reas aun en
+desarrollo y en general no existen aplicaciones a grandes y complejos procesos. En general los dise{\~n}os de
+CTF provenientes del {\'a}rea de control est{\'a}n fuertemente focalizados en cuestiones propias de regulaci{\'o}n y no
+en requerimientos de monitoreo e integraci{\'o}n. Se observa en la literatura cient{\'\i}fica una carencia evidente
+en el desarrollo de sistemas integrados de DDEF/CTF para grandes procesos, donde las condiciones de
+operaci{\'o}n son cambiantes, las mediciones ruidosas, las no linealidades elevadas y la dimensi{\'o}n de los
+modelos realmente grandes.
+
+Inicialmente, en el cap{\'\i}tulo 4 se presento una estrategia de CTF activo basado en control predictivo
+adaptivo, donde la complejidad del caso de aplicaci{\'o}n fue creciente. Se pudo observar que para casos
+acad{\'e}micos sencillos las estrategias cl{\'a}sicas de CAP pueden mediante una peque{\~n}a reformulaci{\'o}n abordar el
+problema de CTF de forma eficaz. La inclusi{\'o}n del par{\'a}metro de punto operativo, aumentando el regresor y el
+vector de la estima puede de forma simple solucionar el problema de offset en sensores y perturbaciones no
+medidas que atentan sobre el punto de trabajo del proceso. Se vio como esta estrategia es similar en
+estructura a una modificaci{\'o}n ficticia de la trayectoria de referencia. Po otro lado, la umbralizaci{\'o}n de la
+respuesta al impulso finita, la cual se adapta en cada iteraci{\'o}n, permite actualizar problemas relacionados
+con retardos variables temporalmente de forma efectiva. Adem{\'a}s, la adaptaci{\'o}n en l{\'\i}nea del modelo del
+proceso permite considerar posibles cambios de la din{\'a}mica y la ganancia est{\'a}tica de la planta, a la vez que
+reajustar los controladores. Se observ{\'o} tambi{\'e}n, como estos dise{\~n}os pueden mejorarse con la inclusi{\'o}n de un
+filtro robusto en el lazo de realimentaci{\'o}n. As{\'\i}, se pudo comparar las estrategias CAP, CFRAP y la
+integraci{\'o}n de ambos propuesta como CAPFRA. EL rendimiento del CAPFRA resulto superior para todos los casos
+considerados, en cuanto a estabilidad y seguimiento de la pol{\'\i}tica de referencia.
+
+Las limitaciones de este tipo de estrategia se pudieron observar en la aplicaci{\'o}n a una RTAC con camisa. En
+este caso el proceso es fuertemente no lineal y en general las estratgias CAP, CFRAP y CAPFRA pierden
+validez y efectividad. Esta p{\'e}rdida de rendimiento sumada a la carencia de informaci{\'o}n necesaria para la
+toma de decisiones, hacen que esta metodolog{\'\i}a sea mejorada con el dise{\~n}o de un sistema de DDF. En este caso
+el dise{\~n}o del DDF h{\'\i}brido se baso en herramientas de procesado de se{\~n}al con la TWD y de modelado de
+sistemas. As{\'\i} las caracter{\'\i}sticas de multiresoluci{\'o}n de la TWD permite una r{\'a}pida detecci{\'o}n de los eventos y
+un aislamiento de la falla de forma adecuada. A su vez, la metodolog{\'\i}a de IS permite el correcto modelado de
+elementos del proceso como actuadores/v{\'a}lvulas los cuales tienen un comportamiento lineal en un rango de
+operaci{\'o}n. La integraci{\'o}n de estas metodolog{\'\i}as permiti{\'o} la transformaci{\'o}n de los algoritmos cl{\'a}sicos de
+control en estrategias de CTF activas con el agregado de una correcta cantidad y calidad de informaci{\'o}n para
+la toma de decisiones.
+
+El nuevo problema observable en este caso es la extensi{\'o}n de estas estrategias a procesos de dimensiones
+considerables. La estrategia anteriormente propuesta implicar{\'\i}a el abordaje del problema por cada lazo de
+control. Lo cual no presenta un problema si el proceso es de peque{\~n}a o mediana escala. Pero a{\'u}n, se estar{\'\i}a
+dando un punto de vista descentralizado de la informaci{\'o}n y no global para la correcta toma de decisiones.
+A{\'u}n as{\'\i}, la estrategia descentralizada propuesta aqu{\'\i} representa una alternativa de dise{\~n}o  de sistemas
+integrados SDDEF/CTF para procesos de mediana complejidad.
+
+Con la finalidad de generalizar una metodolog{\'\i}a en el tratamiento de MSA se presenta en el cap{\'\i}tulo 5 un
+completo dise{\~n}o de un SDDEF integrado al CTF que puede ser aplicado indistintamente de las caracter{\'\i}sticas
+del proceso como, dimensi{\'o}n, complejidad, no linealidad, y tipo de pol{\'\i}tica de control existente.
+
+El subsistema de detecci{\'o}n del SDDEF propuesto esta conformado por ACPA y estad{\'\i}sticos combinados el cual
+posee como caracter{\'\i}sticas una r{\'a}pida detecci{\'o}n de los eventos anormales, adaptabilidad a diferentes
+condiciones de operaci{\'o}n de la planta, robusto a ruido y mediante los estad{\'\i}sticos combinados se puede
+minimizar el falso diagn{\'o}stico y la p{\'e}rdida de detecci{\'o}n. A su vez, este subsistema durante su adaptaci{\'o}n
+genera informaci{\'o}n {\'u}til respecto a modificaciones de los valores medios y varianzas de las variables del
+proceso y las evoluciones de las variables latentes y errores de predicci{\'o}n. Esta informaci{\'o}n es utilizada
+por otros subsistemas interconectados con este. Por ejemplo, el subssistema de LD utiliza la informaci{\'o}n de
+la evoluci{\'o}n normalizada de las variables latentes y los errores de predicci{\'o}n para poder clasificar el
+estado global del proceso, caracterizando el estado individual de las variables. Finalmente, el SDDEF esta
+compuesto de un bloque de estimaci{\'o}n de la magnitud y direcci{\'o}n de la falla llevado a cabo por el subsistema
+de RNA. Este bloque recibe la informaci{\'o}n suministrada por el subsistima ACPA referente a las modificaciones
+de los valores medios y las varianzas para mapear y generalizar la magnitud de la falla. De esta forma se
+proponen dos mapeos diferentes: \textit{modificaci{\'o}n del valor medio/offset} y \textit{modificaci{\'o}n de la
+varianza/retardo extra}. Esta forma modular de dise{\~n}o del SDDEF deja que las tareas de detecci{\'o}n,
+clasificaci{\'o}n y estimaci{\'o}n se realicen oportunamente por el ACPA, SLD y RNA respectivamente. De esta forma
+se genera un conjunto de informaci{\'o}n adecuada en cantidad y calidad:  estad{\'\i}sticos de monitoreo (Hotelling,
+Q, y z), tiempo de detecci{\'o}n, cuantificaci{\'o}n del error a priori en la clasificaci{\'o}n (soporte de las reglas)
+y la contribuci{\'o}n media de cada variable a los estad{\'\i}stico. Esta informaci{\'o}n resulta crucial por los
+operarios que deben evaluar el estado del proceso.
+
+La metodolog{\'\i}a s{\'\i} propuesta ha sido aplicada a casos de mediana y gran escala. Inicialmente, se propone la
+aplicaci{\'o}n a una PTAR la cual cuenta con dos lazos de control descentralizados. Se ha considerado en este
+caso el siguiente marco de referencia: fallas del tipo offset en sensores, ruidos de medici{\'o}n, fallas en
+actudores/v{\'a}lvulas del tipo retardo extra, fallas secuenciales, eventos secuenciales, perturbaciones
+peri{\'o}dicas habituales, compensaci{\'o}n de fallas en sensores mediante actualizaci{\'o}n de la trayectoria de
+referencia, compensaci{\'o}n de fallas en v{\'a}lvulas mediante reajuste de los controladores utilizando CBMI en
+l{\'\i}nea y modificaciones de la pol{\'\i}tica de control por inclusi{\'o}n de controladores en avance. Efectivamente se
+pudo observar mediante {\'\i}ndices adecuados los beneficios de contar con un sistema integrado de SDDEF/CTF. Po
+otro lado, se propuso la aplicaci{\'o}n tambi{\'e}n a uno de los proceso mas grandes existentes en la literatura de
+control la PPP (varias veces mas grande que el modelo de la Tennessee Eastman). En este caso se ha trabajado
+con el siguiente marco de referencia: fallas en sensores del tipo offset, fallas en actuadores/v{\'a}lvulas del
+tipo bloqueo, ruido de medici{\'o}n, puntos operativos cambiantes, fallas secuenciales, eventos secuenciales,
+perturbaciones no medibles, compensaci{\'o}n de fallas en sensores mediante actualizaci{\'o}n de la trayectoria de
+referencia y compensaci{\'o}n directa de las mediciones, compensaci{\'o}n de fallas en v{\'a}lvulas mediante
+actualizaci{\'o}n de la pol{\'\i}tica de control ya sea mediante estrategia descentralizada o integrada al CPM.
+Claramente se ha podido observar los beneficios de contar o no con un estrategia integrada de SDDEF/CTF en
+este caso, mediante {\'\i}ndices espec{\'\i}ficos de rendimiento y econ{\'o}micos.
+
+Finalmente, se ha podido generalizar una metodolog{\'\i}a para el correcto MSA en procesos de peque{\~n}a, mediana y
+gran escala, generando adem{\'a}s los recursos necesarios para una correcta integraci{\'o}n al CTF. De esta forma el
+sistema resultante SDDEF/CTF cumple con los requisitos deseables definidos en el cap{\'\i}tulo 2 y adiciona
+caracter{\'\i}sticas autom{\'a}ticas de compensaci{\'o}n de fallas. Desde el punto de vista de implementaci{\'o}n la
+metodolog{\'\i}a propuesta aqu{\'\i} presenta excelentes caracter{\'\i}sticas considerando la carga computacional, los
+avances actuales referentes a sensores, actuadores, comunicaciones industriales, bases de datos y hardware
+de potencia.
+
+\section{Direcciones futuras}
+El {\'a}rea de desarrollo de sistemas h{\'\i}bridos de supervisi{\'o}n e integraci{\'o}n al CTF representa un gran problema
+abierto a{\'u}n y poco explorado para grandes procesos. La integraci{\'o}n de estas t{\'e}cnicas con otras operaciones
+de proceso de forma tal que resulten en sistemas de supervisi{\'o}n mas efectivos, inteligentes y explicativos y
+analizar las posibles aplicaciones industriales de gran escala resulta una tarea indispensable.
+
+De todas formas, existen numerosos t{\'o}picos que encuentran un grado de interconexi{\'o}n con el desarrollo de
+SDDEF/CTF. Por un lado, el {\'a}rea de reconciliaci{\'o}n de datos parece ser un problema importante y poco tratado
+en grandes procesos. A su vez, la inclusi{\'o}n de tareas de DDF en el dise{\~n}o de procesos no ha sido considerado
+y resulta de gran importancia para su futura puesta en funcionamiento. Otros t{\'o}picos, como locaci{\'o}n {\'o}ptima
+de sensores considerando minimizaci{\'o}n de costos y maximizaci{\'o}n de la detecci{\'o}n de fallas en el dise{\~n}o de
+estrategias de control resulta en un {\'a}rea de sumo inter{\'e}s.
