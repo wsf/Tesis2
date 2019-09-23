@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  10 SEP 2019 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  21 SEP 2019 01:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -850,15 +850,77 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 )
-(./SartorioTesis.aux (./titlepage.aux)
-LaTeX Info: Redefining \. on input line 24.
-LaTeX Info: Redefining \% on input line 24.
- (./Ch0/chap0.aux) (./DHD/DHD.aux)
+(./SartorioTesis.aux
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
+ (./titlepage.aux) (./Ch0/chap0.aux) (./DHD/DHD.aux)
 (./Ch1/chap1.aux
 
 LaTeX Warning: Label `uwaFramework' multiply defined.
 
 ) (./Ch2/chap2.aux) (./Ch4/chap45.aux
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \accent@spacefactor 
+l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Bad space factor (0).
+<to be read again> 
+                   \accent@spacefactor 
+l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
+                                                  
+I allow only values in the range 1..32767 here.
+
+! Extra \endcsname.
+\@namedef ...xpandafter \def \csname #1\endcsname 
+                                                  
+l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+! Extra }, or forgotten \endgroup.
+\@newl@bel ...ined}}\global \@namedef {#1@#2}{#3}}
+                                                  
+l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 
 LaTeX Warning: Label `hiperplanos' multiply defined.
 
@@ -871,6 +933,40 @@ LaTeX Warning: Label `' multiply defined.
 
 
 LaTeX Warning: Label `' multiply defined.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.73 ... un caso de uso}{subsubsection.7.5.2.3}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.73 ... un caso de uso}{subsubsection.7.5.2.3}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Extra \endcsname.
+\@namedef ...xpandafter \def \csname #1\endcsname 
+                                                  
+l.73 ... un caso de uso}{subsubsection.7.5.2.3}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+! Extra }, or forgotten \endgroup.
+\@newl@bel ...ined}}\global \@namedef {#1@#2}{#3}}
+                                                  
+l.73 ... un caso de uso}{subsubsection.7.5.2.3}{}}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 
 LaTeX Warning: Label `' multiply defined.
@@ -1132,6 +1228,24 @@ LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+Overfull \hbox (253.40997pt too wide) in paragraph at lines 9--13
+[]\OT1/cmr/m/n/10.95 ^^Son5.197Introducci^^Sonsec-tion.5.1                     
+                                                                               
+                                                                               
+     ^^Son
+ []
+
+
+Overfull \hbox (15.61545pt too wide) in paragraph at lines 9--13
+\OT1/cmr/m/n/10.95 en un ca-so de uso7.5.2.3159Implementaci^^Son en un ca-so de
+ uso-sub-sub-sec-tion.7.5.2.3
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--13
+
+ []
+
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count141
 \scratchdimen=\dimen156
@@ -1207,6 +1321,23 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 
 ABD: EveryShipout initializing macros
 \c@lstlisting=\count148
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+LaTeX Font Info:    Try loading font information for OT1+augie on input line 15
+.
+LaTeX Font Info:    No file OT1augie.fd. on input line 15.
+
+LaTeX Font Warning: Font shape `OT1/augie/m/n' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 15.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \openout2 = `titlepage.aux'.
 
  (./titlepage.tex
@@ -1239,17 +1370,14 @@ I could not locate the file with any of these extensions:
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Try loading font information for OT1+augie on input line 45
-.
-LaTeX Font Info:    No file OT1augie.fd. on input line 45.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.45 \end{titlepage}
+                     [1
 
-LaTeX Font Warning: Font shape `OT1/augie/m/n' undefined
-(Font)              using `OT1/cmr/m/n' instead on input line 45.
-
-[1
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) [2
+]) [2
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 46.
@@ -1359,7 +1487,7 @@ l.30
 
 LaTeX Warning: Reference `fig:Proda' on page 3 undefined on input line 33.
 
-<Ch0/ProdA.jpg, id=868, 615.29875pt x 305.14pt>
+<Ch0/ProdA.jpg, id=871, 615.29875pt x 305.14pt>
 File: Ch0/ProdA.jpg Graphic file (type jpg)
 <use Ch0/ProdA.jpg>
 Package pdftex.def Info: Ch0/ProdA.jpg  used on input line 40.
@@ -1625,7 +1753,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-<Ch0/EstructuraSolucion.jpg, id=969, 588.1975pt x 201.75375pt>
+<Ch0/EstructuraSolucion.jpg, id=972, 588.1975pt x 201.75375pt>
 File: Ch0/EstructuraSolucion.jpg Graphic file (type jpg)
 <use Ch0/EstructuraSolucion.jpg>
 Package pdftex.def Info: Ch0/EstructuraSolucion.jpg  used on input line 521.
@@ -1650,7 +1778,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [15]
-<Ch0/PiramideDHD.jpg, id=990, 355.3275pt x 355.3275pt>
+<Ch0/PiramideDHD.jpg, id=994, 355.3275pt x 355.3275pt>
 File: Ch0/PiramideDHD.jpg Graphic file (type jpg)
 <use Ch0/PiramideDHD.jpg>
 Package pdftex.def Info: Ch0/PiramideDHD.jpg  used on input line 616.
@@ -1786,7 +1914,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-<DHD/hiperplanosDHD.png, id=1034, 511.9125pt x 398.23781pt>
+<DHD/hiperplanosDHD.png, id=1037, 511.9125pt x 398.23781pt>
 File: DHD/hiperplanosDHD.png Graphic file (type png)
 <use DHD/hiperplanosDHD.png>
 Package pdftex.def Info: DHD/hiperplanosDHD.png  used on input line 173.
@@ -1894,7 +2022,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31]
-<DHD/ProcesoIngRequisitos.png, id=1104, 729.7853pt x 770.88pt>
+<DHD/ProcesoIngRequisitos.png, id=1108, 729.7853pt x 770.88pt>
 File: DHD/ProcesoIngRequisitos.png Graphic file (type png)
 <use DHD/ProcesoIngRequisitos.png>
 Package pdftex.def Info: DHD/ProcesoIngRequisitos.png  used on input line 617.
@@ -2059,7 +2187,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<DHD/RequerimientosDHD.png, id=1125, 991.94118pt x 470.46353pt>
+<DHD/RequerimientosDHD.png, id=1129, 991.94118pt x 470.46353pt>
 File: DHD/RequerimientosDHD.png Graphic file (type png)
 <use DHD/RequerimientosDHD.png>
 Package pdftex.def Info: DHD/RequerimientosDHD.png  used on input line 732.
@@ -2073,7 +2201,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [34]
-<DHD/RequerimientosDHD2.png, id=1135, 749.62411pt x 358.51588pt>
+<DHD/RequerimientosDHD2.png, id=1138, 749.62411pt x 358.51588pt>
 File: DHD/RequerimientosDHD2.png Graphic file (type png)
 <use DHD/RequerimientosDHD2.png>
 Package pdftex.def Info: DHD/RequerimientosDHD2.png  used on input line 777.
@@ -2125,7 +2253,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<Ch1/Figuras/contexto.png, id=1157, 755.29236pt x 467.62941pt>
+<Ch1/Figuras/contexto.png, id=1160, 755.29236pt x 467.62941pt>
 File: Ch1/Figuras/contexto.png Graphic file (type png)
 <use Ch1/Figuras/contexto.png>
 Package pdftex.def Info: Ch1/Figuras/contexto.png  used on input line 45.
@@ -2160,12 +2288,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39 <./Ch1/Figuras/contexto.png>]
-<Ch1/Figuras/RolesSakai.jpg, id=1179, 652.4375pt x 202.7575pt>
+<Ch1/Figuras/RolesSakai.jpg, id=1183, 652.4375pt x 202.7575pt>
 File: Ch1/Figuras/RolesSakai.jpg Graphic file (type jpg)
 <use Ch1/Figuras/RolesSakai.jpg>
 Package pdftex.def Info: Ch1/Figuras/RolesSakai.jpg  used on input line 121.
 (pdftex.def)             Requested size: 289.08437pt x 144.54356pt.
-<Ch1/Figuras/RolesSakai2.jpg, id=1180, 547.04375pt x 257.96375pt>
+<Ch1/Figuras/RolesSakai2.jpg, id=1184, 547.04375pt x 257.96375pt>
 File: Ch1/Figuras/RolesSakai2.jpg Graphic file (type jpg)
 <use Ch1/Figuras/RolesSakai2.jpg>
 Package pdftex.def Info: Ch1/Figuras/RolesSakai2.jpg  used on input line 131.
@@ -2290,7 +2418,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [41]
-<Ch1/Figuras/ContextoDHD.png, id=1203, 40.7121pt x 21.07875pt>
+<Ch1/Figuras/ContextoDHD.png, id=1206, 40.7121pt x 21.07875pt>
 File: Ch1/Figuras/ContextoDHD.png Graphic file (type png)
 <use Ch1/Figuras/ContextoDHD.png>
 Package pdftex.def Info: Ch1/Figuras/ContextoDHD.png  used on input line 237.
@@ -2325,7 +2453,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [44]
-<Ch1/MEvolutivo.png, id=1232, 26.499pt x 27.34215pt>
+<Ch1/MEvolutivo.png, id=1235, 26.499pt x 27.34215pt>
 File: Ch1/MEvolutivo.png Graphic file (type png)
 <use Ch1/MEvolutivo.png>
 Package pdftex.def Info: Ch1/MEvolutivo.png  used on input line 442.
@@ -2432,7 +2560,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [53]
-<Ch1/f2.jpg, id=1275, 325.96782pt x 260.47313pt>
+<Ch1/f2.jpg, id=1278, 325.96782pt x 260.47313pt>
 File: Ch1/f2.jpg Graphic file (type jpg)
 <use Ch1/f2.jpg>
 Package pdftex.def Info: Ch1/f2.jpg  used on input line 1016.
@@ -2461,7 +2589,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [55 <./Ch1/f2.jpg>]
-<Ch1/Figuras/UWAFramework2.png, id=1287, 623.32875pt x 383.93437pt>
+<Ch1/Figuras/UWAFramework2.png, id=1290, 623.32875pt x 383.93437pt>
 File: Ch1/Figuras/UWAFramework2.png Graphic file (type png)
 <use Ch1/Figuras/UWAFramework2.png>
 Package pdftex.def Info: Ch1/Figuras/UWAFramework2.png  used on input line 1125
@@ -2509,7 +2637,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Package natbib Warning: Citation `uwa.7' on page 59 undefined on input line 130
 0.
 
-<Ch1/Figuras/ScopeCustomisation.png, id=1304, 344.78813pt x 214.55156pt>
+<Ch1/Figuras/ScopeCustomisation.png, id=1307, 344.78813pt x 214.55156pt>
 File: Ch1/Figuras/ScopeCustomisation.png Graphic file (type png)
 <use Ch1/Figuras/ScopeCustomisation.png>
 Package pdftex.def Info: Ch1/Figuras/ScopeCustomisation.png  used on input line
@@ -2524,7 +2652,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [59]
-<Ch1/Figuras/UWAEventModel.png, id=1309, 570.63188pt x 307.1475pt>
+<Ch1/Figuras/UWAEventModel.png, id=1312, 570.63188pt x 307.1475pt>
 File: Ch1/Figuras/UWAEventModel.png Graphic file (type png)
 <use Ch1/Figuras/UWAEventModel.png>
 Package pdftex.def Info: Ch1/Figuras/UWAEventModel.png  used on input line 1333
@@ -3162,7 +3290,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [77]
-<Ch2/f1.png, id=1415, 596.2275pt x 515.9275pt>
+<Ch2/f1.png, id=1418, 596.2275pt x 515.9275pt>
 File: Ch2/f1.png Graphic file (type png)
 <use Ch2/f1.png>
 Package pdftex.def Info: Ch2/f1.png  used on input line 737.
@@ -3282,7 +3410,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [86]
-<Ch2/ArqDHD2.png, id=1458, 585.18625pt x 259.97125pt>
+<Ch2/ArqDHD2.png, id=1461, 585.18625pt x 259.97125pt>
 File: Ch2/ArqDHD2.png Graphic file (type png)
 <use Ch2/ArqDHD2.png>
 Package pdftex.def Info: Ch2/ArqDHD2.png  used on input line 1157.
@@ -4180,7 +4308,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [89]
-<Ch2/felo.png, id=1481, 189.70876pt x 395.4775pt>
+<Ch2/felo.png, id=1484, 189.70876pt x 395.4775pt>
 File: Ch2/felo.png Graphic file (type png)
 <use Ch2/felo.png>
 Package pdftex.def Info: Ch2/felo.png  used on input line 1217.
@@ -4374,7 +4502,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<Ch2/CapaServicio.png, id=1492, 440.64626pt x 199.74625pt>
+<Ch2/CapaServicio.png, id=1495, 440.64626pt x 199.74625pt>
 File: Ch2/CapaServicio.png Graphic file (type png)
 <use Ch2/CapaServicio.png>
 Package pdftex.def Info: Ch2/CapaServicio.png  used on input line 1242.
@@ -5344,7 +5472,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [92]
-<Ch2/arqAreas.png, id=1508, 603.25375pt x 181.67876pt>
+<Ch2/arqAreas.png, id=1511, 603.25375pt x 181.67876pt>
 File: Ch2/arqAreas.png Graphic file (type png)
 <use Ch2/arqAreas.png>
 Package pdftex.def Info: Ch2/arqAreas.png  used on input line 1345.
@@ -6781,7 +6909,7 @@ Cap\'{\i }tulo 5.
 LaTeX Warning: Reference `fig:contratosv2' on page 98 undefined on input line 4
 2.
 
-<Ch4/contrato_conceptual.jpg, id=1552, 864.22874pt x 377.41pt>
+<Ch4/contrato_conceptual.jpg, id=1555, 864.22874pt x 377.41pt>
 File: Ch4/contrato_conceptual.jpg Graphic file (type jpg)
 <use Ch4/contrato_conceptual.jpg>
 Package pdftex.def Info: Ch4/contrato_conceptual.jpg  used on input line 46.
@@ -6800,7 +6928,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [98 <./Ch4/contrato_conceptual.jpg>]
-<Ch4/servicios_coordinados.jpg, id=1559, 487.8225pt x 294.09875pt>
+<Ch4/servicios_coordinados.jpg, id=1562, 487.8225pt x 294.09875pt>
 File: Ch4/servicios_coordinados.jpg Graphic file (type jpg)
 <use Ch4/servicios_coordinados.jpg>
 Package pdftex.def Info: Ch4/servicios_coordinados.jpg  used on input line 80.
@@ -6906,7 +7034,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [106]
-<Ch4/ContextToolsKit.png, id=1636, 21.01852pt x 19.7538pt>
+<Ch4/ContextToolsKit.png, id=1639, 21.01852pt x 19.7538pt>
 File: Ch4/ContextToolsKit.png Graphic file (type png)
 <use Ch4/ContextToolsKit.png>
 Package pdftex.def Info: Ch4/ContextToolsKit.png  used on input line 445.
@@ -7384,7 +7512,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<Ch4/jcaf.png, id=1647, 31.7988pt x 18.12773pt>
+<Ch4/jcaf.png, id=1650, 31.7988pt x 18.12773pt>
 File: Ch4/jcaf.png Graphic file (type png)
 <use Ch4/jcaf.png>
 Package pdftex.def Info: Ch4/jcaf.png  used on input line 513.
@@ -7418,9 +7546,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [110]
-LaTeX Info: Redefining \. on input line 657.
-LaTeX Info: Redefining \% on input line 657.
 
+LaTeX Warning: Reference `paper_de_condicionales' on page 111 undefined on inpu
+t line 635.
+
+LaTeX Info: Redefining \. on input line 665.
+LaTeX Info: Redefining \% on input line 665.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -7428,8 +7559,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [111]
-LaTeX Info: Redefining \. on input line 703.
-LaTeX Info: Redefining \% on input line 703.
+LaTeX Info: Redefining \. on input line 710.
+LaTeX Info: Redefining \% on input line 710.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -7438,7 +7569,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [112]
-Overfull \hbox (42.65132pt too wide) in paragraph at lines 737--737
+Overfull \hbox (42.65132pt too wide) in paragraph at lines 745--745
  []\OT1/cmtt/m/n/10.95 If (getStudent = 'Juan') and (getForum_theme > Minimus_F
 orum_Theme)[] 
  []
@@ -7450,13 +7581,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.741 \caption
+l.749 \caption
                {Ejemplo: Reglas de contratos con Mcondicionales}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Info: Redefining \. on input line 752.
-LaTeX Info: Redefining \% on input line 752.
+LaTeX Info: Redefining \. on input line 760.
+LaTeX Info: Redefining \% on input line 760.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -7472,14 +7603,14 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.770 (mapeo) m: A→
+l.778 (mapeo) m: A→
                       X, donde A es un atributo empírico de una entidad (el
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Info: Redefining \. on input line 801.
-LaTeX Info: Redefining \% on input line 801.
+LaTeX Info: Redefining \. on input line 800.
+LaTeX Info: Redefining \% on input line 800.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -7487,8 +7618,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [114]
-LaTeX Info: Redefining \. on input line 851.
-LaTeX Info: Redefining \% on input line 851.
+LaTeX Info: Redefining \. on input line 859.
+LaTeX Info: Redefining \% on input line 859.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -7497,8 +7628,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [115]
-LaTeX Info: Redefining \. on input line 902.
-LaTeX Info: Redefining \% on input line 902.
+LaTeX Info: Redefining \. on input line 908.
+LaTeX Info: Redefining \% on input line 908.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -7507,23 +7638,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [116]
-Overfull \hbox (36.90263pt too wide) in paragraph at lines 918--918
+Overfull \hbox (36.90263pt too wide) in paragraph at lines 926--926
  []\OT1/cmtt/m/n/10.95 if (usuario = `alumno') and getCalidad_Intervencion = `a
 ceptable')[] 
  []
 
-<Ch4/f3.png, id=1691, 1204.5pt x 446.37354pt>
+<Ch4/f3.png, id=1697, 1204.5pt x 446.37354pt>
 File: Ch4/f3.png Graphic file (type png)
 <use Ch4/f3.png>
-Package pdftex.def Info: Ch4/f3.png  used on input line 935.
+Package pdftex.def Info: Ch4/f3.png  used on input line 943.
 (pdftex.def)             Requested size: 433.61967pt x 144.5384pt.
 
-Overfull \hbox (63.73386pt too wide) in paragraph at lines 935--937
+Overfull \hbox (63.73386pt too wide) in paragraph at lines 943--945
  [] 
  []
 
-LaTeX Info: Redefining \. on input line 954.
-LaTeX Info: Redefining \% on input line 954.
+LaTeX Info: Redefining \. on input line 962.
+LaTeX Info: Redefining \% on input line 962.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -7531,8 +7662,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [117 <./Ch4/f3.png>]
-LaTeX Info: Redefining \. on input line 1006.
-LaTeX Info: Redefining \% on input line 1006.
+LaTeX Info: Redefining \. on input line 1014.
+LaTeX Info: Redefining \% on input line 1014.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -7541,10 +7672,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [118]
-<Ch4/f4.jpg, id=1703, 599.23875pt x 223.83624pt>
+<Ch4/f4.jpg, id=1709, 599.23875pt x 223.83624pt>
 File: Ch4/f4.jpg Graphic file (type jpg)
 <use Ch4/f4.jpg>
-Package pdftex.def Info: Ch4/f4.jpg  used on input line 1009.
+Package pdftex.def Info: Ch4/f4.jpg  used on input line 1017.
 (pdftex.def)             Requested size: 433.62776pt x 144.54233pt.
 
 
@@ -7554,18 +7685,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1011 \caption
+l.1019 \caption
                 {Ejecución ****}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (91.117pt too wide) in paragraph at lines 1009--1013
+Overfull \hbox (91.117pt too wide) in paragraph at lines 1017--1021
  [] 
  []
 
-LaTeX Info: Redefining \. on input line 1055.
-LaTeX Info: Redefining \% on input line 1055.
+LaTeX Info: Redefining \. on input line 1063.
+LaTeX Info: Redefining \% on input line 1063.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -7573,8 +7704,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [119 <./Ch4/f4.jpg>]
-LaTeX Info: Redefining \. on input line 1104.
-LaTeX Info: Redefining \% on input line 1104.
+LaTeX Info: Redefining \. on input line 1112.
+LaTeX Info: Redefining \% on input line 1112.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -7585,15 +7716,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [120]
 File: Ch4/f4.jpg Graphic file (type jpg)
 <use Ch4/f4.jpg>
-Package pdftex.def Info: Ch4/f4.jpg  used on input line 1124.
+Package pdftex.def Info: Ch4/f4.jpg  used on input line 1132.
 (pdftex.def)             Requested size: 433.62776pt x 144.54233pt.
 
-Overfull \hbox (91.117pt too wide) in paragraph at lines 1124--1126
+Overfull \hbox (91.117pt too wide) in paragraph at lines 1132--1134
  [] 
  []
 
 ! Undefined control sequence.
-l.1129 \subsetion
+l.1137 \subsetion
                   {Hacia la implementación de los CondicionalesDHD}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7601,8 +7732,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-LaTeX Info: Redefining \. on input line 1155.
-LaTeX Info: Redefining \% on input line 1155.
+LaTeX Info: Redefining \. on input line 1163.
+LaTeX Info: Redefining \% on input line 1163.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -7663,7 +7794,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [125]
-<Ch5/f1.png, id=1758, 642.4pt x 320.19624pt>
+<Ch5/f1.png, id=1764, 642.4pt x 320.19624pt>
 File: Ch5/f1.png Graphic file (type png)
 <use Ch5/f1.png>
 Package pdftex.def Info: Ch5/f1.png  used on input line 176.
@@ -7695,7 +7826,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Package natbib Warning: Citation `arquitectura' on page 128 undefined on input 
 line 204.
 
-<Ch5/f2.png, id=1775, 724.7075pt x 227.85126pt>
+<Ch5/f2.png, id=1781, 724.7075pt x 227.85126pt>
 File: Ch5/f2.png Graphic file (type png)
 <use Ch5/f2.png>
 Package pdftex.def Info: Ch5/f2.png  used on input line 213.
@@ -7719,7 +7850,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [129]
-<Ch5/f4.png, id=1794, 726.715pt x 331.2375pt>
+<Ch5/f4.png, id=1801, 726.715pt x 331.2375pt>
 File: Ch5/f4.png Graphic file (type png)
 <use Ch5/f4.png>
 Package pdftex.def Info: Ch5/f4.png  used on input line 243.
@@ -8032,7 +8163,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [138]
-<Ch7/contratoca.png, id=1882, 851.18pt x 418.56375pt>
+<Ch7/contratoca.png, id=1888, 851.18pt x 418.56375pt>
 File: Ch7/contratoca.png Graphic file (type png)
 <use Ch7/contratoca.png>
 Package pdftex.def Info: Ch7/contratoca.png  used on input line 112.
@@ -8074,7 +8205,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 LaTeX Warning: Reference `drobab' on page 142 undefined on input line 254.
 
-<Ch7/drobab11.png, id=1906, 653.44125pt x 475.7775pt>
+<Ch7/drobab11.png, id=1913, 653.44125pt x 475.7775pt>
 File: Ch7/drobab11.png Graphic file (type png)
 <use Ch7/drobab11.png>
 Package pdftex.def Info: Ch7/drobab11.png  used on input line 262.
@@ -8172,7 +8303,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [143]
-<Ch7/procesodisenoNuevo.jpeg, id=1921, 683.55376pt x 264.99pt>
+<Ch7/procesodisenoNuevo.jpeg, id=1927, 683.55376pt x 264.99pt>
 File: Ch7/procesodisenoNuevo.jpeg Graphic file (type jpg)
 <use Ch7/procesodisenoNuevo.jpeg>
 Package pdftex.def Info: Ch7/procesodisenoNuevo.jpeg  used on input line 349.
@@ -8195,7 +8326,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [144 <./Ch7/procesodisenoNuevo.jpeg>]
-<Ch7/Requerimientos.png, id=1929, 1027.84pt x 411.5375pt>
+<Ch7/Requerimientos.png, id=1935, 1027.84pt x 411.5375pt>
 File: Ch7/Requerimientos.png Graphic file (type png)
 <use Ch7/Requerimientos.png>
 Package pdftex.def Info: Ch7/Requerimientos.png  used on input line 382.
@@ -8232,7 +8363,7 @@ LaTeX Warning: Reference `sdr' on page 146 undefined on input line 421.
 
 Package natbib Warning: Citation `7' on page 146 undefined on input line 424.
 
-<Ch7/proceso11.png, id=1940, 841.1425pt x 695.59875pt>
+<Ch7/proceso11.png, id=1946, 841.1425pt x 695.59875pt>
 File: Ch7/proceso11.png Graphic file (type png)
 <use Ch7/proceso11.png>
 Package pdftex.def Info: Ch7/proceso11.png  used on input line 458.
@@ -8403,7 +8534,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [150]
-<Ch7/f1Dev.png, id=1978, 978.65625pt x 282.05376pt>
+<Ch7/f1Dev.png, id=1984, 978.65625pt x 282.05376pt>
 File: Ch7/f1Dev.png Graphic file (type png)
 <use Ch7/f1Dev.png>
 Package pdftex.def Info: Ch7/f1Dev.png  used on input line 710.
@@ -8435,7 +8566,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [151]
-<Ch7/f2Dev.png, id=1983, 941.5175pt x 275.0275pt>
+<Ch7/f2Dev.png, id=1989, 941.5175pt x 275.0275pt>
 File: Ch7/f2Dev.png Graphic file (type png)
 <use Ch7/f2Dev.png>
 Package pdftex.def Info: Ch7/f2Dev.png  used on input line 721.
@@ -8780,7 +8911,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [156]
-<Ch7/DEVSCondicional.png, id=2005, 600.83295pt x 432.20294pt>
+<Ch7/DEVSCondicional.png, id=2011, 600.83295pt x 432.20294pt>
 File: Ch7/DEVSCondicional.png Graphic file (type png)
 <use Ch7/DEVSCondicional.png>
 Package pdftex.def Info: Ch7/DEVSCondicional.png  used on input line 889.
@@ -8799,7 +8930,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Package natbib Warning: Citation `poner paper de la jaiio o algo parecido a eso
 ' on page 158 undefined on input line 907.
 
-<Ch7/I.png, id=2011, 878.57648pt x 786.46765pt>
+<Ch7/I.png, id=2017, 878.57648pt x 786.46765pt>
 File: Ch7/I.png Graphic file (type png)
 <use Ch7/I.png>
 Package pdftex.def Info: Ch7/I.png  used on input line 911.
@@ -8831,7 +8962,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 921--923
 
  []
 
-<Ch7/f3Dev.jpg, id=2017, 1284.8pt x 803.0pt>
+<Ch7/f3Dev.jpg, id=2023, 1284.8pt x 803.0pt>
 File: Ch7/f3Dev.jpg Graphic file (type jpg)
 <use Ch7/f3Dev.jpg>
 Package pdftex.def Info: Ch7/f3Dev.jpg  used on input line 942.
@@ -8874,7 +9005,7 @@ l.947 \caption
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<Ch7/f6Dev.png, id=2022, 597.73312pt x 845.40843pt>
+<Ch7/f6Dev.png, id=2029, 597.73312pt x 845.40843pt>
 File: Ch7/f6Dev.png Graphic file (type png)
 <use Ch7/f6Dev.png>
 Package pdftex.def Info: Ch7/f6Dev.png  used on input line 953.
@@ -8964,7 +9095,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [164]
-<Ch9/f1.png, id=2044, 816.22588pt x 342.92824pt>
+<Ch9/f1.png, id=2050, 816.22588pt x 342.92824pt>
 File: Ch9/f1.png Graphic file (type png)
 <use Ch9/f1.png>
 Package pdftex.def Info: Ch9/f1.png  used on input line 144.
@@ -9004,7 +9135,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [166 <./Ch9/f1.png (PNG copy)>]
-<Ch9/f2.png, id=2055, 600.83295pt x 432.20294pt>
+<Ch9/f2.png, id=2061, 600.83295pt x 432.20294pt>
 File: Ch9/f2.png Graphic file (type png)
 <use Ch9/f2.png>
 Package pdftex.def Info: Ch9/f2.png  used on input line 218.
@@ -9045,7 +9176,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [168 <./Ch9/f2.png (PNG copy)>]
-<Ch9/f3.png, id=2064, 878.57648pt x 779.38235pt>
+<Ch9/f3.png, id=2070, 878.57648pt x 779.38235pt>
 File: Ch9/f3.png Graphic file (type png)
 <use Ch9/f3.png>
 Package pdftex.def Info: Ch9/f3.png  used on input line 283.
@@ -9088,7 +9219,7 @@ Overfull \hbox (14.13086pt too wide) in paragraph at lines 347--347
 ^Ses de UWATc 
  []
 
-<Ch9/f4.png, id=2073, 664.4825pt x 492.84125pt>
+<Ch9/f4.png, id=2079, 664.4825pt x 492.84125pt>
 File: Ch9/f4.png Graphic file (type png)
 <use Ch9/f4.png>
 Package pdftex.def Info: Ch9/f4.png  used on input line 381.
@@ -9129,7 +9260,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [172 <./Ch9/f4.png>]
-<Ch9/f5.png, id=2083, 200.75pt x 200.75pt>
+<Ch9/f5.png, id=2089, 200.75pt x 200.75pt>
 File: Ch9/f5.png Graphic file (type png)
 <use Ch9/f5.png>
 Package pdftex.def Info: Ch9/f5.png  used on input line 425.
@@ -9180,7 +9311,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [175]
-<Ch9/f11.png, id=2096, 587.19376pt x 333.245pt>
+<Ch9/f11.png, id=2102, 587.19376pt x 333.245pt>
 File: Ch9/f11.png Graphic file (type png)
 <use Ch9/f11.png>
 Package pdftex.def Info: Ch9/f11.png  used on input line 598.
@@ -9211,7 +9342,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [176 <./Ch9/f11.png (PNG copy)>]
-<Ch9/f12.png, id=2101, 589.20125pt x 253.94875pt>
+<Ch9/f12.png, id=2107, 589.20125pt x 253.94875pt>
 File: Ch9/f12.png Graphic file (type png)
 <use Ch9/f12.png>
 Package pdftex.def Info: Ch9/f12.png  used on input line 648.
@@ -9256,7 +9387,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 690.
 
-<Ch9/f13.png, id=2111, 756.8275pt x 442.65375pt>
+<Ch9/f13.png, id=2117, 756.8275pt x 442.65375pt>
 File: Ch9/f13.png Graphic file (type png)
 <use Ch9/f13.png>
 Package pdftex.def Info: Ch9/f13.png  used on input line 706.
@@ -9288,7 +9419,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [179 <./Ch9/f13.png>]
-<Ch9/f14.png, id=2116, 620.3175pt x 389.455pt>
+<Ch9/f14.png, id=2122, 620.3175pt x 389.455pt>
 File: Ch9/f14.png Graphic file (type png)
 <use Ch9/f14.png>
 Package pdftex.def Info: Ch9/f14.png  used on input line 742.
@@ -9319,7 +9450,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [180 <./Ch9/f14.png>]
-<Ch9/f15.png, id=2121, 963.6pt x 602.25pt>
+<Ch9/f15.png, id=2127, 963.6pt x 602.25pt>
 File: Ch9/f15.png Graphic file (type png)
 <use Ch9/f15.png>
 Package pdftex.def Info: Ch9/f15.png  used on input line 779.
@@ -10573,7 +10704,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.990 San Martı́
+l.994 San Martı́
                   n, P., Sartorio, A., Guarnieri, G., Rodriguez, G.:
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -10587,7 +10718,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.991 Hacia un dispositivo hipermedial diná
+l.995 Hacia un dispositivo hipermedial diná
                                              mico. Educación e In-
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -10601,7 +10732,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.991 ...sitivo hipermedial dinámico. Educació
+l.995 ...sitivo hipermedial dinámico. Educació
                                                   n e In-
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -10615,7 +10746,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.992 vestigació
+l.996 vestigació
                   n para el campo audiovisual interactivo. Universi-
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -10629,8 +10760,8 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.997 Sartorio, A.; Cristiá
-                             , M.: First Approximation to DHD De-
+l.1001 Sartorio, A.; Cristiá
+                              , M.: First Approximation to DHD De-
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -10643,7 +10774,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1003 de Revisió
+l.1007 de Revisió
                    n para el soporte de información de contexto en
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -10657,7 +10788,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1003 ...visión para el soporte de informació
+l.1007 ...visión para el soporte de informació
                                                   n de contexto en
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -10671,16 +10802,25 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1005 de la Computació
+l.1009 de la Computació
                          n, CACIC 2007, Universidad Nacional del
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+LaTeX Info: Redefining \. on input line 1016.
+LaTeX Info: Redefining \% on input line 1016.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[201]
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1012 \end{thebibliography}
+l.1016 \end{thebibliography}
                             
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -10698,7 +10838,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[201]
+[202]
 
 Package natbib Warning: There were undefined citations.
 
@@ -10720,10 +10860,10 @@ or  <return>  to continue without it.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
-(./SartorioTesis.aux (./titlepage.aux)
-LaTeX Info: Redefining \. on input line 24.
-LaTeX Info: Redefining \% on input line 24.
- (./Ch0/chap0.aux) (./DHD/DHD.aux)
+(./SartorioTesis.aux
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
+ (./titlepage.aux) (./Ch0/chap0.aux) (./DHD/DHD.aux)
 (./Ch1/chap1.aux) (./Ch2/chap2.aux) (./Ch4/chap45.aux
 ! Missing \endcsname inserted.
 <to be read again> 
@@ -10740,8 +10880,23 @@ l.9 ...n}{{5.1}{97}{Introducción}{section.5.1}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
-) (./Ch5/chap5.aux) (./Ch7/chap7.aux) (./Ch9/chap9.aux) (./Ch8/chap8.aux)
-(./Biblio/biblio.aux
+) (./Ch5/chap5.aux) (./Ch7/chap7.aux
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.73 ... un caso de uso}{subsubsection.7.5.2.3}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Extra \endcsname.
+\@newl@bel ... \bbl@tempa \csname #1@#2\endcsname 
+                                                  \def \bbl@tempb {#3}\@safe...
+l.73 ... un caso de uso}{subsubsection.7.5.2.3}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+) (./Ch9/chap9.aux) (./Ch8/chap8.aux) (./Biblio/biblio.aux
 
 Package natbib Warning: Citation(s) may have changed.
 (natbib)                Rerun to get citations correct.
@@ -10763,13 +10918,18 @@ LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
 
-Overfull \hbox (587.65242pt too wide) in paragraph at lines 9--96
+Overfull \hbox (86.70995pt too wide) in paragraph at lines 9--96
 []\OT1/cmss/m/n/10 ^^Son                                                       
                                                                                
+                                                  ^^Son
+ []
+
+
+Overfull \hbox (248.01506pt too wide) in paragraph at lines 9--96
+\OT1/cmss/m/n/10 en un ca-so de uso                                            
                                                                                
                                                                                
-                                                                               
-                                            
+                                 
  []
 
  )
@@ -10779,13 +10939,13 @@ Overfull \hbox (587.65242pt too wide) in paragraph at lines 9--96
 ### semi simple group (level 1) entered at line 1272 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 12911 strings out of 494861
- 182975 string characters out of 6178803
- 303685 words of memory out of 5000000
- 15311 multiletter control sequences out of 15000+600000
+ 12918 strings out of 494861
+ 183074 string characters out of 6178803
+ 303911 words of memory out of 5000000
+ 15316 multiletter control sequences out of 15000+600000
  20074 words of font info for 78 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 42i,13n,43p,2855b,1425s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,43p,2855b,1516s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/ale/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/
 ecss2986.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
@@ -10808,10 +10968,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/latxfont/lasy9.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msam10.pfb>
-Output written on SartorioTesis.pdf (210 pages, 3048376 bytes).
+Output written on SartorioTesis.pdf (212 pages, 3049713 bytes).
 PDF statistics:
- 2511 PDF objects out of 2984 (max. 8388607)
- 2144 compressed objects within 22 object streams
- 560 named destinations out of 1000 (max. 500000)
+ 2521 PDF objects out of 2984 (max. 8388607)
+ 2152 compressed objects within 22 object streams
+ 562 named destinations out of 1000 (max. 500000)
  1504 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -625,45 +625,37 @@ implementación de los contratos no debe alterar el diseño y funcionalidad en
 la implementación de los objetos.
 
 
+\textcolor{red}{completar}
+
+
+
 \section{Condicionales especiales para las reglas de los contratos}
+
+% todo: definir obra abierta
+
+La posibilidad de incorporar contratos sensibles al contexto en los servicios de las herramientas de una plataforma e-learning, pone en relevancia la importancia de las reglas de los contratos. En cierta medida, las reglas representarán gran parte de la lógica de negocio de las propiedades nuevas de adaptación que obtendrán los servicios originales de las plataformas. De esta manera, los condicionales de esas reglas constituyen un componente principal a tener en cuenta en las decisiones de diseño e implementación.
+
+Para un mejor entendimiento de este concepto se describe, a partir de un caso de uso concreto, características y relaciones que se producen en un ambiente e-learning al utilizar una determinada herramienta, que as sus vez, contiene servicios con conexiones a contratos, provisto con sus correspondientes reglas, en las que aparecen condicionales.  
+
 
 En las implementaciones de campo de cursos de nivel superior realizadas por
 el equipo de “Obra abierta”, uno de los recursos primarios que los educadores
-utilizaban era el registro de actividades de la plataforma. Podemos ahora considerar
-una información de contexto, a un valor cuantitativo que resignifique
-una característica del comportamiento de un usuario, tal como lo expusimos
-en el \ref{}.
+utilizaban era el recurso registro de actividades de la plataforma e-learning; por lo general, este recurso es administrado con una herramienta denominada ''Registro de Actividades``.  La información que provienen de estos recursos será considerar como información de contexto perteneciente al entorno, y valores cuantitativo que resignifiquen una característica del comportamiento de un usuario, tal como se expuso en el trabajo \ref{paper_de_condicionales} 
 
-Consultar los registros de actividades es una práctica muy usual para obtener
-información sobre el “grado” de interactividad que los usuarios tienen en el
-marco del dispositivo hipermedial. En los casos más básicos, existe una estructura
-de “planilla” (filas y columnas) en las que se detallan los registros con los
-siguientes campos: fecha, hora, usuario, tareas realizadas. Las tareas pueden estar
-significadas con valores literales como: “visitas al foro”, “visualización de perfiles
-de usuarios”, “obtención de recursos”, “modificación datos de la wiki”, etcétera.
 
-El “grado” de interactividad como información de contexto fue observado
-específicamente durante la experiencia de taller expuesta en el capítulo IV
-bajo el título “Un diseño de taller físico-virtual-interactivo-comunicacional”.
-Retomando esta temática y atendiendo a la posibilidad de usar la información
-de interactividad como parámetro context-aware de los contratos según lo referido
-en “Elementos de la componente contrato”, de este mismo capítulo,
-podremos establecer un lazo de retroalimentación entre las prácticas efectuadas
-en la plataforma Moodle, establecidas en el registro de actividades y las
-acciones que devengan de los contratos.
-En esta sección utilizaremos un modelo particular de métrica y una propuesta
-de integración de dicho modelo al framework del dispositivo hipermedial
-dinámico a través de los contratos context-aware.
+Consultar los registros de actividades es una gesto muy usual para obtener
+información sobre el “grado” de interactividad que los usuarios \cite{arqDHD3} tienen, basadas en las definiciones de interacción del concepto de Dispositivo Hipermedial. En los casos más básicos, existe una estructura tipo “planilla” (filas y columnas) en las que se detallan los registros con los siguientes campos: fecha, hora, usuario, tareas realizadas. Las tareas pueden estar significadas con valores explícitos como: “visitas al foro”, “visualización de perfiles de usuarios”, “obtención de recursos”, “modificación datos de la wiki”, etcétera.
+
+Ahora se tomará como referencia de ejemplo un trabajo de campo realizado bajo la dirección de la Dra. Patricia San Martín. Para este caso, se tomó la información extraídas de los registros de actividades de un ambiente e-learning (“grado” de interactividad), como información de contexto. Esta metodología se aplicó específicamente durante una experiencia de taller, expuesta en el capítulo IV de \cite{DHD} bajo el título “Un diseño de taller físico-virtual-interactivo-comunicacional”.
+
+En base a esta estrategia, se propone usar la información de interactividad como parámetro ''context-awareness'' de los contratos según lo referido en “Elementos de la componente contrato”, de ese mismo capítulo, podremos establecer un lazo de retroalimentación entre las prácticas efectuadas, por usuarios y la adaptación de los servicios de las herramientas. En este experiencia, se utilizó un ambiente e-learning de Moodle \cite{Moodle}, la información de las actividades de los usuarios fué administrada por la herramienta denominada ``Registro de Actividades de Moodle''. De esta manera, el lazo de retroalimentación mencionado se produce por la ejecución automáticas de los comandos ejecutados a través de los servicios, debido a la intervención de los contratos. Concretamente, este proceso ocurre cuando un servicio es invocado a través de una herramienta y ejecutada por un usuario. Este usuario tiene asociada una información de contexto determinada a través de los datos obtenidos del registro de actividades. En esta secuencia, interviene el contrato para decir cuales son las acciones que se deben efectuar. Esta decisión se toma en función de las reglas que configuran el contrato; aquí es donde intervienen los condicionales de las reglas, dependiendo los valores de verdad en cada instancia de evaluación. Ahora bien, si esos valores depende de la información de contexto, entonces deberán ser calculada con un mecanismo especializado para este propósito. En esta sección utilizaremos un modelo particular de métrica que permita calcular los valores de verdad de los condicionales, y una propuesta de integración de un mecanismo que se acople al modelo al framework del dispositivo hipermedial dinámico a través de los contratos sensibles al contexto.
+
 
 
 
 \subsection{MCondicionales}
 
-Para atender a los requerimientos anteriores, en primer lugar contamos con la
-aplicación Moodle con el agregado de la componente adicional contrato. El
-contrato fue incorporado a la herramienta foro de Moodle, mediante un prototipo
-experimental siguiendo el modelo arquitectónico desarrollado en el
-capítulo \ref{}.
+Ahora se clasificarán los condicionales dependiendo de la métrica de cálculo de sus valores de verdad. Para un mejor entendimiento, se sigue con la idea de aplicación de los requerimientos y objetivos anteriores. En primer lugar contamos con un ambiente e-learning de la aplicación Sakai con el agregado de la componente contrato sensible al contexto. En este caso, se toma como referencia la herramienta foro de Sakai con las configuraciones e infraestructura definidas en la sección \ref{sec:arqDHD}.
 
 Cabe destacar que, si bien lo fundamentado sobre el agregado de la componente
 contrato a la arquitectura original de la plataforma está referido al
