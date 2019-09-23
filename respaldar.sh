@@ -3,5 +3,5 @@ cd /home/ale/Ale/Respado Maquina Vieja/UbuntuRespaldo/Doctorado/Tesi - Mi tesi/T
 echo "Respaldando"
 git add .
 git commit -m "rutina"
-git push -u tesis2 master
+git push --force -u tesis2 master
 echo "Terminamos. Pulse una tecla para continuar"
