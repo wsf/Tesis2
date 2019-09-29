@@ -651,43 +651,44 @@ Ahora se tomará como referencia de ejemplo un trabajo de campo realizado bajo l
 En base a esta estrategia, se propone usar la información de interactividad como parámetro ''context-awareness'' de los contratos según lo referido en “Elementos de la componente contrato”, de ese mismo capítulo, podremos establecer un lazo de retroalimentación entre las prácticas efectuadas, por usuarios y la adaptación de los servicios de las herramientas. En este experiencia, se utilizó un ambiente e-learning de Moodle \cite{Moodle}, la información de las actividades de los usuarios fué administrada por la herramienta denominada ``Registro de Actividades de Moodle''. De esta manera, el lazo de retroalimentación mencionado se produce por la ejecución automáticas de los comandos ejecutados a través de los servicios, debido a la intervención de los contratos. Concretamente, este proceso ocurre cuando un servicio es invocado a través de una herramienta y ejecutada por un usuario. Este usuario tiene asociada una información de contexto determinada a través de los datos obtenidos del registro de actividades. En esta secuencia, interviene el contrato para decir cuales son las acciones que se deben efectuar. Esta decisión se toma en función de las reglas que configuran el contrato; aquí es donde intervienen los condicionales de las reglas, dependiendo los valores de verdad en cada instancia de evaluación. Ahora bien, si esos valores depende de la información de contexto, entonces deberán ser calculada con un mecanismo especializado para este propósito. En esta sección utilizaremos un modelo particular de métrica que permita calcular los valores de verdad de los condicionales, y una propuesta de integración de un mecanismo que se acople al modelo al framework del dispositivo hipermedial dinámico a través de los contratos sensibles al contexto.
 
 
-
-
 \subsection{MCondicionales}
 
 
-Ahora se clasificarán los condicionales dependiendo de la métrica de cálculo de sus valores de verdad. Para un mejor entendimiento, se sigue con la idea de aplicación de los requerimientos y objetivos anteriores. En primer lugar contamos con un ambiente e-learning de la aplicación Sakai con el agregado de la componente contrato sensible al contexto. En este caso, se toma como referencia la herramienta foro de Sakai con las configuraciones e infraestructura definidas en la sección \ref{sec:arqDHD}. El framework que instrumenta Sakai, desde el punto de vista tecnológico, contiene los mismos conceptos que Moodle, con lo cual es posible continuar con el ejemplo de la información de contexto obtenida del registro de actividades. 
+Ahora se clasificarán los condicionales dependiendo de la métrica de cálculo de sus valores de verdad. Para un mejor entendimiento, se sigue con la idea de aplicación de los requerimientos y objetivos anteriores. En primer lugar contamos con un ambiente e-learning de la aplicación Sakai con el agregado de la componente contrato sensible al contexto. En este caso, se toma como referencia la herramienta foro de Sakai, con las configuraciones e infraestructura definidas en la sección \ref{sec:arqDHD}. El framework que instrumenta Sakai, desde el punto de vista tecnológico, contiene los mismos conceptos que Moodle, con lo cual es posible continuar con el ejemplo de la información de contexto obtenida del registro de actividades. 
 
 
-Continuamos con la descripción de los elementos e información necesaria para el diseño de los mecanismos de métrica que fueron usado como parte esencial de las reglas de los contratos, tomando como referencia un modelo de estandarización bien definido. Particularmente, la métrica formará parte del
-condicional de las reglas del contrato. A estos tipos de condicionales los denominaremos:
-“Mcondicional”. Conceptualmente no existe diferencia entre un Mcondicional y una
-condición común, los valores de verdad de ambos pueden depender de la invocación
-de métodos o funciones programadas para el sistema y colaborarán en la
-articulación de la ejecución de acciones (servicios y procesos computacionales).
+Continuamos con la descripción de los elementos e información necesaria para el diseño de los mecanismos de métrica que fueron usado como parte esencial de las reglas de los contratos, tomando como referencia un modelo de estandarización bien definido. Particularmente, la métrica formará parte del condicional de las reglas del contrato. A estos tipos de condicionales los denominaremos textbf{Mcondicional}. Conceptualmente no existe diferencia entre un Mcondicional y una condición común, los valores de verdad de ambos pueden depender de la invocación de métodos o funciones programadas para el sistema y colaborarán en la articulación de la ejecución de acciones (servicios y procesos computacionales). 
 
-Al incorporar las métricas en el modelo original de contratos contextaware,
-proponemos que el sistema sea más adaptable a nuevos cambios del contexto de
-usuario (por ejemplo, en concordancia con el tipo de interacción de la
-herramienta foro). Esto implica que las reglas que se pueden establecer
-para el contrato se formulan en el marco de la complejidad de los procesos
-didácticos (o investigativos y/o productivos), entendiendo que los mismos
-siempre exceden la posibilidad de ser absolutamente reglados. Por lo tanto, las
-mencionadas reglas estarán singularizadas en función de la dinámica de dichos
-procesos, debiendo ser explícitas y de clara implementación y por sobre todo,
-adaptables para los contextos específicos de los usuarios (en este caso, estudiantes
-a nivel de grado).
+Al incorporar el concepto de métricas en contratos sensibles al contexto asociados a una herramienta de Sakai, concede que el sistema sea más adaptable a nuevos cambios del contexto de usuario. Si nos focalizamos en las interacciones de la herramienta Foro \footnote{La herramienta Foro de Sakai es un módulo de la aplicación diseñada para que un usuario instructor, o líder de un espacio e-learning, pueda crear espacios de discusión organizado con posibilidad de integrar contenidos de otras herramientas del mismo espacio. Es obligatorio mantener un orden basados en tópicos y categorías. Las intervenciones de los usuarios ocurren en formatos de hilos conversacionales a través publicaciones tipo post. Las conversaciones pueden ser creadas por usuarios estudiantes y moderadas por usuarios docentes.} de Sakai dentro de la complejidad de un proceso didáctico del estilo \hyperref[ProdA]{(ProdA)} (o investigativos y/o productivos), es posible que no siempre se puedan definir reglas de contratos para satisfacer propiedades de adaptación. Por lo tanto, el diseño y concepción de las reglas estarán singularizadas en función de la dinámica del proceso ProdA, debiendo ser explícitas y de clara implementación y por sobre todo, adaptables para los contextos específicos de los usuarios (en este caso de estudio, estudiantes a nivel de grado).
 
-El primer paso es lograr la explicitación de las reglas del contrato y que
-los condicionales representen criterios de decisiones sobre aspectos relevantes
-del proceso didáctico (investigativo o productivo). Por ejemplo, un estudiante
-puede adquirir un servicio determinado de una herramienta, previo a la
-evaluación de una condición representada como condicional de una regla.
-En general, a estas reglas debemos diseñarlas con el cuidado de no incorporar
-redundancias, ambigüedades o incoherencias, tanto entre las propias
-reglas de un contrato como con otras reglas implícitas que se desprenden de
-los servicios. De esta manera, definimos las reglas del contrato como un conjunto
-de condiciones, acciones y prioridades.
+
+El primer paso es lograr la explicitación de las reglas del contrato y que los condicionales representen criterios de decisiones sobre aspectos relevantes del proceso didáctico (investigativo o productivo). Por ejemplo, un estudiante puede adquirir un servicio determinado de una herramienta, previo a la evaluación de una condición representada como condicional de una regla del contrato. En general, a estas reglas deben ser diseñadas con el cuidado de no incorporar
+redundancias, ambigüedades o incoherencias, tanto entre las propias reglas de un contrato como con otras reglas implícitas inherentes de los servicios relacionados. De esta manera, definimos las reglas del contrato como un conjunto de condiciones, acciones y prioridades.
+
+Para una mejor interpretación de como está conformadas las reglas, se establece una caracterización gramatical para identificar a los elementos que la componen:
+
+\begin{center}
+ 
+
+\begin{figure}
+
+
+Una regla es una relación entre condicionales y acciones del estilo \Re: \mathbb{C} \rightarrow \mathbb{A}. 
+
+\mathbb{C} es el conjunto de todos los posibles condicionales. 
+\mathbb{A} es el el conjunto de todas las posibles acciones que se pueden  invocar desde un contrato. 
+
+Las acciones 
+
+dsdss
+R:
+
+\label{fig:representación_reglas}
+\end{figure}
+
+
+\end{center}
+
 
 La condición es un expresión Boolean sobre relaciones (mayor, menor,
 igual, distinto, etc.) entre parámetros y valores concretos.
