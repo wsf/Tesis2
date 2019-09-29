@@ -3,8 +3,12 @@
 
 \setcounter{tocdepth}{5}
 
+%\setcounter{secnumdepth}{0}
+
+
 %
 %\includeonly{titlepage,acknowledgements,abstract,glossary,variables,Ch0/chap0,Ch1/chap1} %,Ch2/chap2,Ch3/chap3} %Appendix/appendixa}
+
 %
 \begin{document}
 % ----- cambia enunciado Cuadros por Tabla -----------
@@ -43,48 +47,50 @@ xxxxx
 %\include{variables}
     
 % ---- Lista de contenidos, figuras y tablas ----
-\tableofcontents 
+\tableofcontents
+
+%\tableofcontents 
 %\listoffigures 
 %\listoftables
 
 \renewcommand{\baselinestretch}{1.2} % cambio el interlineado
 
 % 1)-- Archivo Cap{\'\i}tulo N� 0 1 \chapter{Introduction}  -- % Corregido --
-%%%%%\include{Ch0/chap0}
+\include{Ch0/chap0}
 
 % 2).
-%%%%%\include{DHD/DHD}
+\include{DHD/DHD}
 
 % 3)-- Archivo Cap{\'\i}tulo N� 1  \chapter{State of the Art}  -- % Corregido --
-%%%%%\include{Ch1/chap1}
+\include{Ch1/chap1}
 
 % 4)-- Archivo Cap{\'\i}tulo N� 2  \chapter{Target Models and Architectures} -- % Corregido --
-%%\include{Ch2/chap2}
+\include{Ch2/chap2}
 
 % 5)-- Archivo Cap{\'\i}tulo N� 4 \chapter{Context Aware Contract} -
 %\include{Ch4/chap4}
-%\include{Ch4/chap45}
+\include{Ch4/chap45}
 
-% 6)-- Archivo Cap{\'\i}tulo N� 5  \chapter{Framewrok to Implemet Context Aware Contract in E-learning Environment}-- 
-%%\include{Ch5/chap5}
+
+                                % 6)-- Archivo Cap{\'\i}tulo N� 5  \chapter{Framewrok to Implemet Context Aware Contract in E-learning Environment}-- 
+                                %%\include{Ch5/chap5}
 
 % -- Archivo Cap{\'\i}tulo N� 6 \chapter{Design Frameworks for Context Aware Contract Web E-learning Application} --
-%%%%%\include{Ch6/chap6}
+\include{Ch6/chap6}
 
 % 7)-- Archivo Cap{\'\i}tulo N� 7 \chapter{A Case Study of DHD Framework Implementation} --
-%%%%%\include{Ch7/chap7}
+\include{Ch7/chap7}
 
 %Otras implementacions de los ContratosDHD
 
 % 8) -- Archivo Cap{\'\i}tulo N� 9 \chapter{Further Works}
-%%%%%\include{Ch9/chap9}
+\include{Ch9/chap9}
 
 % 8)-- Archivo Cap{\'\i}tulo N� 8 \chapter{Conclusions}
-%%%%%\include{Ch8/chap8}
+%%%%\include{Ch8/chap8}
 
 % 9) -- Archivo Cap{\'\i}tulo N� 8 \chapter{Conclusions}
-%%%%%\include{Biblio/biblio}
-
+\include{Biblio/biblio}
 
 % ----- Archivo Ap{\'e}ndice -----
 %\include{Appendix/appendixa}

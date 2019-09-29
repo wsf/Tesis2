@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  29 SEP 2019 00:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  29 SEP 2019 01:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**SartorioTesis22.tex
-(./SartorioTesis22.tex
+**SartorioTesis.tex
+(./SartorioTesis.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 6 language(s) loaded.
 (./preamble.tex (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -868,23 +868,23 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 )
-No file SartorioTesis22.aux.
-\openout1 = `SartorioTesis22.aux'.
+No file SartorioTesis.aux.
+\openout1 = `SartorioTesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count141
@@ -900,7 +900,7 @@ LaTeX Font Info:    ... okay on input line 10.
 \everyMPtoPDFconversion=\toks41
 )
 \AtBeginShipoutBox=\box38
-Package hyperref Info: Link coloring OFF on input line 10.
+Package hyperref Info: Link coloring OFF on input line 13.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -909,14 +909,16 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count147
 )
-LaTeX Info: Redefining \ref on input line 10.
-LaTeX Info: Redefining \pageref on input line 10.
-LaTeX Info: Redefining \nameref on input line 10.
-\@outlinefile=\write3
-\openout3 = `SartorioTesis22.out'.
+LaTeX Info: Redefining \ref on input line 13.
+LaTeX Info: Redefining \pageref on input line 13.
+LaTeX Info: Redefining \nameref on input line 13.
 
-LaTeX Info: Redefining \. on input line 10.
-LaTeX Info: Redefining \% on input line 10.
+(./SartorioTesis.out) (./SartorioTesis.out)
+\@outlinefile=\write3
+\openout3 = `SartorioTesis.out'.
+
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
@@ -1004,15 +1006,18 @@ LaTeX Font Warning: Font shape `OT1/augie/m/n' undefined
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) [2
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 47.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-\tf@toc=\write4
-\openout4 = `SartorioTesis22.toc'.
 
- [3
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
+\tf@toc=\write4
+\openout4 = `SartorioTesis.toc'.
+
+[3
 
 ]
 \openout2 = `Ch0/chap0.aux'.
@@ -1096,7 +1101,7 @@ Package natbib Warning: Citation `cap1.3' on page 3 undefined on input line 38.
 
 LaTeX Warning: Reference `fig:Proda' on page 3 undefined on input line 38.
 
-<Ch0/ProdA.jpg, id=41, 615.29875pt x 305.14pt>
+<Ch0/ProdA.jpg, id=626, 615.29875pt x 305.14pt>
 File: Ch0/ProdA.jpg Graphic file (type jpg)
 <use Ch0/ProdA.jpg>
 Package pdftex.def Info: Ch0/ProdA.jpg  used on input line 45.
@@ -1430,7 +1435,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-<Ch0/EstructuraSolucion.jpg, id=106, 588.1975pt x 201.75375pt>
+<Ch0/EstructuraSolucion.jpg, id=689, 588.1975pt x 201.75375pt>
 File: Ch0/EstructuraSolucion.jpg Graphic file (type jpg)
 <use Ch0/EstructuraSolucion.jpg>
 Package pdftex.def Info: Ch0/EstructuraSolucion.jpg  used on input line 528.
@@ -1482,7 +1487,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: Reference `fig:contratosv1' on page 16 undefined on input line 6
 15.
 
-<Ch0/PiramideDHD.jpg, id=118, 355.3275pt x 355.3275pt>
+<Ch0/PiramideDHD.jpg, id=700, 355.3275pt x 355.3275pt>
 File: Ch0/PiramideDHD.jpg Graphic file (type jpg)
 <use Ch0/PiramideDHD.jpg>
 Package pdftex.def Info: Ch0/PiramideDHD.jpg  used on input line 623.
@@ -1518,8 +1523,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17])
-LaTeX Info: Redefining \. on input line 57.
-LaTeX Info: Redefining \% on input line 57.
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1637,7 +1642,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-<DHD/hiperplanosDHD.png, id=161, 511.9125pt x 398.23781pt>
+<DHD/hiperplanosDHD.png, id=735, 511.9125pt x 398.23781pt>
 File: DHD/hiperplanosDHD.png Graphic file (type png)
 <use DHD/hiperplanosDHD.png>
 Package pdftex.def Info: DHD/hiperplanosDHD.png  used on input line 173.
@@ -1788,7 +1793,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31]
-<DHD/ProcesoIngRequisitos.png, id=217, 729.7853pt x 770.88pt>
+<DHD/ProcesoIngRequisitos.png, id=786, 729.7853pt x 770.88pt>
 File: DHD/ProcesoIngRequisitos.png Graphic file (type png)
 <use DHD/ProcesoIngRequisitos.png>
 Package pdftex.def Info: DHD/ProcesoIngRequisitos.png  used on input line 617.
@@ -1974,7 +1979,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<DHD/RequerimientosDHD.png, id=232, 991.94118pt x 470.46353pt>
+<DHD/RequerimientosDHD.png, id=800, 991.94118pt x 470.46353pt>
 File: DHD/RequerimientosDHD.png Graphic file (type png)
 <use DHD/RequerimientosDHD.png>
 Package pdftex.def Info: DHD/RequerimientosDHD.png  used on input line 732.
@@ -1998,7 +2003,7 @@ LaTeX Warning: Reference `plano3' on page 35 undefined on input line 760.
 LaTeX Warning: Reference `requerimientosdhd' on page 35 undefined on input line
  764.
 
-<DHD/RequerimientosDHD2.png, id=239, 749.62411pt x 358.51588pt>
+<DHD/RequerimientosDHD2.png, id=806, 749.62411pt x 358.51588pt>
 File: DHD/RequerimientosDHD2.png Graphic file (type png)
 <use DHD/RequerimientosDHD2.png>
 Package pdftex.def Info: DHD/RequerimientosDHD2.png  used on input line 777.
@@ -2015,8 +2020,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [35 <./DHD/RequerimientosDHD.png>])
-LaTeX Info: Redefining \. on input line 60.
-LaTeX Info: Redefining \% on input line 60.
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2075,7 +2080,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<Ch1/Figuras/contexto.png, id=258, 755.29236pt x 467.62941pt>
+<Ch1/Figuras/contexto.png, id=821, 755.29236pt x 467.62941pt>
 File: Ch1/Figuras/contexto.png Graphic file (type png)
 <use Ch1/Figuras/contexto.png>
 Package pdftex.def Info: Ch1/Figuras/contexto.png  used on input line 45.
@@ -2130,12 +2135,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39 <./Ch1/Figuras/contexto.png>]
-<Ch1/Figuras/RolesSakai.jpg, id=277, 652.4375pt x 202.7575pt>
+<Ch1/Figuras/RolesSakai.jpg, id=838, 652.4375pt x 202.7575pt>
 File: Ch1/Figuras/RolesSakai.jpg Graphic file (type jpg)
 <use Ch1/Figuras/RolesSakai.jpg>
 Package pdftex.def Info: Ch1/Figuras/RolesSakai.jpg  used on input line 121.
 (pdftex.def)             Requested size: 289.08437pt x 144.54356pt.
-<Ch1/Figuras/RolesSakai2.jpg, id=278, 547.04375pt x 257.96375pt>
+<Ch1/Figuras/RolesSakai2.jpg, id=839, 547.04375pt x 257.96375pt>
 File: Ch1/Figuras/RolesSakai2.jpg Graphic file (type jpg)
 <use Ch1/Figuras/RolesSakai2.jpg>
 Package pdftex.def Info: Ch1/Figuras/RolesSakai2.jpg  used on input line 131.
@@ -2276,7 +2281,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [41]
-<Ch1/Figuras/ContextoDHD.png, id=295, 40.7121pt x 21.07875pt>
+<Ch1/Figuras/ContextoDHD.png, id=853, 40.7121pt x 21.07875pt>
 File: Ch1/Figuras/ContextoDHD.png Graphic file (type png)
 <use Ch1/Figuras/ContextoDHD.png>
 Package pdftex.def Info: Ch1/Figuras/ContextoDHD.png  used on input line 237.
@@ -2347,7 +2352,7 @@ LaTeX Warning: Hyper reference `contextodhd' on page 45 undefined on input line
 LaTeX Warning: Reference `fig:evolucion' on page 45 undefined on input line 436
 .
 
-<Ch1/MEvolutivo.png, id=319, 26.499pt x 27.34215pt>
+<Ch1/MEvolutivo.png, id=873, 26.499pt x 27.34215pt>
 File: Ch1/MEvolutivo.png Graphic file (type png)
 <use Ch1/MEvolutivo.png>
 Package pdftex.def Info: Ch1/MEvolutivo.png  used on input line 442.
@@ -2459,7 +2464,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: Reference `fig:deytoolkit' on page 54 undefined on input line 10
 09.
 
-<Ch1/f2.jpg, id=368, 325.96782pt x 260.47313pt>
+<Ch1/f2.jpg, id=912, 325.96782pt x 260.47313pt>
 File: Ch1/f2.jpg Graphic file (type jpg)
 <use Ch1/f2.jpg>
 Package pdftex.def Info: Ch1/f2.jpg  used on input line 1016.
@@ -2491,7 +2496,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [55 <./Ch1/f2.jpg>]
-<Ch1/Figuras/UWAFramework2.png, id=379, 623.32875pt x 383.93437pt>
+<Ch1/Figuras/UWAFramework2.png, id=922, 623.32875pt x 383.93437pt>
 File: Ch1/Figuras/UWAFramework2.png Graphic file (type png)
 <use Ch1/Figuras/UWAFramework2.png>
 Package pdftex.def Info: Ch1/Figuras/UWAFramework2.png  used on input line 1125
@@ -2546,13 +2551,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Package natbib Warning: Citation `uwa.7' on page 59 undefined on input line 130
 0.
 
-<Ch1/Figuras/ScopeCustomisation.png, id=401, 344.78813pt x 214.55156pt>
+<Ch1/Figuras/ScopeCustomisation.png, id=937, 344.78813pt x 214.55156pt>
 File: Ch1/Figuras/ScopeCustomisation.png Graphic file (type png)
 <use Ch1/Figuras/ScopeCustomisation.png>
 Package pdftex.def Info: Ch1/Figuras/ScopeCustomisation.png  used on input line
  1323.
 (pdftex.def)             Requested size: 361.35428pt x 216.8132pt.
-<Ch1/Figuras/UWAEventModel.png, id=402, 570.63188pt x 307.1475pt>
+<Ch1/Figuras/UWAEventModel.png, id=938, 570.63188pt x 307.1475pt>
 File: Ch1/Figuras/UWAEventModel.png Graphic file (type png)
 <use Ch1/Figuras/UWAEventModel.png>
 Package pdftex.def Info: Ch1/Figuras/UWAEventModel.png  used on input line 1333
@@ -2777,8 +2782,8 @@ LaTeX Warning: Reference `sec:contextodhd' on page 61 undefined on input line 1
 LaTeX Warning: Reference `sec:sca' on page 61 undefined on input line 1410.
 
 )
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3258,7 +3263,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [77]
-<Ch2/f1.png, id=503, 596.2275pt x 515.9275pt>
+<Ch2/f1.png, id=1025, 596.2275pt x 515.9275pt>
 File: Ch2/f1.png Graphic file (type png)
 <use Ch2/f1.png>
 Package pdftex.def Info: Ch2/f1.png  used on input line 736.
@@ -3383,7 +3388,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [86]
-<Ch2/ArqDHD2.png, id=552, 585.18625pt x 259.97125pt>
+<Ch2/ArqDHD2.png, id=1065, 585.18625pt x 259.97125pt>
 File: Ch2/ArqDHD2.png Graphic file (type png)
 <use Ch2/ArqDHD2.png>
 Package pdftex.def Info: Ch2/ArqDHD2.png  used on input line 1156.
@@ -4297,7 +4302,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [89]
-<Ch2/felo.png, id=572, 189.70876pt x 395.4775pt>
+<Ch2/felo.png, id=1083, 189.70876pt x 395.4775pt>
 File: Ch2/felo.png Graphic file (type png)
 <use Ch2/felo.png>
 Package pdftex.def Info: Ch2/felo.png  used on input line 1216.
@@ -4502,7 +4507,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<Ch2/CapaServicio.png, id=580, 440.64626pt x 199.74625pt>
+<Ch2/CapaServicio.png, id=1091, 440.64626pt x 199.74625pt>
 File: Ch2/CapaServicio.png Graphic file (type png)
 <use Ch2/CapaServicio.png>
 Package pdftex.def Info: Ch2/CapaServicio.png  used on input line 1241.
@@ -5480,7 +5485,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [92]
-<Ch2/arqAreas.png, id=592, 603.25375pt x 181.67876pt>
+<Ch2/arqAreas.png, id=1103, 603.25375pt x 181.67876pt>
 File: Ch2/arqAreas.png Graphic file (type png)
 <use Ch2/arqAreas.png>
 Package pdftex.def Info: Ch2/arqAreas.png  used on input line 1344.
@@ -6942,8 +6947,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [95])
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \. on input line 68.
+LaTeX Info: Redefining \% on input line 68.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -6965,7 +6970,7 @@ Cap\'{\i }tulo 5.
 LaTeX Warning: Reference `fig:contratosv2' on page 98 undefined on input line 4
 2.
 
-<Ch4/contrato_conceptual.jpg, id=626, 864.22874pt x 377.41pt>
+<Ch4/contrato_conceptual.jpg, id=1132, 864.22874pt x 377.41pt>
 File: Ch4/contrato_conceptual.jpg Graphic file (type jpg)
 <use Ch4/contrato_conceptual.jpg>
 Package pdftex.def Info: Ch4/contrato_conceptual.jpg  used on input line 46.
@@ -6988,7 +6993,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: Reference `fig:contratov2' on page 99 undefined on input line 73
 .
 
-<Ch4/servicios_coordinados.jpg, id=633, 487.8225pt x 294.09875pt>
+<Ch4/servicios_coordinados.jpg, id=1139, 487.8225pt x 294.09875pt>
 File: Ch4/servicios_coordinados.jpg Graphic file (type jpg)
 <use Ch4/servicios_coordinados.jpg>
 Package pdftex.def Info: Ch4/servicios_coordinados.jpg  used on input line 80.
@@ -7171,7 +7176,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: Reference `fig:toolkit' on page 107 undefined on input line 436.
 
 
-<Ch4/ContextToolsKit.png, id=676, 21.01852pt x 19.7538pt>
+<Ch4/ContextToolsKit.png, id=1179, 21.01852pt x 19.7538pt>
 File: Ch4/ContextToolsKit.png Graphic file (type png)
 <use Ch4/ContextToolsKit.png>
 Package pdftex.def Info: Ch4/ContextToolsKit.png  used on input line 445.
@@ -7668,7 +7673,7 @@ or  <return>  to continue without it.
 LaTeX Warning: Hyper reference `serviciosDHD' on page 108 undefined on input li
 ne 507.
 
-<Ch4/jcaf.png, id=682, 31.7988pt x 18.12773pt>
+<Ch4/jcaf.png, id=1185, 31.7988pt x 18.12773pt>
 File: Ch4/jcaf.png Graphic file (type png)
 <use Ch4/jcaf.png>
 Package pdftex.def Info: Ch4/jcaf.png  used on input line 513.
@@ -7873,7 +7878,7 @@ ceptable')[]
 
 LaTeX Warning: Reference `' on page 118 undefined on input line 921.
 
-<Ch4/f3.png, id=739, 1204.5pt x 446.37354pt>
+<Ch4/f3.png, id=1234, 1204.5pt x 446.37354pt>
 File: Ch4/f3.png Graphic file (type png)
 <use Ch4/f3.png>
 Package pdftex.def Info: Ch4/f3.png  used on input line 925.
@@ -7902,7 +7907,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [119 <./Ch4/f3.png>]
-<Ch4/f4.jpg, id=750, 599.23875pt x 223.83624pt>
+<Ch4/f4.jpg, id=1244, 599.23875pt x 223.83624pt>
 File: Ch4/f4.jpg Graphic file (type jpg)
 <use Ch4/f4.jpg>
 Package pdftex.def Info: Ch4/f4.jpg  used on input line 999.
@@ -7974,8 +7979,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [122])
-LaTeX Info: Redefining \. on input line 70.
-LaTeX Info: Redefining \% on input line 70.
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -8006,7 +8011,7 @@ Cap\'{\i }tulo 6.
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.77 \include{Ch6/chap6}
+l.79 \include{Ch6/chap6}
                          [1]
 \openout2 = `Ch7/chap7.aux'.
 
@@ -8098,7 +8103,7 @@ l.85
 
 LaTeX Warning: Reference `contratoca' on page 5 undefined on input line 105.
 
-<Ch7/contratoca.png, id=801, 851.18pt x 418.56375pt>
+<Ch7/contratoca.png, id=1283, 851.18pt x 418.56375pt>
 File: Ch7/contratoca.png Graphic file (type png)
 <use Ch7/contratoca.png>
 Package pdftex.def Info: Ch7/contratoca.png  used on input line 112.
@@ -8176,7 +8181,7 @@ LaTeX Warning: Reference `intro' on page 8 undefined on input line 245.
 
 LaTeX Warning: Reference `drobab' on page 8 undefined on input line 254.
 
-<Ch7/drobab11.png, id=815, 653.44125pt x 475.7775pt>
+<Ch7/drobab11.png, id=1294, 653.44125pt x 475.7775pt>
 File: Ch7/drobab11.png Graphic file (type png)
 <use Ch7/drobab11.png>
 Package pdftex.def Info: Ch7/drobab11.png  used on input line 262.
@@ -8298,7 +8303,7 @@ l.322
 Package natbib Warning: Citation `libro' on page 10 undefined on input line 339
 .
 
-<Ch7/procesodisenoNuevo.jpeg, id=826, 683.55376pt x 264.99pt>
+<Ch7/procesodisenoNuevo.jpeg, id=1302, 683.55376pt x 264.99pt>
 File: Ch7/procesodisenoNuevo.jpeg Graphic file (type jpg)
 <use Ch7/procesodisenoNuevo.jpeg>
 Package pdftex.def Info: Ch7/procesodisenoNuevo.jpeg  used on input line 349.
@@ -8332,7 +8337,7 @@ l.365
 
 Package natbib Warning: Citation `UWA' on page 11 undefined on input line 378.
 
-<Ch7/Requerimientos.png, id=833, 1027.84pt x 411.5375pt>
+<Ch7/Requerimientos.png, id=1308, 1027.84pt x 411.5375pt>
 File: Ch7/Requerimientos.png Graphic file (type png)
 <use Ch7/Requerimientos.png>
 Package pdftex.def Info: Ch7/Requerimientos.png  used on input line 382.
@@ -8403,7 +8408,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has
                    \relax 
 l.454 
        [12]
-<Ch7/proceso11.png, id=843, 841.1425pt x 695.59875pt>
+<Ch7/proceso11.png, id=1317, 841.1425pt x 695.59875pt>
 File: Ch7/proceso11.png Graphic file (type png)
 <use Ch7/proceso11.png>
 Package pdftex.def Info: Ch7/proceso11.png  used on input line 458.
@@ -8629,7 +8634,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.17}) has
                    \relax 
 l.707 
        [17]
-<Ch7/f1Dev.png, id=876, 978.65625pt x 282.05376pt>
+<Ch7/f1Dev.png, id=1344, 978.65625pt x 282.05376pt>
 File: Ch7/f1Dev.png Graphic file (type png)
 <use Ch7/f1Dev.png>
 Package pdftex.def Info: Ch7/f1Dev.png  used on input line 710.
@@ -8652,7 +8657,7 @@ Overfull \hbox (48.94481pt too wide) in paragraph at lines 710--713
  [] 
  []
 
-<Ch7/f2Dev.png, id=877, 941.5175pt x 275.0275pt>
+<Ch7/f2Dev.png, id=1345, 941.5175pt x 275.0275pt>
 File: Ch7/f2Dev.png Graphic file (type png)
 <use Ch7/f2Dev.png>
 Package pdftex.def Info: Ch7/f2Dev.png  used on input line 721.
@@ -9032,7 +9037,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<Ch7/DEVSCondicional.png, id=895, 600.83295pt x 432.20294pt>
+<Ch7/DEVSCondicional.png, id=1362, 600.83295pt x 432.20294pt>
 File: Ch7/DEVSCondicional.png Graphic file (type png)
 <use Ch7/DEVSCondicional.png>
 Package pdftex.def Info: Ch7/DEVSCondicional.png  used on input line 889.
@@ -9074,7 +9079,7 @@ Package natbib Warning: Citation `libro' on page 25 undefined on input line 907
 Package natbib Warning: Citation `poner paper de la jaiio o algo parecido a eso
 ' on page 25 undefined on input line 907.
 
-<Ch7/I.png, id=904, 878.57648pt x 786.46765pt>
+<Ch7/I.png, id=1369, 878.57648pt x 786.46765pt>
 File: Ch7/I.png Graphic file (type png)
 <use Ch7/I.png>
 Package pdftex.def Info: Ch7/I.png  used on input line 911.
@@ -9111,7 +9116,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.25}) has
                    \relax 
 l.925 
        [25 <./Ch7/I.png (PNG copy)>]
-<Ch7/f3Dev.jpg, id=909, 1284.8pt x 803.0pt>
+<Ch7/f3Dev.jpg, id=1374, 1284.8pt x 803.0pt>
 File: Ch7/f3Dev.jpg Graphic file (type jpg)
 <use Ch7/f3Dev.jpg>
 Package pdftex.def Info: Ch7/f3Dev.jpg  used on input line 942.
@@ -9160,7 +9165,7 @@ l.947 \caption
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<Ch7/f6Dev.png, id=914, 597.73312pt x 845.40843pt>
+<Ch7/f6Dev.png, id=1378, 597.73312pt x 845.40843pt>
 File: Ch7/f6Dev.png Graphic file (type png)
 <use Ch7/f6Dev.png>
 Package pdftex.def Info: Ch7/f6Dev.png  used on input line 953.
@@ -9226,8 +9231,8 @@ You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 )
-LaTeX Info: Redefining \. on input line 80.
-LaTeX Info: Redefining \% on input line 80.
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -9239,7 +9244,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.29}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.80 \include{Ch7/chap7}
+l.82 \include{Ch7/chap7}
                          [29]
 \openout2 = `Ch9/chap9.aux'.
 
@@ -9291,7 +9296,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.32}) has
                    \relax 
 l.95 
       [32]
-<Ch9/f1.png, id=939, 816.22588pt x 342.92824pt>
+<Ch9/f1.png, id=1398, 816.22588pt x 342.92824pt>
 File: Ch9/f1.png Graphic file (type png)
 <use Ch9/f1.png>
 Package pdftex.def Info: Ch9/f1.png  used on input line 144.
@@ -9346,7 +9351,7 @@ Overfull \hbox (1.50946pt too wide) in paragraph at lines 189--196
 e una re-la-ci^^Son isom^^Sorfi-
  []
 
-<Ch9/f2.png, id=947, 600.83295pt x 432.20294pt>
+<Ch9/f2.png, id=1406, 600.83295pt x 432.20294pt>
 File: Ch9/f2.png Graphic file (type png)
 <use Ch9/f2.png>
 Package pdftex.def Info: Ch9/f2.png  used on input line 218.
@@ -9397,7 +9402,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.36}) has
                    \relax 
 l.255 
        [36 <./Ch9/f2.png (PNG copy)>]
-<Ch9/f3.png, id=956, 878.57648pt x 779.38235pt>
+<Ch9/f3.png, id=1413, 878.57648pt x 779.38235pt>
 File: Ch9/f3.png Graphic file (type png)
 <use Ch9/f3.png>
 Package pdftex.def Info: Ch9/f3.png  used on input line 283.
@@ -9450,7 +9455,7 @@ Overfull \hbox (14.13086pt too wide) in paragraph at lines 347--347
 ^Ses de UWATc 
  []
 
-<Ch9/f4.png, id=964, 664.4825pt x 492.84125pt>
+<Ch9/f4.png, id=1420, 664.4825pt x 492.84125pt>
 File: Ch9/f4.png Graphic file (type png)
 <use Ch9/f4.png>
 Package pdftex.def Info: Ch9/f4.png  used on input line 381.
@@ -9507,7 +9512,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.40}) has
                    \relax 
 l.423 
        [40 <./Ch9/f4.png>]
-<Ch9/f5.png, id=974, 200.75pt x 200.75pt>
+<Ch9/f5.png, id=1428, 200.75pt x 200.75pt>
 File: Ch9/f5.png Graphic file (type png)
 <use Ch9/f5.png>
 Package pdftex.def Info: Ch9/f5.png  used on input line 425.
@@ -9573,7 +9578,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.43}) has
                    \relax 
 l.566 
        [43]
-<Ch9/f11.png, id=989, 587.19376pt x 333.245pt>
+<Ch9/f11.png, id=1439, 587.19376pt x 333.245pt>
 File: Ch9/f11.png Graphic file (type png)
 <use Ch9/f11.png>
 Package pdftex.def Info: Ch9/f11.png  used on input line 598.
@@ -9623,7 +9628,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.45}) has
                    \relax 
 l.645 
        [45 <./Ch9/f11.png (PNG copy)>]
-<Ch9/f12.png, id=997, 589.20125pt x 253.94875pt>
+<Ch9/f12.png, id=1446, 589.20125pt x 253.94875pt>
 File: Ch9/f12.png Graphic file (type png)
 <use Ch9/f12.png>
 Package pdftex.def Info: Ch9/f12.png  used on input line 648.
@@ -9664,7 +9669,7 @@ l.669
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 690.
 
-<Ch9/f13.png, id=1002, 756.8275pt x 442.65375pt>
+<Ch9/f13.png, id=1451, 756.8275pt x 442.65375pt>
 File: Ch9/f13.png Graphic file (type png)
 <use Ch9/f13.png>
 Package pdftex.def Info: Ch9/f13.png  used on input line 706.
@@ -9701,7 +9706,7 @@ l.709 \caption
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<Ch9/f14.png, id=1008, 620.3175pt x 389.455pt>
+<Ch9/f14.png, id=1455, 620.3175pt x 389.455pt>
 File: Ch9/f14.png Graphic file (type png)
 <use Ch9/f14.png>
 Package pdftex.def Info: Ch9/f14.png  used on input line 742.
@@ -9737,7 +9742,7 @@ l.745 \caption
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<Ch9/f15.png, id=1013, 963.6pt x 602.25pt>
+<Ch9/f15.png, id=1459, 963.6pt x 602.25pt>
 File: Ch9/f15.png Graphic file (type png)
 <use Ch9/f15.png>
 Package pdftex.def Info: Ch9/f15.png  used on input line 779.
@@ -9774,8 +9779,8 @@ You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 )
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -9787,7 +9792,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.50}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.85 \include{Ch9/chap9}
+l.87 \include{Ch9/chap9}
                          [50 <./Ch9/f15.png (PNG copy)>]
 \openout2 = `Biblio/biblio.aux'.
 
@@ -11136,8 +11141,8 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 )
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 93.
+LaTeX Info: Redefining \% on input line 93.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -11149,7 +11154,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.64}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.91 \include{Biblio/biblio}
+l.93 \include{Biblio/biblio}
                              [64]
 
 Package natbib Warning: There were undefined citations.
@@ -11161,15 +11166,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.100 \end{document}
+l.102 \end{document}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 100.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 100.
-(./SartorioTesis22.aux (./titlepage.aux)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 102.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
+(./SartorioTesis.aux (./titlepage.aux)
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
  (./Ch0/chap0.aux) (./DHD/DHD.aux)
@@ -11271,17 +11276,11 @@ Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
 
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 100.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 100.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 102.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
+Package rerunfilecheck Info: File `SartorioTesis.out' has not changed.
+(rerunfilecheck)             Checksum: 532339D8F2BB087D615AFB50B04309F2;12648.
 
-
-Package rerunfilecheck Warning: File `SartorioTesis22.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `SartorioTesis22.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  532339D8F2BB087D615AFB50B04309F2;12648.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -11294,7 +11293,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.100 \end{document}
+l.102 \end{document}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -11303,7 +11302,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 Missing character: There is no è in font cmex10!
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 100.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 102.
  )
 (\end occurred inside a group at level 2)
 
@@ -11311,13 +11310,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 100.
 ### semi simple group (level 1) entered at line 1271 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 12580 strings out of 494861
- 178557 string characters out of 6178803
- 289096 words of memory out of 5000000
- 15117 multiletter control sequences out of 15000+600000
+ 12733 strings out of 494861
+ 181032 string characters out of 6178803
+ 289331 words of memory out of 5000000
+ 15266 multiletter control sequences out of 15000+600000
  19306 words of font info for 75 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 42i,13n,43p,2857b,1189s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,43p,2855b,1189s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/ale/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/
 ecss2986.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
@@ -11340,10 +11339,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/latxfont/lasy9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SartorioTesis22.pdf (193 pages, 2816233 bytes).
+Output written on SartorioTesis.pdf (193 pages, 2825810 bytes).
 PDF statistics:
- 1427 PDF objects out of 1440 (max. 8388607)
- 1095 compressed objects within 11 object streams
+ 1871 PDF objects out of 2073 (max. 8388607)
+ 1534 compressed objects within 16 object streams
  459 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1409 words of extra memory for PDF output out of 10000 (max. 10000000)
 
