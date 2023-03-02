@@ -7,15 +7,14 @@
 \section{Introducción}
 
 Este capítulo presentará el estudio del estado del arte, partiendo de
-la transformación de \textit{información de contexto} como componente de primera clase y visible en una arquitectura \ref{cap:arqdhd}, tratado a través de un sistema especializado para su uso. En este sentido, se desarrollarán las principales características de los sistemas y las estructuras que fueron utilizadas para la construcción de una propuesta de solución que determina un modelo evolutivo. También, aparecerá  otro elemento de primera clase integrado a un sistema que permite su manejo brindando conexión con los anteriores. Así, esta combinación de elementos y sistemas configuran una
-estructura de evolución que sustenta parte de la arquitectura del DHD.
-
+la transformación de \textit{información de contexto} como componente de primera clase y visible en una arquitectura \ref{cap:arqdhd}, representado a través de un sistema especializado para su uso. También se suma otro componente que permite conectar un sistema externo de administración de contexto.
+De esta manera, se desarrollarán las principales características de los sistemas y las estructuras que fueron utilizadas para la construcción de una propuesta de solución que determina un modelo evolutivo. 
 
 
 
 \section{Contexto en el DHD}
 
-En el capítulo \ref{cap:introduccion} se referenció al contexto en
+En el capítulo \ref{cap:Introduccion} se referenció al contexto en
 virtud de las propiedades de sistemas especializados en usar información
 de contexto para brindar funcionalidades. Además, el contexto aparece como uno
 de los elementos, junto a los parámetros context-aware, que forma la
@@ -30,14 +29,14 @@ En el presente capítulo, se abordará la caracterización del contexto teniendo
 
 \subsection {Caracterización del Contexto}
 
-En esta tesis se referencia al contexto para cada una de las representaciones considerando tanto los diferentes diseños para modelarlos según su tipo dependiendo de las necesidades, como su transformación en información (información de contexto)  para las interfaces de los mecanismos de los sistemas y/o subsistemas sensibles al contexto.
+En esta tesis el contexto es considerado como  el conjunto de características, diseños y transformación de información necesarias para adaptar su funcionalidad a los usuarios. 
 
 \subsubsection{Origen del contexto en el DHD}
 
 En la figura \ref{fig:ontologiaContexto} se representan los orígenes de la conformación del contexto en el DHD. Las componentes grises son precisamente las diferentes fuentes donde se obtiene información de contexto. Por otro lado, las demás componentes de color blanco tienen una influencia en los procesos de su construcción. 
 
 Existen diferentes categorías de contexto en relación a características de tipología dinámica o estática. En este sentido, los \textit{roles} y \textit{permisos} asociados a los diferentes tipos de usuarios (\textit{Miembros en formación} y \textit{Grupo Responsables}) ayudan a
-caracterizar parte del perfil de un usuario. Esto permitirá ajustar determinados tipos de acciones para las diferentes herramientas (wiki, foro, videoconferencias, etc). Los servicios (ej.: agregar, borrar, etc.) que se consideran partes de las herramientas, deberán ser sensibles a la influencia del entorno teniendo en cuenta la información sintetizada que de este deviene. En este caso, en el entorno del DHD está caracterizada por información que se puede representar a trav´es de los siguientes elementos: 
+caracterizar parte del perfil de un usuario. Esto permitirá ajustar determinados tipos de acciones para las diferentes herramientas (wiki, foro, videoconferencias, etc). Los servicios (ej.: agregar, borrar, etc.) que se consideran partes de las herramientas, deberán ser sensibles a la influencia del entorno teniendo en cuenta la información sintetizada que de este deviene. En este caso, en el entorno del DHD está caracterizada por información que se puede representar a través de los siguientes elementos: 
 
 
 \begin{figure} 
@@ -100,21 +99,11 @@ Sakai los permisos están directamente asociados con los roles. En la figura
 \ref{fig:rolesSakai,fig:rolesSakai2} se muestra un ejemplo tomado de la propia
 interfaz Sakai
 donde se visualizan las relaciones entre un identificador de usuario y roles. 
-Los permisos que permiten ejecutar las operaciones: \textit{ver},
-\textit{editar}, \textit{borrar} y demás manipulación de datos asociados a las
-herramientas Sakai, se manejan por medio del uso de \textit{realms}
-\cite{sakaimanual}. Cada \textit{realm} tiene uno a más roles para asignar a los
-usuarios. Los permisos son administrados a
-través de la herramienta \textit{Realms}
-\footnote{La herramienta Realms de Sakai es utilizada en la administración de
-permisos y roles para cada uno de los sitios.}. Se expone un ejemplo de la
-estructura de \textit{permisos}, \textit{roles}, \textit{tipo} y
-\textit{dominios}, que se implementan en una
-plataforma colaborativa Web. El anexo \ref{anexo_permisos} contiene
-información ampliada sobre las posibilidades de configuraciones de Sakai. A
-continuación se muestra un pequeño resumen para ejemplificar lo expuesto.
+Los permisos que permiten ejecutar las operaciones: \textit{ver}, \textit{editar}, \textit{borrar} y demás manipulación de datos asociados a las herramientas Sakai, se manejan por medio del uso de \textit{realms}
+\cite{sakaimanual}. Cada \textit{realm} tiene uno a más roles para asignar a los usuarios. Los permisos son administrados a través de la herramienta \textit{Realms} \footnote{La herramienta Realms de Sakai es utilizada en la administración de permisos y roles para cada uno de los sitios.}. Se expone un ejemplo de la
+estructura de \textit{permisos}, \textit{roles}, \textit{tipo} y \textit{dominios}, que se implementan en una
+plataforma colaborativa Web. El anexo \ref{anexo_permisos} contiene información ampliada sobre las posibilidades de configuraciones de Sakai. A continuación se muestra un pequeño resumen para ejemplificar lo expuesto.
 Véase en \cite{permisos_roles} una descripción completa. 
-
 
 \begin{figure} 
 \begin{center}
@@ -142,7 +131,7 @@ Véase en \cite{permisos_roles} una descripción completa.
 
 \begin{itemize}
 \item Contienen varios roles
-\item Cada rol contiene los unos determinados permisos
+\item Cada rol contiene determinados permisos
 \item Contiene los usuarios asignados al \textit{realm} y con que rol está
 asignado
 \item Cada \textit{realm} indica que rol es el de mantenimiento
@@ -203,7 +192,7 @@ sensibles al contexto basado en UML\cite{ContextUML}
 
 Un \textit{servicioDHD}\label{serviciodhd} es un servicio con sensibilidad al
 contexto que puede tener cierta flexibilidad para resolver 
-\hyperref[RequerimientosDHD]{Requerimientos DHD}. Esto significa que dichos
+\hyperref[RequerimientosDHD]{Requerimientos DHD}. Esto significa que los
 servicios estarán orientados al tipo de tarea que desempeña un usuario bajo
 un determinado contexto. 
 
@@ -211,11 +200,12 @@ un determinado contexto.
 Debido a la heterogeneidad de la información de contexto suministrada,
 imperfecciones en la transformación de datos, información redundante, malas
 interpretaciones sobres funcionalidades \hyperref[no_computable]{no
-computables} y la información dinámica del entorno; es imprescindible tener
-una representación adecuada\cite{contextToolKit}. En particular, varios
-proveedores de contexto pueden estar reportando las mismas piezas de contexto
-pero con distintas representaciones. Esto dificulta su especificación en
-las etapas de diseño. 
+computables} y los datos cambiantes en tiempo de ejecución del entorno, es imprescindible tener una representación adecuada\cite{contextToolKit}. En particular, varios proveedores de contexto pueden estar reportando las mismas piezas (entidades y representaciones) de contexto
+pero con distintas representaciones. Esto dificulta su especificación en las etapas de diseño. Por ejemplo: 
+
+\begin{quote}
+    Información inferida a partir de los datos de las interacciones anteriores de los usuarios de la aplicación. Dependiendo de las instancias de ETL, procesamiento y representación. 
+\end{quote}
 
 En los capítulos anteriores se expusieron fundamentos sobre la
 importancia del contexto en el DHD y consideraciones sobre su visualización funcional a través de formas computables de representación. Por este motivo, en esta sección se presentan aspectos de
@@ -243,20 +233,16 @@ de sensibilidad del contexto} (o en inglés context awareness).
 
 
 
-\textit{Contexto} es la clase que modela la información de contexto. En nuestro
-diseño adaptado, el tipo de contexto está extendido en dos categorías
-diferentes como subtipos \textit{CotextoInter}, \textit{ContextoReconf} y
-\textit{ContextoAtomico}. El contexto atómico es información con el menor
+\textit{Contexto} es la clase que modela la información de contexto, definida anteriormente en \ref{def:contexto}, que influye en el comportamiento de los servicios de las herramientas. En nuestro diseño adaptado, el tipo de contexto está extendido en dos categorías diferentes como subtipos \textit{CotextoInter}, \textit{ContextoReconf} y \textit{ContextoAtomico}. El contexto atómico es información con el menor
 nivel de abstracción posible y no comparte relación con otra porción de
-contexto. Por otra lado, el contexto de las interacciones tiene que ver con
+contexto. Por otro lado, el contexto de las interacciones tiene que ver con
 información de contexto que colabora en la descripción de las 
 \hyperref[intersubjetivas]{relaciones intersubjetivas}. De la misma manera, el
 contexto para la reconfiguración es una abstracción de los parámetros
 \textit{context-aware} enunciados en \ref{sec:elementoscontrato}. Estos tres
 subtipos agrupan a las fuentes del contexto descripto en la figura
 \ref{fig:ontologiaContexto}, con lo cúal ya se cuenta con tres niveles de
-caracterización del contexto para el DHD. De esta manera, se continúa con similares lineamientos utilizados en el DHD para lograr una representación
-acorde del contexto hacia su implementación tecnológica. 
+caracterización del contexto para el DHD. De esta manera, se continúa con similares lineamientos utilizados en el DHD para lograr una presentación adecuada del contexto para su implementación tecnológica. 
 
 
 Es claro observar que desde los servicios se encapsula (oculta) la forma de
@@ -275,25 +261,16 @@ bajo la perspectiva de los Sistemas Sensibles al Contexto \ref{sec:cas} (o
 también mencionados como Sistemas Context-Aware).
 
 
-
 \paragraph{Fuentes de la información de contexto}
 
-El tipo de contexto fuente (\textit{ContextoFuente}) caracteriza desde donde
-parte la construcción del
-contexto que luego será almacenada para su recolección, por ejemplo, en el
-registro de actividades. Uno de los subtipos de fuentes pueden ser los
-servicios colaborativos (representado por \textit{ServiciosColab}) que son
-utilizados en los servicios de las herramientas colaborativas (ej., Wiki, Foro,
-etc.).
-En este caso se tiene una alta dependencia de la implementación de los
-framework originales (e.i., sin la inyección de contratos sensibles al
-contexto). 
+El tipo de contexto fuente (\textit{ContextoFuente}) representa desde donde
+parte los datos que construyen el contexto que luego será almacenada para su recolección, por ejemplo, en el registro de actividades. Uno de los subtipos de fuentes pueden ser los servicios colaborativos (representado por \textit{ServiciosColab}) que son utilizados en los servicios de las herramientas colaborativas (ej., Wiki, Foro, etc.). Habitualmente, esta componente están representadas en las implementaciones originales de las aplicaciones colaborativas.
 
 Es observable que desde los servicios se encapsula (oculta) la forma de
 adquirir el contexto. De esta manera, en las implementaciones
 donde intervienen servicios de herramientas, se usará su misma
-representación, accediendo a esta información a través de los accesos
-tecnológicos de la implementación. Por ejemplo, acceso a la bases de datos,
+representación del contexto, accediendo a esta información a través de los conectores
+tecnológicos implementados. Por ejemplo, acceso a las bases de datos,
 acceso a información del servidor Web o del ambiente contenedor del los
 lenguajes intervinientes (ej., Apache Tomcat \footnote{Tomcat es un servidor web
 con soporte de servlets y JSPs. Tomcat no es un servidor de aplicaciones, como
@@ -303,7 +280,6 @@ el servidor web Apache.}). En otras palabras, se puede decir que el concepto de
 contexto del servicio oculta la complejidad de de la adquisición del contexto,
 bajo la perspectiva de los Sistemas Sensibles al Contexto \ref{sec:cas} (o en
 inglés Context Aware System).
-
 
 
 \paragraph{Contexto para los servicios de reconfiguración}
@@ -334,13 +310,12 @@ Hay 5 subtipos de \textit{ObjetosCA}: Servicios, Operaciones, Mensajes, Partes y
 Contratos. Cada servicio ofrece varias operaciones y cada operación pertenece
 a un sólo servicio. Este vínculo se representa por una relación de
 agregación. Cada operación tendrá un mensaje de entrada y/o uno de salida
-con la posibilidad de que esos mensajes tengan partes particulares (i.e.,
+con la posibilidad de que esos mensajes tengan metadatos (i.e.,
 mensajes con parámetros). La otra posibilidad es que en vez de mensajes se
 utilicen, con el mismo propósito, contratos para establecer igual tarea de
 comunicación con el agregado de mayores propiedades semánticas.
 Para este caso se estable una nueva relación de agregación entre
 \textit{Operaciones} y \textit{Contratos}.
-
 
 
 \subparagraph{Mecanismos de Envolturas}
@@ -392,10 +367,7 @@ tema_foro='\%DHD\%' and id_foro=1233
 \end{verse} 
 
 
-para indicar que el operador se ejecutará si se
-está en un Foro, identificado con el número “1233”, donde el tema tenga el
-string “DHD”. Esta forma de interpretación posibilita además poner en
-la misma expresión de acciones para el caso que no se cumpla la condición.
+para indicar que el operador se ejecutará si se está en un Foro, identificado con el número “1233”, donde el tema tenga el string “DHD”. Esta forma de interpretación posibilita además poner en la misma expresión de acciones para el caso que no se cumpla la condición.
 
 Existe un lenguaje para ContextUML\cite{ContextUML} que puede ser usado para
 este mismo modelo de contexto en la programación de acciones desde
@@ -411,25 +383,25 @@ adaptabilidad serán mediadas por la componente contrato.
 
 En esta sección se toma el antecedente de la representación y
 formas de utilización del contexto, información de contexto, mecanismos de
-manipulación y las fuentes de recolección en el DHD. El propósito, es
+manipulación y las fuentes de recolección en el DHD. El propósito es
 interpretar la posibilidad de agregar a un sistema
 colaborativo Web (original) las propiedades de sensibilidad del
 contexto creadas para el DHD (ContextoDHD).
 
 Podemos entender a un sistema colaborativo sensible al
-\hyperref[contextodhd]{contextoDHD} como una
+\hyperref[contextodhd]{contextoDHD} cómo una
 aplicación provista de mecanismos que permiten una mejor adaptación de los
-servicios, a partir del contexto de los usuarios y del entorno. En ambientes
+servicios a partir del contexto de los usuarios y del entorno. En ambientes
 colaborativos para educación, los servicios forman parte de las funcionalidades
 observables, desde las perspectivas de los usuarios (ej.: alumno, docente, etc.),
-que proveen las herramientas del dispositivo (ej., wiki, foros, mensajería,
+que proveen las herramientas de la Aplicación (ej., wiki, foros, mensajería,
 glosario, recursos, etc.). Los elementos que componen la caracterización del
 contexto deben pertenecer a un dominio bien definido, manteniendo ciertos
 niveles de concordancia con los mecanismos encargados de manipularlos y la toma
-de decisiones en base a ellos.
+de decisiones basándonos en ellos.
 
 A través de un simple diagrama, es posible observar algunas de las características
-fundamentales que determinan un sistema colaborativo sensibles al contexto,
+fundamentales que determinan un sistema colaborativo sensible al contexto,
 donde se
 encuentran remarcadas aquellas particularidades (tecnológicas y
 conceptuales) que se vinculan con la perspectiva del DHD. En la figura
@@ -542,7 +514,7 @@ El contexto puede definirse de manera general como:
 Cualquier información que puede usarse para caracterizar la situación de
 una entidad. Donde una entidad es una persona, lugar u objeto que es
 considerado relevante para la interacción entre un usuario y una
-aplicación, incluyendo al usuario mismo y la aplicación
+aplicación, incluyendo al usuario mismo y la aplicación.
 \begin{flushright}(Dey y Abowd, 2000)\end{flushright}
 \end{quote}  
 
@@ -556,27 +528,14 @@ relevantes al usuario, donde la relevancia depende de la tarea del usuario.
 \begin{flushright}(Dey y Abowd, 2000)\end{flushright}
 \end{quote}
 
-Según un análisis realizado por Brown et al., (2000), entre las aplicaciones
-sensibles al contexto, la recuperación de información juega un papel
-central, y
-tales aplicaciones parecen confirmarse como la prospectiva que requiere el
-computo consiente de contexto.
+Según un análisis realizado por Brown et al., (2000), entre las aplicaciones sensibles al contexto, la recuperación de información juega un papel central, y tales aplicaciones parecen confirmarse como la prospectiva que requiere el cómputo consiente (sensible) del contexto. A continuación se enuncian conceptos tomados de autores en cuyos trabajos utilizan la información de contexto con los principios anteriormente mencionados.
 
-Por lo tanto, en las aportaciones de los autores de los trabajos que
-presentaremos a
-continuación, tomaremos el problema planteado en el marco de la recuperación de
-información consiente de contexto.
 
 \subsection {Propuestas para la Identificación del Contexto} 
 
-Algunos trabajos se han enfocado sobre cómo identificar el contexto
-efectivamente y
-cómo obtener una representación del mismo que pueda ser utilizada para
-incorporarlo a
-la búsqueda de información relevante para el usuario.
+Algunos trabajos se han enfocado sobre cómo identificar el contexto efectivamente y cómo obtener una representación del mismo que pueda ser utilizada para incorporarlo a la búsqueda de información relevante para el usuario.
 
-Budzik y Hammond, (2000) clasifican los esfuerzos llevados a cabo para esta
-tarea en cuatro categorías:
+Budzik y Hammond, (2000) clasifican los esfuerzos llevados a cabo para esta tarea en cuatro categorías:
 
 \begin{itemize}
 \item \textbf{Retroalimentación sobre la relevancia de los resultados}: Trata
@@ -654,235 +613,98 @@ contexto es restringir el dominio de la misma máquina de búsqueda.
 \end{itemize}
 
 
-Actualmente disponemos de gran diversidad de buscadores especializados, algunos
+Actualmente, disponemos de gran diversidad de buscadores especializados, algunos
 ejemplos son:
 CiteSeer (Lawrence et al., 1999) y Deadliner (Kruger et al., 2000). También
-existen
-meta buscadores que implementan algún mecanismo para derivar el contexto del
-usuario y luego usan esa información para realizar consultas sobre alguno se
-estos
+existen meta buscadores que implementan algún mecanismo para derivar el contexto del
+usuario y luego usan esa información para realizar consultas sobre alguno de estos
 buscadores especializados. Tal es el caso de Inquirus 2 (Glover et al., 2000).
+
 Sobre los enfoques para “Derivar el contexto pasado y futuro”, Brown y Jones
-(2002),
-proponen explotar la característica del contexto que lo hace cambiar
-constantemente
+(2002), proponen explotar la característica del contexto que lo hace cambiar constantemente,
 pero en cierta medida de manera predecible.
 
-Al analizar cómo es el proceso de cambio y llevar un registro del mismo, podemos
-crear
-lo que dichos autores llaman: “Diario de Contexto”, guardando los estados de las
-variables de contexto medidas por sensores ya que a través de esta información
-se puede
-predecir un contexto de interés a futuro. También proponen un ''Context-aware
-Caching``
-(depósito de documentos) en el cual, se recupera la información, haciéndolo con
-un
-contexto en donde los campos (o variables) son rangos estimados de valores que
-puede
-tomar cada campo en un futuro cercano, utilizando los documentos resultantes
-para
-formar un depósito temporal desde el cual se pueden realizar mas rápidamente
-recuperaciones posteriores mientras el contexto del usuario no cambie
-considerablemente.
+Al analizar cómo es el proceso de cambio y llevar un registro del mismo, podemos crear lo que dichos autores llaman: “Diario de Contexto”, guardando los estados de las variables de contexto medidas por sensores, ya que a través de esta información se puede predecir un contexto de interés a futuro. También proponen un "Context-aware
+Caching" (depósito de documentos) en el cual, se recupera la información, haciéndolo con un contexto en donde los campos (o variables) son rangos estimados de valores que puede tomar cada campo en un futuro cercano, utilizando los documentos resultantes para formar un depósito temporal desde el cual se pueden realizar mas rápidamente
+recuperaciones posteriores mientras el contexto del usuario no cambie considerablemente.
 
 \subsection {Visiones en la perspectiva histórica}
  
-Es interesante considerar en el marco de esta tesis, algunos de los
-antecedentes más
-relevantes a nivel histórico del paradigma que subyace en los sistemas sensibles
-al
+Es interesante considerar, en el marco de esta tesis, algunos de los
+antecedentes más relevantes a nivel histórico del paradigma que subyace en los sistemas sensibles al
 contexto, citaremos a continuación destacados referentes:
-
 
 \paragraph {Vannevar Bush's Memex (1945)}
 
-Propone, antes del desarrollo del computador, un aparato denominado Memex que
-como
-suplemento de nuestra memoria, facilitaría el acceso y la relación de la
-información
-acumulada. La clave de este dispositivo, es que funcionaría imitando los
-procesos de
-asociación de la mente humana. Reconocido el límite que impone el artificio, se
-plantea
-igualmente un cambio fundamental: la selección debe ser por asociación y no por
-la
-ubicación mecánica de temas en un índice alfabético.
+Propone, antes del desarrollo del computador, un aparato denominado Memex que, como suplemento de nuestra memoria, facilitaría el acceso y la relación de la información acumulada. La clave de este dispositivo, es que funcionaría imitando los procesos de asociación de la mente humana. Reconocido el límite que impone el artificio, se plantea
+igualmente un cambio fundamental: la selección debe ser por asociación y no por la ubicación mecánica de temas en un índice alfabético.
 
-En el Memex se podrían guardar archivos, libros y textos para ser consultados
-con
-rapidez y flexibilidad, sería posible agregar comentarios y notas marginales.
-Quien
-consultara, construiría senderos de lectura de acuerdo a su interés,
-seleccionando y
-enlazando los artículos a través del laberinto de materiales disponibles, y
-podría
-modificar esta configuración cuando lo deseara. Bush concretiza a nivel de
-objeto
-tecnológico la recuperación y escritura de la información en formato
-hipertextual.
-Edward Thorp: “The invention of the first wearable computer” (1960)
-La primera computadora “wearable” (que se puede llevar puesta en el cuerpo) fue
-concebida en 1955 por Edgard Thorop para predecir el comportamiento de la
-ruleta,
-culminando en un trabajo conjunto en el M.I.T. con Claude Shannon en 1960-61. El
-dispositivo era similar al tamaño de un paquete de cigarrillos y permitía
-aumentar hasta
-un 44\% las chance de ganar, si bien se probó el objetivo planteado, luego
-ocurrieron
-pequeñas fallas en el hardware que impidieron continuar con el uso de este
-dispositivo.
-Este método y la existencia de la computadora no fueron publicados hasta el año
+En el Memex se podrían guardar archivos, libros y textos para ser consultados con rapidez y flexibilidad, sería posible agregar comentarios y notas marginales.
+
+Quien consultara, construiría senderos de lectura de acuerdo a su interés,
+seleccionando y enlazando los artículos a través del laberinto de materiales disponibles, y podría
+modificar esta configuración cuando lo deseara. Bush concretiza a nivel de objeto tecnológico la recuperación y escritura de la información en formato hipertextual.
+
+Edward Thorp: “The invention of the first wearable computer” (1960) La primera computadora “wearable” (que se puede llevar puesta en el cuerpo) fue concebida en 1955 por Edgard Thorop para predecir el comportamiento de la
+ruleta, culminando en un trabajo conjunto en el M.I.T. con Claude Shannon en 1960-61. El dispositivo era similar al tamaño de un paquete de cigarrillos y permitía aumentar hasta un 44\% las chance de ganar, si bien se probó el objetivo planteado, luego ocurrieron pequeñas fallas en el hardware que impidieron continuar con el uso de este
+dispositivo. Este método y la existencia de la computadora no fueron publicados hasta el año
 1966.
 
 
 \paragraph {Alan Kay's Dynabook (circa 1977)} 
 
 La Dynabook es un dispositivo portátil, con red inalámbrica y pantalla plana,
-entre otras
-cosas. Este dispositivo se concibe
-como extensión de las posibilidades de la mente-cuerpo y lugar donde un usuario
-concentra toda la información que consume y que genera.
-Guiados por esta visión, un grupo de referentes de la informática (Alan Kay, Dan
-Ingalls, Adele Goldberg, etc.) fueron responsables de los desarrollos de mayor
-impacto
-relacionados con las computadoras personales. Una lista, no completa, de los
-aportes de
-este proyecto son: “El concepto de la Computadora Personal”, “El paradigma de
-objetos”, “Smalltalk”, “Interfaces de usuario gráficas”, “Uso del Mouse”, “Drag
-&
-drop”, “Menúes desplegables”.
+entre otras cosas. Este dispositivo se concibe como extensión de las posibilidades de la mente-cuerpo y lugar donde un usuario concentra toda la información que consume y que genera. Guiados por esta visión, un grupo de referentes de la informática (Alan Kay, Dan Ingalls, Adele Goldberg, etc.) fueron responsables de los desarrollos de mayor impacto relacionados con las computadoras personales. Una lista, no completa, de los
+aportes de este proyecto son: “El concepto de la Computadora Personal”, “El paradigma de objetos”, “Smalltalk”, “Interfaces de usuario gráficas”, “Uso del Mouse”, “Drag& drop”, “Menúes desplegables”.
 
-Las ideas de la Dynabook siguen vigentes en el Squeak y su filosofía en grupos
-como
-SqueakLand. Los eToys y los Ensayos Activos son subyacentes a las
-ideas
-del meta-medio.
+Las ideas de la Dynabook siguen vigentes en el Squeak y su filosofía en grupos como SqueakLand. Los eToys y los Ensayos Activos son subyacentes a las ideas del meta-medio.
 
 
 \paragraph {Mark Weiser; “The Computer for the 21st Century (1991)}  
 
-La computación ubicua como paradigma de interacción fue introducida por Mark
-Weiser en 1991 después de sus trabajos en los laboratorios de Xerox PARC en Palo
-Alto (Weiser, 1991). La computación ubicua pretende ampliar la capacidad
-computacional a todo el entorno mediante la distribución de pequeños y muy
-diversos
-dispositivos que presentan ciertas características interactivas, todos ellos
-conectados a
+La computación ubicua como paradigma de interacción fue introducida por Mark Weiser en 1991 después de sus trabajos en los laboratorios de Xerox PARC en Palo Alto (Weiser, 1991). La computación ubicua pretende ampliar la capacidad computacional a todo el entorno mediante la distribución de pequeños y muy diversos
+dispositivos que presentan ciertas características interactivas, todos ellos conectados a
 servidores de mayor potencia.
 
+El diseño y situación de estos dispositivos debe estudiarse rigurosamente, según la tarea que realizan. De este modo, la responsabilidad computacional se desplaza diluyéndose en el entorno (transparencia del objeto computacional), intentando suscitar la idea de omnipresencia (Norman, 1998). La solución propuesta por Weiser (1991-1998) fue disponer de redes inalámbricas para computadoras con la finalidad de intercambiar
+información entre ellas y configurar un dispositivo de interacción. En los ambientes ubicuos hay tres tipos de computadoras: “marcas”, “tabletas” y “pizarras”.
 
-El diseño y situación de estos dispositivos debe estudiarse rigurosamente, según
-la tarea
-que realizan. De este modo, la responsabilidad computacional se desplaza
-diluyéndose
-en el entorno (transparencia del objeto computacional), intentando suscitar la
-idea de
-omnipresencia (Norman, 1998). La solución propuesta por Weiser (1991-1998) fue
-disponer de redes inalámbricas para computadoras con la finalidad de
-intercambiar
-información entre ellas y configurar un dispositivo de interacción. En los
-ambientes
-ubicuos hay tres tipos de computadoras: “marcas”, “tabletas” y “pizarras”.
-
-En el Centro de Investigación de Xerox de Palo Alto, diseñaron estas
-computadoras,
-(Ubicom) y Weiser en 1998, sostuvo que su propuesta podría tener mayor
-aceptación
-en los campus universitarios. En 1999, distintos equipos de investigación
-adoptan
-internacionalmente con fines educativos este nuevo paradigma para el aula.
-Soloway et.
-al (1999) expuso el beneficio que esto significaría para el aprendizaje por
-descubrimiento, mediante la realización de experiencias que surgen a partir de
-los
-principios del paradigma de computación ubicua, al considerar estos dispositivos
-como
-controles remotos de una pizarra de grupo. El mencionado investigador, propone
-diseñar dispositivos y periféricos que sirvan para captura de datos en el
-entorno real
-mediante la utilización de dispositivos handheld. Posteriormente estos datos
-serían
-enviados a un servidor que los presentará para su discusión grupal.
+En el Centro de Investigación de Xerox de Palo Alto, diseñaron estas computadoras, (Ubicom) y Weiser en 1998, sostuvo que su propuesta podría tener mayor aceptación en los campus universitarios. En 1999, distintos equipos de investigación adoptan internacionalmente con fines educativos este nuevo paradigma para el aula.
+Soloway et. al (1999) expuso el beneficio que esto significaría para el aprendizaje por descubrimiento, mediante la realización de experiencias que surgen a partir de los principios del paradigma de computación ubicua, al considerar estos dispositivos como controles remotos de una pizarra de grupo. El mencionado investigador, proponen
+diseñar dispositivos y periféricos que sirvan para captura de datos en el entorno real mediante la utilización de dispositivos handheld. Posteriormente, estos datos serían enviados a un servidor que los presentará para su discusión grupal.
 
 
 \paragraph {Bill Schillit: “Context-Aware Computing Applications” (1994)}
   
-Schilit define computación context-aware por medio de la caracterización de
-aplicaciones context-aware de la siguiente manera:
+Schilit define computación context-aware por medio de la caracterización de aplicaciones context-aware de la siguiente manera:
 
-Selección próxima: una técnica de interface de usuario donde el objeto más
-próximo
-es señalado o facilitado para su mejor selección.
+Selección próxima: una técnica de interface de usuario donde el objeto más próximo es señalado o facilitado para su mejor selección.
 
 \begin{itemize}
- \item Reconfiguración automática de contexto: es el proceso por el cual se
-agrega un
-nuevo componente, se quita un componente existente, o se altera la conectividad
-entre dos componentes ante un eventual cambio en los elementos que componen el
-contexto.
+ \item Reconfiguración automática de contexto: es el proceso por el cual se agrega un nuevo componente, se quita un componente existente, o se altera la conectividad entre dos componentes ante un eventual cambio en los elementos que componen el contexto.
 
 \item
-Información de Contexto y comandos: los cuales pueden producir diferentes
-resultados de acuerdo al contexto que donde se utilizan.
+Información de Contexto y comandos: los cuales pueden producir diferentes resultados de acuerdo al contexto que donde se utilizan.
 
-
-\item Lanzamiento de Acciones ante cambios de Contexto: son simples reglas tipo
-IFTHEN
-utilizadas para especificar cómo se debe comportar el sistema context-aware.
-
+\item Lanzamiento de Acciones ante cambios de Contexto: son simples reglas tipo IFTHEN utilizadas para especificar cómo se debe comportar el sistema context-aware.
 \end{itemize}
 
 
 
 \paragraph {Don Norman: “The invisible Computer” (1998)}
 
-A partir de los años ’80, con la difusión masiva de las interfaces
-user-friendly, se
-consolida entre muchos proyectistas e investigadores una concepción que
-privilegia una
-lectura sobre la interacción hombre-computadora en términos instrumentales y que
-tiende a hacer "desaparecer" la interfaz. Don Norman, propone que los mejores
-programas informáticos "son aquellos donde la computadora 'desaparece’ y se
-puede
-trabajar sin tener en cuenta a la máquina." (1989:231). Esta aparente
-"invisibilidad de
-los procesos de interacción" es una consecuencia directa de la aplicación de la
-metáfora
-mcluhaniana sobre la extensión de las interfaces digitales como prótesis de
-nuestro
-cuerpo. Esta perspectiva, propone que la mejor interfaz es aquella que
-desaparece
-durante el uso. Según Anceschi "las interfaces deberán ser lo más transparente
-posible,
-o sea, deberían tener la menor consistencia (perceptiva) posible" (1993:19). Gui
-Bonsiepe, sostiene que "el usuario ha aprendido el uso de un programa cuando
-éste se
-vuelve tan transparente que ya no tiene necesidad de 'pensar’, o sea cuando el
-programa desaparece y el usuario puede ocuparse de la ejecución de la tarea que
-se
-propone realizar..." (1993b:52). De Kerckhove, afirma que antes de alcanzar el
-nivel de
-saturación una tecnología debe atravesar dos fases: en la primera el dispositivo
-resulta
-muy evidente, en la segunda se interioriza "hasta volverse invisible" (De
-Kerckhove, D.:1999, 123).
-
-
+A partir de los años ’80, con la difusión masiva de las interfaces user-friendly, se consolida entre muchos proyectistas e investigadores una concepción que privilegia una lectura sobre la interacción hombre-computadora en términos instrumentales y que tiende a hacer "desaparecer" la interfaz. Don Norman, propone que los mejores programas informáticos "son aquellos donde la computadora 'desaparece’ y se puede trabajar sin tener en cuenta a la máquina." (1989:231). Esta aparente "invisibilidad de los procesos de interacción" es una consecuencia directa de la aplicación de la metáfora mcluhaniana sobre la extensión de las interfaces digitales como prótesis de nuestro
+cuerpo. Esta perspectiva, propone que la mejor interfaz es aquella que desaparece durante el uso. Según Anceschi las interfaces deberán ser lo más transparente posible, o sea, deberían tener la menor consistencia (perceptiva) posible" (1993:19). GuiBonsiepe, sostiene que "el usuario ha aprendido el uso de un programa cuando éste se
+vuelve tan transparente que ya no tiene necesidad de 'pensar’, o sea cuando el programa desaparece y el usuario puede ocuparse de la ejecución de la tarea que se propone realizar..." (1993b:52). De Kerckhove, afirma que antes de alcanzar el nivel de saturación una tecnología debe atravesar dos fases: en la primera el dispositivo
+resulta muy evidente, en la segunda se interioriza "hasta volverse invisible" (De Kerckhove, D.:1999, 123).
 
 \section{Componentes bases para los Sistemas Sensibles al Contexto}\label{requisitoDHD}
   
-En esta sección, expondremos los diferentes tipos de componentes para capturar
-contexto que integran un Modelo para la Sensibilizarlo al Contexto (MSC).
-Particularmente, mencionaremos dos tipos de moles emblemático con diferentes
-enfoques.
+En esta sección, expondremos los diferentes tipos de componentes para capturar contexto que integran un Modelo para la Sensibilizarlo al Contexto (MSC). Particularmente, mencionaremos dos tipos de moles emblemático con diferentes enfoques.
 
 \subsection{Context Toolkit}
 
-
-En primer lugar, se analiza un modelo tradición fundador expuesto en la tesis
-doctoral de Dey (2003)\cite{dey}. La siguiente tabla muestra una clasificación
-de arquitecturas en las que se resaltan las principales características:
-
+En primer lugar, se analiza un modelo tradición fundador expuesto en la tesis doctoral de Dey (2003)\cite{dey}. La siguiente tabla muestra una clasificación de arquitecturas en las que se resaltan las principales características:
 
 \begin{quotation} 
 
@@ -913,7 +735,7 @@ de la red, calidad de lo parámetros de los servicios.
 	  \item Encapsulamiento.
 	  \item Intercambiable.
 	  \item Controlado a través de un manejador de widget.
-	  \item En el caso que las componentes estén acopladas incrementan la
+	  \item En el caso de que las componentes estén acopladas, incrementan la
 	  eficiencia, al costo de perder robustez ante fallas de componentes.
 	  
 	  \end{itemize}
@@ -940,30 +762,14 @@ de la red, calidad de lo parámetros de los servicios.
 
 
 Llegado a este punto, introduciremos una definición de la componente
-principal
-del modelo: el Widget.
+principal del modelo: el Widget.
 
 
-Este componente, deriva del homónimo elementos GUI, un Widgets es un componente
-de software que brinda una interface pública para algún tipo determinado de
-sensores
-(hardware) (Dey and Abowd, 2000, 2001). Los Widgets ocultan detalles de censado
-de
-bajo nivel y al mismo tiempo son componentes con alto grado de reusabilididad,
-facilitando el desarrollo de aplicaciones. El encapsulamiento en los widgets
-permite
-intercambiarlos entre aquellos que proveen el mismo tipo de datos (ejemplo:
-intercambiar un widget de radiofrecuencia por un widget de una cámara filmadora
-donde ambos recolectan datos de locación de individuos).
+Este componente, deriva del homónimo elementos GUI, un Widgets es un componente de software que brinda una interface pública para algún tipo determinado de sensores (hardware) (Dey and Abowd, 2000, 2001). Los Widgets ocultan detalles de censado de bajo nivel y al mismo tiempo son componentes con alto grado de reusabilididad, facilitando el desarrollo de aplicaciones. El encapsulamiento en los widgets permite intercambiarlos entre aquellos que proveen el mismo tipo de datos (ejemplo: intercambiar un widget de radiofrecuencia por un widget de una cámara filmadora donde ambos recolectan datos de locación de individuos).
 
 
-Usualmente los widgets son controlados por alguna clase de administrador de
-widget.
-En el caso que las componentes sean acopladas incrementan la eficiencia, al
-costo de
-perder robustez ante fallas de componentes.
-Se identifican cincos categorías de componentes que implementan distintas
-funciones:
+Usualmente los widgets son controlados por alguna clase de administrador de widget.
+En el caso de que las componentes sean acopladas incrementan la eficiencia, al costo de perder robustez ante fallas de componentes. Se identifican cincos categorías de componentes que implementan distintas funciones:
 
 \begin{itemize}
 

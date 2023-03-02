@@ -8,6 +8,10 @@
 %\setcounter{equation}{0}
 
 \chapter{Ap{\'e}ndices}
+
+\section{Configuraciones de roles y permisos en Sakai} /ref{anexo:realms}
+todo: agregar el anexo
+
 \section{MCR con factor de olvido}\label{A_1}
 Recordando el criterio de minimizaci{\'o}n de la ec. \ref{e2_29}, podemos considerar un pesado exponencial para
 el error de predicci{\'o}n
@@ -52,6 +56,7 @@ inversi{\'o}n de matrices, resulta que en este caso debe ser
 \begin{equation}
       P_{N}=\frac{1}{\lambda}\left[P_{N-1}-\frac{P_{N-1}\varphi(N)\varphi(N)^TP_{N-1}}{\lambda+\varphi(N)^TP_{N-1}\varphi(N)}\right]
 \end{equation}
+
 
 \section{Predicci{\'o}n con modelo FIR}\label{A_2}
 De esta forma, considerando el error planta-modelo $\eta(k)$ (estimaci{\'o}n de perturbaciones) las predicciones
@@ -134,6 +139,7 @@ son funci{\'o}n de los horizontes $[H_w,H_p]$ y $H_u$ as{\'\i} como del orden de
 \end{equation}
 donde $\mathbf{0}$ es una matrix de ceros y $\mathbf{I}=diag(1,\cdots,1)$ la matriz identidad, ambas de
 dimensiones apropiadas.
+
 
 \section{Predicci{\'o}n con modelo en ecuaciones de estado}\label{A_3}
 Asumiendo que nuestro modelo interno esta representado por un modelo en tiempo discreto en ecuaciones de
@@ -266,6 +272,7 @@ predicci{\'o}n resultan finalmente
                      +\hat{\eta}(k)
 \end{equation}
 
+
 \section{Algoritmo de factorizaci{\'o}n UD}\label{A_4}
 Suele ser de gran ayuda expresar las matrices de forma factorizada y as{\'\i} evitar problemas num{\'e}ricos con
 grandes matrices mal condicionadas. Uno de los m{\'e}todo utilizados es la factorizaci{\'o}n UD que tiene por objeto
@@ -311,6 +318,7 @@ $\lambda$ el factor de olvido, las dem{\'a}s variables son internas utilizadas p
 factorizaci{\'o}n. De esta forma se obtiene una actualizaci{\'o}n de la matriz de covarianza $\mathbf{P}(k)$,
 actualizando directamente su factorizaci{\'o}n $\mathbf{U}_*(k)$ y $\mathbf{D}_*(k)$. El algoritmo adem{\'a}s
 permite el c{\'a}lculo recursivo del vector de par{\'a}metros estimados $\hat{\theta}(k)$.
+
 
 \section{Control basado en modelo interno (CBMI)}\label{A_5}
 Una de las t{\'e}cnicas mas ampliamente difundidas de control basado en modelos es el CBMI (\cite{Rd:07,Rd:86}).
@@ -384,6 +392,7 @@ contexto, se puede obtener un dise{\~n}o conservativo si se selecciona $\tau_{f}
 Teniendo en cuenta lo expresado hasta aqu{\'\i}, se puede entonces utilizar la informaci{\'o}n que suministra el
 SDDEF respecto del retardo identificado y redise{\~n}ar los par{\'a}metros del controlador en l{\'\i}nea; considerando la
 condici{\'o}n $\tau_{f}> \xi$ del error cometido y la ecuaci{\'o}n de dise{\~n}o \ref{ea_28}.
+
 
 \section{Control en avance (feedforward control)}\label{A_6}
 El control en avance (CEA) puede idealmente eliminar por completo el efecto de las perturbaciones medidas en
