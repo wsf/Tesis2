@@ -615,47 +615,31 @@ contexto es restringir el dominio de la misma máquina de búsqueda.
 
 Actualmente, disponemos de gran diversidad de buscadores especializados, algunos
 ejemplos son:
-CiteSeer (Lawrence et al., 1999) y Deadliner (Kruger et al., 2000). También
-existen meta buscadores que implementan algún mecanismo para derivar el contexto del
-usuario y luego usan esa información para realizar consultas sobre alguno de estos
-buscadores especializados. Tal es el caso de Inquirus 2 (Glover et al., 2000).
+CiteSeer (Lawrence et al., 1999) y Deadliner (Kruger et al., 2000). También existen meta buscadores que implementan algún mecanismo para derivar el contexto del usuario y luego usan esa información para realizar consultas sobre alguno de estos buscadores especializados. Tal es el caso de Inquirus 2 (Glover et al., 2000).
 
-Sobre los enfoques para “Derivar el contexto pasado y futuro”, Brown y Jones
-(2002), proponen explotar la característica del contexto que lo hace cambiar constantemente,
-pero en cierta medida de manera predecible.
+Sobre los enfoques para “Derivar el contexto pasado y futuro”, Brown y Jones (2002), proponen explotar la característica del contexto que lo hace cambiar constantemente, pero en cierta medida de manera predecible.
 
-Al analizar cómo es el proceso de cambio y llevar un registro del mismo, podemos crear lo que dichos autores llaman: “Diario de Contexto”, guardando los estados de las variables de contexto medidas por sensores, ya que a través de esta información se puede predecir un contexto de interés a futuro. También proponen un "Context-aware
-Caching" (depósito de documentos) en el cual, se recupera la información, haciéndolo con un contexto en donde los campos (o variables) son rangos estimados de valores que puede tomar cada campo en un futuro cercano, utilizando los documentos resultantes para formar un depósito temporal desde el cual se pueden realizar mas rápidamente
-recuperaciones posteriores mientras el contexto del usuario no cambie considerablemente.
+Al analizar cómo es el proceso de cambio y llevar un registro del mismo, podemos crear lo que dichos autores llaman: “Diario de Contexto”, guardando los estados de las variables de contexto medidas por sensores, ya que a través de esta información se puede predecir un contexto de interés a futuro. También proponen un "Context-aware Caching" (depósito de documentos) en el cual, se recupera la información, haciéndolo con un contexto en donde los campos (o variables) son rangos estimados de valores que puede tomar cada campo en un futuro cercano, utilizando los documentos resultantes para formar un depósito temporal desde el cual se pueden realizar mas rápidamente recuperaciones posteriores mientras el contexto del usuario no cambie considerablemente.
 
 \subsection {Visiones en la perspectiva histórica}
  
-Es interesante considerar, en el marco de esta tesis, algunos de los
-antecedentes más relevantes a nivel histórico del paradigma que subyace en los sistemas sensibles al
-contexto, citaremos a continuación destacados referentes:
+Es interesante considerar, en el marco de esta tesis, algunos de los antecedentes más relevantes a nivel histórico del paradigma que subyace en los sistemas sensibles al contexto, citaremos a continuación estacados referentes:
 
 \paragraph {Vannevar Bush's Memex (1945)}
 
-Propone, antes del desarrollo del computador, un aparato denominado Memex que, como suplemento de nuestra memoria, facilitaría el acceso y la relación de la información acumulada. La clave de este dispositivo, es que funcionaría imitando los procesos de asociación de la mente humana. Reconocido el límite que impone el artificio, se plantea
-igualmente un cambio fundamental: la selección debe ser por asociación y no por la ubicación mecánica de temas en un índice alfabético.
+Propone, antes del desarrollo del computador, un aparato denominado Memex que, como suplemento de nuestra memoria, facilitaría el acceso y la relación de la información acumulada. La clave de este dispositivo, es que funcionaría imitando los procesos de asociación de la mente humana. Reconocido el límite que impone el artificio, se plantea igualmente un cambio fundamental: la selección debe ser por asociación y no por la ubicación mecánica de temas en un índice alfabético.
 
 En el Memex se podrían guardar archivos, libros y textos para ser consultados con rapidez y flexibilidad, sería posible agregar comentarios y notas marginales.
 
-Quien consultara, construiría senderos de lectura de acuerdo a su interés,
-seleccionando y enlazando los artículos a través del laberinto de materiales disponibles, y podría
-modificar esta configuración cuando lo deseara. Bush concretiza a nivel de objeto tecnológico la recuperación y escritura de la información en formato hipertextual.
+Quien consultara, construiría senderos de lectura de acuerdo a su interés, seleccionando y enlazando los artículos a través del laberinto de materiales disponibles, y podría modificar esta configuración cuando lo deseara. Bush concretiza a nivel de objeto tecnológico la recuperación y escritura de la información en formato hipertextual.
 
-Edward Thorp: “The invention of the first wearable computer” (1960) La primera computadora “wearable” (que se puede llevar puesta en el cuerpo) fue concebida en 1955 por Edgard Thorop para predecir el comportamiento de la
-ruleta, culminando en un trabajo conjunto en el M.I.T. con Claude Shannon en 1960-61. El dispositivo era similar al tamaño de un paquete de cigarrillos y permitía aumentar hasta un 44\% las chance de ganar, si bien se probó el objetivo planteado, luego ocurrieron pequeñas fallas en el hardware que impidieron continuar con el uso de este
-dispositivo. Este método y la existencia de la computadora no fueron publicados hasta el año
+Edward Thorp: “The invention of the first wearable computer” (1960) La primera computadora “wearable” (que se puede llevar puesta en el cuerpo) fue concebida en 1955 por Edgard Thorop para predecir el comportamiento de la ruleta, culminando en un trabajo conjunto en el M.I.T. con Claude Shannon en 1960-61. El dispositivo era similar al tamaño de un paquete de cigarrillos y permitía aumentar hasta un 44\% las chance de ganar, si bien se probó el objetivo planteado, luego ocurrieron pequeñas fallas en el hardware que impidieron continuar con el uso de este dispositivo. Este método y la existencia de la computadora no fueron publicados hasta el año
 1966.
 
 
 \paragraph {Alan Kay's Dynabook (circa 1977)} 
 
-La Dynabook es un dispositivo portátil, con red inalámbrica y pantalla plana,
-entre otras cosas. Este dispositivo se concibe como extensión de las posibilidades de la mente-cuerpo y lugar donde un usuario concentra toda la información que consume y que genera. Guiados por esta visión, un grupo de referentes de la informática (Alan Kay, Dan Ingalls, Adele Goldberg, etc.) fueron responsables de los desarrollos de mayor impacto relacionados con las computadoras personales. Una lista, no completa, de los
-aportes de este proyecto son: “El concepto de la Computadora Personal”, “El paradigma de objetos”, “Smalltalk”, “Interfaces de usuario gráficas”, “Uso del Mouse”, “Drag& drop”, “Menúes desplegables”.
+La Dynabook es un dispositivo portátil, con red inalámbrica y pantalla plana, entre otras cosas. Este dispositivo se concibe como extensión de las posibilidades de la mente-cuerpo y lugar donde un usuario concentra toda la información que consume y que genera. Guiados por esta visión, un grupo de referentes de la informática (Alan Kay, Dan Ingalls, Adele Goldberg, etc.) fueron responsables de los desarrollos de mayor impacto relacionados con las computadoras personales. Una lista, no completa, de los aportes de este proyecto son: “El concepto de la Computadora Personal”, “El paradigma de objetos”, “Smalltalk”, “Interfaces de usuario gráficas”, “Uso del Mouse”, “Drag& drop”, “Menúes desplegables”.
 
 Las ideas de la Dynabook siguen vigentes en el Squeak y su filosofía en grupos como SqueakLand. Los eToys y los Ensayos Activos son subyacentes a las ideas del meta-medio.
 
@@ -711,22 +695,22 @@ En primer lugar, se analiza un modelo tradición fundador expuesto en la tesis d
 \begin{itemize}
 \item Acceso directo a Sensores:
 	    \begin{itemize}
-	    \item No extensible
-	    \item Componentes altamente acopladas
+	       \item No extensible
+	       \item Componentes altamente acopladas
 	    \end{itemize}
 
 \item Basado en Middleware: 	   
 	      \begin{itemize}
-	      \item Permite la ocultación de detalles de censado de bajo nivel.
-	      \item Extensible.
-	      \item Permite el acceso de múltiples clientes a los datos de
+	       \item Permite la ocultación de detalles de censado de bajo nivel.
+	       \item Extensible.
+	       \item Permite el acceso de múltiples clientes a los datos de
 forma remota.
-	      \item Libera a los clientes de recursos que demandan
+	       \item Libera a los clientes de recursos que demandan
 	      \end{itemize}
 
 \item Servidor de Contexto:operaciones intensivas.
 	    \begin{itemize}
-	    \item Debe considerar el uso de protocolos apropiados, rendimiento
+	       \item Debe considerar el uso de protocolos apropiados, rendimiento
 de la red, calidad de lo parámetros de los servicios.
 	    \end{itemize}
 
@@ -765,10 +749,10 @@ Llegado a este punto, introduciremos una definición de la componente
 principal del modelo: el Widget.
 
 
-Este componente, deriva del homónimo elementos GUI, un Widgets es un componente de software que brinda una interface pública para algún tipo determinado de sensores (hardware) (Dey and Abowd, 2000, 2001). Los Widgets ocultan detalles de censado de bajo nivel y al mismo tiempo son componentes con alto grado de reusabilididad, facilitando el desarrollo de aplicaciones. El encapsulamiento en los widgets permite intercambiarlos entre aquellos que proveen el mismo tipo de datos (ejemplo: intercambiar un widget de radiofrecuencia por un widget de una cámara filmadora donde ambos recolectan datos de locación de individuos).
+Este componente, deriva del homónimo elementos GUI, un Widgets es un componente de software que brinda una interface pública para algún tipo determinado de sensores (hardware) (Dey and Abowd, 2000, 2001). Los Widgets ocultan detalles de censado de bajo nivel y al mismo tiempo son componentes con alto grado de reusabilidad, facilitando el desarrollo de aplicaciones. El encapsulamiento en los Widgets permite intercambiarlos entre aquellos que proveen el mismo tipo de datos (ejemplo: intercambiar un Widget de radiofrecuencia por un Widget de una cámara filmadora donde ambos recolectan datos de locación de individuos).
 
 
-Usualmente los widgets son controlados por alguna clase de administrador de widget.
+Usualmente los Widgets son controlados por alguna clase de administrador de widget.
 En el caso de que las componentes sean acopladas incrementan la eficiencia, al costo de perder robustez ante fallas de componentes. Se identifican cincos categorías de componentes que implementan distintas funciones:
 
 \begin{itemize}
@@ -798,121 +782,47 @@ establecer un número limitado de relaciones.
 
 \end{itemize} 
 
-Widgets es consultada, o bien, notificada ante eventuales cambios en los
-clientes. Los
-clientes pueden ser aplicaciones, aggregators u otros widgets. A su vez
-aggregators
-actúa como un puente entre widgets y aplicaciones. Un interpreters puede ser
-solicitado
-en un determinado estado por un widget, aggregator o aplicaciones. Los services
-son
-lanzados por las aplicaciones (también otros componentes pueden hacer uso de los
-servicios). Discoveres se comunica con todos los componentes, adquiere desde los
-widget, interpreters y aggregators, y provee información a las aplicaciones por
-medio
-de notificaciones y consultas.
+Widgets es consultada, o bien, notificada ante eventuales cambios en los clientes. Los
+clientes pueden ser aplicaciones, Aggregators u otros Widgets. A su vez Aggregators actúa como un puente entre Widgets y aplicaciones. Un Interpreters puede ser solicitado en un determinado estado por un Widget, Aggregator o aplicaciones. Los Services son lanzados por las aplicaciones (también otros componentes pueden hacer uso de los servicios). Discoveres se comunica con todos los componentes, adquiere desde los Widget, Interpreters y Aggregators, y provee información a las aplicaciones por medio de notificaciones y consultas.
 
-La figura \ref{fig:deytoolkit} expone una posible configuración con dos
-dispositivos de censado, dos
-widgets, un aggregator, dos interpreters, un servicio, un discoverer y dos
-aplicaciones.
+La figura \ref{fig:deytoolkit} expone una posible configuración con dos dispositivos de censado, dos Widgets, un Aggregator, dos Interpreters, un servicio, un Discoverer y dos aplicaciones.
 
 \begin{figure}
 \begin{center}
  \includegraphics [width=5 in,totalheight=4 in] {Ch1/f2.jpg}
  % .: 0x0 pixel, -2147483648dpi, nanxnan cm, bb=
-\caption {Una configuración de las componentes del context Toolkit.}
+\caption {Una configuración de las componentes del Context Toolkit.}
 \label{fig:deytoolkit}
 \end{center}
 \end{figure}
 
-
 En el instante en que algún componente contexto se encuentre disponible,
-registra sus
-capacidades en un discoverer. Esto permite que los \textit{aggregators}
-encuentren \textit{widgets} e
-\textit{interpreters} y a las aplicaciones encontrar \textit{aggregators},
-\textit{widget} e \textit{interpreters}. Un
-sensor provee datos para un \textit{context widget}, en cual se encarga de
-almacenar el
-contexto, puede llamar a un \textit{interpreter} para obtener un mayor nivel de
-abstracción de
-los datos y luego pone el contexto a disposición (para que pueda ser accedido)
-por otros
-componentes y aplicaciones. Un \textit{aggregator} recolecta información de
-contexto de las
-entidades, representadas por los \textit{widgets}. Finalmente, las aplicaciones
-pueden consultar
-o suscribirse a los \textit{agreegators} (o directamente con los
-\textit{widgets}, si se quiere) y llamar a
-\textit{interpreters} (si el deseado nivel de abstracción no se encuentra
-disponible desde los
-\textit{widgets} y \textit{aggregators}).
+registra sus capacidades en un \textit{Discoverer}. Esto permite que los \textit{Aggregators}
+encuentren \textit{Widgets} e\textit{Interpreters} y a las aplicaciones encontrar \textit{Aggregators}, \textit{Widget} e \textit{Interpreters}. Un sensor provee datos para un \textit{Context Widget}, en cuál se encarga de almacenar el contexto, a su vez, puede llamar a un \textit{Interpreter} para obtener un mayor nivel de abstracción de los datos y luego pone el contexto a disposición, para poder ser accedido,  por otros componentes y aplicaciones. Un \textit{Aggregator} recolecta información de contexto de las entidades, representadas por los \textit{Widgets}. Finalmente, las aplicaciones pueden consultar o suscribirse a los \textit{Agreegators} (o directamente con los \textit{Widgets}, si se quiere) y llamar a \textit{Interpreters} (si el deseado nivel de abstracción no se encuentra disponible desde los
+\textit{Widgets} y \textit{Aggregators}).
 
-Estos componentes se ejecutan independientemente de las aplicaciones, asegurando
-una
-continua adquisición de información de contexto y el uso de múltiples
-aplicaciones.
-Además, todos los componentes y aplicaciones se comunican entre ellos
-automáticamente usando protocolos y lenguajes conocidos. Esto da lugar a que los
-programadores que implementaron un particular componente o aplicación puedan
-comunicarse con otro componente sin tener conocimiento de los mecanismos usados
-para lograr la interacción.
+Estos componentes se ejecutan independientemente de las aplicaciones, asegurando una continua adquisición de información de contexto y el uso de múltiples aplicaciones.
+
+Además, todos los componentes y aplicaciones se comunican entre ellos automáticamente usando protocolos y lenguajes conocidos. Esto da lugar a que los programadores que implementaron un particular componente o aplicación puedan comunicarse con otro componente sin tener conocimiento de los mecanismos usados para lograr la interacción.
 
 
 \subsection{Proyecto UWA}
 
-UWA ha nacido de la colaboración entre diferentes grupos de trabajo, por lo que
-resulta realmente una agrupación de
-propuestas y técnicas. UWA incluye una original propuesta de aplicar la
-notación UML para modelar elementos de multimedia que a su vez es heredado
-de otra propuesta llamada HDM (Hypermedia Design Model)\cite{HDM11}. Sin
-embargo, W2000 ha sido incluida en UWA sólo en la fase de diseño hipermedia,
-siendo ambas propuestas diferentes en la fase de definición
-de requisitos. Por esta razón han sido incluidos en este proyecto en forma
-separada. El proceso de captura de requisitos
-en UWA\cite{uwa32} comienza definiendo los diferentes roles de usuario que
-pueden interactuar con el sistema, los objetivos
-globales del sistemas y la relación entre éstos. El proceso continúa haciendo
-un refinamiento de esos objetivos
-globales, concretándolos en sub-objetivos. Estos sub-objetivos son estudiados y
-refinados para detectar conflictos entre
-ellos. De esta forma, se concretizan aún más dividiéndolos en requisitos. Los
-requisitos son clasificados en varios tipos:
-de \textit{contenido}, de \textit{estructura de contenido}, de \textit{acceso},
-de \textit{navegación}, de
-\textit{presentación}, de \textit{operaciones de usuario} y de
-\textit{operaciones del sistema}. De esta forma, los requisitos se van refinando
-hasta que solo pertenezcan a uno de estos grupos. Y finalmente los
-requerimientos son asignados a artefactos de diseño o a reglas de customización.
-Para definir los objetivos, UWA propone una notación propia, basada en una
-plantilla. La definición de los actores y la relación con
-los objetivos se hace usando un diagrama basado en casos de uso. Por último,
-para definir y refinar los sub-objetivos y los requisitos, utilizan una notación
-gráfica propia que denominan grafo de refinamiento de objetivos, el refinamiento
-de este grafo permite ir representando la relación entre los requisitos y hacer
-un seguimiento para validar la consecución de los objetivos del sistema. Una vez
-que los requisitos son detectados, hacen uso de XML para definirlos de una
-manera formal.
+UWA ha nacido de la colaboración entre diferentes grupos de trabajo, por lo que resulta realmente una agrupación de propuestas y técnicas. UWA incluye una original propuesta de aplicar la notación UML para modelar elementos de multimedia que a su vez es heredado de otra propuesta llamada HDM (Hypermedia Design Model)\cite{HDM11}. Sin embargo, la metodología de desarrollo W2000 ha sido incluida en UWA sólo en la fase de diseño hipermedia, siendo ambas propuestas diferentes en la fase de definición de requisitos. Por esta razón han sido incluidos en este proyecto en forma separada. El proceso de captura de requisitos en UWA\cite{UWA32} comienza definiendo los diferentes roles de usuario que pueden interactuar con el sistema, los objetivos globales del sistema y la relación entre estos. El proceso continúa haciendo un refinamiento de esos objetivos globales, concretándolos en sub-objetivos. Estos sub-objetivos son estudiados y refinados para detectar conflictos entre ellos. De esta forma, se concretizan aún más dividiéndolos en requisitos. Los
+requisitos son clasificados en varios tipos: de \textit{contenido}, de \textit{estructura de contenido}, de \textit{acceso}, de \textit{navegación}, de \textit{presentación}, de \textit{operaciones de usuario} y de
+\textit{operaciones del sistema}. 
 
+De esta forma, los requisitos se van refinando hasta que solo pertenezcan a uno de estos grupos. Y finalmente los requerimientos son asignados a artefactos de diseño o a reglas de customización.
+Para definir los objetivos, UWA propone una notación propia, basada en una plantilla. La definición de los actores y la relación con los objetivos se hace usando un diagrama basado en casos de uso. Por último,
+para definir y refinar los sub-objetivos y los requisitos, utilizan una notación gráfica propia que denominan grafo de refinamiento de objetivos, el refinamiento de este grafo permite ir representando la relación entre los requisitos y hacer un seguimiento para validar la consecución de los objetivos del sistema. Una vez que los requisitos son detectados, hacen uso de XML para definirlos de una manera formal.
 
 
 \begin{quote}
-''An ubiquitous web application is a Web application that suffers from the
-anytime/anywhere/anymedia syndrome. This means that an ubiquitous
-web application should be designed from the start taking into account
-not only its hypermedia nature, but also the fact that it must run “as is”
-on a variety of platforms, including mobile phones, Personal Digital
-Assistants (PDAs), full-fledged desktop computers, and so on. This
-implies that an ubiquitous web application must take into account the
-different capabilities of devices comprising display size, local storage
-size, method of input, network capacity, etc. New opportunities are
-offered in terms of location-based, time-based, and personalised
-services taking into account the needs and preferences of particular
-users. Consequently, an ubiquitous web application must be, on the one
-hand, context-aware i.e., aware of the environment it is running in, and
-on the other hand it must support personalisation
-From: Ubiquitous Web Application Development- A Framework for understanding``
+''An ubiquitous web application is a Web application that suffers from the anytime/anywhere/anymedia syndrome. This means that an ubiquitous web application should be designed from the start taking into account
+not only its hypermedia nature, but also the fact that it must run “as is” on a variety of platforms, including mobile phones, Personal Digital Assistants (PDAs), full-fledged desktop computers, and so on. This
+implies that an ubiquitous web application must take into account the different capabilities of devices comprising display size, local storage size, method of input, network capacity, etc. New opportunities are
+offered in terms of location-based, time-based, and personalised services taking into account the needs and preferences of particular users. Consequently, an ubiquitous web application must be, on the one
+hand, context-aware i.e., aware of the environment it is running in, and on the other hand it must support personalisation From: Ubiquitous Web Application Development- A Framework for understanding``
 
 \begin{flushright}
 \textit{A. Finkelstein et al 2002}
@@ -920,9 +830,7 @@ From: Ubiquitous Web Application Development- A Framework for understanding``
 \end{quote} 
 
 
-Se comienza con la descripción conceptual del framework propuesto en el
-proyecto UWA para el desarrollo de aplicaciones web ubicuas basada en el
-enfoque de la teoría reflexión (\textit{reflection})
+Se comienza con la descripción conceptual del framework propuesto en el proyecto UWA para el desarrollo de aplicaciones web ubicuas basada en el enfoque de la teoría reflexión (\textit{reflection})
 
 
 
@@ -930,198 +838,90 @@ enfoque de la teoría reflexión (\textit{reflection})
 \begin{center}
  \includegraphics[width=5 in,totalheight=4 in] {Ch1/Figuras/UWAFramework2.png}
  % UWAFramework2.png: 828x510 pixel, 96dpi, 21.90x13.49 cm, bb=0 0 621 382
-\caption{Dise\~no conceptual del Framework UWA}\label{fig:uwaFramework}
+\caption{Diseño conceptual del Framework UWA}\label{fig:uwaFramework}
 \end{center}
 \end{figure}
 
 
 
-\paragraph{Goal}
+\paragraph{Goal:}
 
-Goal es un objetivo que el sistema debe alcanzar por medio de la cooperación entre agentes (usuarios y componentes  software) propiamente dicho y dentro
-de un entorno. Desde la perspectiva UWA los objetivos son
-\textit{inmutables} i.e., no cambia ante cuando se modifica el entorno.
-Representa el último objetivo que el servicio está destinado a lograr. Un
-cambio en los objetivos significaría cambiar el servicio mismo. A lo largo de
-las líneas de \cite{uwa5}, donde un “goal” no es alcanzado por una “acción directa” de uno a más agentes; de otro modo, un “goal” se convierte en un objetivo un tanto
+Goal es un objetivo que el sistema debe alcanzar por medio de la cooperación entre agentes (usuarios y componentes  software) propiamente dicho y dentro de un entorno. Desde la perspectiva UWA los objetivos son \textit{inmutables} i.e., no cambia ante cuando se modifica el entorno. Representa el último objetivo que el servicio está destinado a lograr. Un cambio en los objetivos significaría cambiar el servicio mismo. A lo largo de las líneas de \cite{UWA5}, donde un “goal” no es alcanzado por una “acción directa” de uno a más agentes. De otro modo, un “goal” se convierte en un objetivo un tanto
 abstracto de largo plazo.
 
-En la Figura \ref{fig:uwaFramework}, los objetivos son de color gris, lo que
-significa que ellos son la única parte del marco que no tiene la intención de
-cambiar en tiempo de ejecución. Más exactamente, las metas pueden (y deben)
-tener una imagen en tiempo de ejecución (ya que su puesta en marcha
-en los requisitos de forma dinámica puede cambiar), pero no se pueden modificar
-directamente.
+En la Figura \ref{fig:uwaFramework}, los objetivos son de color gris, lo que significa que ellos son la única parte del marco que no tiene la intención de cambiar en tiempo de ejecución. Más exactamente, las metas pueden (y deben) tener una imagen en tiempo de ejecución (ya que su puesta en marcha en los requisitos de forma dinámica puede cambiar), pero no se pueden modificar directamente.
 
-\paragraph{Service}
+\paragraph{Service:}
 
-El servicio se puede definir como algo que proporciona valor añadido a uno o más
-actores. Un servicio es distinto de
-una aplicación, ya que es un concepto mucho más general, que podría ser
-proporcionada por ejemplo, por medios distintos de
-computadoras. Por ejemplo, si uno de los objetivos es maximizar la usabilidad
-del sistema, un servicio puede ser el de proporcionar a los usuario con los
-dispositivos de entrada-salida. Este es un ejemplo de diseño centrado en el
-usuario, mediante el cual el sistema es sólo un medio para
-cumplimiento de las metas de usuario, y no un objetivo en sí mismo. Por lo
-tanto, los servicios de pertenecer en el mundo, no en la máquina.
+El servicio se puede definir como algo que proporciona valor añadido a uno o más actores. Un servicio es distinto de
+una aplicación, ya que es un concepto mucho más general, que podría ser proporcionada, por ejemplo, por medios distintos de
+computadoras. Por ejemplo, si uno de los objetivos es maximizar la usabilidad del sistema, un servicio puede ser el de proporcionar a los usuarios con los dispositivos de entrada-salida. Este es un ejemplo de diseño centrado en el
+usuario, mediante el cual el sistema es sólo un medio para cumplimiento de las metas de usuario, y no un objetivo en sí mismo. Por lo tanto, los servicios deben pertenecer en el mundo, no en la máquina.
 
 
 \paragraph{Environment}
 
-Por "Environment" se refiere al entorno en que la máquina
-operar. Teniendo en cuenta el medio ambiente es crucial porque influye mucho en
-el comportamiento de la máquina.
+Por "Environment" se refiere al entorno en que la máquina operar. Teniendo en cuenta el medio ambiente es crucial porque influye significativamente en el comportamiento de la máquina.
 
-
-El entorno cuenta con propiedades para describir una
-faceta diferente del medio ambiente. Consideremos el ejemplo de un
-servicio de m-commerce. En este caso el medio ambiente abarca cosas tales como
-ancho de banda, la ubicación (absoluto y relativo), la disponibilidad del
+El entorno cuenta con propiedades para describir una faceta diferente del medio ambiente. Consideremos el ejemplo de un
+servicio relacionado operaciones de compra electrónica realizado por un usuario a través teléfono celular (m-commerce). En este caso, el medio ambiente abarca cosas tales como ancho de banda, la ubicación absoluto y relativo, la disponibilidad del
 servicio, las características del dispositivo, y muchos temas más.
-Tenga en cuenta que el sistema no tiene control alguno sobre el medio ambiente.
-En otras palabras, la máquina debe adaptarse a las
-medio ambiente, no al revés. Como cuestión de hecho, si el ancho de banda es
-bajo, la conexión es irregular, el
-PDA pantalla es pequeña, esto es algo que no puede ser modificado directamente
-por el software. El trabajo de un ingeniero de software
-por lo tanto puede resumirse como una lucha hacia la meta a pesar del entorno,
-todo lo que puede hacer con el
-medio ambiente es sentido, y lo describen de la mejor manera posible, pero no
-podemos cambiar i
+
+Se debe tener en cuenta que el sistema no tiene control alguno sobre el medio ambiente, lo que significa que la máquina debe adaptarse al medio ambiente, no al revés. Si el ancho de banda es limitado, la conexión es irregular, la pantalla del dispositivo es pequeña, esto es algo que no puede ser modificado directamente por el software. Por lo tanto, el trabajo del ingeniero de software se resume en enfrentar los desafíos del entorno y trabajar hacia la meta, utilizando el entorno tal como es y describiéndolo de la mejor manera posible, aunque no podemos cambiarlo.
 
 
 \paragraph{Context}
 
-Contexto se define como la resignificación del medio ambiente en términos de
-sus propiedades. En la figura, desde el contexto no salen flechas hacia el
-entorno medio ambienta ya que UWA lo interpreta como no modificable. A su vez,
-el contexto permite efectuar una descripción del medio ambiente. La mayoría de
-las descripciones importantes deben ser dinámicamente actualizables en función 
-del cambio posible del medio ambiente. 
+Contexto se define como la resignificación del medio ambiente en términos de sus propiedades. En la figura, desde el contexto no salen flechas hacia el entorno medio ambienta ya que UWA lo interpreta como no modificable. A su vez, el contexto permite efectuar una descripción del medio ambiente. La mayoría de las descripciones importantes deben ser dinámicamente 
+actualizablesen función del cambio posible del medio ambiente. 
 
-El contexto es parte de la máquina, ya que es una representación del medio
-ambiente (que a su vez pertenece al mundo real)
-dentro del sistema. En otras palabras, el medio ambiente se representa en el
-contexto, ya que existe una máquina;
-sin esto, el contexto no tendría sentido. Tenga en cuenta que el contexto es la
-única parte del sistema que es la aplicación
-independiente, en el que se describen las propiedades del medio ambiente
-adecuado, independientemente de la aplicación que se va a construir.
-Esto está marcado en la Figura \ref{fig:uwaFramework}  por un doble contorno
-alrededor de la caja de
-contexto. 
+Es importante destacar que el contexto es una parte fundamental de la máquina, ya que representa el entorno que pertenece al mundo real y que existe dentro del sistema. De hecho, el contexto es la única parte del sistema que es independiente de la aplicación que se construye, ya que describe las propiedades del entorno adecuado para cualquier aplicación en particular. Esto se muestra en la figura \ref{fig:uwaFramework} mediante un doble contorno alrededor de la caja de contexto.
 
 
 \paragraph{Profiles}
 
-
-A diferencia del contexto, el perfil representa información explicita. Un
-ejemplo es el uso de perfil para la personalización de usuarios. El perfil
-puede ser dependiente o independiente de la aplicación.
+A diferencia del contexto, el perfil representa información explícita. Un ejemplo es el uso de perfil para la personalización de usuarios. El perfil puede ser dependiente o independiente de la aplicación.
 
 
 \paragraph{Requirements}
 
-Los Requerimientos representan una de las posibles formas de lograr
-una meta. Un requerimiento personaliza un objetivo, ya
-que
-representa en una forma más concreta los objetivos a corto plazo
-que son directamente alcanzables a través de las acciones realizadas por uno o
-más agentes. Los requisitos pueden cambiar
-durante la ejecución del sistema. El entorno pude sufrir un alto grado de
-cambio invalidando los objetivos iniciales. Entonces, cambios en el contexto
-puede generar la necesidad de cambios en los requerimientos.
+Los Requerimientos representan una de las posibles formas de lograr una meta. Un requerimiento personaliza un objetivo, ya
+que representa en una forma más concreta los objetivos a corto plazo que son directamente alcanzables a través de las acciones realizadas por uno o más agentes. Los requisitos pueden cambiar durante la ejecución del sistema. El entorno pude sufrir un alto grado de cambio invalidando los objetivos iniciales. Entonces, cambios en el contexto puede generar la necesidad de cambios en los requerimientos.
 
-En términos informal, se puede decir que los
-requisitos son un ''trade-off'' entre los 
-objetivos y la realidad actual. Por ejemplo, el objetivo de una aplicación
-m-commerce ubicua podría ser establecida por la alta interactividad de un
-usuario. Teniendo en cuenta este
-objetivo, si el contexto es favorable (por ejemplo, el ancho de banda, alta,
-color de gran tamaño
-pantalla, máquina virtual Java disponible) un requisito puede ser "utilizar un
-colorido applet de Java para representar el estado de
-la cesta de la compra", mientras que si la conexión es lenta o no hay JVM
-disponible, el requisito puede ser
-mitigado en "utilizar un gif animado de 16 colores."
-
+En términos informal, se puede decir que los requisitos son un ''trade-off'' entre los  objetivos y la realidad actual. Por ejemplo, el objetivo de una aplicación m-commerce ubicua podría ser establecida por la alta interactividad de un
+usuario. Teniendo en cuenta este objetivo, si el contexto es favorable (por ejemplo, el ancho de banda, alta,
+color de gran tamaño pantalla, máquina virtual Java disponible) un requisito puede ser "utilizar un
+applet de Java para representar el estado de la cesta de la compra".  Mientras que si la conexión es lenta o no hay JVM disponible, el requisito puede ser mitigado en "utilizar un GIF (Graphics Interchange Format) animado de 16 colores."
 
 \paragraph{Application}
 
-La aplicación es la encargada de la implementación de uno o más servicios. La
-relación entre aplicación y servicios es de mucho a muchos. Un servicio puede
-estar relacionado con varias aplicaciones y una aplicación puede disparar
-varios servicios. Un servicio complejo puede estar interactuando con varias
-aplicaciones distribuidas. 
+La aplicación es la encargada de la implementación de uno o más servicios. La relación entre aplicación y servicios es de mucho a muchos. Un servicio puede estar relacionado con varias aplicaciones y una aplicación puede disparar varios servicios. Un servicio complejo puede estar interactuando con varias aplicaciones distribuidas. 
 
-Una aplicación está conformada por una \textit{parte estable}, que provee
-funcionalidades básicas y una \textit{parte variable}, que se encarga de
-efectuar las adaptaciones. Ambas partes están vinculadas por medios de
-"ganchos" que implementan la comunicación.
+Una aplicación está conformada por una \textit{parte estable}, que provee funcionalidades básicas, y una \textit{parte variable}, que se encarga de efectuar las adaptaciones. Ambas partes están vinculadas por medios de
+conectores (pipeline) que implementan la comunicación.
 
 
-
-La solicitud se hace por una parte estable, que proporciona la funcionalidad
-básica, y una parte variable, que se da cuenta de
-la personalización. La parte estable de la aplicación proporciona los ganchos,
-los llamados puntos calientes de personalización, que permite la
-parte variable para adaptar su comportamiento a las necesidades particulares.
-Bajo este aspecto, se asemeja a una orientada a objetos
-marco.
+La solicitud se hace, por una parte, estable, que proporciona la funcionalidad básica, y una parte variable, que se da cuenta de la personalización. La parte estable de la aplicación proporciona los ganchos, los llamados puntos calientes de personalización, que permite la parte variable para adaptar su comportamiento a las necesidades particulares.
+%Bajo este aspecto, se asemeja a una orientada a objetos marco.
 
 
 \paragraph{Customisation Rules}
 
-Las reglas de personalización (Customisation Rules) 
-son el medio por el cual los requisitos se traducen
-en la parte variable de la aplicación y
-se puede conformar como reglas de producción.
+Las reglas de personalización (Customisation Rules) son el medio por el cual los requisitos se traducen en la parte variable de la aplicación y se puede conformar como reglas de producción.
 
 
 \paragraph{The Meta Level}
 
-El Meta Nivel (Meta level) es una representación de la aplicación en términos
-reflectivo. Implementa las eventuales conexiones de la aplicación, esto se
-refiere al estado de la aplicación, visto de otra perspectiva, funcionan como
-un continuo monitoreo y mantiene una descripción actualizada de su
-estado. Esto es necesario ya que el funcionamiento de la aplicación
-puede ser influenciada por el medio ambiente, y por lo tanto puede cambiar de
-maneras impredecibles. Supongamos, por ejemplo, que un
-teléfono móvil está funcionando en un área con fuertes campos magnéticos. En
-esta situación, el teléfono puede reportar un buen
-conexión, pero la calidad real siempre puede ser baja debido a la interferencia.
-En tal caso, el control de la
-medio ambiente no es suficiente, y no hay manera de darse cuenta de esta
-interferencia que no sea el control de la propia aplicación.
-La relación con la aplicación se produce mediante dos vías, donde el
-\textit{meta nivel } puede afectar el nivel de
-base
-funcionalidad por medio de la \textit{meta reglas} que permitirían implementar
-la personalización correspondiente. Entonces, ante situaciones particulares
-las metas reglas son disparadas y pueden cambiar, a\~nadir o eliminar las
-reglas actuales
+El Meta Nivel (Meta level) es una representación de la aplicación en términos reflectivo. Implementa las eventuales conexiones de la aplicación, esto se refiere al estado de la aplicación, visto de otra perspectiva, funcionan como
+un continuo monitoreo y mantiene una descripción actualizada de su estado. Esto es necesario, ya que el funcionamiento de la aplicación puede ser influenciada por el medio ambiente, por lo tanto, puede cambiar de maneras impredecibles. Supongamos, por ejemplo, que un teléfono móvil está funcionando en un área con fuertes campos magnéticos. En esta situación, el teléfono puede reportar buena conexión, pero la calidad real siempre puede ser baja debido a la interferencia. En tal caso, el control del medio ambiente no es suficiente, y no hay manera de darse cuenta de esta interferencia que no sea el control de la propia aplicación. La relación con la aplicación se produce mediante dos vías, donde el \textit{meta nivel } puede afectar el nivel de base funcionalidad por medio de la \textit{meta reglas} que permitirían implementar la personalización correspondiente. Entonces, ante situaciones particulares, las metas reglas son disparadas y pueden cambiar, añadir o eliminar las reglas actuales
 
-Un meta nivel de reflexión también se puede emplear para los
-requerimientos de control, en el sentido utilizado en \cite{uwa.7}.
+Un meta nivel de reflexión también se puede emplear para los requerimientos de control, en el sentido utilizado en \cite{UWA5}. En este nivel se implementa una de las principales características que se pretende poner en obra en esta tesis debido a su relación con nuestra visión de reconfiguración dinámica. 
 
-en este nivel se implementa una de las principales características que se
-pretende poner en obra en esta tesis debido a su relación con
-nuestra visión de reconfiguración dinámica. 
+Se argumenta que la "manera reflexiva" es una manera limpia y consistente de los cambios de rendimiento en tiempo de ejecución, que es finalmente el sistema real como percibida por el usuario. Este enfoque consiste en la manipulación de las
+las normas de personalización, con el fin de ajustar el servicio con los requisitos. La relación de causalidad, en particular,
+el enlace descendente (reflexión), prevé la coherencia entre la descripción del servicio y el propio servicio.
 
-
-Se argumenta que la "manera reflexiva" es una manera limpia y consistente de los
-cambios de rendimiento en tiempo de ejecución a la
-nivel subyacente (que es finalmente el sistema real como percibida por el
-usuario). Este enfoque consiste en la manipulación
-las normas de personalización con el fin de conciliar el servicio con los
-requisitos. La relación de causalidad, en particular,
-el enlace descendente (reflexión), prevé la coherencia entre la descripción del
-servicio y el propio servicio.
-Técnicas de arquitectura reflexiva puede ser empleado a tal fin [23].
-
-
-
+Técnicas de arquitectura reflexiva puede ser empleado a tal fin \cite{uwa.reflective}.
 
 \begin{figure}[t]
 \begin{center}
@@ -1150,30 +950,23 @@ Técnicas de arquitectura reflexiva puede ser empleado a tal fin [23].
 %...
  
 En este capítulo se han explicitado los fundamentos y desarrollos básicos de la evolución
-de los SCC. Introducimos la necesidad de que los mismos tuvieran un nivel dinámico sustentado en la teoría de coordinación de
+de las aplicaciones sensibles al contexto. Introducimos la necesidad de que los mismos tuvieran un nivel dinámico sustentado en la teoría de coordinación de
 contratos, ya que las definiciones más tradicionales no son suficientes para satisfacer los requerimientos del DHD.
 
-En los capítulos siguientes, se abordará lo inherente a los contratos como pieza de software en base a la arquitectura, el diseño y la
-implementación en el campo de la Ingeniería de Software para describir las problemáticas, motivaciones,
-el tipo de solución propuesta y un marco de conceptualización-definición
-(capítulos: \ref{cap:introduccion} y \ref{cap:dhd} ) en un contexto de alta
-complejidad como lo ya expuesto, para tratar requerimientos funcionales derivados del mismo. 
+En los capítulos siguientes, se abordará lo inherente a los contratos como pieza de software en base a la arquitectura, el diseño y la implementación en el campo de la Ingeniería de Software para describir las problemáticas, motivaciones,
+el tipo de solución propuesta y un marco de conceptualización-definición (capítulos: \ref{cap:Introduccion} y \ref{cap:dhd} ) en un contexto de alta complejidad como lo ya expuesto, para tratar requerimientos funcionales derivados del mismo. 
 
-Se tomarán en cuenta todas las convenciones realizadas sobre el
-DHD, haciendo foco en adelante sobre lo específicamente tecnológico estableciéndose la interesección interdisciplinar entre las competencias de los usuarios expertos y los ingenieros de software como destinatarios principales de este trabajo de tesis doctoral. 
+Se tomarán en cuenta todas las convenciones realizadas sobre el DHD, haciendo foco en adelante sobre lo específicamente tecnológico, estableciéndose la intersección interdisciplinar entre las competencias de los usuarios expertos y los ingenieros de software como destinatarios principales de este trabajo de tesis doctoral. 
 
-Es importante para el desarrollo de los próximos capítulos tener presente los
-siguientes interrogantes que se constituyen en el sentido sustentador para el
-uso de la teoría de Sistemas Colaborativos Sensibles al Contexto en las
-aplicaciones que integran al DHD. 
-
+Es importante para el desarrollo de los próximos capítulos tener presente los siguientes interrogantes que se constituyen en el sentido sustentador para el uso de la teoría de Sistemas Colaborativos Sensibles al Contexto en las aplicaciones que integran al DHD. 
 
 
 \begin{center}
 
 \begin{tabular}[t]{|l|}
 \hline
-\rowcolor[gray]{0.7} Preguntas \\
+\rowcolor{gray}
+Preguntas
 \hline
 
 %\beging{itemize}
