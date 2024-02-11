@@ -5,18 +5,11 @@
 
 \section{Introducción}\label{secc:arqDHD_Introduccion}
 
-En este capítulo se describen los aspectos fundamentales y decisiones adoptadas
-en base al tipo de modelos y arquitecturas que se tuvieron en cuenta en el
-diseño e implementación de los Dispositivos Hipermediales Dinámicos(DHD).
+En este capítulo se describen los aspectos fundamentales y las decisiones adoptadas basándonos en los modelos y arquitecturas considerados en el diseño e implementación de los Dispositivos Hipermediales Dinámicos (DHD).
 
-Esto se logra mediante la caracterización  de algunos aspectos relevantes que se lleva adelante a través de un 
-proceso de desarrollo específico para los DHD. Este proceso se destaca por la inclusión
-de artefactos derivados, permitiendo caracterizar de manera eficiente aspectos semánticos 
-de aquellas componentes de la arquitectura, que juegan un papel importante y permiten
-resolver de forma eficaz y eficiente las partes de los requerimientos funcionales de adaptación anteriormente mencionados (sección \ref{requisitoDHD}).
+Para lograr esto, se lleva a cabo una caracterización de algunos aspectos relevantes en las tareas del proceso de desarrollo de DHD. En este punto, es importante volver a aclarar, que la construcción de un DHD puede partir de una aplicación e-learning, como es el caso de esta tesis basada en Sakai. Este proceso se destaca por la inclusión de artefactos y piesas de software, lo que permite representar, de manera eficiente, la arquitectura necesaria del DHD. Siguiendo este camino, se podrán resolver los requerimientos funcionales del DHD sobre adaptación de servicio según información de contexto mencionados anteriormente (sección \ref{requisitoDHD}).
 
-A todas las decisiones de diseño de la arquitectura que se presenta en este capítulo la denominaremos \textbf{arqDHD}  con el propósito de
-sentar algunas precedencias hacia el estudio y definición de los procesos de diseño de los \textbf{DHD}. De esta manera, se tuvieron en cuenta diferentes tipos de elementos y criterios de interpretaciones que se ajustan al dominio de aplicación de esta tesis:
+Todas las decisiones de diseño de la arquitectura sugeridas en este capítulo se denomina Arquitectura del DHD o \textbf{arqDHD}. De este modo se inicia el estudio y definición de los procesos de diseño de los DHD, teniendo en cuenta diferentes tipos de elementos y criterios de interpretación que se ajustan al dominio de aplicación de esta tesis. A continuación se definen los principales elementos de la mencionada arquitectura. 
 
 
 \begin{itemize}
@@ -42,47 +35,28 @@ interfaces externas.
 
 \end{itemize}
 
-Conceptualmente \textbf{arqDHD} está definida por aquellos aspectos de la arquitectura que desempeñan un rol protagónico en los DHD. Esta apreciación fue motivada asumiendo que los
-requerimientos de los DHD se deben resolver a partir de la arquitectura sin
-tener en cuenta el modo de implementación de aquellos artefactos que la compone.
+Conceptualmente \textbf{arqDHD} está definida por aquellos aspectos de la arquitectura que desempeñan un rol protagónico en los DHD. Esta apreciación fue motivada asumiendo que los requerimientos de los DHD se deben resolver a partir de la arquitectura sin tener en cuenta el modo de implementación de aquellos artefactos que la compone.
 
-Además, \textbf{arqDHD} está orientada a la formalización de algunas de las propiedades
-arquitectónicas singulares en los DHD, promoviendo una mejor representación de
-la semántica para lo conectores y la posibilidad de coordinarlos en tiempo de ejecución.
+Además, \textbf{arqDHD} está orientada a la formalización de algunas de las propiedades arquitectónicas singulares en los DHD, promoviendo una mejor representación de la semántica para los conectores y la posibilidad de coordinarlos en tiempo de ejecución.
 
 
-Existen múltiples definiciones de Arquitectura de Software (desde ahora en mas
-lo llamaremos AS), el Software Engineering Institute‘s
-(SEI)\cite{arquitectura23} recoge 75 definiciones distintas del término
-Arquitectura del Software. Para este capítulo es imprescindible identificar las perspectivas que se tendrán en cuenta, para un mejor entendimiento de las decisiones y criterio adoptados. En este sentido, se seleccionaron 
-dos definiciones que se ajuste más a la acepción que toma esta propuesta y
-especializarla en el dominio de las aplicaciones Web colaborativas.
+Existen múltiples definiciones de Arquitectura de Software (desde ahora en más lo llamaremos AS), el Software Engineering Institute‘s (SEI)\cite{arquitectura23} recoge 75 definiciones distintas del término Arquitectura del Software. Para este capítulo es imprescindible identificar los criterios que se tendrán en cuenta, para un mejor entendimiento de las decisiones adoptadas. En este sentido, se seleccionaron dos definiciones que se ajuste más a la acepción que toma esta propuesta y especializarla en el dominio de las aplicaciones Web colaborativas.
 
 \begin{quote}
 
 La arquitectura es la organización fundamental de un sistema
 expresado mediante sus componentes, las relaciones entre cada uno de ellos y
-con su entorno, y los principios que guían su diseño y su evolución
+con su entorno, y los principios que guían su diseño y su evolución.
 
 \begin{flushright} \textbf{IEEE Architecture Working Group} \end{flushright}
 
 \end{quote}
 
-Se trata de una definición consensuada por un organismo internacional, por
-ese motivo es un intento de simplificación y unificación de las definiciones
-existentes por los diferentes expertos en la materia. Lo primero que destaca
-de esta definición, es que establece al componente \hyperref[componente]{lbl:componente} como la unidad arquitectónica para el tipo requerimientos arquitectónico del DHD. El componente es un concepto demasiado ambiguo y que en
-ocasiones puede hacer referencia desde un subsistema hasta un componente
-cliente. Además, es importante resaltar el hecho de que la definición señala a la AS como responsable de establecer los mecanismos para guiar el diseño y su
-evolución, ya sea mediante la captura de los requisitos no funcionales
-o mediante el uso de patrones. De esta manera, Booch \cite{15} señala la
-importancia que tiene la AS en la evolución de un sistema, indicando que
-la presencia de una arquitectura estable en un sistema, asegura las bases
-sobre las cuáles un sistema puede evolucionar continuamente con los
-mínimos desajustes y trabajo.
+Se trata de una definición consensuada por un organismo internacional, por ese motivo es un intento de simplificación y unificación de las definiciones existentes por los diferentes expertos en la materia. Lo primero que destaca de esta definición, es que establece al componente \hyperref[componente]{lbl:componente} como la unidad arquitectónica para el tipo requerimientos arquitectónico del DHD. El componente es un concepto demasiado ambiguo y que en ocasiones puede hacer referencia desde un subsistema hasta un componente cliente. Además, es importante resaltar el hecho de que la definición señala a la AS como responsable de establecer los mecanismos para guiar el diseño y su evolución, ya sea mediante la captura de los requisitos no funcionales o mediante el uso de patrones. De esta manera, Booch \cite{Booch15} señala la importancia que tiene la AS en la evolución de un sistema, indicando que
+la presencia de una arquitectura estable en un sistema, asegura las bases sobre las cuales un sistema puede 
+volucionar continuamente con los mínimos desajustes y trabajo.
 
-Sin embargo, buscando una definición que fuera menos ambigua y aportara un
-poco más contenido a la hora de modelar el tipo de arquitectura que se ajuste al DHD seguimos con otra que incorpora el concepto de propiedades:
+Sin embargo, buscando una definición que fuera menos ambigua y aportara un poco más contenido a la hora de modelar el tipo de arquitectura que se ajuste al DHD seguimos con otra que incorpora el concepto de propiedades:
 
 \begin{quote}
 
@@ -94,21 +68,13 @@ un sistema de software y las relaciones entre ellos, típicamente representado m
 \end{quote}
 
 
+En esta definición de AS, aparecen los subsistemas junto con los componentes como unidades arquitectónicas. \textbf{arqDHD} se basa en esta aproximación capturando tanto los subsistemas denominados contratos sensibles al contexto, como los componentes en los modelos de integración (sección \ref{sec:integracion}) y de configuración (ver capítulo \ref{cap:contratos}), a la hora de representar la arquitectura Web.
 
-En esta definición de AS, aparecen los subsistemas junto con los componentes
-como unidades arquitectónicas. \textbf{arqDHD} se basa en esta aproximación capturando
-tanto los subsistemas denominados contratos sensibles al contexto, como los
-componentes
-en los modelos de integración (sección \ref{sec:integracion}) y de configuración (ver capítulo \ref{cap:contratos}), a la hora de representar la arquitectura Web.
+Otro aspecto a destacar de la definición, es indicar que la AS debe representar los aspectos más relevantes del sistema, abstrayéndose de cierta información menos importante para esta tesis.
 
-Otro aspecto a destacar de la definición, es indicar que la AS debe representar
-los aspectos más relevantes del sistema, abstrayéndose de cierta información
-menos importante para esta tesis.
+Hay que recordar que la arquitectura no es solamente una referencia estructural, (en ocasiones es entendida erróneamente como la estructura de la aplicación), sino que provee un mecanismo natural de integrar varias vistas del sistema. Aquí  es donde se torna relevante el concepto de vista y perspectiva de un sistema que.   Estas vistas pueden ser tanto estructurales, funcionales y de comportamiento. Como se muestra a partir de la sección \ref{secc:arqDHD}, en \textbf{arqDHD} se utilizan vistas funcionales definidas por otras aproximaciones que son representadas de forma concurrente a la arquitectura propuesta. 
 
-Hay que recordar que la arquitectura no es solamente una referencia estructural, (en ocasiones es entendida erróneamente como la estructura de la aplicación), sino que provee
-un mecanismo natural de integrar varias vistas del sistema. Aquí  es donde se torna relevante el concepto de vista y perspectiva de un sistema que.   Estas vistas pueden ser tanto estructurales, funcionales y de comportamiento. Como se muestra a partir de la sección \ref{secc:arqDHD}, en \textbf{arqDHD} se utilizan vistas funcionales definidas por otras aproximaciones que son representadas de forma concurrente a la arquitectura propuesta. 
-
-En el capítulo anterior se han repasado las principales características y elementos que componen los \textbf{arqDHD} para brindar los propiedades de \textbf{coordinación de contratos sensibles al contexto}, que formarán parte de las componentes esenciales de la arquitectura propuesta.
+En el capítulo anterior se han repasado las principales características y elementos que componen los \textbf{arqDHD} para brindar las propiedades de \textbf{coordinación de contratos sensibles al contexto}, que formarán parte de las componentes esenciales de la arquitectura propuesta.
 
 Desde esta perspectiva se podrá observar las posibilidades adaptativas propias del dominios de aplicación y los logros obtenidos en estos campos. Una vez determinado para qué sirven, el siguiente paso es describir cómo funcionan. 
 

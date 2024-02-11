@@ -917,31 +917,90 @@ un continuo monitoreo y mantiene una descripción actualizada de su estado. Esto
 
 Un meta nivel de reflexión también se puede emplear para los requerimientos de control, en el sentido utilizado en \cite{UWA5}. En este nivel se implementa una de las principales características que se pretende poner en obra en esta tesis debido a su relación con nuestra visión de reconfiguración dinámica. 
 
-Se argumenta que la "manera reflexiva" es una manera limpia y consistente de los cambios de rendimiento en tiempo de ejecución, que es finalmente el sistema real como percibida por el usuario. Este enfoque consiste en la manipulación de las
-las normas de personalización, con el fin de ajustar el servicio con los requisitos. La relación de causalidad, en particular,
-el enlace descendente (reflexión), prevé la coherencia entre la descripción del servicio y el propio servicio.
+Se argumenta que la implementación de arquitecturas permite mejoras de performance, en tiempo de ejecución, percibidas por el usuario final. Este enfoque consiste en la manipulación de las normas de personalización, con el fin de "ajustar" el servicio con los requisitos. 
 
-Técnicas de arquitectura reflexiva puede ser empleado a tal fin \cite{uwa.reflective}.
+
+\paragraph{Modelado del contexto}
+
+
+La figura \ref{uwa.ContextModel} representa el modelado de contexto a través de los siguientes componentes: 
+
+• \textbf{Agente:} de usuario: La propiedad del agente de usuario se refiere a la demanda de entrega múltiple. Proporciona información sobre el dispositivo y el navegador. Junto con un perfil de dispositivo y un perfil de navegador, esto permite identificar restricciones relevantes para la entrega múltiple.
+
+• \textbf{Usuario:} El conocimiento sobre el usuario tiene en cuenta la necesidad de personalización. Al observar la tecnología existente, el número de teléfono proporcionado junto con la información del perfil del usuario permite identificar al usuario individual y la clase de usuario.
+
+• \textbf{Red:} Las propiedades de contexto relacionadas con la red comprenden, por ejemplo, el ancho de banda.
+
+• \textbf{Ubicación:} La ubicación aborda la necesidad de la computación móvil y captura información sobre la ubicación en la que se accede a una aplicación. En realidad, esta información no es proporcionada directamente por los dispositivos móviles en sí mismos, sino que se obtiene a través de un llamado servidor de ubicación.
+
+• \textbf{Tiempo:} Finalmente, la propiedad de contexto de tiempo permite personalizar la aplicación con respecto a ciertas restricciones de tiempo, como los horarios de apertura de las tiendas o los horarios de transporte público. Actualmente, la propiedad de contexto de tiempo se representa solo en el servidor.
+
+\begin{figure}[h]
+\begin{center}
+ \includegraphics[width=5 in,totalheight=3 in]
+{Ch1/Figuras/uwa.ContextModel.png}
+ % UWAFramework2.png: 828x510 pixel, 96dpi, 21.90x13.49 cm, bb=0 0 621 382
+\caption{Diseño del Contexto en Framework UWA}\label{uwa.ContextModel}
+\end{center}
+\end{figure}
+
+
+\paragraph{Configuración de reglas}
+
+Las reglas de personalización son los medios para traducir los requisitos en la parte variable de la aplicación. Para especificar las reglas de personalización, se propone, el uso del mecanismo de evento/condición/acción (ECA), que es bien conocido en el área de los sistemas de bases de datos activos (ver Figura \ref{fig:uwa.Reglas}). El componente \textbf{evento} de la regla determina los eventos que pueden activar la regla. Si la regla incorpora una condición, la condición se evalúa tan pronto como se activa la regla. Si la condición se evalúa como verdadera, se ejecuta la acción de la regla.
+
+
 
 \begin{figure}[t]
 \begin{center}
  \includegraphics[width=5 in,totalheight=3 in]
-{Ch1/Figuras/ScopeCustomisation.png}
+{Ch1/Figuras/uwa.Regla.png}
  % UWAFramework2.png: 828x510 pixel, 96dpi, 21.90x13.49 cm, bb=0 0 621 382
-\caption{Dise\~no conceptual del Framework UWA}\label{uwaFramework}
+\caption{Diseño de la Configuración de Reglas en  Framework UWA}\label{fig:uwa.Reglas}
 \end{center}
 \end{figure}
 
+Modelo de eventos. Aplicar el mecanismo ECA en el dominio de las aplicaciones web ubicuas requiere un modelo de eventos dedicado. Los eventos de este modelo de eventos deben monitorear cambios tanto en el contexto como en la información del perfil, así como en las solicitudes explícitas del usuario. En consecuencia, nuestro modelo de eventos considera tres tipos básicos de eventos primitivos (ver Figura \ref{uwaFramewor}):
 
-\begin{figure}[t]
+• \textbf{ChangeOfContext:} proponemos los siguientes eventos predefinidos que indican cambios en el contexto, a saber, CambioDeUsuario, CambioDeDispositivo, CambioDeAnchoDeBanda, CambioDeUbicación, CambioDeTiempo. Tenga en cuenta que estos eventos monitorean directamente los cambios dentro de las propiedades de contexto correspondientes de nuestro modelo de contexto.
+
+• \textbf{ChangeOfProfile:} dado que las propiedades de ciertos perfiles no están necesariamente limitadas, proponemos un solo evento predefinido en un primer intento, a saber, CambioDePropiedadDePerfil.
+
+• \textbf{UserRequest:} cada vez que el usuario interactúa con el sistema (por ejemplo, al activar un enlace a otra página), se genera una solicitud a la aplicación web ubicua. Esta solicitud señala el evento predefinido de solicitud de usuario.
+
+
+Para poder modelar situaciones complejas del mundo real, se sugiere la noción de eventos compuestos. Los eventos compuestos se construyen mediante los operadores lógicos de eventos AND, OR y SEQ, además de los eventos primitivos mencionados anteriormente. Por ejemplo, para una página que debe ser personalizada y optimizada para diferentes dispositivos se requeriría un evento compuesto como (CambioDeUsuario O CambioDeDispositivo). Los eventos compuestos también permiten expresar si la adaptación real debe hacerse de antemano, es decir, independientemente de cualquier solicitud del usuario o sobre la marcha, lo que significa que la adaptación no se realiza antes de que sea necesaria en respuesta a una solicitud del usuario. En el primer caso, las reglas de personalización monitorean cambios en el contexto y cambios en el perfil solamente, mientras que en el último caso, también se debe tener en cuenta el evento de solicitud de un usuario. Varias propiedades de una regla, como la prioridad, el estado de activación y el modo de transacción, se pueden utilizar para especificar aún más el proceso de personalización real en tiempo de ejecución. Esto, a su vez, determina cuándo se detectan los eventos, cuándo se evalúa la condición y cuándo se ejecuta la acción.
+
+La Figura \ref{uwaFramewor} muestra un diagrama de clases UML de un modelo de eventos propuesto. Dado que consideramos eventos como objetos de primera clase, el desarrollador de la aplicación puede ampliar el modelo de eventos predefinido mediante la subclasificación.
+
+\begin{figure}[h]
 \begin{center}
  \includegraphics[width=4 in,totalheight=3 in]
 {Ch1/Figuras/UWAEventModel.png}
  % UWAFramework2.png: 828x510 pixel, 96dpi, 21.90x13.49 cm, bb=0 0 621 382
-\caption{Dise\~no conceptual del Fram}\label{uwaFramework}
+\caption{Diseño de eventos del Framework UWA}\label{uwaFramewor}
 \end{center}
 \end{figure}
 
+
+La condición determina si y qué adaptación es deseada al considerar tanto la información del contexto como la del perfil, mientras que los eventos especifican cuándo la adaptación potencialmente es necesaria debido a los cambios en el contexto o en el perfil del usuario o debido a la solicitud del usuario. Las condiciones son los medios para verificar si se viola o no un requisito determinado. Las condiciones son en realidad predicados que se pueden combinar mediante operadores lógicos. Por otro lado, las acciones se utilizan para realizar variaciones necesarias, es decir, representan una secuencia de activaciones de los métodos proporcionados por la parte estable de la aplicación. Por lo tanto, las acciones generan la parte variable de la aplicación, por ejemplo, un enlace adicional en una página determinada. De esta manera, las acciones aseguran el cumplimiento de los requisitos.
+
+
+
+%La relación de causalidad, en particular, el enlace descendente (reflexión), prevé la coherencia entre la descripción del servicio y el propio servicio.
+
+%Técnicas de arquitectura reflexiva puede ser empleado a tal fin \cite{uwa.reflective}.
+
+%\begin{comment}
+%\begin{figure}[t]
+%\begin{center}
+% \includegraphics[width=5 in,totalheight=3 in]
+%{Ch1/Figuras/ScopeCustomisation.png}
+% % UWAFramework2.png: 828x510 pixel, 96dpi, 21.90x13.49 cm, bb=0 0 621 382
+%\caption{Dise\~no conceptual del Framework UWA}\label{uwaFramework}
+%\end{center}
+%\end{figure}
+%\end{comment}
 
 
 \section{Desde la perspectiva de la Ingeniería de Software}
@@ -949,12 +1008,13 @@ Técnicas de arquitectura reflexiva puede ser empleado a tal fin \cite{uwa.refle
 %(escribir todo esto como teoría de requerimientos).
 %...
  
-En este capítulo se han explicitado los fundamentos y desarrollos básicos de la evolución
-de las aplicaciones sensibles al contexto. Introducimos la necesidad de que los mismos tuvieran un nivel dinámico sustentado en la teoría de coordinación de
-contratos, ya que las definiciones más tradicionales no son suficientes para satisfacer los requerimientos del DHD.
+En este capítulo se han explicitado los fundamentos y desarrollos básicos de la evolución de las aplicaciones sensibles al contexto. Introducimos la necesidad de que los mismos tuvieran propiedades de representación de información dinámica alineada al concepto de la teoría de coordinación de contratos. De esta manera, se comienza con el abordaje de las problemáticas, aquitecturas y diseño que servirán como plataforma de partida hacia la propuesta de solución de los requerimientos del DHD.
 
-En los capítulos siguientes, se abordará lo inherente a los contratos como pieza de software en base a la arquitectura, el diseño y la implementación en el campo de la Ingeniería de Software para describir las problemáticas, motivaciones,
-el tipo de solución propuesta y un marco de conceptualización-definición (capítulos: \ref{cap:Introduccion} y \ref{cap:dhd} ) en un contexto de alta complejidad como lo ya expuesto, para tratar requerimientos funcionales derivados del mismo. 
+En los capítulos siguientes, se abordará lo inherente a los contratos como pieza de software, basándonos en la arquitectura, el diseño y la implementación en el campo de la Ingeniería de Software para describir las problemáticas, motivaciones,
+el tipo de solución propuesta y un marco de conceptualización-definición (capítulos: \ref{cap:Introduccion} y \ref{cap:dhd}) en un ecosistema complejo. 
+
+% esto es lo que estaba antes.
+%de alta complejidad como lo ya expuesto, para tratar requerimientos funcionales derivados del mismo. 
 
 Se tomarán en cuenta todas las convenciones realizadas sobre el DHD, haciendo foco en adelante sobre lo específicamente tecnológico, estableciéndose la intersección interdisciplinar entre las competencias de los usuarios expertos y los ingenieros de software como destinatarios principales de este trabajo de tesis doctoral. 
 
@@ -965,13 +1025,12 @@ Es importante para el desarrollo de los próximos capítulos tener presente los 
 
 \begin{tabular}[t]{|l|}
 \hline
-\rowcolor{gray}
-Preguntas
+Preguntas: \\
 \hline
 
 %\beging{itemize}
 
-\item ¿Cuáles son las variables que definen el contexto del usuario que\\
+\item ¿Cuáles son las variables que definen el contexto del usuario que \\
 pueden ser usadas para recuperar información relevante? \\
 \hline
 \item ¿De qué forma puede modelarse el contexto del usuario? \\
@@ -1000,16 +1059,8 @@ relevante?\\
 
 
 
-
 \section{Conclusiones}
 
-Este capítulo conforma una bisagra entre el universo real del DHD y
-las limitaciones de su interpretación computacional. En este sentido, se ha focalizado en determinar cuáles son las fuentes concretas de la
-materia prima (el ContextoDHD, sección \ref{sec:contextodhd}) para poder
-producir soluciones (el Modelo Evolutivo, sección \ref{sec:sca})
-a determinados efectos funcionales del DHD. De la misma manera inicia un
-recorrido sobre el estado del arte de propuestas referentes en las que se basa
-esta tesis. Entonces, desde este punto se mantendrán nuevas premisas aportadas
-que permitirán especializar teorías y conceptos con una nueva entidad
-apropiada para el DHD.
+
+Este capítulo representa un punto de inflexión entre el mundo real del DHD y las limitaciones de su interpretación computacional. En este sentido, se ha focalizado en determinar las fuentes concretas de la materia prima (el ContextoDHD, sección \ref{sec:contextodhd}) para poder producir soluciones (el Modelo Evolutivo, sección \ref{sec:cas}) a ciertos efectos funcionales del DHD. Además, este capítulo da inicio a un recorrido por el estado del arte de las propuestas en las que se basa esta tesis. A partir de este punto, se introducirán nuevas premisas que permitirán especializar teorías y conceptos con una nueva entidad apropiada para el DHD.
 
