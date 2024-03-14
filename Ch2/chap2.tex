@@ -923,7 +923,7 @@ de este campo es innegable, y se presenta, sin duda alguna, como uno de las
 líneas de trabajo más fructíferas de la próxima década.
 
 
-\section{Tipos de Dinamismo}
+\section{Tipos de Dinamismo} \label{sec:tipos_dinamismos}
 
 Todo sistema de software cuya estructura es descripta como una arquitectura tiene
 siempre asociado algún tipo de comportamiento dinámico. Ahora bien, es
@@ -939,15 +939,14 @@ La clasificación que se incluye más abajo ha sido planteada con este único
 objetivo. No es exacta, ni pretende ser determinante ya que el límite entre las
 distintas categorías puede aparecer difuminado en algunos casos. Sin
 embargo, parece servir adecuadamente a su objetivo, esto es,
-aclarar el tipo de actividad al que se hace referencia en cada casoy que ha
-sido publicada en dos ocasiones [CFBSB00, CFBSB01].
+aclarar el tipo de actividad al que se hace referencia en cada caso y que ha
+sido publicada en dos ocasiones \cite{CFBSB00, CFBSB01}. 
 
-Según esto, entonces, pueden identificarse los siguientes tres tipos de
-dinamismo, en orden creciente de potencial para el cambio:
+A continuación se describen los tipos de dinamismos que pueden ser aplicado en en la arquitectura arqDHD. 
 
 \begin{itemize}
 \item 
-Dinamismo Interactivo. Este término se refiere al movimiento de datos
+\textbf{Dinamismo Interactivo}. Este término se refiere al movimiento de datos
 entre componentes, el dinamismo inherente en la comunicación e interacción
 usual. Se relaciona con cuestiones tales como la sincronización y los
 protocolos afectando no solo a la estructura sino, también, al comportamiento de un sistema
@@ -955,15 +954,14 @@ computacional. Está presente de manera implícita en todo sistema, pero resulta
 particularmente obvio en los concurrentes y paralelos.
 
 \item
-Dinamismo Estructural. Hace referencia a los cambios que afectan a los propios
+\textbf{Dinamismo Estructural}. Hace referencia a los cambios que afectan a los propios
 componentes y sus interacciones, que normalmente se expresan como la creación
 y destrucción de instancias y enlaces entre componentes. En este sentido, la
 arquitectura de software del sistema resulta alterada, porque lo que cambia es
 la estructura. Este tipo de dinamismo es natural en sistemas distribuidos.
 
-
 \item 
-Dinamismo Arquitectónico. Se refiere a los cambios en los tipos de
+\textbf{Dinamismo Arquitectónico}. Se refiere a los cambios en los tipos de
 componente e interacción, modificando por lo tanto incluso el significado y el 
 “vocabulario” del sistema. Se expresa como la inserción de nuevos tipos de
 componente (y conector) y el borrado de algunos ya existentes. Ahora, lo que
@@ -1006,56 +1004,51 @@ problemáticas muy diferentes. Con el fin de determinarlas con mayor exactitud,
 se han introducido una serie de clasificaciones. En este trabajo se mencionarán
 dos de ellas, a saber:
 
+En cuestiones de propiedades y formas de reconfiguraciones hay diferentes tipos, cada una con sus propias características de implementación que fueron clasificados en diferentes trabajos académicos. Para esta tesis se utilizaron los siguientes tipos: 
+
 \begin{itemize}
  
-\item Según el tiempo. Uno de los aspectos críticos en un cambio es el
+\item \textbf{Según el tiempo}. Uno de los aspectos críticos en un cambio es el
 momento en que se produzca. La dificultad para realizarlo de manera adecuada
 crece según se avanza en el proceso de desarrollo.
 
-\begin{itemize}
-\item Antes de la Compilación. Los cambios en la estructura prevista del
-sistema se producen antes de su construcción, por lo que sólo hay que asegurar
-su consistencia.
-
-\item Antes de la Ejecución. El sistema ya ha sido elaborado, pero aún no
-está funcionando, por lo que introducir un cambio sólo requiere, de nuevo,
-asegurar la consistencia interna del sistema. Puede equipararse sin problemas
-con el caso anterior.
-
-\item Durante la Ejecución. Esta última es la auténtica Reconfiguración
-Dinámica ya que los cambios se producen con el sistema en marcha: los componentes
-tienen un estado y sus enlaces soportan cierto número de transacciones. La
-problemática generada por este tipo de situaciones ha sido el campo de
-investigación de la comunidad de configuración en los últimos diez años.
-\end{itemize}
-
-\item Según el origen. Es decir, según cómo se inicie el proceso y de acuerdo a quién tome la iniciativa, existen dos posibilidades que son las
+        \begin{itemize}
+        
+        \item \textbf{Antes de la Compilación}. Los cambios en la estructura prevista del
+        sistema se producen antes de su construcción, por lo que sólo hay que asegurar
+        su consistencia.
+        
+        \item \textbf{Antes de la Ejecución.} El sistema ya ha sido elaborado, pero aún no
+        está funcionando, por lo que introducir un cambio sólo requiere, de nuevo,
+        asegurar la consistencia interna del sistema. Puede equipararse sin problemas
+        con el caso anterior.
+        
+        \item \textbf{Durante la Ejecución}. Esta última es la auténtica Reconfiguración
+        Dinámica ya que los cambios se producen con el sistema en marcha: los componentes
+        tienen un estado y sus enlaces soportan cierto número de transacciones. La
+        problemática generada por este tipo de situaciones ha sido el campo de
+        investigación de la comunidad de configuración en los últimos diez años.
+        \end{itemize}
+        
+\item \textbf{Según el origen}. Es decir, según cómo se inicie el proceso y de acuerdo a quién tome la iniciativa, existen dos posibilidades que son las
 que se detallan a continuación: 
 
-\begin{itemize}
-
- \item Reconfiguración Programada. Reciben este nombre [EW92, MG99] las
-operaciones que son iniciadas por el propio sistema, mediante una serie de
-reglas proporcionadas como parte de su especificación. También, se ha mencionado
-como reconfiguración restringida en tiempo de ejecución [Ore96], y es el
-nivel de descripción que se desea alcanzar en la Arquitectura de Software.
-
-\item Reconfiguración Ad-Hoc. Además de este nombre [EW92], ha recibido los
-de reconfiguración evolutiva [MG99] o en tiempo de ejecución [Ore96]1. Hace
-referencia a los cambios que son introducidos manualmente por el usuario y que,
-por tanto, requieren en concurso de algún tipo de herramienta que haga
-corresponderse a la arquitectura con un sistema real. Obviamente, no pueden ser
-previstos, aunque en general sí pueden ser controlados.
-
-\end{itemize}
-
+    \begin{itemize}
+    
+     \item \textbf{Reconfiguración Programada}. Reciben este nombre \cite{EW92, MG99} las
+    operaciones que son iniciadas por el propio sistema, mediante una serie de
+    reglas proporcionadas como parte de su especificación. También, se ha mencionado
+    como reconfiguración restringida en tiempo de ejecución \cite{Ore96}, y es el
+    nivel de descripción que se desea alcanzar en la Arquitectura de Software.
+    
+    \item \textbf{Reconfiguración Ad-Hoc}. Además de este nombre \cite{EW9}, ha recibido los  de reconfiguración evolutiva \cite{MG99} o en tiempo de ejecución [Ore96]1. Hace  referencia a los cambios que son introducidos manualmente por el usuario y que, por tanto, requieren en concurso de algún tipo de herramienta que haga corresponderse a la arquitectura con un sistema real. Obviamente, no pueden ser previstos, aunque en general sí pueden ser controlados.
+    
+    \end{itemize}
+    
 \end{itemize}
 
 
-La primera clasificación es obvia y ha sido planteada, entre otros, como autores del nivel de Wermelinger [Wer99]. La segunda clasificación, se debe inicialmente a los trabajos de Markus
-Endler en Gerel [EW92], un lenguaje ligado a δarwin, pero que ha sido redescubierta
-en múltiples ocasiones por otros autores; lo cual explica la gran variedad de
-terminologías utilizadas.
+La primera clasificación es obvia y ha sido planteada, entre otros, como autores del nivel de Wermelinger \cite{Wer99}. La segunda clasificación, se debe inicialmente a los trabajos de Markus Endler en Gerel \cite{EW92}, un lenguaje ligado a δarwin, pero que ha sido redescubierta en múltiples ocasiones por otros autores; lo cual explica la gran variedad de terminologías utilizadas.
 
 
 \subsection{Operaciones Básicas de Reconfiguración}
@@ -1072,49 +1065,38 @@ Las cuatro operaciones mencionadas son las siguientes:
 \begin{itemize}
 
 \item 
-Crear (create). Se refiere a la creación de nuevos componentes.  Para ser
+\textbf{Crear} (create). Se refiere a la creación de nuevos componentes.  Para ser
 exacto, la instanciación de un nuevo ejemplar de un tipo de componente conocido. 
 
 \item
-Destruir (destroy). La inversa de la anterior: permite destruir un
+\textbf{Destruir} (destroy). La inversa de la anterior: permite destruir un
 componente ya
 existente, eliminarlo del sistema.
 
 \item
-Enlazar (link). Crea un enlace simple entre dos elementos.
+\textbf{Enlazar} (link). Crea un enlace simple entre dos elementos.
 
 \item 
-Desligar (unlink). La inversa de la anterior: destruye un enlace
+\textbf{Desligar} (unlink). La inversa de la anterior: destruye un enlace
 preexistente.
 
 \end{itemize}
 
-Es importante aclarar que las ideas previas no significan que todo sistema de reconfiguración haya de tener
-estas cuatro operaciones indicadas de manera explícita; al contrario, muchos
-las expresan mediante estructuras declarativas y ni siquiera tienen
-un equivalente claro para algunas de ellas. Lo que sí debe quedar claro es que toda reconfiguración, por compleja que sea, puede realizarse     
-mediante la aplicación sucesiva de estas cuatro operaciones. Del mismo modo, si
+Es importante aclarar que las ideas previas no significan que todo sistema de reconfiguración haya de tener estas cuatro operaciones indicadas de manera explícita; al contrario, muchos las expresan mediante estructuras declarativas y ni siquiera tienen un equivalente claro para algunas de ellas. Lo que sí debe quedar claro es que toda reconfiguración, por compleja que sea, puede realizarse  mediante la aplicación sucesiva de estas cuatro operaciones. Del mismo modo, si
 un sistema no es capaz de expresar una transformación que, sin embargo, puede
-ser descripta en función de estas cuatro operaciones, entonces puede afirmarse que el sistema no es
-completo en lo que respecta a este tema. 
+ser descripta en función de estas cuatro operaciones, entonces puede afirmarse que el sistema no es completo en lo que respecta a este tema. 
 
 En realidad, estas operaciones proporcionan lo que aquí se ha denominado con el nombre de Dinamismo Estructural ya que, únicamente, permiten alterar la topología
 del sistema. Sin embargo, constituyen lo que podría considerarse el límite
-mínimo exigible a cualquier sistema que pretenda expresar arquitecturas
-dinámicas. 
+mínimo exigible a cualquier sistema que pretenda expresar arquitecturas dinámicas. 
 
-En los DHD el dinamismo está basado en la operación denominada Enlazar
-(link). No obstante, a lo largo de la revisión podrá verse que hay dos
-modelos conceptuales que predominan claramente por sobre cualquier otro; esto, no solamente es
-cierto en los Adls dinámicos sino incluso en los más convencionales. 
-
+En los DHD el dinamismo está basado en la operación denominada Enlazar (link). No obstante, a lo largo de la revisión podrá verse que hay dos modelos conceptuales que predominan claramente por sobre cualquier otro; esto, no solamente es
+cierto en los Lenguajes de Descripción de Arquitecturas (Adls) dinámicos sino incluso en los más convencionales. 
 
 
 \section{Descripción arquitectónica de los DHD} \label{secc:arqDHD}
 
-
-
-En esta sección se presenta el modelo de arquitectura denominado arqDHD con un diseño adecuado para la implementación, configuración y posibles cambios en los procesos de inyección de contratos sensibles al contexto en entornos de eLearning originales (EeLO) \label{EeLO}. En la principal decisión de diseño se tuvieron en cuenta las atribuciones dinámicas que se persiguen y se seleccionaron cuáles serían los lugares apropiados para incorporar el ContratoDHD. 
+En esta sección se presenta el modelo de arquitectura denominado arqDHD con un diseño adecuado para la implementación, configuración y posibles cambios en los procesos de inyección de contratos sensibles al contexto en entornos de eLearning originales (EeLO) \label{EeLO}. En la principal decisión de diseño se tuvieron en cuenta las atribuciones dinámicas comentadas en las sección \ref{sec:tipos_dinamismos} y se seleccionaron cuáles serían los lugares apropiados para incorporar el ContratoDHD. 
 
 
 \begin{figure}
@@ -1125,44 +1107,32 @@ En esta sección se presenta el modelo de arquitectura denominado arqDHD con un 
 \end{figure} 
 
 
-La figura \ref{fig:arqDHD1} representa los elementos y las relaciones de una arquitectura que se tuvieron en cuenta. Por un lado, se parte de un sistema eLearning original reducido con las componentes “herramientas” donde se engloba la representación de todas las herramientas colaborativas (por ejemplo  una wiki, un foro, un examen, diversos recursos hipermediales, etcétera) que una determinada plataforma eLearning puede ofrecer a los usuarios finales. A su vez, se relaciona con la componente “servicio” encargada de representar las implementaciones de los métodos (funcionalidades) que ofrecen las herramientas que eventualmente pueden ser compartidas por varias de ellas (por ejemplo editar, consultar, publicar, borrar, aceptar, etcétera). Este tipo de relaciones es típico de los sistemas colaborativos web, manteniéndose como un estándar para este dominio de aplicaciones. 
+La figura \ref{fig:arqDHD1} representa los elementos y las relaciones de la una arquitectura que permite la incorporación de los contratos a un determinado framework. Por un lado, se parte de un sistema eLearning original reducido con las componentes “herramientas” donde se engloba la representación de todas las herramientas colaborativas (por ejemplo  una wiki, un foro, un examen, diversos recursos hipermediales, etcétera) que una plataforma eLearning puede ofrecer a los usuarios finales. A su vez, se relaciona con la componente “servicio” encargada de representar las implementaciones de los métodos (funcionalidades) que ofrecen las herramientas que eventualmente pueden ser compartidas por varias de ellas (por ejemplo editar, consultar, publicar, borrar, aceptar, etcétera). Este tipo de relaciones es típico de los sistemas colaborativos web, manteniéndose como un estándar para este dominio de aplicaciones. 
 
-Los otros elementos que aparecen en la arquitectura son dos sistemas que tienen relación directa con el sistema original. El primero es una representación para cualquier tipo de mecanismo de comunicación con las herramientas, particularmente en el framework Sakai \cite{sakaimanual} que estarían, a su vez, representadas las capas Presentación, Agregación y Clientes. El otro sistema conectado tendrá la responsabilidad de efectuar la inyección de los contratos sensibles al contexto. Esta relación está indicada con una flecha roja bidireccional para señalar que hay un importante flujo de mensajes de entrada y salida sobre la componente servicio. De esta manera, queda establecida un bloque de inyección entre la capa servicio, el subsistema de inyección y la relación bidireccional entre ellos. Entonces, la inyección se produce modificando únicamente la capa de servicio del framework original. En los capítulos que a continuación se presenta el desarrollo, se brindarán los detalles de diseño e implementación para esta relación.
+Los otros elementos que aparecen en la arquitectura son dos sistemas que tienen relación directa con el sistema original. El primero es una representación para cualquier tipo de mecanismo de comunicación con las herramientas, particularmente en el framework Sakai \cite{sakaimanual} que estarían, a su vez, representadas las capas Presentación, Agregación y Clientes. El otro sistema conectado tendrá la responsabilidad de efectuar la inyección de los contratos sensibles al contexto. Esta relación está indicada con una flecha roja bidireccional para señalar que hay un importante flujo de mensajes de entrada y salida sobre la componente servicio. De esta manera, queda establecida un bloque de inyección entre la capa servicio, el subsistema de inyección y la relación bidireccional entre ellos. Entonces, la inyección se produce modificando únicamente la capa de servicio del framework original. Los detalles de diseño e implementación serán tratados en los capítulos siguientes.
 
 Por otro lado, el sistema de inyección será el encargado de relacionarse con el sistema de coordinación de contratos que tiene la tarea de asegurar las propiedades dinámicas a la arquitectura. Específicamente, aquí se producen los reemplazos de contratos, a través de una nueva relación con el componente arquitectónico denominado \textbf{Contrato}, en el tiempo de ejecución configura el primer grado de adaptabilidad del sistema desde la arquitectura. La última relación, está dada entre el contrato y el sistema \textbf{Sistema Sensible al contexto} que se encargará de ofrecer la infraestructura necesaria para transformar al contrato en contrato sensible al contexto del DHD (ContextoDHD \ref{ContratoDHD}). 
 
 
-
-
 \subsection{Diseño para la inyección}
 
-En la publicación denominada \textit{" Investigación en el diseño y desarrollo para el enriquecimiento de
-Un framework colaborativo web sensible al contexto "} (Sartorio et. al) \cite{inyecccion} aparecen los avances consolidados en el estudio-aplicación-desarrollo
-de los aspectos fundamentales para el enriquecimiento de un framework web colaborativo con propiedades de sensibilidad al contexto
-(FWCsc). Para este propósito se definió una estrategia y, en la presente sección, se expondrán los secretos de implementación y decisiones de diseños, que incluyó las siguientes acciones: 
+En la publicación denominada \textit{"Investigación en el diseño y desarrollo para el enriquecimiento de un framework colaborativo web sensible al contexto"} (Sartorio et. al) \cite{inyecccion} aparecen los avances consolidados en el estudio-aplicación-desarrollo de los aspectos fundamentales para el enriquecimiento de un framework web colaborativo con propiedades de sensibilidad al contexto (FWCsc). Para este propósito se definió la siguiente estrategia de implementación:
 
-Primero, desarrollando tareas de diseño, testing, documentación
-de estilos arquitectónicos y especificación de una herramienta colaborativa web, teniendo en cuenta técnicas y metodología de desarrollo actuales. Segundo, implementación, instalación, configuración y soporte de una aplicación utilizando frameworks de desarrollo estándares. Tercero, consolidar ambientes y prácticas para el aprendizaje-enseñanza-investigación, colaboración y otros usos (compartir experiencia, vinculación con la comunidad de usuarios con intereses similares, K-12, Higher-Ed, Portfolios), en la construcción de espacios colaborativos web sensibles al contexto.
+- Primero, desarrollando tareas de diseño, testing, documentación de estilos arquitectónicos y especificación de una herramienta colaborativa web, teniendo en cuenta técnicas y metodología de desarrollo actuales. 
+
+- Segundo, implementación, instalación, configuración y soporte de una aplicación utilizando frameworks de desarrollo estándares. 
+
+- Tercero, consolidar ambientes y prácticas para el aprendizaje-enseñanza-investigación, colaboración y otros usos (compartir experiencia, vinculación con la comunidad de usuarios con intereses similares, K-12, Higher-Ed, Portfolios), en la construcción de espacios colaborativos web sensibles al contexto.
 
 \subsubsection{Enfoque partiendo de Framework e-learnig originales}
 
-La implementación de plataformas colaborativas constituye unos
-de los medios más versátiles para el uso en actividades académicas. Un ejemplo que puede ser citado de este tipo de aplicaciones son: 
-WebCT, BlackBoard, e-ducativa, Plataforma Mediáfora, Dokeos,
-OfficeManager, Moodle, Nexus, ILIAS, Claroline.
+La implementación de plataformas colaborativas constituye unos de los medios más versátiles para el uso en actividades académicas. Un ejemplo que puede ser citado de este tipo de aplicaciones son: WebCT, BlackBoard, e-ducativa, Plataforma Mediáfora, Dokeos, OfficeManager, Moodle, Nexus, ILIAS, Claroline.
 
-Su constante evolución, crecimiento y adaptación permiten
-tener cada vez mejores prestaciones y servicios. El eficiente uso
-de estas plataformas implican tener sólidos conocimientos técnicos
-para su instalación, mantenimiento y desarrollo. Al mismo tiempo
-se debe contar con mı́nimas habilidades para la creación de los
+Su constante evolución, crecimiento y adaptación permiten tener cada vez mejores prestaciones y servicios. El eficiente uso de estas plataformas implican tener sólidos conocimientos técnicos para su instalación, mantenimiento y desarrollo. Al mismo tiempo se debe contar con mı́nimas habilidades para la creación de los
 distintos espacios de trabajos y definir las metodologı́as de uso.
 
 
-En el marco de los análisis efectuados y teniendo en cuenta
-experiencias de nuestro grupo de trabajo se sostiene que la incursión en
-proyectos “open source“ con gran aceptación científica brinda una
-de las propuestas más consolidadas de diseño y desarrollo de entornos colaborativos Web para educación, orientado a herramientas que se implementan a través de servicios comunes (denominados servicios bases). Por ejemplo, existen frameworks orientados a portales
+En el marco de los análisis efectuados y teniendo en cuenta experiencias de nuestro grupo de trabajo se sostiene que la incursión en proyectos “open source“ con gran aceptación científica brinda una de las propuestas más consolidadas de diseño y desarrollo de entornos colaborativos Web para educación, orientado a herramientas que se implementan a través de servicios comunes (denominados servicios bases). Por ejemplo, existen frameworks orientados a portales
 donde el servicio de edición de mensajes es utilizado en herramientas tales como Foro, Anuncio, Blog, etcétera. Más aún, otra de las características salientes es la versatilidad para su extensión y/o configuración. En efecto, es posible alterar ciertas configuraciones
 en tiempo de ejecución, por ejemplo, instrumentar una nueva funcionalidad en un servicio base.
 
@@ -1172,9 +1142,9 @@ Para este propósito se iniciaron estudios sobre la arquitectura y el diseño a 
 
 \susubsection{Punto de partida}
 
-Los avances en las principales comunidades cientı́ficas sobre desarrollos de herramientas Web colaborativas permiten la participación
-en varios niveles dentro de una activa comunidad de educadores, referentes institucionales y desarrolladores inspirados en las actividades de enseñanza, aprendizaje e investigación. Particularmente, los diseñadores y desarrolladores del proyecto Sakai \footnote{https://sakaiprojecto.org} trabajan conjuntamente con docentes y estudiantes profesionales de universidades internacionales. En este sentido, algunas de las universidades involucradas
-en este proyecto son: Indiana University, University of Michigan, Yale University, Stanford University, Universidad Politécnica de Valencia y la Universidad del Valle de Guatemala. Todas ellas promueven la disminución de las distancias entre las necesidades del usuario final y el software. Ahora bien, debemos destacar que el mayor flujo de las actividades colaborativas se concentran en la lista de “e-mails”, “wiki”, “foros”, etc. Los miembros de estas comunidades presentan todo tipo de perfiles académicos e institucionales.
+Los avances en las principales comunidades cientı́ficas sobre desarrollos de herramientas Web colaborativas permiten la participación en varios niveles dentro de una activa comunidad de educadores, referentes institucionales y desarrolladores inspirados en las actividades de enseñanza, aprendizaje e investigación. Particularmente, los diseñadores y desarrolladores del proyecto Sakai \footnote{https://sakaiprojecto.org} trabajan conjuntamente con docentes y estudiantes profesionales de universidades internacionales. En este sentido, algunas de las universidades involucradas en este proyecto son: Indiana University, University of Michigan, Yale University, Stanford University, Universidad Politécnica de Valencia y la Universidad del Valle de Guatemala. 
+
+Todas ellas promueven la disminución de las distancias entre las necesidades del usuario final y el software. Ahora bien, debemos destacar que el mayor flujo de las actividades colaborativas se concentran en la lista de “e-mails”, “wiki”, “foros”, etc. Los miembros de estas comunidades presentan todo tipo de perfiles académicos e institucionales.
 
 
 \begin{figure}
@@ -1185,8 +1155,7 @@ en este proyecto son: Indiana University, University of Michigan, Yale Universit
 \end{figure} 
 
 
-El punto de partida de esta experiencia se inicia con un diseño de arquitectura conceptual genérica a las que se ajustan los framework eLearning más populares. Luego, se identificarán los extractos de la arquitectura donde se representan los servicios de las herramientas. Se continúa con una propuesta de diseño que permita implementar el concepto de inyección referido en la sección \ref{secc:arqDHD}. Por último, se añaden nuevas componentes importantes de la arquitectura que complementan los aspectos adaptativos de los contratosDHD.  
-
+El punto de partida de esta experiencia se inicia con un diseño de arquitectura conceptual genérica a las que se ajustan los framework eLearning más populares. Luego, se identificarán los extractos de la arquitectura donde se representan los servicios de las herramientas. Se continúa con una propuesta de diseño que permita implementar el concepto de inyección referido en la sección \ref{secc:arqDHD}. Por último, se añaden nuevas componentes importantes de la arquitectura que complementan los aspectos adaptativos de los contratosDHD. 
 
 El primer agregado al sistema web colaborativo original se produce a niveles de capas. El Framework Sakai está diseñado según una arquitectura de cuatro estratos de capas representada en la figura \ref{fig:FeLO}
 
@@ -1199,7 +1168,7 @@ La capa \textbf{Herramientas}, concentra la estructura de contenedores donde se 
 
 La capa \textbf{Servicios}, interpreta a los servicios como una colección de clases que transforman datos para definir comportamientos. Estos datos pueden tener representaciones internas o ajustarse a los estándares de la comunidad industrial y/o científica. Las funcionalidades también pueden ser provistas a través de interfaces de aplicaciones (API). Un servicio puede invocar a otro servicio y creando dependencias. Los servicios son modulables y se ajustan a un diseño apropiado con el propósito de ser reusables y portables.
 
-En los  capítulos precedentes se explicaron algunos de los fundamentos sobre el diseño de arquitectura a nivel arquitectónico. En esta sección de la investigación doctoral, se retoma la idea de inyección explicada anteriormente a nivel de arquitectura. Ahora, se propone un diseño para envolver los servicios del núcleo Sakai para el mecanismo de coordinación de contratos. De esta manera, se altera el diseño original del framework, agregando y modificando componentes que permitirán una mejor representación respecto a la inyección de información de contexto y el agregado de una nueva pieza de software que posee propiedades de sensibilidad al contexto mencionadas. Con este propósito, fue modificado el diseño de la capa de servicios original \cite{arqDHD17}, mediante una división en tres partes:
+En los  capítulos precedentes se explicaron algunos de los fundamentos sobre el diseño de arquitectura a nivel arquitectónico. En esta sección se retoma la idea de inyección explicada anteriormente a nivel de arquitectura. Ahora, se propone un diseño para envolver los servicios núcleos de Sakai para el mecanismo de coordinación de contratos. De esta manera, se altera el diseño original del framework, agregando y modificando componentes que permitirán una mejor representación respecto a la inyección de información de contexto y el agregado de una nueva pieza de software que posee propiedades mencionadas de sensibilidad al contexto. Con este propósito, se hicieron adaptaciones al diseño en la capa de servicios original \cite{arqDHD17} mediante una división en tres partes:
 
 
 \begin{figure}
@@ -1208,7 +1177,6 @@ En los  capítulos precedentes se explicaron algunos de los fundamentos sobre el
 \caption{Elementos arquitectónico involucrados en el proceso de inyección} \label{fig:CapaServicio}
 \end{center}
 \end{figure} 
-
 
 
 \begin{itemize}
@@ -1220,38 +1188,28 @@ de coordinación de contrato.
 tidades, asignar, obtener y subscribir cambios en la información de contexto de las entidades.
 
 \item \textbf{Servicios con coordinación de contratos (Servicios CSC):}
-Servicios base del núcleo del framework Sakai modifica-
-dos para poder efectuar la envoltura de los mecanismos de
-coordinación.
+Servicios base del núcleo del framework Sakai modificados para poder efectuar la envoltura de los mecanismos de coordinación.
 
 
 \end{itemize}
 
-Mediante la división del estrato servicios se puede interpretar a
-los Servicios CSC como una nueva arquitectura basada en sistemas
-estratificados[11]. Entonces, esta composición se efectúa por el estrato de coordinación de contratos y el estrato de cómputo. La capa
-de cómputo estará compuesta por módulos de implementación (como por ejemplo los 
-servicios Sakai previos a la incorporación de contratos). Mientras que la capa de coordinación estará compuesta por módulos
-especı́ficos de coordinación, patrones tipo proxy y contratos.
-La implementación de los Servicios CSC se realizarán utilizando un patrón de diseño de coordinación de contratos (”Coordination Contracts Design Pattern”) tomando como referencia
-la propuesta de Fiadeiro \cite{arqDHD12, \cite{arqDHD13}. Este patrón está basado en el
-patrón de diseño ”proxy” (o “Surrogate“) \cite{arqDHD14}. Por un lado, provee
-una interfaz especı́fica (“SubjectInterface“), como una clase abstracta, para cada componente. Esta interfaz está conectada al programa real (”SubjectBody”) a través de un proxy dinámico reconfigurable. Por otra parte, soporta la reconfiguración dinámica del
-código ejecutado por medio de solicitud de operaciones a través
-del “proxy”.
+Mediante la división del estrato servicios se puede interpretar a los Servicios CSC como una nueva arquitectura basada en sistemas estratificados. Entonces, esta composición se efectúa por el estrato de coordinación de contratos y el estrato de cómputo. 
 
-El segundo subsistema está compuesto por una componente
-contrato y su correspondiente mecanismo de coordinación. En este
-caso, la coordinación del contrato se define como:
-En términos generales, la coordinación de contratos es una
-conexión establecida entre un grupo de objetos (en nuestras consideraciones los participantes serı́an un objeto cliente y un determinado servicio), donde reglas, normas y restricciones (RNR) son
+La capa de cómputo estará compuesta por módulos de implementación (como por ejemplo los  servicios Sakai previos a la incorporación de contratos). Mientras que la capa de coordinación estará compuesta por módulos especı́ficos de coordinación, patrones tipo proxy y contratos.
+
+La implementación de los Servicios CSC se realizarán utilizando un patrón de diseño de coordinación de contratos (”Coordination Contracts Design Pattern”) tomando como referencia la propuesta de Fiadeiro \cite{arqDHD12, \cite{arqDHD13}Este patrón está basado en el patrón de diseño ”proxy” (o “Surrogate“) \cite{arqDHD14}. Por un lado, provee una interfaz especı́fica  “SubjectInterface“), como una clase abstracta, para cada componente. Esta interfaz está conectada al programa real (”SubjectBody”) a través de un proxy dinámico reconfigurable. Por otra parte, soporta la reconfiguración dinámica del código ejecutado por medio de solicitud de operaciones a través del “proxy”.
+
+El segundo subsistema está compuesto por una componente contrato y su correspondiente mecanismo de coordinación. En este caso, la coordinación del contrato se define como: 
+
+En términos generales, la coordinación de contratos es una conexión establecida entre un grupo de objetos (en nuestras consideraciones los participantes serán un objeto cliente y un determinado servicio), donde reglas, normas y restricciones (RNR) son superpuestas entre los actores participantes, estableciendo con un determinado grado de control las formas de interrelación (o interacción).
+
 
 
 \begin{comment}
 
 \begin{figure}
 \begin{center}
- \includegraphics[scale=0.55]{Ch2/arqDHD_Implementacion.png}
+ \includegraphics[scale=0.70]{Ch2/arqDHD_Implementacion.png}
  \caption{Arquitectura conceptual del DHD} \label{fig:arqDHD2}
 \end{center}
 \end{figure}
@@ -1259,50 +1217,26 @@ conexión establecida entre un grupo de objetos (en nuestras consideraciones lo
 \end{comment}
 
 
+El tipo de interacciones establecidas entre las partes es más satisfactoria que las que se pueden lograr con UML o lenguajes similares (orientados a objetos) debido a que éstas contienen un mecanismo de superposición en el que se toman como argumento los contextos. 
+
+Cuando un objeto cliente efectúa una llamada a un objeto suministro, el contrato "intercepta"  la llamada y establece una nueva relación, teniendo en cuenta el contexto del objeto cliente, el del objeto servidor e información relevante (respecto de la relación) adquirida y representada como contexto del entorno. Como condición necesaria, la implementación de los contratos no debe alterar el diseño y funcionalidad en la implementación de los objetos.
+
+
+El tercer subsistema corresponde a un framework implementativo “contex-awareness” que permite integrarse con algunas de las componentes del primer subsistema para la recolección de datos censado de contexto. Luego, estos datos son procesados a través de mecanismos que permitirán incorporarles más datos sobre atributos que permitirán agregar propiedades de sensibilidad al contexto. Su configuración fue resuelta a partir de las ideas fundadoras del trabajo de Dey sobre el Context ToolKit \cite{arqDHD15} y el proyecto UWA \cite{arqDHD16}.
+
+
+El cuarto subsistema lo compone un nuevo modelo pensado para el diseño e implementación de condicionales que puedan ser utilizados en la composición de reglas de contratos. La principal idea de esta propuesta es estandarizar soluciones y brindar información necesaria en la creación de condicionales, donde su valores de verdad deban se calculados a través de sistemas externos, como por
+ejemplo, el tercer subsistema de la figura \ref{fig:arqDHD2}. En este sentido, los tipos de condicionales serán abstraídos en modelos que comprendan cálculos a partir de métricas, estructuras y simulación de eventos discretos. También, puede verse a este subsistema como integrador (conector) entre el subsistema de coordinación de contrato (segundo subsistema) y el sensible al contexto (tercer subsistema).
 
 
 
-superpuestas entre los actores participantes, estableciendo con un
-determinado grado de control las formas de interrelación (o interacción).
-
-El tipo de interacciones establecidas entre las partes es más
-satisfactoria que las que se pueden lograr con UML o lenguajes
-similares (orientados a objetos) debido a que éstas contienen un
-mecanismo de superposición en el que se toman como argumento los
-contextos. Cuando un objeto cliente efectúa una llamada a un objeto suministro, 
-el contrato ”`intercepta”  la llamada y establece una
-nueva relación teniendo en cuenta el contexto del objeto cliente, el
-del objeto servidor e información relevante (respecto de la relación)
-adquirida y representada como contexto del entorno. Como condición
-necesaria, la implementación de los contratos no debe alterar el
-diseño y funcionalidad en la implementación de los objetos.
+\section{Áreas de integración}
 
 
-El tercer subsistema corresponde a un framework implementativo “contex-awareness” que permite integrarse con algunas de las
-componentes del primer subsistema para la recolección del censado de información de contexto. Luego, dicha información es
-procesada a través de mecanismos que permitirán incorporarles
-propiedades de sensibilidad al contexto. Su configuración fue resuelta a partir de las ideas fundadoras del trabajo de Dey sobre el
-Context ToolKit \cite{arqDHD15} y el proyecto UWA \cite{arqDHD16}.
-
-El cuarto subsistema lo compone un nuevo modelo pensado
-para el diseño e implementación de condicionales que puedan ser
-utilizados en la composición de reglas de contratos. La principal
-idea de esta propuesta es estandarizar soluciones y brindar información necesaria en la creación de condicionales, donde su valores
-de verdad deban se calculados a través de sistemas externos, como por
-ejemplo, el tercer subsistema de la figura1. En este sentido,
-los tipos de condicionales serán abstraı́dos en modelos que com-
-prendan cálculos a partir de métricas, estructuras y simulación de
-eventos discretos. También, puede verse a este subsistema como
-integrador (conector) entre el subsistema de coordinación de con-
-trato (segundo subsistema) y el sensible al contexto (tercer subsis-
-tema).
+A partir de \textbf{arqDHD} se comienzan a ordenar las cuestiones de diseños e implementaciones abordados en los capítulos siguientes de esta tesis. A lo largo de este recorrido se harán referencias directas e indirectas a todos los conceptos y enfoques abordadas en este capítulo. A su vez, se pueden identificar cuatro enfoques de interpretación y utilización de arqDHD. Cada una está relacionada con un conjunto de los elementos, relaciones y propiedades de arqDHD. 
 
 
-
-\subsubsection{Áreas de integración}
-
-
-A partir de \textbf{arqDHD} se comienzan a ordenar las cuestiones de diseños e implementaciones abordados en los siguientes capítulos. A lo largo de este recorrido se harán referencias directas e indirectas a todos los conceptos y enfoques abordadas en este capítulo. A su vez, se pueden identificar cuatro enfoques de interpretación y utilización de arqDHD. Cada una está relacionada con un conjunto de los elementos, relaciones y propiedades (de elementos y relaciones) de arqDHD. A continuación, se brindará una descripción conceptual que ponga en evidencia otros de los aspectos estructurales de nuestra propuesta de inyección de contratosDHD.
+A continuación se brindará una descripción conceptual que ponga en evidencia otros de los aspectos estructurales de nuestra propuesta de inyección de contratosDHD.
 
 
 \begin{figure}

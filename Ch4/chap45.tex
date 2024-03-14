@@ -3,7 +3,7 @@
 
 %\chapter{xxxxxxxxxxxxxxxxxxxx} \label{cap:contratosz} \label{cap:5z}
 %\pagenumbering{arabic}
-\chapter{Contratos sensibles al contexto}\label{cap:contratos} \label{cap:5}
+\chapter{Contratos sensibles al contexto}\label{cap:contratos}\label{cap:5}
 %\chapter{Framewrok to Implemet Context Aware Contract in E-learning
 
 %\pagenumbering{arabic}
@@ -13,18 +13,18 @@
 \section {Introducción}\label{sec:Introducción}
 
 
-En este capítulo, se comienza a trabajar en el nivel técnico de diseño del artefacto de software principal de la arquitectura arqDHD, que se describe en detalle en el capítulo \ref{cap:arqdhd}. El objetivo principal de este capítulo es desarrollar el contratoDHD, que será una parte fundamental de la arquitectura arqDHD.
+En este capítulo se describen aspectos fundamentales sobre las decisiones de diseños e implementación de una pieza de software, denominada \textbf{contratosDHD}, con el propósito de representar los contratos sensibles al contexto, adecuados a la arquitectura de software \textbf{arqDHD} definida en el capítulo \ref{cap:arqdhd}. 
 
-Para lograr este objetivo, se comienza con la definición de conceptos importantes que permitirán caracterizar cuestiones de diseño a tener en cuenta en el desarrollo del contratoDHD. Estos conceptos incluyen aspectos técnicos y funcionales que deben ser considerados para garantizar que el contratoDHD cumpla con los requisitos de calidad, rendimiento y funcionalidad.
+Se comienza con la definición de conceptos importantes que permitirán caracterizar cuestiones de diseño a tener en cuenta en el desarrollo del \textbf{contratoDHD}. Se incluyen aspectos técnicos y funcionales que deben ser considerados para garantizar que el \textbf{contratoDHD} cumpla con los requisitos de calidad, rendimiento y funcionalidad.
 
-Una vez establecidos estos conceptos, se procede a identificar los elementos y relaciones necesarios para el diseño del contratoDHD. Para ello, se siguen los lineamientos de diseño para el cambio dinámico utilizados en la arqDHD, que permiten adaptar la arquitectura a los cambios en los requisitos y necesidades del sistema.
+Una vez establecidos estos conceptos, se procede a identificar los elementos y relaciones necesarios para el diseño del \textbf{contratoDHD}. Para ello, se siguen los lineamientos de diseño para el cambio dinámico utilizados en la \textbf{arqDHD}, que permiten adaptar la arquitectura a los cambios en los requisitos y necesidades del sistema.
 
-Siguiendo el camino hacia la implementación del contratoDHD, se construirán soluciones de diseño de componentes más refinadas para lograr una mejor comprensión en las etapas posteriores de generación de código de implementación. Estas soluciones se basarán en las decisiones de diseño tomadas previamente y en la retroalimentación proporcionada por la implementación del contratoDHD. De esta forma, se asegurará que el diseño final del contratoDHD esté bien adaptado a los requisitos específicos del sistema y cumpla con los estándares de calidad y rendimiento esperados.
+Siguiendo el camino hacia la implementación del \textbf{contratoDHD}, se construirán soluciones de diseño de componentes más refinadas para lograr una mejor comprensión de la generación de código de implementación que serán abordadas en las siguientes secciones. Para este propósito, se tendrán en cuenta decisiones de diseños de las arquitecturas y tecnologías donde serán implementadas. De esta forma, se asegurará que la estructura y funcionalidades del \textbf{contratoDHD} se adapte a los requisitos específicos del sistema y cumpla con los estándares de calidad y rendimiento esperados.
 
 
 \section {Hacia la definición de ContratoDHD}\label{sec:Hacia_la_definición_de_ContratosDHD}
 
-En software, un contrato es un componente que contiene información necesaria sobre las posibilidades de  instanciaciones y relaciones de otras componentes de un sistema. Esta información está construida con condicionales y acciones que pueden ser evaluados en tiempo de ejecución en un sistema. Esto significa que la instancia de un sistema, en un determinado contexto (tiempo, locación, tipo de acción, ejecución, estado del entorno, etc.), dependerá de la información pre-establecida en los contratos. 
+En software, un contrato es un componente que contiene información necesaria sobre las posibilidades de instanciaciones y relaciones de otras componentes de un sistema. Esta información está construida con condicionales y acciones que pueden ser evaluados en tiempo de ejecución. Esto significa que la instancia de un sistema, en un determinado contexto (tiempo, locación, tipo de acción, ejecución, estado del entorno, etc.), dependerá de la información preestablecida en los contratos. 
 
 
 El contrato puede ser configurado por medio de diferentes mecanismos. Desde el lenguaje cotidiano hasta un lenguaje de especificación formal, por ejemplo, basado en XML\footnote {XML, sigla en inglés de textit{eXtensible Markup Language} (lenguaje de marcas extensible), es un metalenguaje extensible de etiquetas desarrollado por el World Wide Web Consortium (W3C).} 
@@ -32,26 +32,24 @@ El contrato puede ser configurado por medio de diferentes mecanismos. Desde el l
 %Es una simplificación y adaptación del SGML que permite definir la gramática de lenguajes específicos (de la misma manera que HTML es a su vez un lenguaje definido por SGML). Por lo tanto XML no es realmente un lenguaje en particular, sino una manera de definir lenguajes para diferentes necesidades. Algunos de estos lenguajes que usan XML para su definición son XHTML, SVG, MathML.} para los casos que sean necesarias especificaciones que puedan ser procesadas por máquinas.
 %\subsection{Características que debe cumplir el ContratoDHD}
 
-El tipo de tecnología y forma de implementación de los contratos es transparente para los componentes que realizan peticiones, o necesitan información, de otra componente a la que se encuentra relacionada. A esta componente se la podría denominar cliente. Esta relación (comunicación) entre componentes deberá cumplir con ciertas características definidas en otra componente denominada contrato. En este caso, el mencionado contratoDHD.
+El tipo de tecnología y forma de implementación de los contratos es transparente para los componentes que realizan peticiones, o necesitan información, de otra componente a la que se encuentra relacionada. A este último componente se la podría denominar \textbf{cliente}. Esta relación (comunicación) entre componentes deberá cumplir con ciertas características definidas en otra componente denominada \textbf{contrato}. 
 
-La configuración de un contrato, que forma parte de las componentes de un servicio, representa la información necesaria  para ser utilizado por el invocador (componente cliente). Se pretende que el invocador no tenga necesidad del conocimiento del contrato. Lograr esta característica será muy relevante para esta tesis, debido a que los contratos son piezas de software agregadas a un sistema original. Entonces, se intenta lograr un bajo impacto en las modificaciones de componentes originales, por ejemplo, haciendo que los clientes sigan utilizando las mismas interfaces de los componentes invocadas, antes de la incorporación de los contratos. 
+La configuración de un contrato, que forma parte de las componentes de un servicio, representa la información necesaria para ser utilizado por el invocador (componente cliente). Se pretende que el invocador no tenga necesidad del conocimiento del contrato. Lograr esta característica será muy relevante para esta tesis, debido a que los contratos utilizados aquí son piezas de software agregadas a un sistema original a niveles de arquitectura y diseño. Entonces, se intenta lograr un bajo impacto en las modificaciones de componentes originales, por ejemplo, haciendo que los componentes clientes sigan utilizando las mismas interfaces de los componentes invocadas, antes de la incorporación de los contratos. 
 
-Es importante aclarar que la incorporación de contratos puede tener un impacto significativo en la arquitectura de un sistema de software. En algunos casos, los contratos pueden requerir modificaciones en las interfaces de los componentes invocados, lo que puede generar costos y retrasos en el desarrollo del sistema. Por lo tanto, es decisivo minimizar el impacto de los contratos en las componentes originales del sistema.
+Es importante aclarar que la incorporación de contratos, en ciertas situaciones, puede tener un impacto significativo en la arquitectura de un sistema de software. En algunos casos, los contratos pueden requerir modificaciones en las interfaces de los componentes invocados, lo que puede generar costos y retrasos en el desarrollo del sistema. Por lo tanto, es decisivo minimizar el impacto de los contratos en las componentes originales del sistema. Una forma de lograr esto es mediante la implementación de contratos que sean compatibles con las interfaces existentes de los componentes invocados. De esta manera, los clientes pueden seguir utilizando las mismas interfaces sin necesidad de conocer los detalles del contrato. Por ejemplo, se puede agregar un contrato a un servicio sin modificar la interfaz existente de ese servicio, lo que permite que los clientes sigan utilizando la misma interfaz para invocar el servicio.
 
-Una forma de lograr esto es mediante la implementación de contratos que sean compatibles con las interfaces existentes de los componentes invocados. De esta manera, los clientes pueden seguir utilizando las mismas interfaces sin necesidad de conocer los detalles del contrato. Por ejemplo, se puede agregar un contrato a un servicio sin modificar la interfaz existente de ese servicio, lo que permite que los clientes sigan utilizando la misma interfaz para invocar el servicio.
-
-También, es importante tener en cuenta que los contratos pueden ser utilizados para mejorar la calidad y la fiabilidad del software. Al definir claramente las expectativas y los requisitos para cada componente del sistema, los contratos pueden ayudar a detectar y prevenir errores y fallas en el software.
+También es importante tener en cuenta que los contratos pueden ser utilizados para mejorar la calidad y la fiabilidad del software. Al definir claramente las expectativas y los requisitos para cada componente del sistema, los contratos pueden ayudar a detectar y prevenir errores y fallas en el software.
 
 El contrato representa una enriquecida y efectiva interfaz de construcción que contiene toda la información sobre las componentes de los servicios e información de contexto para definir comportamientos a niveles funcionales en el sistema original que lo incorpora.
 
-Desde ahora en adelante, para referirnos a las componentes de los sistemas en etapa de ejecución, se denominarán como objetos. Por ejemplo, cuando una componente del sistema está instanciada en un determinado momento para ejecutar una transacción que implica comunicarse con otro componente instanciada, entonces, será apropiado referirse con el nombre de objeto. Para este ejemplo, se mencionará que el objeto cliente invoca las operaciones del objeto proveer. En los casos que el objeto proveedor contenga asociada un contrato a este último lo llamaremos contratos u objeto contrato.
+Desde ahora en adelante, para referirnos a las componentes de los sistemas en etapa de ejecución, se denominarán como objetos. Por ejemplo, cuando una componente del sistema está instanciado en un determinado momento para ejecutar una transacción que implica comunicarse con otro componente, también en la condición de instanciado, entonces, será apropiado referirse con el nombre de objeto. Para este ejemplo, se mencionará que el objeto \textbf{cliente} invoca las operaciones del objeto \textbf{proveer}. En los casos en que el objeto \textbf{proveedor} contenga asociado un contrato, a este último lo llamaremos contratos u objeto \textbf{contrato}.
 
 
-El concepto de interfaz, en este caso, tiene mayor significado que un simple acceso a un contrato de reglas entre el objeto proveedor y el objeto consumidor del servicio. La figura \ref{fig:contratov2} representa elementos conceptuales básicos que determinan un contrato. Las flechas de la figura representan relaciones entre los elementos; conformando un diseño reperesentativos de los componentes y sus respectivos propósitos que se deberán tener en cuenta para su uso e implementación. 
+El concepto de interfaz, en este caso, tiene mayor significado que un simple acceso a un contrato de reglas entre el objeto proveedor y el objeto consumidor del servicio. La figura \ref{fig:contratov2} representa elementos conceptuales básicos que determinan un contrato. Las flechas de la figura representan relaciones entre los elementos, conformando un diseño representativo de los componentes y sus respectivos propósitos que se deberán tener en cuenta en implementaciones y usos. 
 
 \begin{figure}
 \begin{center}
- \includegraphics [width=6 in,totalheight=3 in]{Ch4/contrato_conceptual}
+ \includegraphics [width=5.8 in,totalheight=3 in]{Ch4/contrato_conceptual}
  % .: 0x0 pixel, 0dpi, 0.00x0.00 cm, bb=
 \end{center}
 \caption{Características del ContratoDHD}
@@ -64,15 +62,15 @@ A continuación, se describen para cada componente sus principales característi
 
 \item \textit{Identificador}.
 
-El \textit{Identificador} se utiliza para la identificación de una \textit{componente servicio} para un determinado contexto por un único nombre en un espacio de nombre.
+El \textit{Identificador} se utiliza para la identificación de un \textit{componente servicio} para un determinado contexto por un único nombre en un espacio de nombre.
 
 \item \textit{Comportamiento.}
 
-De acuerdo con los roles asignados en un determinado contexto, una \textit{Componente Servicio} expone sus  \textit{comportamientos} a través de \textit{operaciones} publicadas. Las operaciones pueden ser definidas en dos tipos – operaciones que ejecutan cómputos o transformaciones (tipo “update”) y operaciones que proveen algún tipo de información sobre consultas (tipo “query”). Estas se encuentran enteramente especificadas en base
-a un contrato, con el uso de \textit{precondición}, \textit{post-condición} y \textit{condicionales} para lograr coordinación entre contratos. En las condiciones de coordinación se especifican cómo requerir y proveer operaciones, así como también los eventos publicados y recibidos son coordinados en los momentos adecuados. Para lograr una comunicación precisa con un componente servicio, no sólo se tiene en cuenta qué operación fue provista o requerida y cómo el ejecutor ha lanzado el evento apropiado, sino también, cómo todas esas actividades están mutuamente relacionadas para ser aprovechadas por el objeto consumidor. Un evento del contexto que lanza una operación dada, puede ser parte de un conjunto de precondición, mientras que un evento emitido a través de una exitosa operación puede ser parte de una postcondición.
+De acuerdo con los roles asignados en un determinado contexto, un \textit{Componente Servicio} expone sus \textit{comportamientos} a través de \textit{operaciones} publicadas. Las operaciones pueden ser definidas en dos tipos – operaciones que ejecutan cómputos o transformaciones (tipo “update”) y operaciones que proveen algún tipo de información sobre consultas (tipo “query”). Estas se encuentran enteramente especificadas en base
+a un contrato, con el uso de \textit{precondición}, \textit{post-condición} y \textit{condicionales} para lograr coordinación entre contratos. En las condiciones de coordinación se especifican cómo requerir y proveer operaciones, así como también los eventos publicados y recibidos son coordinados en los momentos adecuados. Para lograr una comunicación precisa con un componente servicio, no sólo se tiene en cuenta qué operación fue provista o requerida y cómo el ejecutor ha lanzado el evento apropiado, sino también cómo todas esas actividades están mutuamente relacionadas para ser aprovechadas por el objeto consumidor. Un evento del contexto que lanza una operación dada puede ser parte de un conjunto de precondición, mientras que un evento emitido a través de una exitosa operación puede ser parte de una postcondición.
 
 
-Las operaciones provistas por la componente de servicio deben estar asociadas, a fin de determinar cuáles deben ser completadas antes de la activación de un servicio asociado. Este tipo de asociación es posible de efectuarse en forma paralela o ser sincronizado por otro camino mecanismo. Por ejemplo, la figura \ref{fig:contratov2} representa el caso de una componente de servicio denominado \textit{Manejador\_Orden}, la operación \textit{ejecutar\_orden()} no puede ser invocada hasta que el servicio que la consume no esté correctamente autorizado por el componente de servicio \textit{Administrador\_Registros}. Otro ejemplo, la operación \textit{borrar\_registro()} no puede ser invocada si la operación \textit{ejecutar\_orden()} con el mismo parámetro \textit{orden\_id} no fue previamente completada.
+Las operaciones provistas por la componente de servicio deben estar asociadas, a fin de determinar cuáles deben ser completadas antes de la activación de un servicio asociado. Este tipo de asociación es posible de efectuarse en forma paralela o ser sincronizado por otro mecanismo. Por ejemplo, la figura \ref{fig:servicios_coordinados} representa el caso de un componente de servicio denominado \textit{Manejador\_Orden}, la operación \textit{ejecutar\_orden()} no puede ser invocada hasta que el servicio que la consume no esté correctamente autorizado por el componente de servicio \textit{Administrador\_Registros}. Otro ejemplo es la operación \textit{borrar\_registro()} no puede ser invocada si la operación \textit{ejecutar\_orden()} con el mismo parámetro \textit{orden\_id} no fue previamente completada.
 
 
 \begin{figure}
@@ -85,53 +83,101 @@ Las operaciones provistas por la componente de servicio deben estar asociadas, a
 \end{figure}
 
 
-
 \item \textit{Tipos de Información.}
 
 Una componente de servicio debe manejar, usar, crear o tener cierta información de recursos con el propósito de proveer información y ejecutar acciones adecuadamente. El elemento \textbf{Tipos de Información} del contrato, como su nombre lo indica, define el tipo de información relevante para las componentes asociadas al contrato, así como también restricciones y reglas sobre instancias específicas para cada tipo. De esta manera, se representa un modelo de información lógica, en el sentido del cómputo, de una componente de servicio. Formalmente, esta información de tipos puede ser considerada como definiciones de tipos de los parámetros de las operaciones o tipos relacionados con ellos.
 
 \item \textit{Configuración de Parámetros Context-Aware}
 
-Un componente servicio depende del contexto de su actual entorno. La misma, para utilizarse en diferentes contextos, logrando la adaptación a eventuales cambios, debe tener definido un conjunto de parámetros de configuración. Ejemplos de estos parámetros pueden ser: Contexto-del-Usuario (CU) - en un sentido similar a lo definido en el capítulo anterior, locación en tiempo y espacio de los servicios consumidos y suministrados. Estos parámetros pueden ser enviados dentro de las invocaciones de las operaciones de los servicios o por medio de otros caminos, mediante componentes de servicios que pueden adaptar su comportamiento ante el cambio de contexto en una determinada situación.
 
-La configuración de parámetros está directamente asociada a las relaciones de las operaciones de los servicios para lograr una mejor adaptación a la medida de las circunstancias brindada por la información relevada del contexto. El concepto de la configuración de los parámetros context-aware, es un paso muy importante hacia la concepción de servicios automatizados y autoadaptables (tomando el sentido paradigmático de los teóricos de la Inteligencia Artificial).
 
+% Párrafo reemplazado por la IA
+%Un componente servicio depende del contexto de su actual entorno. La misma, para utilizarse en diferentes contextos, logrando la adaptación a eventuales cambios, debe tener definido un conjunto de parámetros de configuración. Ejemplos de estos parámetros pueden ser: Contexto-del-Usuario (CU) - en un sentido similar a lo definido en el capítulo anterior, locación en tiempo y espacio de los servicios consumidos y suministrados. Estos parámetros pueden ser enviados dentro de las invocaciones de las operaciones de los servicios o por medio de otros caminos, mediante componentes de servicios que pueden adaptar su comportamiento ante el cambio de contexto en una determinada situación.
+
+---
+
+Un componente servicio es una unidad de software modular que ofrece una funcionalidad específica a otros componentes del sistema. Para funcionar correctamente, un componente servicio puede depender de información específica del contexto en el que se ejecuta.
+
+Para permitir que un componente servicio se adapte a diferentes contextos y eventuales cambios, es necesario definir un conjunto de parámetros de configuración. Estos parámetros permiten personalizar el comportamiento del servicio en función del contexto en el que se ejecuta.
+
+Algunos ejemplos de parámetros de configuración son:
+
+a) \textbf{Contexto del usuario (CU):} Similar a lo definido en el capítulo anterior, este parámetro define el contexto del usuario que está utilizando el servicio. Esto puede incluir información como la ubicación del usuario, el idioma preferido o el tipo de dispositivo que está utilizando.
+
+b) \textbf{Locación en tiempo y espacio de los servicios consumidos y suministrados:} Este parámetro define la ubicación física y temporal de los servicios que el componente servicio consume y proporciona. Esto puede ser útil para optimizar el rendimiento y la disponibilidad del servicio.
+
+
+Los parámetros de configuración pueden ser enviados de diferentes maneras:
+
+a) \textbf{Dentro de las invocaciones de las operaciones de los servicios:} Los parámetros de configuración pueden ser enviados como argumentos de las operaciones del servicio. Esto permite al cliente especificar el contexto en el que se debe ejecutar la operación.
+
+b) \textbf{Por medio de otros caminos: }Los parámetros de configuración pueden ser enviados a través de otros mecanismos, como archivos de configuración o variables de entorno. Esto permite al administrador del sistema configurar el servicio sin necesidad de modificar el código del mismo.
+Los componentes de servicios que pueden adaptar su comportamiento ante el cambio de contexto en una determinada situación se denominan componentes adaptables. Estos componentes son capaces de monitorizar el contexto y ajustar su comportamiento en función de los cambios que se produzcan.
+
+
+La configuración de parámetros está directamente asociada a las relaciones de las operaciones de los servicios para lograr una mejor adaptación a la medida de las circunstancias brindada por la información relevada del contexto. El concepto de la configuración de los parámetros context-aware es un paso muy relevante hacia la concepción de servicios automatizados y autoadaptables. 
 
 \item \textit{Parámetros no funcionales.} 
 
-Un componente servicio puede definir un conjunto de los llamados parámetros no funcionales que caracterizan a la “calidad” de sus prestaciones dentro de un determinado contexto. Estos parámetros, son elementos para los consumidores delos servicios que permiten optar por el uso de un determinado servicio, o buscar otro con el mismo o similar contrato. Como ejemplo de parámetros no funcionales podemos mencionar: Performance, Fiabilidad, Tolerancia a Fallos, Costos, Prioridad y Seguridad.
+% Reemplazado por la IA
+%Un componente servicio puede definir un conjunto de los llamados parámetros no funcionales que caracterizan a la "calidad" de sus prestaciones dentro de un determinado contexto. Estos parámetros son elementos para los consumidores de los servicios que permiten optar por el uso de un determinado servicio, o buscar otro con el mismo o similar contrato. Como ejemplo de parámetros no funcionales podemos mencionar: Performance, Fiabilidad, Tolerancia a Fallos, Costos, Prioridad y Seguridad.
+
+
+Un componente servicio puede definir un conjunto de los llamados parámetros no funcionales. Estos son un conjunto de características que describen la calidad de un servicio más allá de su funcionalidad básica. Son esenciales para los consumidores de servicios, ya que les permiten evaluar y comparar diferentes opciones antes de elegir la que mejor se adapte a sus necesidades.
+
+Ejemplos de parámetros no funcionales:
+
+- Rendimiento: Se refiere a la velocidad, la capacidad de respuesta y la eficiencia del servicio.
+
+- Fiabilidad: Indica la probabilidad de que el servicio funcione correctamente sin errores o interrupciones.
+
+- Tolerancia a fallos: Mide la capacidad del servicio para continuar funcionando en caso de que se produzca un fallo.
+
+- Costo: El precio del servicio, que puede incluir tarifas de suscripción, costos de uso o cargos por transacción.
+
+- Prioridad: El nivel de importancia que se le da al servicio en comparación con otros servicios.
+
+- Seguridad: Las medidas que se toman para proteger el servicio contra accesos no autorizados, uso indebido o daños.
+
+
+Importancia de los parámetros no funcionales:
+
+- Permiten a los consumidores tomar decisiones informadas: Al comparar los diferentes parámetros no funcionales de varios servicios, los consumidores pueden elegir el que mejor se adapte a sus necesidades y presupuesto.
+
+- Ayudan a los proveedores a mejorar sus servicios: Al comprender qué parámetros no funcionales son importantes para sus consumidores, los proveedores pueden mejorar sus servicios para satisfacer mejor sus necesidades.
+
+- Permiten la comparación de servicios similares: Cuando dos servicios ofrecen la misma funcionalidad básica, los parámetros no funcionales pueden ser el factor decisivo para elegir uno sobre el otro.
+
 
 \end{itemize}
 
 
-\section{ContratosDHD: Contratos sensibles al contexto para el DHD}
+\section{ContratosDHD: Contratos sensibles al contexto para el Dispositivo Hipermedial Dinámico}
 \label{sec:estrategiasca}
 
 
-Una vez más se abordará una definición teniendo en cuenta cuestiones tecnológica inherentes a su implementación. La implementación de los contratos para el DHD debe cumplir el diseño de la figura \ref{fig:contratov2} y se debe ajustar a la metodología del agregado del framework JCA\footnote{JCAF is designed to support Context-Aware Computing and has come out of our work with the design of context-aware applications in a hospital environment.} % (véase forma de agregado en la sección \ref{sec:subsistemas})
+Una vez más, se abordará una definición de contratos teniendo en cuenta cuestiones tecnológicas inherentes a su implementación. La implementación de los contratos para el DHD debe cumplir el diseño de la figura \ref{fig:contratov2} y se debe ajustar a la metodología del agregado del framework JCAF\footnote{JCAF está diseñado para admitir la Computación Contextual y es el resultado de nuestro trabajo en el diseño de aplicaciones con reconocimiento de contexto en un entorno hospitalario.} % (véase forma de agregado en la sección \ref{sec:subsistemas})
  
 
-Para esta tesis se han explorado diferentes implementaciones de los contratos de Meyer \cite{Meyer}, referentemente aquellas que se puedan ajustar mejor en nuestros desarrollos y diseño. De esta manera, se tuvieron en cuenta avances donde el uso de contrato para la representación de aserciones permitan una buena integración para el DHD. 
+Para esta tesis se han explorado diferentes implementaciones de los contratos de Meyer \cite{Meyer}, preferentemente aquellas que se puedan ajustar mejor en nuestros desarrollos y diseño. De esta manera, se tuvieron en cuenta avances donde el uso de contrato para la representación de aserciones permitan una buena integración para el DHD. 
 
-Desafortunadamente, existen pocos lenguajes que soportan técnicas de aserciones (ej. Eiffel \footnote{Eiffel fue ideado en 1985 por Bertrand Meyer. Es un lenguaje de programación orientado a objetos centrado en la construcción de software robusto. Su sintaxis es parecida a la del lenguaje de programación Pascal. Una característica que lo distingue del resto de los lenguajes es que permite el diseño por contrato desde la base, con precondiciones, postcondiciones, invariantes y variantes de bucle, invariantes de clase y aserciones.}). Las forma de implementación y la tecnología (e.j., lengujes de programación, etc.) que se utiliza tienen una alta incidencia en el diseño y arquitectura. En este sentido, se analizaron tres diferentes tipos de estrategias de implementación.
+Desafortunadamente, existen pocos lenguajes que soportan técnicas de aserciones (por ejemplo, Eiffel \footnote{Eiffel fue ideado en 1985 por Bertrand Meyer. Es un lenguaje de programación orientado a objetos centrado en la construcción de software robusto. Su sintaxis es parecida a la del lenguaje de programación Pascal. Una característica que lo distingue del resto de los lenguajes es que permite el diseño por contrato desde la base, con precondiciones, postcondiciones, invariantes y variantes de bucle, invariantes de clase y aserciones.}). Las formas de implementación y la tecnología utilizada (por ejemplo, lenguajes de programación) tienen una alta incidencia en el diseño y la arquitectura. En este sentido, se analizaron tres diferentes tipos de estrategias de implementación:
 
 \begin{itemize}
 
- \item \textbf{\textit{Built in}}: significa que el soporte de los contratos está incluido en los el lenguaje de programación. Donde se tienen constructores de lenguajes para la formulación de aserciones de diferentes formas. La corrección de la sintaxis de la aserción es directamente chequeada por el compilador. Además, el entorno de ejecución posibilita que se controle dicho chequeo en tiempo de ejecución. Las mayores ventajas de estas implementaciones tienen que ver con la homogénea integración de las aserciones dentro del lenguaje de programación, i.e., los mensajes de error son consistentes, las herramientas de depuración permiten un adecuado manejo e implementación de aserciones (ej., correctitud de número de línea y traza de ejecución).
+ \item \textbf{\textit{Built in}}: Built-in: Significa que el soporte de los contratos está incluido en el lenguaje de programación. En este caso, se disponen de constructores de lenguaje para formular aserciones de diferentes maneras. La corrección de la sintaxis de la aserción es verificada directamente por el compilador. Además, el entorno de ejecución permite controlar dicho chequeo en tiempo de ejecución. Las mayores ventajas de estas implementaciones se relacionan con la integración homogénea de las aserciones dentro del lenguaje de programación. Esto significa que los mensajes de error son consistentes y las herramientas de depuración permiten un adecuado manejo e implementación de las aserciones, incluyendo la corrección del número de línea y la traza de ejecución.
 
 
 \item \textbf{\textit{Preprocessing}}: Esta es la clase más popular de soporte para las aserciones en los lenguajes de programación. La idea general es la formulación de aserciones separadas del programa o incluirlas como comentarios. Utiliza un pre-proceso para entretejer aserciones entre el programa o transformar los comentarios en porciones de código que la ejecuten. La principal ventaja de este método es la separación entre el contrato y la lógica de programación.
 
 
 \item \textbf{\textit{Metaprogramming}}: La metaprogramación refiere a "programación para los niveles de la interpretación de los programas, o en otras palabras, para extender las interpretaciones de un lenguaje de programación hacia una explicación específica"\cite{Temp1}.
-Programas que tienen la posibilidad de razonar sobre si mismo tiene la propiedad llamada reflectiva (en inglés ``reflective capacity``). Por ejemplo, el lenguaje de programación Java tiene capacidades reflectivas y es implementada a través de una API. La mayor ventaja de la metaprogramación es que no es necesario el uso de preprocesamiento. No obstante, un entorno de ejecución especializado debe ser usado para el chequeo de las aserciones.
+Los programas que tienen la capacidad de razonar sobre sí mismos poseen la propiedad llamada reflectiva (en inglés, reflective capacity). Un ejemplo de lenguaje de programación con capacidades reflectivas es Java, que las implementa a través de una API. La principal ventaja de la metaprogramación es que no requiere el uso de un preprocesador. Sin embargo, para el chequeo de las aserciones, se necesita un entorno de ejecución especializado.
 \end{itemize}
 
 \subsection{Sistema que proveen soportes para el desarrollo de software basado en contratos} \label{sec:sistemasca}
 
-Se analiza brevemente diferentes sistemas que proveen soporte para el desarrollo de software basado en contratos a través del lenguaje de programación Java. Estas propuestas fueron estudiadas basándose en los prototipos disponibles para evaluar el impacto en nuestra particular implementación, i.e., no solamente una evaluación teórica. No fueron consideradas propuestas que usan técnicas de algebraicas o lógica de alto orden. De la misma manera, sistemas como JML \cite{Leavens99} no fueron considerados. 
-
-A continuación se detalla para cada propuesta de sistema el nombre, el tipo de resolución implementada (lenguajes de programación, extensiones de lenguajes, preprocesamiento, metaprogramación), consideraciones generales, características especiales y referencias.
+Se analizan brevemente diferentes sistemas que proveen soporte para el desarrollo de software basado en contratos utilizando el lenguaje de programación Java. Las propuestas fueron seleccionadas a partir de los prototipos disponibles con el objetivo de evaluar su impacto en nuestra implementación particular, yendo más allá de una mera evaluación teórica. Se excluyeron las propuestas que se basan en técnicas algebraicas o lógica de alto orden, así como sistemas como JML \cite{Leavens99}. En los siguientes items se resume para cada propuesta de sistema:
 
 \begin{itemize}
 
@@ -141,7 +187,7 @@ A continuación se detalla para cada propuesta de sistema el nombre, el tipo de 
 \item \underline{Tipo de soporte}: Extensión del lenguaje Java, tiene incorporado un soporte para compilación.
 \item \underline{Información}: Biscotti se concentra en la implementación de especificaciones de comportamiento a través de interfases Java introduciendo palabras claves adicionales. 
 
-\item \underline{Características especiales}: No es necesario hacer cambios para la máquina virtual java, esto es posible debido a que Biscotti usa reflección y facilita la creación de precondiciones, postcondiciones e invariantes visibles en tiempo de ejecución.
+\item \underline{Características especiales}: No es necesario hacer cambios para la máquina virtual Java, esto es posible debido a que Biscotti usa reflección ("reflection") y facilita la creación de precondiciones, postcondiciones e invariantes visibles en tiempo de ejecución.
 
 \item \underline{References}: \cite{Cicalese99}
 \end{itemize}
@@ -150,23 +196,30 @@ Ejemplo:
 
 \begin{lstlisting}[language=Java]
 
-        import biscotti.Biscotti;
-        
-        public class Main {
-            public static void main(String[] args) {
-                Biscotti biscotti = new Biscotti();
-                String message = biscotti.bake("Hello, world!");
-                System.out.println(message);
-            }
-        }
-\end{lstlisting}
+import biscotti.Biscotti;
 
+public class Main {
+    public static void main(String[] args) {
+        Biscotti biscotti = new Biscotti();
+        String message = biscotti.bake("Hello, world!");
+        System.out.println(message);
+    }
+}
+\end{lstlisting}
 
 
 \item \textbf{Assertion Facility (JAF):}
 
 \begin{itemize}
-\item \underline{Tipo de soporte}: Implementado desde la versión 1.4 de Java. \item \underline{Información}: Desde la versión 1.4 de Java se incorporó palabra claves para aserciones para indicarles al compilador donde se encuentran las aserciones y su interpretación a través de la máquina virtual. Java solo soporta mecanismos de aserciones simples que permiten instrumentar condiciones a través de métodos. \item \underline{Características especiales}: El chequeo de las aserciones pueden ser fácilmente habilitadas y deshabilitada y los rastros de las aserciones pueden ser completamente eliminados de los archivos de las clases. \item underline{Referencias}:\cite{Sun02,Rogers01a,Rogers01b}.
+
+    \item \underline{Tipo de soporte}: Implementado desde la versión 1.4 de Java. 
+
+    \item \underline{Información}: Desde la versión 1.4 de Java se incorporó palabra claves para aserciones para indicarles al compilador donde se encuentran las aserciones y su interpretación a través de la máquina virtual. Java solo soporta mecanismos de aserciones simples que permiten instrumentar condiciones a través de métodos. 
+    
+    \item \underline{Características especiales}: El chequeo de las aserciones pueden ser fácilmente habilitadas y deshabilitada y los rastros de las aserciones pueden ser completamente eliminados de los archivos de las clases. 
+    
+    \item underline{Referencias}:\cite{Sun02,Rogers01a,Rogers01b}.
+
 \end{itemize}
 
 Ejemplo: 
@@ -286,9 +339,7 @@ public class Main {
     \item \underline{Información}: Las aserciones se especifican como comentarios para
     métodos y clases.
     
-    \item \underline{Características especiales}: Jcontract soporta cuantificadores     existenciales y universales para tipos de los colecciones. Además, Jcontract está estrechamente integrado con la herramienta Jtest\cite{Parasoft02a}. Jtest la información de especificación contenida en el contrato, luego crea una
-    clase de test ejecutable que permite testear si se cumple la funcionalidad de la clase especificada. Incluye herramienta de generación de javadoc para la generación de documentación API donde contiene las 
-    specificaciones de las aserciones. 
+    \item \underline{Características especiales}: Jcontract soporta cuantificadores     existenciales y universales para tipos de los colecciones. Además, Jcontract está estrechamente integrado con la herramienta Jtest\cite{Parasoft02a}. Jtest utiliza la información de especificación contenida en el contrato para crear una clase de test ejecutable que permite verificar si se cumple la funcionalidad de la clase especificada. Incluye herramienta de generación de Javadoc para la generación de documentación API donde contiene las specificaciones de las aserciones. 
     
     \item \underline{Referencias}:\cite{Parasoft02b}
 
@@ -366,90 +417,78 @@ Teniendo en cuenta la característica del modelo conceptual de contrato de la fi
 
 \begin{defi} [ContratoDHD]
 
-El ContratosDHD es una infraestructura para la aplicación del concepto de Diseño por Contrato (DbC) de Bertran Meyer (2002). El DbC es una técnica diseñada por Meyer y característica central de su lenguaje de programación Eiffel\cite{Meyer}. El DbC se utiliza con cualquier lenguaje de programación, para validar que el software cumpla con su especificación (contrato). El contrato establece condiciones de uso e implementación denominadas aseveraciones que componentes de software con un rol de "clientes" y otras de "proveedores" deben cumplir. En el DbC se utilizan tres tipos de aseveraciones: \underline{Precondición:} restricciones bajo las cuales una rutina funcionará correctamente.  \underline{Postcondición:} describe el efecto de la rutina. \underline{Invariante de clase:} restricciones que deben satisfacerse por cada objeto tras la ejecución de los métodos y constructores. 
-Para la instrumentación de ContratosDHD se crearon dos tipos de componentes esenciales que permitan una correcta integración, a niveles de diseño e implementación, con una plataforma e-learning:
+El ContratosDHD es una infraestructura para la aplicación del concepto de Diseño por Contrato (DbC) de Bertran Meyer (2002). El DbC es una técnica diseñada por Meyer y característica central de su lenguaje de programación Eiffel\cite{Meyer}. El DbC se utiliza en cualquier lenguaje de programación para validar que el software cumpla con su especificación (contrato). El contrato establece condiciones de uso e implementación conocidas como aseveraciones. Estas aseveraciones definen las responsabilidades tanto de los componentes de software que actúan como "clientes" como de aquellos que actúan como "proveedores". En el DbC se emplean tres tipos de aseveraciones: las \underline{precondiciones}, que establecen las restricciones bajo las cuales una rutina funcionará correctamente; las \underline{postcondiciones}, que describen el efecto de una rutina; y los invariantes de clase, que son las restricciones que deben cumplirse por cada objeto después de la ejecución de los métodos y constructores.
+\end{defi} 
+
+
+Para la instrumentación de ContratosDHD se crearon dos tipos de componentes esenciales que permitan una correcta integración, a niveles de diseño e implementación, con aplicaciones especializadas e-leraning. 
+
 
 \begin{itemize} \label{CEC}
 
- \item Componente esencial tipo \#1: Componentes del contrato para la implementación de las
-propiedades de sensibilidad al contexto. Los elementos que integran este
-subsistema son:
+ \item \textbf{Componente esencial tipo \#1}: Se refiere a los componentes del contrato que permiten la implementación de las propiedades de sensibilidad al contexto integrados por:
  
       \begin{itemize}
        \item Arquitectura para la adaptación del contexto
        \item Funcionalidades 
       \end{itemize}
       
-  \item Componente esencial tipo \#2: Componentes de conexión e implementación de un patrón de
-diseño que permite la coordinación de contratos.
+  \item \textbf{Componente esencial tipo \#2}: Se refiere a los componentes utilizado para la conexión ente otros componentes implementado por un patrón de diseño que permite la coordinación de contratos.
 	    \begin{itemize}
 	    \item Reglas de coordinación
-		  
-		  \begin{itemize}
-		   \item Condicionales especiales
-		   \item Condicionales comunes 
-		  \end{itemize}
+        		  \begin{itemize}
+        		   \item Condicionales especiales
+        		   \item Condicionales comunes 
+        		  \end{itemize}
 	    \item Componentes de conexión
 	    \end{itemize}
 \end{itemize}
-\end{defi} 
 
 
+Luego de caracterizar los componentes esenciales de los ContratosDHD, se presenta un caso de diseño e implementación emblemático.
 
 \subsection{Componentes esenciales de los contratos sensibles al contexto}
 
-En este apartado se exponen diferentes tipos de componentes, denominados como \textbf{componentes esenciales}, para capturar datos de contexto. Estos datos serán representados en un modelos abstracto de información  utilizado para adaptar los servicios, de una aplicación, a los usuarios o artefactos de software que lo utilizan; en función de sus propios estados o estado del entorno. Para este propósito, se parte del modelo propuesto por A. Dey (2000) en su tesis doctoral \cite{Dey} donde se propone una arquitectura conceptual para los sistemas sensibles  al contexto. A continuación, se enumeran las principales características de los elementos que definen esa arquitectura:
-
+En este apartado se exponen diferentes tipos de componentes denominados como \textbf{componentes esenciales} para la captura de datos de contexto. Estos datos serán representados en un modelo abstracto de información utilizado para adaptar los servicios, de una aplicación, a los usuarios o artefactos de software que lo utilizan, en función de sus propios estados o del estado del entorno. Para este propósito, se parte del modelo propuesto por Anid K. Dey (2000) en su tesis doctoral \cite{Dey} donde se propone una arquitectura conceptual para los sistemas sensibles  al contexto. A continuación, se enumeran las principales características de los elementos que definen su arquitectura:
 
 \begin{itemize}
 
-\item \textbf {Servidor de contexto:} Permite el acceso de múltiples clientes a los datos de forma remota.  Libera a los clientes de recursos que demandan operaciones intensivas.  Debe considerar el uso de protocolos apropiados para la representación de las variantes de información de contexto, rendimiento de la red, calidad de los parámetros de los servicios.
+\item \textbf {Servidor de contexto:} Permite el acceso de múltiples clientes a los datos de forma remota.  Libera a los clientes de recursos que demandan operaciones intensivas.  Debe considerar el uso de protocolos apropiados para la representación de las variantes de estructuras las estructuras de los datos contexto, rendimiento de la red y la calidad de los parámetros de los servicios.
 
+\item \textbf{Widgets}: Implementa las propiedades de encapsulamiento e interfaz intercambiable. Controlado a través de un manejador de widgets. En el caso de que las componentes estén acopladas, se incrementa la eficiencia a costa de perder robustez ante fallas de componentes.
 
-\item \textbf{Widgets}:  Encapsulamiento.  Intercambiable.
-Controlado a través de un manejador de widget. En el caso que las
-componentes estén acopladas incrementan la eficiencia al costo de perder robustez ante fallas de componentes.
+\item \textbf{Networked services:} Su comportamiento es similar al \textbf{Servidor de Contexto} y mantiene las propiedades de los \textbf{Widgets}. Se ocupa de la comunicación con los componentes de comunicaciones de la red, manteniendo la eficiencia y robustez comunicacional de la red.
 
+% Este es el original 
+%\item \textbf{Blackboard model:} Procesos post-mensajes para compartir medios, pizarrón (modelo basado en datos). Simplicidad en el agregado de nuevos recursos de contexto.  Fácil configuración.  Un servicio centralizado.  Carece de eficiencia en la comunicación (son necesarios dos puntos de conexión por comunicación)
 
-\item \textbf{Networked services:}  Similar a la arquitectura
-servidor de contexto. (modelo orientado a objeto).  tiene la eficiencia de la arquitectura \textbf{widget} debido a la complejidad de las componentes bases de red, pero provee robustez.
-
-
-\item \textbf{Blackboard model:}  Procesos post-mensajes para
-compartir medios, pizarrón (modelo basado en datos). Simplicidad en el agregado de nuevos recursos de contexto.  Fácil configuración.  Un servicio centralizado.  Carece de eficiencia en la comunicación (son
-necesarios dos puntos de conexión por comunicación)
+% Lo cambié por este
+\item \textbf{Blackboard model:} Implementa un servicio centralizado de permite compartir datos y recursos de aplicaciones en herramientas de la aplicación. Por ejemplo: una pizarra compartida. Procesos post-mensajes para compartir medios, pizarrón (modelo basado en datos). Simplicidad en el agregado de nuevos recursos de contexto.  Fácil configuración.  Un servicio centralizado.  Carece de eficiencia en la comunicación.
 
 \end{itemize}
 
-La componente \textit{Widget} cumple un importante papel en la propuesta de Dey. Un \textit{widget} es un componente de software que brinda una interfaz pública para algún tipo determinado de sensores (hardware) (Dey, A. K. y G. D. Abowd, 2000). Los \textit{widgets} encapsula detalles de datos censado a nivel de hardware. También, son componentes con alto grado de reusabilidad facilitando las tareas de diseño e implementación de aplicaciones en las que se utiliza información de contexto capturadas por sensores. El encapsulamiento en los \textit{widgets} permite intercambiarlos entre aquellos que proveen el mismo tipo de datos; por ejemplo, intercambiar un \textit{widget} de radiofrecuencia por un \textit{widget} de una cámara filmadora donde ambos recolectan datos de locación de individuos).
+La componente \textit{Widget} cumple un importante papel en la propuesta de Dey. Un \textit{widget} es un componente de software que brinda una interfaz pública para algún tipo determinado de sensores (hardware) (Dey, A. K. y G. D. Abowd, 2000). Los \textit{widgets} encapsulan detalles de datos censados a nivel de hardware. También, son componentes con alto grado de reusabilidad, facilitando las tareas de diseño e implementación de aplicaciones en las que se utiliza información de contexto capturada por sensores. El encapsulamiento en los \textit{widgets} permite intercambiarlos entre aquellos que proveen el mismo tipo de datos; por ejemplo, intercambiar un \textit{widget} de radiofrecuencia por un \textit{widget} de una cámara filmadora donde ambos recolectan datos de locación de individuos.
 
-Usualmente los \textit{widgets} son controlados por módulos de administrador de \textit{widget}. Una buena práctica para administrar \textit{widgets} es combinar sus funcionamientos de forma acoplada para incrementar su eficiencia, aunque esta decisión hace perder robustez ante fallas en componentes.
+Usualmente, los \textit{widgets} son controlados por módulos del administrador de \textit{widget}. Una buena práctica para administrar \textit{widgets} es combinar sus funcionamientos de forma acoplada para incrementar su eficiencia, aunque esta decisión hace perder robustez ante fallas en componentes.
 
 A continuación, se presentan cinco categorías de componentes agregadas a las anteriores para el manejo del contexto.
 
-
 \begin{itemize}
-
 
  \item \textbf{Context Widgets:} se encarga de la adquisición de información de contexto; 
 
 \item \textbf{Interpreters:} cumplen la función de transformar y aumentar el grado de abstracción de la información de contexto, deben combinar varias piezas de contexto para producir información procesada de alto nivel;
 
 
-\item \textbf{Aggregator:} es un componente que junta información de contexto de una entidad del mundo real, tales como información sobre datos de usuarios, locación, etc. Actúa como un textit{getway} entre las aplicaciones y  widgets, ocultando aún más la complejidad de los mecanismos de adquisición de contexto. En otras palabras, el \textbf{aggregator} transforma la información adquirida por los sensores, siguiendo una serie de reglas de transformación predetermindas para los propósitos adecuados.
+\item \textbf{Aggregator:} es un componente que junta información de contexto de una entidad del mundo real, tales como información sobre datos de usuarios, locación, etc. Actúa como un \textit{getway} entre las aplicaciones y  \textit{widgets}, ocultando aún más la complejidad de los mecanismos de adquisición de contexto. En otras palabras, el \textbf{aggregator} transforma la información adquirida por los sensores, siguiendo una serie de reglas de transformación predeterminadas para los propósitos adecuados.
 
+\item \textbf{Services:} brindan servicios en un determinado entorno adaptando su funcionalidad al tipo de información de contexto adquirida; 
 
-\item \textbf{Services:} brindan servicios en un determinado ambiente
-adaptando su funcionalidad al tipo de información de contexto adquirida; 
-
-\item \textbf{Discoveres:} permite que las aplicaciones (y otras entidades)
-optimicen su desempeño pudiendo determinar la característica del entorno
-(tipo de restricciones y dominio de aplicación). Entre estos componentes
-se pueden establecer un número limitado de relaciones.
+\item \textbf{Discoveres:} Permite que las aplicaciones, y otras entidades, optimicen su desempeño, al poder determinar la característica del entorno (tipo de restricciones y dominio de aplicación). Entre estos componentes se puede establecer un número limitado de relaciones.
 
 \end{itemize}
 
-Los widgets son consultados y/o notificados ante eventuales cambios en los de información del estado del cliente. Los clientes pueden ser\textit{aplicaciones}, \textit{aggregators} u otros \textit{widgets}. A su vez, \textit{aggregators} actúa como un puente entre \textit{widgets} y aplicaciones. Un \textit{interpreters} puede ser solicitado en un determinado estado por un \textit{widget}, \textit{aggregator} o \textit{aplicaciones}. Los \textit{services} son lanzados por las aplicaciones (también otros componentes pueden hacer uso de los servicios). \textit{Discoveres} se comunica con todos los componentes, se adquiere desde los \textit{widget}, \textit{interpreters} y \textit{aggregators}, y provee información a las aplicaciones por medio de notificaciones y consultas.
+Los widgets son consultados y/o notificados ante eventuales cambios en los de información del estado del cliente. Los clientes pueden ser \textit{aplicaciones}, \textit{aggregators} u otros \textit{widgets}. A su vez, los \textit{aggregators} actúan como un puente entre \textit{widgets} y aplicaciones. Un \textit{interpreters} puede ser solicitado en un determinado estado por un \textit{widget}, \textit{aggregator} o \textit{aplicaciones}. Los \textit{services} son lanzados por las aplicaciones (también otros componentes pueden hacer uso de los servicios). \textit{Discoveres} se comunica con todos los componentes, se adquiere desde los \textit{widget}, \textit{interpreters} y \textit{aggregators}, y provee información a las aplicaciones por medio de notificaciones y consultas.
 
 La figura \ref{fig:toolkit} expone una posible configuración con dos dispositivos de censado, dos \textit{widgets}, un \textit{aggregator}, dos \textit{interpreters}, un \textit{servicio}, un \textit{discoverer} y dos \textit{aplicaciones}.
 
@@ -464,11 +503,11 @@ La figura \ref{fig:toolkit} expone una posible configuración con dos dispositiv
 \end{figure}
 
 
-En el instante en que algún componente contexto se encuentre disponible, registra sus capacidades en un \textit{discoverer}. Esto permite que los \textit{aggregators} encuentren \textit{widgets} e \textit{interpreters}. De la misma manera, las aplicaciones se relacionan con los \textit{aggregators}, \textit{widget} e \textit{interpreters}. Un sensor provee datos para que un \textit{context widget} encarga de almacenarlo como información contexto. La aplicación puede llamar a un \textit{interpreter} para obtener un mayor nivel de abstracción de los datos y luego pone el contexto a disposición para que pueda ser accedido por otros componentes y aplicaciones.
+En el instante en que algún componente del contexto se encuentre disponible, registra sus capacidades en un \textit{discoverer}. Esto permite que los \textit{aggregators} encuentren \textit{widgets} e \textit{interpreters}. De la misma manera, las aplicaciones se relacionan con los \textit{aggregators}, \textit{widget} e \textit{interpreters}. Un sensor provee datos para que un \textit{context widget} se encargue de almacenarlo como información contexto. La aplicación puede llamar a un \textit{interpreter} para obtener un mayor nivel de abstracción de los datos y luego pone el contexto a disposición para que pueda ser accedido por otros componentes y aplicaciones.
 
-Un \textit{aggregator} recolecta información de contexto de las entidades, representadas por los \textit{widgets}. Finalmente, las aplicaciones pueden consultar o suscribirse a los \textit{agreegators} (o directamente con los \textit{widgets}, si se quiere). También es posible, llamar a \textit{interpreters}, si se requiere otro nivel de representación de la información de contexto diferente a las que proveen los \textit{widgets} y \textit{aggregators}).
+Un \textit{aggregator} recolecta información de contexto de las entidades, representadas por los \textit{widgets}. Finalmente, las aplicaciones pueden consultar o suscribirse a los \textit{agreegators} (o directamente con los \textit{widgets}, si se quiere). También es posible llamar a \textit{interpreters}, si se requiere otro nivel de representación de la información de contexto diferente a las que proveen los \textit{widgets} y \textit{aggregators}).
 
-Estos componentes se ejecutan independientemente de las aplicaciones, asegurando una continua adquisición de información de contexto y el uso de múltiples aplicaciones. Además, todos los componentes y aplicaciones se comunican entre ellos automáticamente usando protocolos y lenguajes conocidos.
+Estos componentes se ejecutan independientemente de las aplicaciones que los contienen, asegurando una continua adquisición de información de contexto y el uso de múltiples aplicaciones. Además, todos los componentes y aplicaciones se comunican entre ellos automáticamente usando protocolos y lenguajes estándares.
 
 Esto da lugar a que los programadores que implementan un particular componente o aplicación puedan comunicarse con otro componente sin tener conocimiento de los mecanismos usados para lograr la interacción.
 
@@ -476,25 +515,24 @@ Esto da lugar a que los programadores que implementan un particular componente o
 
 \subsection{Una implementación del subsistema para CEC\#1}
 
-La implementación del subsistema de las componentes esenciales para el agregado de propiedades de sensibilidad al contexto (CEC\#1) tienen dos significancia para esta tesis. En primer lugar, es brindar un ejemplo concreto de intregración utilizando parte del recorrido teórico y documental de tipos de sistemas (secciones \ref{sec:sistemasca})  y estrategias (secciones \ref{sec:estrategiasca}). En segundo lugar, presentar nuevos conceptos y definiciones que permitan generalizar este tipo de propuestas de comunicación entre sistemas. 
+La implementación del subsistema de las componentes esenciales para el agregado de propiedades de sensibilidad al contexto (CEC\#1) tiene dos significancias para esta tesis. En primer lugar, es brindar un ejemplo concreto de integración utilizando parte del recorrido teórico y documental de tipos de sistemas (secciones \ref{sec:sistemasca}) y estrategias (secciones \ref{sec:estrategiasca}). En segundo lugar, presentar nuevos conceptos y definiciones que permitan generalizar este tipo de propuestas de comunicación entre sistemas. 
 
-Para este caso se utiliza como subsistema para CEC\#1 el framework JCAF  (\textit{Java Context-Awareness Framework}). A través de JCAF se implementan la ejecución de servicios (servicios de herramientas colaborativas) por medio de la infraestructura orientada a servicios basada en la idea de la división de la adquisición de contexto, su manejo y  distribución o conexión con los \hyperref[contratosDHD]{ContratosDHD}. Además JCAF provee un modelo de programación para Java extensible, genérico y expresivo orientado al desarrollo e implementación de aplicaciones sensibles al contexto y modelado de contexto. En la  publicación \cite{JCAF} se brindan más detalles sobre cómo JCAF difiere de otros soporte middleware para aplicaciones sensibles al contexto. 
+Para este caso se utiliza como subsistema para CEC\#1 el framework JCAF  (\textit{Java Context-Awareness Framework}). A través de JCAF se implementan la ejecución de servicios de herramientas colaborativas por medio de la infraestructura orientada a servicios basada en la idea de la división de la adquisición de contexto, su manejo y distribución o conexión con los \hyperref[contratosDHD]{ContratosDHD}. Además, JCAF provee un modelo de programación para Java extensible, genérico y expresivo orientado al desarrollo e implementación de aplicaciones sensibles al contexto y modelado de contexto. En la publicación \cite{JCAF} se brindan más detalles sobre cómo JCAF difiere de otros soporte middleware para aplicaciones sensibles al contexto. 
 
-
-Para describir más apropiadamente la participación que JCAF tiene para nuestra propuesta de implementación es necesario determinar cu´ales de los aspectos orientados a servicios serán recogidos. De esta manera se brinda una dedición sobre el contexto en el que se tienen en cuenta los servicios.
+Para describir más apropiadamente la participación que JCAF tiene en nuestra propuesta de implementación, es necesario determinar cuáles de los aspectos orientados a servicios serán considerados. De esta manera, se podrá tomar una decisión sobre el contexto en el que se tendrán en cuenta los servicios.
 
 
 \begin{defi}[ServiciosDHD:] \label{serviciosDHD}
 
-Se denomina \textbf{servicioDHD} a cualquier implementación sobre las funcionalidades de una herramienta, de un espacio colaborativo, (1) que tenga interfases de comunicación con la componente parámetros Context-Aware (figura \ref{fig:contratosv2}) y  (2) que su implementación contenga elementos que representan entidades participantes e información de contexto \cite{Dey}. En otras palabras, la implementación de un \textbf{servicioDHD} está compuesta por módulos para la representación y uso de contexto, y que los mecanismos de ejecución estén mediados por los \hyperref[contratosdhd]{ContratosDHD} 
+Se denomina \textbf{servicioDHD} a cualquier implementación sobre las funcionalidades de una herramienta, de un espacio colaborativo, (1) que tenga interfases de comunicación con los parámetros context-aware (figura \ref{fig:contratov2}) y (2) que su implementación contenga elementos que representan entidades participantes e información de contexto \cite{Dey}. En otras palabras, la implementación de un \textbf{servicioDHD} está compuesta por módulos para la representación y uso de contexto, y que los mecanismos de ejecución estén mediados por los \hyperref[contratosdhd]{ContratosDHD} 
 
 \end{defi}
 
-\subsubsection{Infraestructura para serviciosDHD}
+\subsubsection{Infraestructura para ServiciosDHD}
 
 A partir de la infraestructura que brinda JCAF para combinar modelos e implementaciones de servicios con información de contexto, se realizarán adaptaciones que permitan incorporar al contrato sensible al contexto como una nueva pieza de software. De esta manera se creará una nueva infraestructura de servicios denominada \hyperref[serviciosDHD]{serviciosDHD}. Con esta adaptación, desde la perspectiva del usuario, los servicios de la aplicación se adaptarán a su contexto. 
 
-\colorbox{green}{La parte mas importante. Sacar este comentario}
+\colorbox{green}{La parte más importante. Sacar este comentario}
 
 
 % todo: rehacer este gráfico
@@ -502,7 +540,7 @@ A partir de la infraestructura que brinda JCAF para combinar modelos e implement
 \begin{center}
 \includegraphics[width=5 in,totalheight=3.2 in]{Ch4/serviciosDHD.png}
 % .: 0x0 pixel, 0dpi, 0.00x0.00 cm, bb=
-\caption{Arquitectura de ejecución de serviciosDHD}
+\caption{Arquitectura de ejecución de ServiciosDHD}
 \label{fig:serviciosDHD}
 \end{center}
 \end{figure}
@@ -511,7 +549,7 @@ A partir de la infraestructura que brinda JCAF para combinar modelos e implement
 \subsection{Coordinación de los contratos sensibles al contexto}
 
 %Elementos de la componente contrato 
-El contrato es la información de las expectativas y responsabilidades de un componente. El contrato puede ser configurado por medio de diferentes mecanismos, desde el lenguaje coloquial hasta un lenguaje de especificación formal. Por ejemplo, el uso de un lenguaje basado en XML para los casos en que sean necesarias especificaciones que puedan ser procesadas por máquinas. 
+Un contrato define las expectativas y responsabilidades de un componente. Este puede configurarse mediante diferentes mecanismos, desde el lenguaje coloquial hasta un lenguaje de especificación formal. Por ejemplo, se puede usar el lenguaje de marcas XML cuando se requieren especificaciones procesables por máquinas. 
 
 
 \begin{lstlisting}[language=XML]
@@ -563,88 +601,60 @@ El contrato es la información de las expectativas y responsabilidades de un com
 \end{lstlisting}
 
 
-
-En este caso, el contrato especifica que el componente espera dos entradas de tipo \textit{float} llamadas "x" \\e "y", y que producirá una salida de tipo \textit{float} llamada "result". Además, se especifican dos precondiciones que deben cumplirse antes de llamar al componente: "x" \\y "y" deben ser mayores que cero. También se especifica una postcondición que se debe cumplir después de que el componente haya terminado de ejecutarse: la salida "result" debe ser mayor que cero.
+En este caso, el contrato especifica que el componente espera dos entradas de tipo \textit{float} llamadas \textbf{x} \\e \textbf{y}, y que producirá una salida de tipo \textit{float} llamada \textbf{result}. Además, se especifican dos precondiciones que deben cumplirse antes de llamar al componente: \textbf{x} e \textbf{y} deben ser mayores que cero. También se especifica una postcondición que se debe cumplir después de que el componente haya terminado de ejecutarse: la salida \textbf{result} debe ser mayor que cero.
 
 
 El tipo de tecnología y forma de implementación de los contratos es transparente para los objetos que consumen los servicios en donde se encuentran involucrados. La configuración de un elemento contrato que forma parte de las componentes de un servicio representa la información necesaria del mismo para ser utilizado por el invocador, sin necesidad de que el objeto invocador tenga detalles de la ejecución.
 
-El contrato representa una enriquecida y efectiva interfaz de construcción con acceso a información sobre las componentes de los servicios y datos del contexto representados en la figura \ref{fig:serviciosDHD}, con el propósito de 
+El contrato representa una enriquecida y efectiva interfaz de construcción con acceso a información sobre las componentes de los servicios y datos del contexto representados en la figura \ref{fig:serviciosDHD}.
+
+En este caso, el concepto de interfaz adquiere mayor relevancia que un acceso directo a un contrato de reglas entre un componente proveedor de servicio y su correspondiente componente cliente o consumidor.
+
+En la figura \ref{fig:contratodhd_modelo_general} se representan los elementos y relaciones conceptuales que definen al ContratoDHD. Este metamodelo tiene las características conceptuales y operativas fundamentadas en los requerimientos de  \hyperref[requerimientos_dhd]{Dispositivo Hipermedial Dinámico}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Ch4/contratoca.png}
+    \caption{Modelo general del ContratoDHD}
+    \label{fig:contratodhd_modelo_general}
+\end{figure}
 
 
-En este caso, el concepto de interfaz tiene mayor significación que un simple acceso a un contrato de reglas entre una  componente proveedora de servicio y su correspondiente componente cliente o consumidor.
-
-En la figura 2 podemos observar los elementos conceptuales básicos de esta componente a través de una serie de elementos en relación con el contrato. Este metamodelo tiene las características conceptuales y operativas que se fundamentan en “Obra abierta”.
-
-Para una mejor comprensión de las componentes del modelo explicitaremos
-a continuación su caracterización y funciones particulares.
-
-\textbf{Identificador}: una componente servicio es identificada para un
-determinado
-contexto por un único nombre en el espacio de identificación.
-
-\textbf{Comportamiento}: de acuerdo con los roles asignados en un determinado
-contexto, una componente servicio expone comportamientos correspondientes a
-provisión y pedido de operaciones, y/o publicaciones y recepción desde/hacia
-cada contexto. Las operaciones pueden ser definidas de dos tipos: operaciones
-que ejecutan cómputo o transformaciones (tipo update) y operaciones que proveen
-algún tipo de información sobre consultas (tipo query). Éstas se encuentran
-enteramente especificadas en base a un contrato, con el uso de precondición,
-poscondición y condicionales para lograr la coordinación entre contratos. En las
-condiciones de coordinación se especifican cómo requerir y proveer operaciones,
-así como también los eventos publicados y recibidos son coordinados en los
-momentos adecuados. Para lograr una comunicación precisa con una componente
-servicio, no sólo se tiene en cuenta qué operación fue provista o requerida
-y cómo el ejecutor ha lanzado el evento apropiado, sino también cómo todas
-esas actividades están mutuamente relacionadas para ser aprovechadas por el
-objeto consumidor. Un evento del contexto que lanza una operación dada
-puede ser parte de un conjunto de precondición, mientras que un evento emitido
-a través de una exitosa operación puede ser parte de una poscondición.
+Para una mejor comprensión de las componentes del modelo, se brindan detalles de las definiciones y funcionalidades de cada componente.
 
 
-Las operaciones provistas y requeridas por la componente de servicio
-deben estar asociadas, a fin de determinar las operaciones que deben ser completadas
-antes de la activación de un servicio (qué es posible ejecutar en paralelo
-o ser sincronizado por otro camino). Por ejemplo, en el caso de una
-componente de servicio ManejadorOrden, la operación HacerOrden no puede
-ser invocada hasta que el servicio que la consume no esté correctamente autorizado
-por el componente de servicio AdministradorRegistros, o la operación
-DeleteOrder no puede ser invocada si la operación HacerOrden con el mismo
-parámetro OrdenID no fue previamente completada.
-Tipos de información: una componente de servicio debe manejar, usar, crear o
-tener cierta información de recursos con el propósito de proveer servicios adecuadamente.
-Este elemento del contrato define el tipo de información relevante
-para las componentes asociadas al contrato, así como también
-restricciones y reglas sobre instancias de esos tipos. Esto representa un modelo
-de información lógica de una componente de servicio. Formalmente, esta
-información de tipos puede ser considerada como definiciones de tipos de los
-parámetros de las operaciones o tipos relacionados a ellos.
-Configuración de parámetros context-aware: una componente servicio depende
-del contexto de su actual entorno. La misma, para utilizarse en diferentes contextos
-logrando la adaptación a eventuales cambios, debe tener definido un
-conjunto de parámetros de configuración. Ejemplos de estos parámetros pueden
-ser: Contexto del Usuario (CU), en un sentido similar a lo definido en el
-capítulo anterior, locación en tiempo y espacio de los servicios consumidos y
-suministrados. Estos parámetros pueden ser enviados dentro de las invocaciones
-de las operaciones de los servicios o por medio de otros caminos, mediante
-componentes de servicios que pueden adaptar su comportamiento ante el
-cambio de contexto en una determinada situación.
-La configuración de parámetros está directamente asociada a las relaciones
-de las operaciones de los servicios para lograr una mejor adaptación a la
-medida de las circunstancias brindada por la información relevada del contexto.
-El concepto de la configuración de los parámetros context-aware es un
-paso muy importante hacia la concepción de servicios automatizados y autoadaptables
-(tomando el sentido paradigmático de los teóricos de la inteligencia
-artificial).
 
-\textbf{Parámetros no funcionales:} una componente servicio puede definir un
-conjunto de los llamados parámetros no funcionales que caracterizan la “calidad”
-de sus prestaciones dentro de un determinado contexto. Estos parámetros
-son elementos para los consumidores de los servicios que permiten optar por el
-uso de un determinado servicio, o buscar otro con el mismo o similar contrato.
-Como ejemplo de parámetros no funcionales podemos mencionar: performance,
-fiabilidad, tolerancia a fallos, costos, prioridad y seguridad.
+% Todo: esto lo tengo que sacar 
+\colorbox{red}{Esto lo tengo que sacar}
 
+
+\textbf{Identificador}: un componente de servicio es identificado para un determinado contexto por un único nombre en el espacio de identificación.
+
+\textbf{Comportamiento}: de acuerdo con los roles asignados en un determinado contexto, un componente servicio expone comportamientos correspondientes a provisión y pedido de operaciones, y/o publicaciones y recepción desde/hacia cada contexto. Las operaciones pueden ser definidas de dos tipos: operaciones que ejecutan cómputo o transformaciones (tipo \textit{update}) y operaciones que proveen algún tipo de información sobre consultas (tipo \textit{query}). Estas operaciones se encuentran enteramente especificadas basándose en un contrato, con el uso de precondición, poscondición y condicionales para lograr la coordinación entre contratos. 
+
+En las condiciones de coordinación se especifica cómo requerir y proveer operaciones, así como también los eventos publicados y recibidos son coordinados en los momentos adecuados. Para lograr una comunicación precisa con una componente de servicio, no solo se tiene en cuenta qué operación fue provista o requerida y cómo el ejecutor ha lanzado el evento apropiado, sino también cómo todas esas actividades están mutuamente relacionadas para ser aprovechadas por el componente que la utiliza. Un evento del contexto que lanza una operación dada puede ser parte de un conjunto de precondiciones, mientras que un evento emitido a través de una exitosa operación puede ser parte de una poscondición.
+
+%
+
+Las operaciones provistas y requeridas por la \textbf{Componente de Servicio} deben estar asociadas, a fin de determinar las operaciones que deben ser completadas antes de la activación de un servicio (qué es posible ejecutar en paralelo o ser sincronizado por otro camino). 
+Por ejemplo, en el caso de una componente de servicio denominada \textbf{ManejadorOrden}, la operación \textbf{HacerOrden} no podrá ser invocada hasta que el servicio que la consume no esté correctamente autorizado por el componente de servicio \textbf{AdministradorRegistros}, o la operación \textbf{BorrarOrder} no puede ser invocada si la operación \textbf{HacerOrden} con el mismo parámetro \textbf{OrdenID} no fue previamente completada.
+
+
+
+\textbf{Tipos de información}: un componente de servicio debe manejar, usar, crear o tener cierta información de recursos con el propósito de proveer servicios adecuadamente. Este elemento del contrato define el tipo de información relevante para las componentes asociadas al contrato, así como también restricciones y reglas sobre instancias de esos tipos. Esto representa un modelo de información lógica de un componente de servicio. Formalmente, esta información de tipos puede ser considerada como definiciones de tipos de los parámetros de las operaciones o tipos relacionados con ellos.
+
+
+\textbf{Configuración de parámetros context-aware}: un componente servicio depende del contexto de su actual entorno. La misma, para utilizarse en diferentes contextos, logrando la adaptación a eventuales cambios, debe tener definido un conjunto de parámetros de configuración. Ejemplos de estos parámetros pueden ser: 
+
+a) Contexto del Usuario (CU), en un sentido similar a lo definido en el capítulo anterior.
+
+b) Locación en tiempo y espacio de los servicios consumidos y suministrados. Estos parámetros pueden ser enviados dentro de las invocaciones de las operaciones de los servicios o por medio de otros caminos, mediante componentes de servicios que pueden adaptar su comportamiento ante el cambio de contexto en una determinada situación.
+
+La configuración de parámetros está directamente asociada a las relaciones de las operaciones de los servicios para lograr una mejor adaptación a la medida de las circunstancias brindada por la información relevada del contexto.
+
+El concepto de la configuración de los parámetros context-aware es un paso muy importante hacia la concepción de servicios automatizados y autoadaptables, y se ajusta a los conceptos de contexto de los modelos de lenguajes amplios (Large Languaje Model en ingles) utilizado en la inteligencia artificial generativa.
+
+\textbf{Parámetros no funcionales:} un componente servicio puede definir un conjunto de los llamados parámetros no funcionales que caracterizan la “calidad” de sus prestaciones dentro de un determinado contexto. Estos parámetros son elementos para los consumidores de los servicios que permiten optar por el uso de un determinado servicio, o buscar otro con el mismo o similar contrato. Como ejemplo de parámetros no funcionales podemos mencionar: performance, fiabilidad, tolerancia a fallos, costos, prioridad y seguridad.
 
 \subsubsection {Coordinación}
 
