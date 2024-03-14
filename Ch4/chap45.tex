@@ -606,55 +606,6 @@ En este caso, el contrato especifica que el componente espera dos entradas de ti
 
 El tipo de tecnología y forma de implementación de los contratos es transparente para los objetos que consumen los servicios en donde se encuentran involucrados. La configuración de un elemento contrato que forma parte de las componentes de un servicio representa la información necesaria del mismo para ser utilizado por el invocador, sin necesidad de que el objeto invocador tenga detalles de la ejecución.
 
-El contrato representa una enriquecida y efectiva interfaz de construcción con acceso a información sobre las componentes de los servicios y datos del contexto representados en la figura \ref{fig:serviciosDHD}.
-
-En este caso, el concepto de interfaz adquiere mayor relevancia que un acceso directo a un contrato de reglas entre un componente proveedor de servicio y su correspondiente componente cliente o consumidor.
-
-En la figura \ref{fig:contratodhd_modelo_general} se representan los elementos y relaciones conceptuales que definen al ContratoDHD. Este metamodelo tiene las características conceptuales y operativas fundamentadas en los requerimientos de  \hyperref[requerimientos_dhd]{Dispositivo Hipermedial Dinámico}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{Ch4/contratoca.png}
-    \caption{Modelo general del ContratoDHD}
-    \label{fig:contratodhd_modelo_general}
-\end{figure}
-
-
-Para una mejor comprensión de las componentes del modelo, se brindan detalles de las definiciones y funcionalidades de cada componente.
-
-
-
-% Todo: esto lo tengo que sacar 
-\colorbox{red}{Esto lo tengo que sacar}
-
-
-\textbf{Identificador}: un componente de servicio es identificado para un determinado contexto por un único nombre en el espacio de identificación.
-
-\textbf{Comportamiento}: de acuerdo con los roles asignados en un determinado contexto, un componente servicio expone comportamientos correspondientes a provisión y pedido de operaciones, y/o publicaciones y recepción desde/hacia cada contexto. Las operaciones pueden ser definidas de dos tipos: operaciones que ejecutan cómputo o transformaciones (tipo \textit{update}) y operaciones que proveen algún tipo de información sobre consultas (tipo \textit{query}). Estas operaciones se encuentran enteramente especificadas basándose en un contrato, con el uso de precondición, poscondición y condicionales para lograr la coordinación entre contratos. 
-
-En las condiciones de coordinación se especifica cómo requerir y proveer operaciones, así como también los eventos publicados y recibidos son coordinados en los momentos adecuados. Para lograr una comunicación precisa con una componente de servicio, no solo se tiene en cuenta qué operación fue provista o requerida y cómo el ejecutor ha lanzado el evento apropiado, sino también cómo todas esas actividades están mutuamente relacionadas para ser aprovechadas por el componente que la utiliza. Un evento del contexto que lanza una operación dada puede ser parte de un conjunto de precondiciones, mientras que un evento emitido a través de una exitosa operación puede ser parte de una poscondición.
-
-%
-
-Las operaciones provistas y requeridas por la \textbf{Componente de Servicio} deben estar asociadas, a fin de determinar las operaciones que deben ser completadas antes de la activación de un servicio (qué es posible ejecutar en paralelo o ser sincronizado por otro camino). 
-Por ejemplo, en el caso de una componente de servicio denominada \textbf{ManejadorOrden}, la operación \textbf{HacerOrden} no podrá ser invocada hasta que el servicio que la consume no esté correctamente autorizado por el componente de servicio \textbf{AdministradorRegistros}, o la operación \textbf{BorrarOrder} no puede ser invocada si la operación \textbf{HacerOrden} con el mismo parámetro \textbf{OrdenID} no fue previamente completada.
-
-
-
-\textbf{Tipos de información}: un componente de servicio debe manejar, usar, crear o tener cierta información de recursos con el propósito de proveer servicios adecuadamente. Este elemento del contrato define el tipo de información relevante para las componentes asociadas al contrato, así como también restricciones y reglas sobre instancias de esos tipos. Esto representa un modelo de información lógica de un componente de servicio. Formalmente, esta información de tipos puede ser considerada como definiciones de tipos de los parámetros de las operaciones o tipos relacionados con ellos.
-
-
-\textbf{Configuración de parámetros context-aware}: un componente servicio depende del contexto de su actual entorno. La misma, para utilizarse en diferentes contextos, logrando la adaptación a eventuales cambios, debe tener definido un conjunto de parámetros de configuración. Ejemplos de estos parámetros pueden ser: 
-
-a) Contexto del Usuario (CU), en un sentido similar a lo definido en el capítulo anterior.
-
-b) Locación en tiempo y espacio de los servicios consumidos y suministrados. Estos parámetros pueden ser enviados dentro de las invocaciones de las operaciones de los servicios o por medio de otros caminos, mediante componentes de servicios que pueden adaptar su comportamiento ante el cambio de contexto en una determinada situación.
-
-La configuración de parámetros está directamente asociada a las relaciones de las operaciones de los servicios para lograr una mejor adaptación a la medida de las circunstancias brindada por la información relevada del contexto.
-
-El concepto de la configuración de los parámetros context-aware es un paso muy importante hacia la concepción de servicios automatizados y autoadaptables, y se ajusta a los conceptos de contexto de los modelos de lenguajes amplios (Large Languaje Model en ingles) utilizado en la inteligencia artificial generativa.
-
-\textbf{Parámetros no funcionales:} un componente servicio puede definir un conjunto de los llamados parámetros no funcionales que caracterizan la “calidad” de sus prestaciones dentro de un determinado contexto. Estos parámetros son elementos para los consumidores de los servicios que permiten optar por el uso de un determinado servicio, o buscar otro con el mismo o similar contrato. Como ejemplo de parámetros no funcionales podemos mencionar: performance, fiabilidad, tolerancia a fallos, costos, prioridad y seguridad.
 
 \subsubsection {Coordinación}
 
